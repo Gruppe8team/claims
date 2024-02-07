@@ -19,7 +19,7 @@ public class User{
     private String email;
 
     // default construction for general technical operations, for setting default information.
-    private User(){
+    public User(){
         this.userID = 0;
         this.passwordKey = "";
         this.firstName = "";
@@ -28,7 +28,7 @@ public class User{
     }
 
     // construction for general technical operations, for setting new accounts
-    private User(int alfa, String bravo, String charlie, String delta, String echo){
+    public User(int alfa, String bravo, String charlie, String delta, String echo){
         this.userID = alfa;
         this.passwordKey = bravo;
         this.firstName = charlie;
@@ -37,7 +37,7 @@ public class User{
     }
 
     // ditto but for already given User object
-    private User(User user){
+    public User(User user){
         this.userID = user.getUserID();
         this.passwordKey = user.getPasswordKey();
         this.firstName = user.getFirstName();
@@ -46,38 +46,38 @@ public class User{
     }
 
     //for getting information when required. That is all
-    private int getUserID(){
+    public int getUserID(){
         return this.userID;
     }
 
-    private String getPasswordKey(){
+    public String getPasswordKey(){
         return this.passwordKey;
     }
-    private String getFirstName(){
+    public String getFirstName(){
         return this.firstName;
     }
-    private String getLastName(){
+    public String getLastName(){
         return this.lastName;
     }
-    private String getEmail(){
+    public String getEmail(){
         return this.email;
     }
 
     // important functions accounts (note we also need a create a new account option)
     // and possibly a change password option.
-    private void changePassword(String delta){
+    public void changePassword(String delta){
         this.passwordKey = delta;
     }
 
-    private void changeEmail(String emailChanged){
+    public void changeEmail(String emailChanged){
         this.email = emailChanged;
     }
 
-    private void changeFirstName(String firstName){
+    public void changeFirstName(String firstName){
         this.firstName = firstName;
     }
 
-    private void changeLastName(String lastName){
+    public void changeLastName(String lastName){
         this.lastName = lastName;
     }
 
