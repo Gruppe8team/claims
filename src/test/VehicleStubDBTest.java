@@ -17,22 +17,25 @@ class VehicleStubDBTest {
 	Vehicle car1 = new Vehicle(1, "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
 	
 	@Test
-	void addVehicleToDBTest() {
+	void addDelVehicleToDBTest() {
 		VehicleStubDB.addVehicle(car1);
-		assertEquals(VehicleStubDB.readAllVehicles(), "ID: " + car1.getVehicleID() + "\n" +
-            					"Type: " + car1.getType() + "\n" +
-            					"Make: " + car1.getMake() + "\n" +
-            					"Model: " + car1.getModel() + "\n" +
-            					"Colour: " + car1.getColour() + "\n" +
-            					"License plate: " + car1.getLicensePlate() + "\n" +
-            					"Registration: " + car1.getRegistration() + "\n");
+		assertEquals("ID: " + car1.getVehicleID() + "\n" +
+            		"Type: " + car1.getType() + "\n" +
+            		"Make: " + car1.getMake() + "\n" +
+            		"Model: " + car1.getModel() + "\n" +
+            		"Colour: " + car1.getColour() + "\n" +
+            		"License plate: " + car1.getLicensePlate() + "\n" +
+            		"Registration: " + car1.getRegistration() + "\n", 
+            		VehicleStubDB.readAllVehicles());
+		
+		VehicleStubDB.removeVehicle(car1);
+		assertEquals("", VehicleStubDB.readAllVehicles());
 	}
 	
 //	@Test
-	void deleteVehicleDBTest() {
-		VehicleStubDB.addVehicle(car1);
-		VehicleStubDB.removeVehicle(car1);
-		assertEquals(VehicleStubDB.readAllVehicles(), "");
-	}
+//	void deleteVehicleDBTest() {
+//		VehicleStubDB.removeVehicle(car1);
+//		assertEquals("", VehicleStubDB.readAllVehicles());
+//	}
 
 }
