@@ -21,10 +21,6 @@ public class Vehicle {
 		this.licensePlate = licensePlate;
 		this.registration = registration;
 	}
-
-	public void addToRegisteredList(Vehicle vehicle) {
-		// this method will add the registered vehicle to a database of vehicles
-	}
 	
 	public void getOwner() {
 		// this method will return the vehicle's owner name and/or ID;
@@ -93,4 +89,5 @@ public class Vehicle {
 	public void setRegistration(String registration) {
 		this.registration = registration;
 	}
+	
 }

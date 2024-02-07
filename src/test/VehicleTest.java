@@ -13,11 +13,12 @@ import main.Vehicle;
 
 class VehicleTest {
 
+	Vehicle car1 = new Vehicle(1, "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
+	Vehicle car2 = new Vehicle();
+	
 	@Test
-	void createVehicleTest() {
-		
-		Vehicle car1 = new Vehicle(1, "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
-		
+	void getVehicleTest() {
+				
 		assertEquals(1, car1.getVehicleID());
 		assertEquals("Sports car", car1.getType());
 		assertEquals("Ferrari", car1.getMake());
@@ -29,8 +30,6 @@ class VehicleTest {
 	
 	@Test
 	void setVehicleInfoTest() {
-		
-		Vehicle car2 = new Vehicle();
 		
 		car2.setVehicleID(2);
 		car2.setType("Truck");
