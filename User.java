@@ -28,12 +28,12 @@ public class User {
     }
 
     // construction for general technical operations, for setting new accounts
-    public User(int userID, String bravo, String charlie, String delta, String echo) {
+    public User(int userID, String pass, String fName, String lName, String email) {
         this.userID = userID;
-        this.passwordKey = bravo;
-        this.firstName = charlie;
-        this.lastName = delta;
-        this.email = echo;
+        this.passwordKey = pass;
+        this.firstName = fName;
+        this.lastName = lName;
+        this.email = email;
     }
 
     // ditto but for already given User object
