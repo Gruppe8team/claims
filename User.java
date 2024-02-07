@@ -7,7 +7,7 @@ package creditsys;
  * Contains general information and general getters and setters
  * NOTE: This file should not be edited without consulting the Author
  */
-public class User{
+public class User {
 
     // important indexes for the userSuperClass
     private int userID;
@@ -19,7 +19,7 @@ public class User{
     private String email;
 
     // default construction for general technical operations, for setting default information.
-    public User(){
+    public User() {
         this.userID = 0;
         this.passwordKey = "";
         this.firstName = "";
@@ -28,8 +28,8 @@ public class User{
     }
 
     // construction for general technical operations, for setting new accounts
-    public User(int alfa, String bravo, String charlie, String delta, String echo){
-        this.userID = alfa;
+    public User(int userID, String bravo, String charlie, String delta, String echo) {
+        this.userID = userID;
         this.passwordKey = bravo;
         this.firstName = charlie;
         this.lastName = delta;
@@ -37,7 +37,7 @@ public class User{
     }
 
     // ditto but for already given User object
-    public User(User user){
+    public User(User user) {
         this.userID = user.getUserID();
         this.passwordKey = user.getPasswordKey();
         this.firstName = user.getFirstName();
@@ -46,38 +46,38 @@ public class User{
     }
 
     //for getting information when required. That is all
-    public int getUserID(){
+    public int getUserID() {
         return this.userID;
     }
 
-    public String getPasswordKey(){
+    public String getPasswordKey() {
         return this.passwordKey;
     }
-    public String getFirstName(){
+    public String getFirstName() {
         return this.firstName;
     }
-    public String getLastName(){
+    public String getLastName() {
         return this.lastName;
     }
-    public String getEmail(){
+    public String getEmail() {
         return this.email;
     }
 
     // important functions accounts (note we also need a create a new account option)
     // and possibly a change password option.
-    public void changePassword(String delta){
-        this.passwordKey = delta;
+    public void changePassword(String pass) {
+        this.passwordKey = pass;
     }
 
-    public void changeEmail(String emailChanged){
-        this.email = emailChanged;
+    public void changeEmail(String email) {
+        this.email = email;
     }
 
-    public void changeFirstName(String firstName){
+    public void changeFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public void changeLastName(String lastName){
+    public void changeLastName(String lastName) {
         this.lastName = lastName;
     }
 
