@@ -1,10 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import creditsys.User;
 
 public class Customer extends User {
     private String address;
     private String phoneNumber;
     private String sex;
     private int age;
-    // private vechicle[] 
+    private List<Vechicle> vehicles; 
 
     // Default constructor
     public Customer() {
@@ -13,6 +17,7 @@ public class Customer extends User {
         this.phoneNumber = "";
         this.sex = "";
         this.age = 0;
+        this.vechicles = new ArrayList<>();
     }
 
     // Constructor with parameters
@@ -22,6 +27,7 @@ public class Customer extends User {
         this.phoneNumber = phoneNumber;
         this.sex = sex;
         this.age = age;
+        this.vehicles = new ArrayList<>();
     }
 
     // Getter and setter methods for address
@@ -58,9 +64,27 @@ public class Customer extends User {
         this.age = age;
     }
 
+    public void addVehicle(Vehicle vehicle) {
+        this.vehicles.add(vehicle);
+    }
+
+    public void removeVehicle(Vehicle vehicle) {
+        this.vehicles.remove(vehicle);
+    }
+
+    public List<Vechicle> getVehicles() {
+        return vehicles;
+    }
+
     // Override toString method to include customer-specific information
     @Override
     public String toString() {
+        
+        StringBuilder vehicleInfo = new StringBuilder();
+        for (Vehicle vehicle : vehicles) {
+            vehicleInfo.append(vehicle.toString()).append("\n"); // Append each vehicle's string representation
+        }
+
         return "Customer{" +
                 "userID=" + getUserID() +
                 ", passwordKey='" + getPasswordKey() + '\'' +
@@ -69,6 +93,9 @@ public class Customer extends User {
                 ", email='" + getEmail() + '\'' +
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age=" + age +
+                ", vechicles=\n" + vehicleInfo.toString() +
                 '}';
     }
 }
