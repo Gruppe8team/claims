@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>claims</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>VehicleStubDB.java</name>
+			<type>1</type>
+			<location>/Users/jumrs/src/resources/VehicleStubDB.java</location>
+		</link>
+		<link>
+			<name>VehicleStubDBTest.java</name>
+			<type>1</type>
+			<location>/Users/jumrs/src/test/VehicleStubDBTest.java</location>
+		</link>
+		<link>
+			<name>VehicleTest.java</name>
+			<type>1</type>
+			<location>/Users/jumrs/src/test/VehicleTest.java</location>
+		</link>
+	</linkedResources>
+</projectDescription>

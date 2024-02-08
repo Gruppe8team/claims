@@ -1,4 +1,3 @@
-package creditsys;
 
 /**
  * This file was created by Cyrus Yang
