@@ -9,20 +9,32 @@ public class policy {
 	// Default Constructor
 	policy(){
 		this.policyID = 0;
+		this.clientID = 0;
+		this.vehicleID = 0;
 		this.policyNumber = 0;
+		this.startDate ="";
+		this.endDate = "";
 		this.coverageType = "";
 		this.policyStatus = "";
 		this.Premium = 0.0;
+		this.Deductible = 0.0;
+		
+		
 	}
 	
 	// Constructor for unregistered policy 
 	policy(int policyID, int policyNumber,String coverageType, String policyStatus, double Premium){
 		
 		this.policyID = policyID;
+		this.clientID = 0;
+		this.vehicleID = 0;
 		this.policyNumber = policyNumber;
+		this.startDate ="";
+		this.endDate = "";
 		this.coverageType = coverageType;
 		this.policyStatus = policyStatus;
 		this.Premium = Premium;
+		this.Deductible = 0.0;
 	}
 	
 	// Same but idk if the dates and deductibles set before a user registers for one
@@ -30,6 +42,8 @@ public class policy {
 			String coverageType, String policyStatus, double Premium, double Deductible){
 		
 		this.policyID = policyID;
+		this.clientID = 0;
+		this.vehicleID = 0;
 		this.policyNumber = policyNumber;
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -55,6 +69,7 @@ public class policy {
 		this.Premium = Premium;
 		this.Deductible = Deductible;
 	}
+	
 
 	public int getPolicyID() {
 		return policyID;
@@ -82,14 +97,13 @@ public class policy {
 	}
 	
 	
-	// Idk if policy number is necessary for now
-//	public int getPolicyNumber() {
-//		return policyNumber;
-//	}
-//
-//	public void setPolicyNumber(int policyNumber) {
-//		this.policyNumber = policyNumber;
-//	}
+	public int getPolicyNumber() {
+		return policyNumber;
+	}
+
+	public void setPolicyNumber(int policyNumber) {
+		this.policyNumber = policyNumber;
+	}
 	
 	public String getStartDate() {
 		return startDate;
@@ -139,4 +153,11 @@ public class policy {
 		Deductible = deductible;
 	}
 	
+	@Override 
+	public String toString(){
+		
+		return "PolicyID: "+policyID+"\nClientID: "+clientID+"\nVehicleID: "+vehicleID+"\nPolicyNumber: "+policyNumber+
+				"\nStart Date: "+startDate+"\nEnd Date: "+endDate+"\nCoverage Type: "+coverageType+"\nPolicy Status: "+policyStatus+
+				"\nPremium: "+Premium+"\nDeductible: "+Deductible;
+	}
 }
