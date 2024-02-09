@@ -8,7 +8,7 @@ public class Customer extends User {
     private String phoneNumber;
     private String sex;
     private int age;
-    private List<Vechicle> vehicles; 
+    private List<Vehicle> vehicles; 
 
     // Default constructor
     public Customer() {
@@ -17,7 +17,7 @@ public class Customer extends User {
         this.phoneNumber = "";
         this.sex = "";
         this.age = 0;
-        this.vechicles = new ArrayList<>();
+        this.vehicles = new ArrayList<>();
     }
 
     // Constructor with parameters
