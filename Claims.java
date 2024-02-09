@@ -11,9 +11,15 @@ public class Claims {
 			String dateFilled, String accidentTime, String damage, String description, String payInfo,
 			String closureCond, boolean atFault, boolean totalled, boolean closed) {
 		
+		this.claimID = claimID;
+		this.clientID = clientID;
 		this.advisorID = advisorID;
 		this.policyID = policyID;
 		this.claimStatus = claimStatus;
+		this.dateFilled = dateFilled;
+		this.accidentTime = accidentTime;
+		this.damage = damage;
+		this.description = description;
 		this.payInfo = payInfo;
 		this.closureCond = closureCond;
 		this.atFault = atFault;
