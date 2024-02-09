@@ -1,15 +1,15 @@
-package claims;
-
 public class Claims {
 	
-	private int[] claimID, clientID;
+	private int claimID, clientID;
 	private int advisorID, policyID;
 	private String claimStatus, dateFilled, accidentTime, damage, description, payInfo, closureCond;
-	private boolean atFault, totalled;
+	private boolean atFault, totalled, closed;
 	
-	public Claims(int[] claimID, int[] clientID, int advisorID, int policyID, String claimStatus,
+	public Claims() {}
+	
+	public Claims(int claimID, int clientID, int advisorID, int policyID, String claimStatus,
 			String dateFilled, String accidentTime, String damage, String description, String payInfo,
-			String closureCond, boolean atFault, boolean totalled) {
+			String closureCond, boolean atFault, boolean totalled, boolean closed) {
 		
 		this.advisorID = advisorID;
 		this.policyID = policyID;
@@ -18,22 +18,23 @@ public class Claims {
 		this.closureCond = closureCond;
 		this.atFault = atFault;
 		this.totalled = totalled;
+		this.closed = closed;
 		
 	}
 
-	public int[] getClaimID() {
+	public int getClaimID() {
 		return claimID;
 	}
 
-	public void setClaimID(int[] claimID) {
+	public void setClaimID(int claimID) {
 		this.claimID = claimID;
 	}
 
-	public int[] getClientID() {
+	public int getClientID() {
 		return clientID;
 	}
 
-	public void setClientID(int[] clientID) {
+	public void setClientID(int clientID) {
 		this.clientID = clientID;
 	}
 
@@ -125,6 +126,12 @@ public class Claims {
 		this.totalled = totalled;
 	}
 	
+	public boolean isClosed() {
+		return closed;
+	}
 	
+	public void setClosed(boolean closed) {
+		this.closed = closed;
+	}
 
 }

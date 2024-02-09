@@ -1,5 +1,3 @@
-package claims;
-
 import java.util.ArrayList;
 
 public class ClaimsStubDB {
