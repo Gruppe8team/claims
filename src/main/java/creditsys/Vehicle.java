@@ -1,19 +1,19 @@
 
-
 /*
  * Created by: Julianna Silva
  * Basic initial implementation of the Vehicle class
  */
 
 public class Vehicle {
-	// Client owner; this will be implemented later for method getOwner
+	private Customer owner;
 	private int vehicleID, year;
 	private String type, make, model, colour, licensePlate, registration;
 	
 	public Vehicle() {}
 	
-	public Vehicle(int vehicleID, String type, String make, String model, String colour, String licensePlate, String registration) {
+	public Vehicle(int vehicleID, Customer owner, String type, String make, String model, String colour, String licensePlate, String registration) {
 		this.vehicleID = vehicleID;
+		this.owner = owner;
 		this.type = type;
 		this.make = make;
 		this.model = model;
@@ -22,8 +22,16 @@ public class Vehicle {
 		this.registration = registration;
 	}
 	
-	public void getOwner() {
-		// this method will return the vehicle's owner name and/or ID;
+	public String getOwnerDetails() {
+        if (owner != null) {
+            return "Owner ID: " + owner.getUserID() + ", Name: " + owner.getFirstName() + " " + owner.getLastName();
+        } else {
+            return "No owner assigned";
+        }
+    }
+
+	public void setOwner(Customer owner) {
+		this.owner = owner;
 	}
 	
 	public int getVehicleID() {
