@@ -1,4 +1,4 @@
-
+package classes;
 /*
  * Created by: Julianna Silva
  * Basic initial implementation of the Vehicle class

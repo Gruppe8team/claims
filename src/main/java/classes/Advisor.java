@@ -1,3 +1,4 @@
+package classes;
 public class Advisor extends User {
 	
 	public Advisor(int userID, String passwordKey, String firstName, String lastName, String email) {

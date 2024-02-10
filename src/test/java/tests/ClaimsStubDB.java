@@ -1,7 +1,7 @@
-package claims;
+package tests;
 
 import java.util.ArrayList;
-
+import classes.*;
 public class ClaimsStubDB {
 	
 	private static ArrayList<Claims> claimsDB = new ArrayList<>();

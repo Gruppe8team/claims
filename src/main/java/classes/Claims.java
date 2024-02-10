@@ -1,11 +1,21 @@
-package claims;
+package classes;
 
 public class Claims {
 	
-	private int[] claimID, clientID;
+	private int claimID, clientID;
 	private int advisorID, policyID;
 	private String claimStatus, dateFilled, accidentTime, damage, description, payInfo, closureCond;
 	private boolean atFault, totalled;
+	
+	public Claims() {
+		this.advisorID = 0;
+		this.policyID = 0;
+		this.claimStatus = "";
+		this.payInfo = "";
+		this.closureCond = "";
+		this.atFault = false;
+		this.totalled = false;
+	}
 	
 	public Claims(int[] claimID, int[] clientID, int advisorID, int policyID, String claimStatus,
 			String dateFilled, String accidentTime, String damage, String description, String payInfo,
@@ -21,19 +31,19 @@ public class Claims {
 		
 	}
 
-	public int[] getClaimID() {
-		return claimID;
+	public int getClaimID() {
+		return this.claimID;
 	}
 
-	public void setClaimID(int[] claimID) {
+	public void setClaimID(int claimID) {
 		this.claimID = claimID;
 	}
 
-	public int[] getClientID() {
+	public int getClientID() {
 		return clientID;
 	}
 
-	public void setClientID(int[] clientID) {
+	public void setClientID(int clientID) {
 		this.clientID = clientID;
 	}
 

@@ -1,7 +1,7 @@
+package classes;
 import java.util.ArrayList;
 import java.util.List;
 
-import User;
 
 public class Customer extends User {
     private String address;
