@@ -1,33 +1,47 @@
 package classes;
 
+import java.sql.Date;
+
 public class Claims {
 	
-	private int claimID, clientID;
-	private int advisorID, policyID;
-	private String claimStatus, dateFilled, accidentTime, damage, description, payInfo, closureCond;
+	private int claimID, clientID, advisorID, policyID;
+	private Date accidentDate, dateFilled;
+	private String claimStatus, damage, description, payInfo, closureCond;
 	private boolean atFault, totalled;
 	
 	public Claims() {
+		this.claimID = 0;
+		this.clientID = 0;
 		this.advisorID = 0;
 		this.policyID = 0;
-		this.claimStatus = "";
+		this.dateFilled = null;
+		this.accidentDate = null;
 		this.payInfo = "";
 		this.closureCond = "";
+		this.claimStatus = "";
+		this.description = "";
+		this.damage = "";
 		this.atFault = false;
 		this.totalled = false;
 	}
 	
-	public Claims(int[] claimID, int[] clientID, int advisorID, int policyID, String claimStatus,
-			String dateFilled, String accidentTime, String damage, String description, String payInfo,
+	public Claims(int claimID, int clientID, int advisorID, int policyID, String claimStatus,
+			Date dateFilled, Date accidentDate, String damage, String description, String payInfo,
 			String closureCond, boolean atFault, boolean totalled) {
 		
-		this.advisorID = advisorID;
-		this.policyID = policyID;
-		this.claimStatus = claimStatus;
-		this.payInfo = payInfo;
-		this.closureCond = closureCond;
-		this.atFault = atFault;
-		this.totalled = totalled;
+				this.claimID = claimID;
+				this.clientID = clientID;
+				this.advisorID = advisorID;
+				this.policyID = policyID;
+				this.dateFilled = dateFilled;
+				this.accidentDate = accidentDate;
+				this.payInfo = payInfo;
+				this.closureCond = closureCond;
+				this.claimStatus = claimStatus;
+				this.description = description;
+				this.damage = damage;
+				this.atFault = atFault;
+				this.totalled = totalled;
 		
 	}
 
@@ -71,20 +85,20 @@ public class Claims {
 		this.claimStatus = claimStatus;
 	}
 
-	public String getDateFilled() {
+	public Date getDateFilled() {
 		return dateFilled;
 	}
 
-	public void setDateFilled(String dateFilled) {
+	public void setDateFilled(Date dateFilled) {
 		this.dateFilled = dateFilled;
 	}
 
-	public String getAccidentTime() {
-		return accidentTime;
+	public Date getAccidentDate() {
+		return accidentDate;
 	}
 
-	public void setAccidentTime(String accidentTime) {
-		this.accidentTime = accidentTime;
+	public void setAccidentTime(Date accidentDate) {
+		this.accidentDate = accidentDate;
 	}
 
 	public String getDamage() {
