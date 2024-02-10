@@ -95,7 +95,7 @@ public class Customer extends User {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", sex='" + sex + '\'' +
                 ", age=" + age +
-                ", vechicles=\n" + vehicleInfo.toString() +
+                ", vehicles=\n" + vehicleInfo.toString() +
                 '}';
     }
 }
