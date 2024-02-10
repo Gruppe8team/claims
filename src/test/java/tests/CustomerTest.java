@@ -3,7 +3,7 @@ package tests;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
+import classes.*;
 
 public class CustomerTest {
     
@@ -19,7 +19,7 @@ public class CustomerTest {
         Vehicle vehicle  = new Vehicle();
         customer.addVehicle(vehicle);
         assertFalse(customer.getVehicles().isEmpty());
-        assertEquals(1, customer.getVechicles().size());
+        assertEquals(1, customer.getVehicles().size());
     }
 
     @Test
