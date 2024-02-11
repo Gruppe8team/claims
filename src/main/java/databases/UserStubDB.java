@@ -29,13 +29,13 @@ public class UserStubDB{
 		
 		for (User user : userDB) {
 			userInfo.append("ID: ").append(user.getUserID()).append("\n")
-			.append("First Name: ").append(user.getUserID()).append("\n")
-			.append("Last Name: ").append(user.getUserID()).append("\n")
-			.append("Email: ").append(user.getUserID()).append("\n");
+			.append("First Name: ").append(user.getFirstName()).append("\n")
+			.append("Last Name: ").append(user.getLastName()).append("\n")
+			.append("Email: ").append(user.getEmail()).append("\n");
 
 			if (user instanceof Customer) {
 	            Customer customer = (Customer) user;
-	            userInfo.append("Phone number: ").append(customer.getPhoneNumber()).append("\n")
+	            userInfo.append("Phone Number: ").append(customer.getPhoneNumber()).append("\n")
 	                    .append("Sex: ").append(customer.getSex()).append("\n")
 	                    .append("Age: ").append(customer.getAge()).append("\n");
 	        }

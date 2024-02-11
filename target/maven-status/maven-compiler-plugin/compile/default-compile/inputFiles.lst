@@ -1,5 +1,10 @@
-/Users/kylewilliamson/Documents/claims/src/main/java/User.java
-/Users/kylewilliamson/Documents/claims/src/main/java/Claims.java
-/Users/kylewilliamson/Documents/claims/src/main/java/Customer.java
-/Users/kylewilliamson/Documents/claims/src/main/java/Vehicle.java
-/Users/kylewilliamson/Documents/claims/src/main/java/Advisor.java
+/Users/jumrs/git/claims/src/main/java/databases/VehicleStubDB.java
+/Users/jumrs/git/claims/src/main/java/classes/Vehicle.java
+/Users/jumrs/git/claims/src/main/java/databases/ClaimsStubDB.java
+/Users/jumrs/git/claims/src/main/java/databases/UserStubDB.java
+/Users/jumrs/git/claims/src/main/java/databases/CustomerStubDB.java
+/Users/jumrs/git/claims/src/main/java/classes/Claims.java
+/Users/jumrs/git/claims/src/main/java/classes/Advisor.java
+/Users/jumrs/git/claims/src/main/java/classes/User.java
+/Users/jumrs/git/claims/src/main/java/classes/Policy.java
+/Users/jumrs/git/claims/src/main/java/classes/Customer.java
