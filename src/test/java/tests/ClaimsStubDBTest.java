@@ -1,10 +1,10 @@
 package tests;
 
-
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import classes.*;
+import databases.ClaimsStubDB;
 class ClaimsStubDBTest {
 	
 	Claims claim1 = new Claims();

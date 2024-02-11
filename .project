@@ -20,23 +20,6 @@
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>VehicleStubDB.java</name>
-			<type>1</type>
-			<location>/Users/jumrs/src/resources/VehicleStubDB.java</location>
-		</link>
-		<link>
-			<name>VehicleStubDBTest.java</name>
-			<type>1</type>
-			<location>/Users/jumrs/src/test/VehicleStubDBTest.java</location>
-		</link>
-		<link>
-			<name>VehicleTest.java</name>
-			<type>1</type>
-			<location>/Users/jumrs/src/test/VehicleTest.java</location>
-		</link>
-	</linkedResources>
 	<filteredResources>
 		<filter>
 			<id>1707543114694</id>

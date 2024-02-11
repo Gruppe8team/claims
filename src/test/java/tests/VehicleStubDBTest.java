@@ -1,13 +1,14 @@
 package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import databases.VehicleStubDB;
 import org.junit.jupiter.api.Test;
 import classes.*;
 /*
  * Created by: Julianna Silva
  * Testing basic methods for the Vehicle stub DB
  */
+
 
 class VehicleStubDBTest {
 

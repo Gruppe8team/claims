@@ -1,7 +1,13 @@
 package tests;
-import static org.junit.jupiter.api.Assertions.*;
-import classes.*;
-import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import classes.Advisor;
+import classes.Customer;
+import databases.UserStubDB;
 
 public class UserStubDBTest{
 	
