@@ -1,4 +1,4 @@
-package claimsDraft_1;
+package classes;
 
 public class policy {
 
@@ -7,7 +7,7 @@ public class policy {
 	public double Premium, Deductible;
 	
 	// Default Constructor
-	policy(){
+	public policy() {
 		this.policyID = 0;
 		this.clientID = 0;
 		this.vehicleID = 0;
@@ -23,7 +23,7 @@ public class policy {
 	}
 	
 	// Constructor for unregistered policy 
-	policy(int policyID, int policyNumber,String coverageType, String policyStatus, double Premium){
+	public policy(int policyID, int policyNumber,String coverageType, String policyStatus, double Premium){
 		
 		this.policyID = policyID;
 		this.clientID = 0;
@@ -38,7 +38,7 @@ public class policy {
 	}
 	
 	// Same but idk if the dates and deductibles set before a user registers for one
-	policy(int policyID, int policyNumber,String startDate, String endDate, 
+	public policy(int policyID, int policyNumber,String startDate, String endDate, 
 			String coverageType, String policyStatus, double Premium, double Deductible){
 		
 		this.policyID = policyID;
@@ -55,7 +55,7 @@ public class policy {
 	
 	
 	// Constructor for registered policy 
-	policy(int policyID, int clientID,int vehicleID,int policyNumber,String startDate, String endDate, 
+	public policy(int policyID, int clientID,int vehicleID,int policyNumber,String startDate, String endDate, 
 			String coverageType, String policyStatus, double Premium, double Deductible){
 		
 		this.policyID = policyID;

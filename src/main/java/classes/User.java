@@ -1,4 +1,4 @@
-
+package classes;
 /**
  * This file was created by Cyrus Yang
  * A Skeletonized file of Superclass User for all points
@@ -6,6 +6,8 @@
  * Contains general information and general getters and setters
  * NOTE: This file should not be edited without consulting the Author
  */
+
+
 public class User {
 
     // important indexes for the userSuperClass

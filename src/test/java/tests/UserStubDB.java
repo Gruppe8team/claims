@@ -1,5 +1,6 @@
+package tests;
 import java.util.*;
-
+import classes.*;
 public class UserStubDB{
 	private static List<User> userDB;
 	

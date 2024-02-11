@@ -1,5 +1,6 @@
+package tests;
 import java.util.ArrayList;
-
+import classes.*;
 /*
  * Created by: Julianna Silva
 * Draft implementation of the Vehicle stub database

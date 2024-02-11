@@ -1,3 +1,4 @@
+package classes;
 public class Claims {
 	
 	private int claimID, clientID;

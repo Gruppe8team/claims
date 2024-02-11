@@ -1,8 +1,9 @@
+package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-
+import classes.*;
 /*
  * Created by: Julianna Silva
  * Testing basic methods for the Vehicle stub DB
@@ -10,7 +11,8 @@ import org.junit.jupiter.api.Test;
 
 class VehicleStubDBTest {
 
-	Vehicle car1 = new Vehicle(1, "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
+	Customer Cyrus = new Customer();
+	Vehicle car1 = new Vehicle(1, Cyrus,  "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
 	
 	@Test
 	void addDelVehicleToDBTest() {

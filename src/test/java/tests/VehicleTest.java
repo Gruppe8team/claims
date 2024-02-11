@@ -1,8 +1,9 @@
+package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-
+import classes.*;
 
 /*
  * Created by: Julianna Silva
@@ -11,7 +12,8 @@ import org.junit.jupiter.api.Test;
 
 class VehicleTest {
 
-	Vehicle car1 = new Vehicle(1, "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
+	Customer John = new Customer();
+	Vehicle car1 = new Vehicle(1, John, "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
 	Vehicle car2 = new Vehicle();
 	
 	@Test

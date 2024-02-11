@@ -1,7 +1,7 @@
+package classes;
 import java.util.ArrayList;
 import java.util.List;
 
-import creditsys.User;
 
 public class Customer extends User {
     private String address;
@@ -72,7 +72,7 @@ public class Customer extends User {
         this.vehicles.remove(vehicle);
     }
 
-    public List<Vechicle> getVehicles() {
+    public List<Vehicle> getVehicles() {
         return vehicles;
     }
 
@@ -95,7 +95,7 @@ public class Customer extends User {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", sex='" + sex + '\'' +
                 ", age=" + age +
-                ", vechicles=\n" + vehicleInfo.toString() +
+                ", vehicles=\n" + vehicleInfo.toString() +
                 '}';
     }
 }
