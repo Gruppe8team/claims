@@ -1,52 +1,36 @@
 package classes;
-
-import java.sql.Date;
-
 public class Claims {
 	
-	private int claimID, clientID, advisorID, policyID;
-	private Date accidentDate, dateFilled;
-	private String claimStatus, damage, description, payInfo, closureCond;
-	private boolean atFault, totalled;
+	private int claimID, clientID;
+	private int advisorID, policyID;
+	private String claimStatus, dateFilled, accidentTime, damage, description, payInfo, closureCond;
+	private boolean atFault, totalled, closed;
 	
-	public Claims() {
-		this.claimID = 0;
-		this.clientID = 0;
-		this.advisorID = 0;
-		this.policyID = 0;
-		this.dateFilled = null;
-		this.accidentDate = null;
-		this.payInfo = "";
-		this.closureCond = "";
-		this.claimStatus = "";
-		this.description = "";
-		this.damage = "";
-		this.atFault = false;
-		this.totalled = false;
-	}
+	public Claims() {}
 	
 	public Claims(int claimID, int clientID, int advisorID, int policyID, String claimStatus,
-			Date dateFilled, Date accidentDate, String damage, String description, String payInfo,
-			String closureCond, boolean atFault, boolean totalled) {
+			String dateFilled, String accidentTime, String damage, String description, String payInfo,
+			String closureCond, boolean atFault, boolean totalled, boolean closed) {
 		
-				this.claimID = claimID;
-				this.clientID = clientID;
-				this.advisorID = advisorID;
-				this.policyID = policyID;
-				this.dateFilled = dateFilled;
-				this.accidentDate = accidentDate;
-				this.payInfo = payInfo;
-				this.closureCond = closureCond;
-				this.claimStatus = claimStatus;
-				this.description = description;
-				this.damage = damage;
-				this.atFault = atFault;
-				this.totalled = totalled;
+		this.claimID = claimID;
+		this.clientID = clientID;
+		this.advisorID = advisorID;
+		this.policyID = policyID;
+		this.claimStatus = claimStatus;
+		this.dateFilled = dateFilled;
+		this.accidentTime = accidentTime;
+		this.damage = damage;
+		this.description = description;
+		this.payInfo = payInfo;
+		this.closureCond = closureCond;
+		this.atFault = atFault;
+		this.totalled = totalled;
+		this.closed = closed;
 		
 	}
 
 	public int getClaimID() {
-		return this.claimID;
+		return claimID;
 	}
 
 	public void setClaimID(int claimID) {
@@ -85,20 +69,20 @@ public class Claims {
 		this.claimStatus = claimStatus;
 	}
 
-	public Date getDateFilled() {
+	public String getDateFilled() {
 		return dateFilled;
 	}
 
-	public void setDateFilled(Date dateFilled) {
+	public void setDateFilled(String dateFilled) {
 		this.dateFilled = dateFilled;
 	}
 
-	public Date getAccidentDate() {
-		return accidentDate;
+	public String getAccidentTime() {
+		return accidentTime;
 	}
 
-	public void setAccidentTime(Date accidentDate) {
-		this.accidentDate = accidentDate;
+	public void setAccidentTime(String accidentTime) {
+		this.accidentTime = accidentTime;
 	}
 
 	public String getDamage() {
@@ -149,6 +133,12 @@ public class Claims {
 		this.totalled = totalled;
 	}
 	
+	public boolean isClosed() {
+		return closed;
+	}
 	
+	public void setClosed(boolean closed) {
+		this.closed = closed;
+	}
 
 }

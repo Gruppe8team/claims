@@ -1,5 +1,5 @@
-package claims;
-
+package tests;
+import classes.*;
 import java.util.ArrayList;
 
 public class ClaimsStubDB {
