@@ -32,6 +32,8 @@ class VehicleTest {
 	@Test
 	void setVehicleInfoTest() {
 		
+		assertNotNull(car2);
+		
 		car2.setVehicleID(2);
 		car2.setOwner(John);
 		car2.setType("Truck");
