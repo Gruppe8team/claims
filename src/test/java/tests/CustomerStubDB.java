@@ -56,5 +56,11 @@ public class CustomerStubDB {
                 .collect(Collectors.toList());
     }
 
+    public List<Customer> findCustomersByPhoneNumber(String phoneNumber) {
+        return customers.values().stream()
+                .filter(customer -> customer.getPhoneNumber().equals(phoneNumber))
+                .collect(Collectors.toList());
+    }
+
     
 }
