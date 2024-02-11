@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import classes.*;
 import org.junit.jupiter.api.Test;
 
-class policyTest {
+class PolicyTest {
 
 	@Test
 	void test1() {
-		policy a = new policy();
+		Policy a = new Policy();
 		String expected = "PolicyID: 0\nClientID: 0\nVehicleID: 0\nPolicyNumber: 0\nStart Date: "
 				+ "\nEnd Date: \nCoverage Type: "
 				+ "\nPolicy Status: \nPremium: 0.0\nDeductible: 0.0";
@@ -19,7 +19,7 @@ class policyTest {
 	
 	@Test
 	void test2() {
-		policy a = new policy(12345, 01, "Full", "Active", 75.75);
+		Policy a = new Policy(12345, 01, "Full", "Active", 75.75);
 		String expected = "PolicyID: 12345\nClientID: 0\nVehicleID: 0\nPolicyNumber: 1\nStart Date: "
 				+ "\nEnd Date: \nCoverage Type: Full"
 				+ "\nPolicy Status: Active\nPremium: 75.75\nDeductible: 0.0";
@@ -30,7 +30,7 @@ class policyTest {
 	
 	@Test
 	void test3() {
-		policy a = new policy(12345, 01, "Full", "Active", 75.75);
+		Policy a = new Policy(12345, 01, "Full", "Active", 75.75);
 		a.setPolicyID(8972);
 		a.setCoverageType("Half");
 		
@@ -44,7 +44,7 @@ class policyTest {
 	
 	@Test
 	void test4() {
-		policy a = new policy(98263, 18, "Half", "Inactive", 21.92);
+		Policy a = new Policy(98263, 18, "Half", "Inactive", 21.92);
 		a.setDeductible(829.03);
 		a.setClientID(11223);
 		
@@ -58,8 +58,8 @@ class policyTest {
 	
 	@Test
 	void test5() {
-		policy a = new policy(98665, 8, "Half", "Active", 82.09);
-		policy b = new policy(a.getPolicyID(), a.getPolicyNumber(), a.getCoverageType(),a.getPolicyStatus(),a.getPremium());
+		Policy a = new Policy(98665, 8, "Half", "Active", 82.09);
+		Policy b = new Policy(a.getPolicyID(), a.getPolicyNumber(), a.getCoverageType(),a.getPolicyStatus(),a.getPremium());
 		b.setPolicyID(98765);
 		b.setClientID(13579);
 		b.setVehicleID(24680);
