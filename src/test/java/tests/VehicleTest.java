@@ -12,7 +12,7 @@ import classes.*;
 
 class VehicleTest {
 
-	Customer John = new Customer();
+	Customer John = new Customer(1, "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234", "Male", 30);
 	Vehicle car1 = new Vehicle(1, John, "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
 	Vehicle car2 = new Vehicle();
 	
@@ -20,6 +20,7 @@ class VehicleTest {
 	void getVehicleTest() {
 				
 		assertEquals(1, car1.getVehicleID());
+		assertEquals("Owner ID: " + John.getUserID() + ", Name: " + John.getFirstName() + " " + John.getLastName(), car1.getOwnerDetails());
 		assertEquals("Sports car", car1.getType());
 		assertEquals("Ferrari", car1.getMake());
 		assertEquals("Roma", car1.getModel());
@@ -32,6 +33,7 @@ class VehicleTest {
 	void setVehicleInfoTest() {
 		
 		car2.setVehicleID(2);
+		car2.setOwner(John);
 		car2.setType("Truck");
 		car2.setMake("Tesla");
 		car2.setModel("Cybertruck");
@@ -40,6 +42,7 @@ class VehicleTest {
 		car2.setRegistration("Standard");
 
 		assertEquals(2, car2.getVehicleID());
+		assertEquals("Owner ID: " + John.getUserID() + ", Name: " + John.getFirstName() + " " + John.getLastName(), car2.getOwnerDetails());
 		assertEquals("Truck", car2.getType());
 		assertEquals("Tesla", car2.getMake());
 		assertEquals("Cybertruck", car2.getModel());
