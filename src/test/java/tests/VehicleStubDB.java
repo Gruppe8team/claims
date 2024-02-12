@@ -1,10 +1,7 @@
 package tests;
 import java.util.ArrayList;
-import classes.*;
-/*
- * Created by: Julianna Silva
-* Draft implementation of the Vehicle stub database
-*/
+
+import claims.*;
 
 public class VehicleStubDB {
 	private static ArrayList<Vehicle> vehicleDB = new ArrayList<>();

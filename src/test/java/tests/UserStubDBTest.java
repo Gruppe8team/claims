@@ -1,7 +1,9 @@
 package tests;
 import static org.junit.jupiter.api.Assertions.*;
-import classes.*;
+
 import org.junit.jupiter.api.*;
+
+import claims.*;
 
 public class UserStubDBTest{
 	

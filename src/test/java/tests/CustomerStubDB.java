@@ -5,7 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import classes.*;
+
+import claims.*;
 
 public class CustomerStubDB {
     private final Map<Integer, Customer> customers = new HashMap<>(); // Using userID as key

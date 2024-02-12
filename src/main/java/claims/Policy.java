@@ -1,4 +1,4 @@
-package classes;
+package claims;
 
 public class Policy {
 
