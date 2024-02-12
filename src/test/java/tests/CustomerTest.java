@@ -2,8 +2,10 @@ package tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import claims.*;
+
 import static org.junit.jupiter.api.Assertions.*;
-import classes.*;
 
 public class CustomerTest {
     

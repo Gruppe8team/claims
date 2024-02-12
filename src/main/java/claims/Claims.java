@@ -1,4 +1,4 @@
-package classes;
+package claims;
 public class Claims {
 	
 	private int claimID, clientID;

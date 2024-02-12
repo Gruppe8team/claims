@@ -1,8 +1,10 @@
 package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
-import classes.*;
+
 import org.junit.jupiter.api.Test;
+
+import claims.*;
 
 class PolicyTest {
 

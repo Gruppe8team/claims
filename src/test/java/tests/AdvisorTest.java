@@ -1,7 +1,8 @@
 package tests;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import classes.*;
+
+import claims.*;
 public class AdvisorTest{
 	
 	int userID = 1;

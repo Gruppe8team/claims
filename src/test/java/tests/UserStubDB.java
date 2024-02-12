@@ -1,6 +1,7 @@
 package tests;
 import java.util.*;
-import classes.*;
+
+import claims.*;
 public class UserStubDB{
 	private static List<User> userDB;
 	

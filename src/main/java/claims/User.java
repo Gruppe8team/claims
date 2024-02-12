@@ -1,4 +1,4 @@
-package classes;
+package claims;
 /**
  * This file was created by Cyrus Yang
  * A Skeletonized file of Superclass User for all points
