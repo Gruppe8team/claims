@@ -1,5 +1,6 @@
 package tests;
 
+import java.util.function.Predicate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,6 +61,45 @@ public class CustomerStubDB {
     public List<Customer> findCustomersByPhoneNumber(String phoneNumber) {
         return customers.values().stream()
                 .filter(customer -> customer.getPhoneNumber().equals(phoneNumber))
+                .collect(Collectors.toList());
+    }
+
+    public List<Customer> findCustomersByAgeRange(int minAge, int maxAge) {
+        return customers.values().stream()
+                .filter(customer -> customer.getAge() >= minAge && customer.getAge() <= maxAge)
+                .collect(Collectors.toList());
+    }
+    
+    public boolean updateCustomerEmail(int userID, String newEmail) {
+        Customer customer = customers.get(userID);
+        if (customer != null) {
+            customer.changeEmail(newEmail); // Assuming there's a setEmail method in Customer
+            return true;
+        }
+        return false;
+    }
+    
+    public void addCustomers(List<Customer> newCustomers) {
+        newCustomers.forEach(customer -> customers.put(customer.getUserID(), customer));
+    }
+    
+    public void removeCustomers(List<Integer> userIDs) {
+        userIDs.forEach(customers::remove);
+    }
+    
+    public int countCustomers() {
+        return customers.size();
+    }
+    
+    public List<Customer> findCustomersWithoutVehicles() {
+        return customers.values().stream()
+                .filter(customer -> customer.getVehicles().isEmpty())
+                .collect(Collectors.toList());
+    }
+    
+    public List<Customer> queryCustomers(Predicate<Customer> condition) {
+        return customers.values().stream()
+                .filter(condition)
                 .collect(Collectors.toList());
     }
 
