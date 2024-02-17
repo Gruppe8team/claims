@@ -1,28 +1,51 @@
 package claims;
-/*
- * Created by: Julianna Silva
- * Basic initial implementation of the Vehicle class
- */
 
+/**
+ * Represents a vehicle with basic attributes.
+ */
 public class Vehicle {
-	private Customer owner;
-	private int vehicleID, year;
-	private String type, make, model, colour, licensePlate, registration;
-	
-	public Vehicle() {}
-	
-	public Vehicle(int vehicleID, Customer owner, String type, String make, String model, String colour, String licensePlate, String registration) {
-		this.vehicleID = vehicleID;
-		this.owner = owner;
-		this.type = type;
-		this.make = make;
-		this.model = model;
-		this.colour = colour;
-		this.licensePlate = licensePlate;
-		this.registration = registration;
-	}
-	
-	public String getOwnerDetails() {
+    private Customer owner; // The owner of the vehicle
+    private int vehicleID; // Unique identifier for the vehicle
+    private int year; // The year the vehicle was manufactured
+    private String type; // The type of vehicle (e.g., sedan, SUV, truck)
+    private String make; // The manufacturer of the vehicle
+    private String model; // The model of the vehicle
+    private String colour; // The color of the vehicle
+    private String licensePlate; // The license plate number of the vehicle
+    private String registration; // The registration information of the vehicle
+
+    /**
+     * Constructs an empty Vehicle object.
+     */
+    public Vehicle() {}
+
+    /**
+     * Constructs a Vehicle object with specified attributes.
+     * @param vehicleID The unique identifier for the vehicle.
+     * @param owner The owner of the vehicle.
+     * @param type The type of vehicle.
+     * @param make The manufacturer of the vehicle.
+     * @param model The model of the vehicle.
+     * @param colour The color of the vehicle.
+     * @param licensePlate The license plate number of the vehicle.
+     * @param registration The registration information of the vehicle.
+     */
+    public Vehicle(int vehicleID, Customer owner, String type, String make, String model, String colour, String licensePlate, String registration) {
+        this.vehicleID = vehicleID;
+        this.owner = owner;
+        this.type = type;
+        this.make = make;
+        this.model = model;
+        this.colour = colour;
+        this.licensePlate = licensePlate;
+        this.registration = registration;
+    }
+
+    /**
+     * Retrieves details of the vehicle owner.
+     * @return A string representation of the vehicle owner details.
+     */
+    public String getOwnerDetails() {
         if (owner != null) {
             return "Owner ID: " + owner.getUserID() + ", Name: " + owner.getFirstName() + " " + owner.getLastName();
         } else {
@@ -30,72 +53,139 @@ public class Vehicle {
         }
     }
 
-	public void setOwner(Customer owner) {
-		this.owner = owner;
-	}
-	
-	public int getVehicleID() {
-		return vehicleID;
-	}
+    /**
+     * Sets the owner of the vehicle.
+     * @param owner The owner of the vehicle.
+     */
+    public void setOwner(Customer owner) {
+        this.owner = owner;
+    }
 
-	public void setVehicleID(int vehicleID) {
-		this.vehicleID = vehicleID;
-	}
+    /**
+     * Retrieves the vehicle ID.
+     * @return The unique identifier of the vehicle.
+     */
+    public int getVehicleID() {
+        return vehicleID;
+    }
 
-	public int getYear() {
-		return year;
-	}
+    /**
+     * Sets the vehicle ID.
+     * @param vehicleID The unique identifier of the vehicle.
+     */
+    public void setVehicleID(int vehicleID) {
+        this.vehicleID = vehicleID;
+    }
 
-	public void setYear(int year) {
-		this.year = year;
-	}
+    /**
+     * Retrieves the manufacturing year of the vehicle.
+     * @return The manufacturing year of the vehicle.
+     */
+    public int getYear() {
+        return year;
+    }
 
-	public String getType() {
-		return type;
-	}
+    /**
+     * Sets the manufacturing year of the vehicle.
+     * @param year The manufacturing year of the vehicle.
+     */
+    public void setYear(int year) {
+        this.year = year;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    /**
+     * Retrieves the type of the vehicle.
+     * @return The type of the vehicle.
+     */
+    public String getType() {
+        return type;
+    }
 
-	public String getMake() {
-		return make;
-	}
+    /**
+     * Sets the type of the vehicle.
+     * @param type The type of the vehicle.
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public void setMake(String make) {
-		this.make = make;
-	}
+    /**
+     * Retrieves the manufacturer of the vehicle.
+     * @return The manufacturer of the vehicle.
+     */
+    public String getMake() {
+        return make;
+    }
 
-	public String getModel() {
-		return model;
-	}
+    /**
+     * Sets the manufacturer of the vehicle.
+     * @param make The manufacturer of the vehicle.
+     */
+    public void setMake(String make) {
+        this.make = make;
+    }
 
-	public void setModel(String model) {
-		this.model = model;
-	}
+    /**
+     * Retrieves the model of the vehicle.
+     * @return The model of the vehicle.
+     */
+    public String getModel() {
+        return model;
+    }
 
-	public String getColour() {
-		return colour;
-	}
+    /**
+     * Sets the model of the vehicle.
+     * @param model The model of the vehicle.
+     */
+    public void setModel(String model) {
+        this.model = model;
+    }
 
-	public void setColour(String colour) {
-		this.colour = colour;
-	}
+    /**
+     * Retrieves the color of the vehicle.
+     * @return The color of the vehicle.
+     */
+    public String getColour() {
+        return colour;
+    }
 
-	public String getLicensePlate() {
-		return licensePlate;
-	}
+    /**
+     * Sets the color of the vehicle.
+     * @param colour The color of the vehicle.
+     */
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
 
-	public void setLicensePlate(String licensePlate) {
-		this.licensePlate = licensePlate;
-	}
+    /**
+     * Retrieves the license plate number of the vehicle.
+     * @return The license plate number of the vehicle.
+     */
+    public String getLicensePlate() {
+        return licensePlate;
+    }
 
-	public String getRegistration() {
-		return registration;
-	}
+    /**
+     * Sets the license plate number of the vehicle.
+     * @param licensePlate The license plate number of the vehicle.
+     */
+    public void setLicensePlate(String licensePlate) {
+        this.licensePlate = licensePlate;
+    }
 
-	public void setRegistration(String registration) {
-		this.registration = registration;
-	}
-	
+    /**
+     * Retrieves the registration information of the vehicle.
+     * @return The registration information of the vehicle.
+     */
+    public String getRegistration() {
+        return registration;
+    }
+
+    /**
+     * Sets the registration information of the vehicle.
+     * @param registration The registration information of the vehicle.
+     */
+    public void setRegistration(String registration) {
+        this.registration = registration;
+    }
 }
