@@ -6,31 +6,41 @@ import org.junit.jupiter.api.Test;
 
 import claims.*;
 
+/**
+ * A test class for adding and removing a vehicle from the mock database.
+ */
 class VehicleStubDBTest {
+    // Create a customer for testing
+    Customer Cyrus = new Customer();
+    // Create a vehicle for testing
+    Vehicle car1 = new Vehicle(1, Cyrus,  "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
 
-	Customer Cyrus = new Customer();
-	Vehicle car1 = new Vehicle(1, Cyrus,  "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
-	
-	@Test
-	void addDelVehicleToDBTest() {
-		VehicleStubDB.addVehicle(car1);
-		assertEquals("ID: " + car1.getVehicleID() + "\n" +
-            		"Type: " + car1.getType() + "\n" +
-            		"Make: " + car1.getMake() + "\n" +
-            		"Model: " + car1.getModel() + "\n" +
-            		"Colour: " + car1.getColour() + "\n" +
-            		"License plate: " + car1.getLicensePlate() + "\n" +
-            		"Registration: " + car1.getRegistration() + "\n", 
-            		VehicleStubDB.readAllVehicles());
-		
-		VehicleStubDB.removeVehicle(car1);
-		assertEquals("", VehicleStubDB.readAllVehicles());
-	}
-	
-//	@Test
-//	void deleteVehicleDBTest() {
-//		VehicleStubDB.removeVehicle(car1);
-//		assertEquals("", VehicleStubDB.readAllVehicles());
-//	}
+    /**
+     * Test case to add and then remove a vehicle from the mock database.
+     */
+    @Test
+    void addDelVehicleToDBTest() {
+        // Add vehicle to the database
+        VehicleStubDB.addVehicle(car1);
+        // Check if the vehicle has been added correctly
+        assertEquals("ID: " + car1.getVehicleID() + "\n" +
+                    "Type: " + car1.getType() + "\n" +
+                    "Make: " + car1.getMake() + "\n" +
+                    "Model: " + car1.getModel() + "\n" +
+                    "Colour: " + car1.getColour() + "\n" +
+                    "License plate: " + car1.getLicensePlate() + "\n" +
+                    "Registration: " + car1.getRegistration() + "\n", 
+                    VehicleStubDB.readAllVehicles());
+        // Remove vehicle from the database
+        VehicleStubDB.removeVehicle(car1);
+        // Check if the vehicle has been removed successfully
+        assertEquals("", VehicleStubDB.readAllVehicles());
+    }
+    
+//    @Test
+//    void deleteVehicleDBTest() {
+//        VehicleStubDB.removeVehicle(car1);
+//        assertEquals("", VehicleStubDB.readAllVehicles());
+//    }
 
 }
