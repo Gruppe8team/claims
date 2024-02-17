@@ -1,4 +1,4 @@
-package claims;
+package src.main.java.claims;
 /*
  * Created by: Julianna Silva
  * Basic initial implementation of the Vehicle class

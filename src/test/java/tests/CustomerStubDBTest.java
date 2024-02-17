@@ -1,6 +1,6 @@
-package tests;
+package src.test.java.tests;
 
-import claims.Customer;
+import src.main.java.claims.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -50,7 +50,7 @@ public class CustomerStubDBTest {
 
     @Test
     void testQueryCustomers() {
-        List<Customer> maleCustomers = db.queryCustomers(customer -> "Male".equals(customer.getSex()));
+        List<Customer> maleCustomers = db.queryCustomers(customer -> "Male".equals(customer.getgender()));
         assertEquals(1, maleCustomers.size());
         assertEquals("John", maleCustomers.get(0).getFirstName());
     }

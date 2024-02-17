@@ -1,7 +1,7 @@
-package tests;
+package src.test.java.tests;
+import src.main.java.claims.*;
 import java.util.ArrayList;
 
-import claims.*;
 
 public class ClaimsStubDB {
 	

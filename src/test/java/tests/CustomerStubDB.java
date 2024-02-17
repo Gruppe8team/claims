@@ -1,13 +1,11 @@
-package tests;
-
+package src.test.java.tests;
+import src.main.java.claims.*;
 import java.util.function.Predicate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import claims.*;
 
 public class CustomerStubDB {
     private final Map<Integer, Customer> customers = new HashMap<>(); // Using userID as key
@@ -52,9 +50,9 @@ public class CustomerStubDB {
                 .collect(Collectors.toList());
     }
 
-    public List<Customer> findCustomersBySex(String sex) {
+    public List<Customer> findCustomersBygender(String gender) {
         return customers.values().stream()
-                .filter(customer -> customer.getSex().equals(sex))
+                .filter(customer -> customer.getgender().equals(gender))
                 .collect(Collectors.toList());
     }
 

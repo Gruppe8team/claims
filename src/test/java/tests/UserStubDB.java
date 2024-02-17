@@ -1,7 +1,9 @@
-package tests;
-import java.util.*;
+package src.test.java.tests;
 
-import claims.*;
+import src.main.java.claims.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserStubDB{
 	private static List<User> userDB;
 	
@@ -37,7 +39,7 @@ public class UserStubDB{
 			if (user instanceof Customer) {
 	            Customer customer = (Customer) user;
 	            userInfo.append("Phone number: ").append(customer.getPhoneNumber()).append("\n")
-	                    .append("Sex: ").append(customer.getSex()).append("\n")
+	                    .append("Sex: ").append(customer.getgender()).append("\n")
 	                    .append("Age: ").append(customer.getAge()).append("\n");
 	        }
 		}

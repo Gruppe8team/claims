@@ -1,4 +1,4 @@
-package claims;
+package src.main.java.claims;
 public class Claims {
 	
 	private int claimID, clientID;

@@ -1,9 +1,9 @@
-package tests;
+package src.test.java.tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import claims.*;
+import src.main.java.claims.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,7 +32,7 @@ public class CustomerTest {
         assertEquals("johndoe@example.com", customer.getEmail());
         assertEquals("123 Main St", customer.getAddress());
         assertEquals("555-1234", customer.getPhoneNumber());
-        assertEquals("Male", customer.getSex());
+        assertEquals("Male", customer.getgender());
         assertEquals(30, customer.getAge());
     }
 
@@ -51,10 +51,10 @@ public class CustomerTest {
     }
 
     @Test
-    void testSetSex() {
-        String newSex = "Female";
-        customer.setSex(newSex);
-        assertEquals(newSex, customer.getSex());
+    void testSetgender() {
+        String newgender = "Female";
+        customer.setgender(newgender);
+        assertEquals(newgender, customer.getgender());
     }
 
     @Test
@@ -90,7 +90,7 @@ public class CustomerTest {
                 ", email='johndoe@example.com'" +
                 ", address='123 Main St'" +
                 ", phoneNumber='555-1234'" +
-                ", sex='Male'" +
+                ", gender='Male'" +
                 ", age=30" +
                 ", vehicles=\n" +
                 '}';
