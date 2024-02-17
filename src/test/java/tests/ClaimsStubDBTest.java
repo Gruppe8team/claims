@@ -1,8 +1,8 @@
-package src.test.java.tests;
+package tests;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-import src.main.java.claims.*;
+import claims.*;
 import org.junit.jupiter.api.Test;
 
 class ClaimsStubDBTest {

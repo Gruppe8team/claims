@@ -1,7 +1,7 @@
-package src.test.java.tests;
+package tests;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import src.main.java.claims.*;
+import claims.*;
 public class AdvisorTest{
 	
 	int userID = 1;
@@ -9,6 +9,8 @@ public class AdvisorTest{
 	String firstName = "Jaye";
 	String lastName = "Chen";
 	String email = "jiayec@my.yorku.ca";
+
+
 	
 	Advisor jaye = new Advisor(userID, passwordKey, firstName, lastName, email);
 	

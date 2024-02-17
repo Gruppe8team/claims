@@ -1,4 +1,4 @@
-package src.main.java.claims;
+package claims;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,8 @@ public class Advisor extends User {
 
     public Advisor(Advisor advisor) {
                 super(advisor); // Call superclass constructor
-                this.clients = new ArrayList<>();
-                this.managedClaims = new ArrayList<>();
+                this.clients = new ArrayList<Customer>();
+                this.managedClaims = new ArrayList<Claims>();
     }
 	
         public void addClient(Customer client) {

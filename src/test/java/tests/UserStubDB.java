@@ -1,6 +1,6 @@
-package src.test.java.tests;
+package tests;
 
-import src.main.java.claims.*;
+import claims.*;
 import java.util.ArrayList;
 import java.util.List;
 

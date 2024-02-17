@@ -1,5 +1,5 @@
-package src.test.java.tests;
-import src.main.java.claims.*;
+package tests;
+import claims.*;
 import java.util.function.Predicate;
 import java.util.ArrayList;
 import java.util.HashMap;

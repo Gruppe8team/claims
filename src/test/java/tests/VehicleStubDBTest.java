@@ -1,10 +1,10 @@
-package src.test.java.tests;
+package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import src.main.java.claims.*;
+import claims.*;
 
 class VehicleStubDBTest {
 

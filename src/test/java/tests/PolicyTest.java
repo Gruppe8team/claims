@@ -1,5 +1,5 @@
-package src.test.java.tests;
-import src.main.java.claims.*;
+package tests;
+import claims.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 class PolicyTest {

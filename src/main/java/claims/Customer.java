@@ -1,4 +1,4 @@
-package src.main.java.claims;
+package claims;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class Customer extends User {
         this.phoneNumber = "";
         this.gender = "";
         this.age = 0;
-        this.vehicles = new ArrayList<>();
+        this.vehicles = new ArrayList<Vehicle>();
         super.setTypeAccount(2);
     }
 
@@ -28,7 +28,7 @@ public class Customer extends User {
         this.phoneNumber = phoneNumber;
         this.gender = gender;
         this.age = age;
-        this.vehicles = new ArrayList<>();
+        this.vehicles = new ArrayList<Vehicle>();
         super.setTypeAccount(2);
     }
 

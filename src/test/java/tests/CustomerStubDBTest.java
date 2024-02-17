@@ -1,6 +1,6 @@
-package src.test.java.tests;
+package tests;
 
-import src.main.java.claims.*;
+import claims.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

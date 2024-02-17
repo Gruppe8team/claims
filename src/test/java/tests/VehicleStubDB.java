@@ -1,6 +1,6 @@
-package src.test.java.tests;
+package tests;
 import java.util.ArrayList;
-import src.main.java.claims.*;
+import claims.*;
 
 public class VehicleStubDB {
 	private static ArrayList<Vehicle> vehicleDB = new ArrayList<>();

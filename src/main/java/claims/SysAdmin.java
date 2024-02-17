@@ -1,10 +1,9 @@
-package src.main.java.claims;
 
-import java.util.ArrayList;
+package claims;
 
 /*
-* SysAdmin Class
-* For Management purposes
+ * SysAdmin Class
+ * For Management purposes
  */
 public class SysAdmin extends User  {
 
@@ -32,3 +31,4 @@ public class SysAdmin extends User  {
     }
 
 }
+
