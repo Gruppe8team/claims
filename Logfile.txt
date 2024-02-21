@@ -1,0 +1,100 @@
+[Project Log]
+Group 8
+Date: 2024-02-16
+
+**Meeting Minutes:**
+- Attendees: Joshua Zuker, Tejae Whitley, Kyle Williamson, Cyrus Yang, Julianna Silva, Jiaye Chen
+
+- Agenda:
+  - [Agenda 1 2024-01-29 21:30:00]
+    - Discussion: Role assignment & design
+  
+  - [Agenda 2 2024-02-05 21:30:00]
+    - Discussion: User story & coding
+    
+  - [Agenda 3 2024-02-12 21:50:00]
+    - Discussion: Testing & documentation
+   
+**Big Design Decisions:**
+- [2024-01-15 21:28:00]
+  - Decision: Decided to create a 2D game.
+  - Rationale: Making a 2D game is unique.
+
+- [2024-01-17 17:17:00]
+  - Change: Decided to change to create a claim database.
+  - Rationale: Compared with 2D games, creating a claim database is less time-consuming and can still maintain its uniqueness.
+
+**Concerns with Project:**
+- [2024-01-29 17:30:00]
+  - Concern: [Team members cannot communicate effectively and obtain the latest tasks.]
+  - Resolution: [Scheduled weekly remote meetings.]
+
+**Task Assignments:**
+- [2024-01-29 21:30:00]
+  - Assignee: Joshua Zuker
+  - Assigned Task: Features - Client Side
+  - Done: Customer Meeting Video, Claim Class & Test, ClaimStubDataBase & Test, Vision Statement
+  
+  - Assignee: Tejae Whitley
+  - Assigned Task: Data Management -Admin Side Feature
+  - Done: Policy Class & Test
+  
+  - Assignee: Cyrus Yang
+  - Assigned Task: Object Stuff - Admin Side Feature/Client Side
+  - Done: User Class, Wiki, Planning Map
+  
+  - Assignee: Julianna Silva
+  - Assigned Task: Testing
+  - Done: Vehicle Class & Test, VehicleStubDataBase & Test
+  
+  - Assignee: Kyle Williamson
+  - Assigned Task: Buffered Reader and other I/O stuff Registration/claims
+  - Done: Customer Class & Test, CustomerStubBataBase & Test, User Stories
+  
+  - Assignee: Jiaye Chen
+  - Assigned Task: UI Design & Everything to be placed together
+  - Done: Architecture Sketch, Advisor Class & Test, UserStubDataBase & Test, Log File
+
+**Development Tasks on User Story:**
+- User Story: A customer story
+  - Task 1: [Online Claim Submission]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [1 week]
+  - Task 2: [Document Upload Functionality]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [Not Done Yet]
+  - Task 3: [Real-time Claim Status Updates]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [1 week]
+  - Task 4: [Communication Preferences]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [Not Done Yet]
+
+- User Story: An insurer story
+  - Task 1: [Automated Claim Processing System]
+    - Time Allocated: [4 weeks]
+    - Actual Time Spent: [Not Done Yet]
+  - Task 2: [Comprehensive Dashboard]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [Not Done Yet]
+  - Task 3: [Claim Status Update Feature]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [1 week]
+  - Task 4: [Customer Notification System]
+    - Time Allocated: [2 weeks]
+    - Actual Time Spent: [Not Done Yet]
+
+- User Story: An administrator story
+  - Task 1: [Customer Relationship Rating System]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [Not Done Yet]
+  - Task 2: [Price Calculation Transparency]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [Not Done Yet]
+  - Task 3: [User Account Management]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [1 week]
+  - Task 4: [Role-Based Access & Permission Control]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [Not Done Yet]
+

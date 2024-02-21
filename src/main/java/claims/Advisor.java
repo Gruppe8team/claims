@@ -9,10 +9,16 @@ public class Advisor extends User {
 
 	public Advisor(int userID, String passwordKey, String firstName, String lastName, String email) {
         super(userID, passwordKey, firstName, lastName, email); // Call superclass constructor
-        
         this.clients = new ArrayList<>();
         this.managedClaims = new ArrayList<>();
+        super.setTypeAccount(1);
 	}
+
+    public Advisor(Advisor advisor) {
+                super(advisor); // Call superclass constructor
+                this.clients = new ArrayList<Customer>();
+                this.managedClaims = new ArrayList<Claims>();
+    }
 	
         public void addClient(Customer client) {
                 this.clients.add(client);

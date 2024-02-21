@@ -18,6 +18,17 @@ public class User {
     private String lastName;
 
     private String email;
+   private int typeAccount; // secret integer to differ from each user type for the feature access
+
+    /**
+     * Data for secret typeAccount directory parts:
+     * 0 - Default user type (limited access)
+     * 1 - Advisor (Access for the advisor side of things)
+     * 2 - Customer (Access to policy changes and others)
+     * 3 - SysAdmin (Access to the management system (Iteration 2 integration to be added))
+     * 4 - Disabled/Inactive (Will prompt to contact system admin when occurs)
+     */
+
 
     // default construction for general technical operations, for setting default information.
     public User() {
@@ -26,6 +37,7 @@ public class User {
         this.firstName = "";
         this.lastName = "";
         this.email = "";
+        this.typeAccount = 0;
     }
 
     // construction for general technical operations, for setting new accounts
@@ -44,6 +56,7 @@ public class User {
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.email = user.getEmail();
+        this.typeAccount = user.getTypeAccount();
     }
 
     //for getting information when required. That is all
@@ -62,6 +75,14 @@ public class User {
     }
     public String getEmail() {
         return this.email;
+    }
+
+    public int getTypeAccount() {
+        return this.typeAccount;
+    }
+
+    public void setTypeAccount(int type) {
+        this.typeAccount = type;
     }
 
     // important functions accounts (note we also need a create a new account option)

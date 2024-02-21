@@ -2,10 +2,9 @@ package tests;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import claims.*;
 import org.junit.jupiter.api.Test;
 
-import claims.*;
 class ClaimsStubDBTest {
 	
 	Claims claim1 = new Claims();

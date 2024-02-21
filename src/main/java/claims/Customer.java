@@ -6,28 +6,40 @@ import java.util.List;
 public class Customer extends User {
     private String address;
     private String phoneNumber;
-    private String sex;
+    private String gender;
     private int age;
-    private List<Vehicle> vehicles; 
+    private List<Vehicle> vehicles;
 
     // Default constructor
     public Customer() {
         super(); // Call superclass constructor
         this.address = "";
         this.phoneNumber = "";
-        this.sex = "";
+        this.gender = "";
         this.age = 0;
-        this.vehicles = new ArrayList<>();
+        this.vehicles = new ArrayList<Vehicle>();
+        super.setTypeAccount(2);
     }
 
     // Constructor with parameters
-    public Customer(int userID, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String sex, int age) {
+    public Customer(int userID, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age) {
         super(userID, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.address = address;
         this.phoneNumber = phoneNumber;
-        this.sex = sex;
+        this.gender = gender;
         this.age = age;
-        this.vehicles = new ArrayList<>();
+        this.vehicles = new ArrayList<Vehicle>();
+        super.setTypeAccount(2);
+    }
+
+    // Deep Copying Constructor
+    public Customer(Customer customer) {
+        super(customer); // Call superclass constructor
+        this.address = customer.getAddress();
+        this.phoneNumber = customer.getPhoneNumber();
+        this.gender = customer.getgender();
+        this.age = customer.getAge();
+        this.vehicles = customer.getVehicles();
     }
 
     // Getter and setter methods for address
@@ -48,12 +60,12 @@ public class Customer extends User {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getSex() {
-        return sex;
+    public String getgender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setgender(String gender) {
+        this.gender = gender;
     }
 
     public int getAge() {
@@ -93,7 +105,7 @@ public class Customer extends User {
                 ", email='" + getEmail() + '\'' +
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", sex='" + sex + '\'' +
+                ", gender='" + gender + '\'' +
                 ", age=" + age +
                 ", vehicles=\n" + vehicleInfo.toString() +
                 '}';
