@@ -4,11 +4,11 @@ import java.util.List;
 
 
 public class Customer extends User {
-    private String address;
-    private String phoneNumber;
-    private String gender;
-    private int age;
-    private List<Vehicle> vehicles;
+    private String address; // The address of the customer
+    private String phoneNumber; // The phone number of the customer
+    private String gender; // The gender of the customer
+    private int age; // The age of the customer
+    private List<Vehicle> vehicles; // The list of vehicles owned by the customer
 
     // Default constructor
     public Customer() {
@@ -21,7 +21,19 @@ public class Customer extends User {
         super.setTypeAccount(2);
     }
 
-    // Constructor with parameters
+    /**
+     * Constructor with with specified attributes
+     * @param userID the customer's user id 
+     * @param passwordKey the customer's password
+     * @param firstName the customer's firstname
+     * @param lastName the customer's lastname
+     * @param email the customer's email address
+     * @param address the customer's address
+     * @param phoneNumber the customer's phone number
+     * @param gender the customer's gender
+     * @param age the customer's age
+     * @param vehicles the customer's vechicles
+     *  */ 
     public Customer(int userID, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age) {
         super(userID, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.address = address;
@@ -51,44 +63,52 @@ public class Customer extends User {
         this.address = address;
     }
 
-    // Getter and setter methods for phoneNumber
+    // Gets the phone number of the customer
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    // sets the phone number of the customer
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    // gets the gender of the customer
     public String getgender() {
         return gender;
     }
 
+    // sets the gender of a customer
     public void setgender(String gender) {
         this.gender = gender;
     }
 
+    // gets the age of a customer
     public int getAge() {
         return age;
     }
 
+    // sets the age of a customer
     public void setAge(int age) {
         this.age = age;
     }
 
+    // adds a specific vehicle
     public void addVehicle(Vehicle vehicle) {
         this.vehicles.add(vehicle);
     }
 
+    // removes a specific vehicle
     public void removeVehicle(Vehicle vehicle) {
         this.vehicles.remove(vehicle);
     }
-
+    
+    // returns vehicle list
     public List<Vehicle> getVehicles() {
         return vehicles;
     }
 
-    // Override toString method to include customer-specific information
+    
     @Override
     public String toString() {
         
@@ -98,8 +118,7 @@ public class Customer extends User {
         }
 
         return "Customer{" +
-                "userID=" + getUserID() +
-                ", passwordKey='" + getPasswordKey() + '\'' +
+                "userID=" + getUserID() + '\'' +
                 ", firstName='" + getFirstName() + '\'' +
                 ", lastName='" + getLastName() + '\'' +
                 ", email='" + getEmail() + '\'' +
