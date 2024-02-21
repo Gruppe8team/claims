@@ -98,11 +98,8 @@ public class CustomerStubDBTest {
 
     @Test
     void testFindCustomersWithoutVehicles() {
-        // Assuming Customer class has a method to add vehicles and initially no vehicles are added
         assertEquals(2, db.findCustomersWithoutVehicles().size());
         
-        // Simulate adding a vehicle to a customer for demonstration
-        // Assume there's a method in Customer for adding vehicles, e.g., customer.addVehicle(new Vehicle(...));
     }
 
 }

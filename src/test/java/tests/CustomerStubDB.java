@@ -45,7 +45,6 @@ public class CustomerStubDB {
         return new ArrayList<>(customers.values());
     }
 
-    // Method to find customers by a specific attribute, e.g., address
     public List<Customer> findCustomersByAddress(String address) {
         return customers.values().stream()
                 .filter(customer -> customer.getAddress().equals(address))
