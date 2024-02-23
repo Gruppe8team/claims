@@ -118,7 +118,8 @@ public class Customer extends User {
         }
 
         return "Customer{" +
-                "userID=" + getUserID() + '\'' +
+                "userID=" + getUserID() + 
+                ", passwordKey='" + getPasswordKey() + '\'' +
                 ", firstName='" + getFirstName() + '\'' +
                 ", lastName='" + getLastName() + '\'' +
                 ", email='" + getEmail() + '\'' +

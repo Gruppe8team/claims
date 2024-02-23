@@ -42,7 +42,7 @@ public class UserStubDBTest{
 		userStubDB.addCustomer(customer);
 		
 		String expected = "ID: 2\n"+
-				"Frist Name: JJ\n"+
+				"First Name: JJ\n"+
 				"Last Name: CC\n"+
 				"Email: jjcc@my.yorku.ca\n"+
 				"Phone Numer: 1234567890\n"+

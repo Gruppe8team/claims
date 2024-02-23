@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class javaFX extends Application {
 
     @Override
     public void start(Stage primaryStage) {
@@ -48,6 +48,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 }
