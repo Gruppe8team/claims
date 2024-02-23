@@ -1,11 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: tests.UserStubDBTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! -- in tests.UserStubDBTest
-tests.UserStubDBTest.testAddCustomerAndRead -- Time elapsed: 0.002 s <<< FAILURE!
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! -- in tests.UserStubDBTest
+tests.UserStubDBTest.testAddCustomerAndRead -- Time elapsed: 0.001 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <ID: 2
-Frist Name: JJ
+First Name: JJ
 Last Name: CC
 Email: jjcc@my.yorku.ca
 Phone Numer: 1234567890
@@ -92,7 +92,7 @@ Age: 23
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-tests.UserStubDBTest.testAddAdvisorAndRead -- Time elapsed: 0 s <<< FAILURE!
+tests.UserStubDBTest.testAddAdvisorAndRead -- Time elapsed: 0.001 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <ID: 1
 Frist Name: Jaye
