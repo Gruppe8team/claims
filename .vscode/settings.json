@@ -3,7 +3,7 @@
     "type": "java",
     "name": "Launch JavaFX",
     "request": "launch",
-    "mainClass": "com.yourpackage.MainApp",
+    "mainClass": "claims.Main",
     "vmArgs": "--module-path /Users/kylewilliamson/Documents/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
-    "projectName": "YourProjectName"
+    "projectName": "CLAIMS"
 }
