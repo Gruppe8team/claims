@@ -44,6 +44,14 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                    <mainClass>claims.Main</mainClass>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

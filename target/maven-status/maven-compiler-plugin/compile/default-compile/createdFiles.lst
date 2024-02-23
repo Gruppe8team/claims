@@ -1,5 +1,8 @@
-Customer.class
-Vehicle.class
-Advisor.class
+claims/Main.class
 claims/Claims.class
-User.class
+claims/Policy.class
+claims/User.class
+claims/Customer.class
+claims/Vehicle.class
+claims/SysAdmin.class
+claims/Advisor.class
