@@ -19,7 +19,7 @@ public class UserStubDBTest{
 		userStubDB.addAdvisor(advisor);
 		
 		String expected = "ID: 1\n"+
-				"Frist Name: Jaye\n"+
+				"First Name: Jaye\n"+
 				"Last Name: Chen\n"+
 				"Email: jiayec@my.yorku.ca\n";
 		
@@ -42,12 +42,12 @@ public class UserStubDBTest{
 		userStubDB.addCustomer(customer);
 		
 		String expected = "ID: 2\n"+
-				"Frist Name: JJ\n"+
+				"First Name: JJ\n"+
 				"Last Name: CC\n"+
 				"Email: jjcc@my.yorku.ca\n"+
-				"Phone Numer: 1234567890\n"+
+				"Phone Number: 1234567890\n"+
 				"Sex: M\n"+
-				"Age: 23";
+				"Age: 23\n";
 		
 		assertEquals(expected,UserStubDB.readAllUsers());
 	}
