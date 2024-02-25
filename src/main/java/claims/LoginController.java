@@ -1,4 +1,4 @@
-package claims.controllers;
+package claims;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
