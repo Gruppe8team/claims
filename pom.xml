@@ -41,6 +41,16 @@
             <artifactId>javafx-controls</artifactId>
             <version>21.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>21.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>21.0.2</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -57,7 +67,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>claims.javaFX</mainClass>
+                    <mainClass>claims.Login</mainClass>
                 </configuration>
             </plugin>
         </plugins>
