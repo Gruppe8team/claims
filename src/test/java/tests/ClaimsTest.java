@@ -5,10 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 class ClaimsTest {
-
+	//Creates empty claim object
 	Claims claim1 = new Claims();
+	//Creates filled object
 	Claims claim2 = new Claims(2, 200, 210, 4, "Closed", "12/15/23", "6:00AM", "Giant concrete slab smashed rear passenger seats, no injuries", "Client was driving on highway 7, giant concrete slab fell from the sky, smashed car.", "$20000", "Made final payment, client satisfied", false, true, true);
-
+	//Tests setting the claim information
 	@Test
 	void setClaimInfoTest() {
 		claim1.setClaimID(1);
@@ -42,7 +43,7 @@ class ClaimsTest {
 		assertNull(claim1.getClosureCond());
 
 	}
-	
+	//Tests getting the claim information
 	@Test
 	void getClaimInfoTest() {
 		assertEquals(2, claim2.getClaimID());
