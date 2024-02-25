@@ -6,11 +6,11 @@ import claims.*;
 import org.junit.jupiter.api.Test;
 
 class ClaimsStubDBTest {
-	
+	//Creates new empty claim to be set
 	Claims claim1 = new Claims();
-
+	//Tests the addition and removal of claims from the database
 	@Test
-	void shouldAddandRemoveClaimstoDB() {
+	void shouldAddandRemoveClaimstoDB() { //Sets claim information
 		claim1.setClaimID(1);
 		claim1.setClientID(100);
 		claim1.setAdvisorID(110);
@@ -26,7 +26,7 @@ class ClaimsStubDBTest {
 		claim1.setClosed(true);
 		claim1.setClosureCond("Made final Payment");
 		ClaimsStubDB.addClaim(claim1);
-		assertEquals(
+		assertEquals( //Tests if information is equal
 				"Claim ID: " + claim1.getClaimID() + "\n" +
 				"Client ID: " + claim1.getClientID() + "\n" +
 				"Advisor ID: " + claim1.getAdvisorID() + "\n" +
