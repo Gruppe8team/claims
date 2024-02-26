@@ -18,7 +18,7 @@ public class registerGUI extends Application{
 	@Override
 	public void start(Stage primaryStage){
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("builder1.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("registerGUI.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
