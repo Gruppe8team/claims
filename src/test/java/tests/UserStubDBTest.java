@@ -7,12 +7,12 @@ import claims.*;
 public class UserStubDBTest{
 	
 	private UserStubDB userStubDB;
-	
+	//to initailize the userDB before each test
 	@BeforeEach
 	public void initialization() {
 		userStubDB = new UserStubDB();
 	}
-	
+	//to test adding an advisor to the userDB and check the infomation could be read
 	@Test
 	public void testAddAdvisorAndRead() {
 		Advisor advisor = new Advisor(1,"x","Jaye","Chen","jiayec@my.yorku.ca");
@@ -25,7 +25,7 @@ public class UserStubDBTest{
 		
 		assertEquals(expected,UserStubDB.readAllUsers());
 	}
-	
+	//to test removing an advisor to the userDB and check the infomation is removed
 	@Test
 	public void testRemoveAdvisorAndRead() {
 		Advisor advisor = new Advisor(1,"x","Jaye","Chen","jiayec@my.yorku.ca");
@@ -35,7 +35,7 @@ public class UserStubDBTest{
 		
 		assertEquals("",UserStubDB.readAllUsers());
 	}
-	
+	//to test adding a customer to the userDB and check the infomation could be read
 	@Test
 	public void testAddCustomerAndRead() {
 		Customer customer = new Customer(2, "x","JJ","CC","jjcc@my.yorku.ca", "2 keele rd", "1234567890", "M", 23) ;
@@ -51,7 +51,7 @@ public class UserStubDBTest{
 		
 		assertEquals(expected,UserStubDB.readAllUsers());
 	}
-	
+	//to test removing a customer to the userDB and check the infomation is removed
 	@Test
 	public void testRemoveCustomerAndRead() {
 		Customer customer = new Customer(2, "x","JJ","CC","jjcc@my.yorku.ca", "2 keele rd", "1234567890", "M", 23) ;
