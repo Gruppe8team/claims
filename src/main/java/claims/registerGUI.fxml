@@ -11,55 +11,53 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="registerView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.registerGUIController">
    <children>
-      <VBox layoutX="301.0" layoutY="97.0" prefHeight="271.0" prefWidth="264.0" spacing="10.0">
+      <VBox alignment="CENTER" layoutX="300.0" prefHeight="393.0" prefWidth="264.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="25.0" prefWidth="211.0" spacing="20.0">
-               <children>
-                  <TextField prefHeight="25.0" prefWidth="211.0" promptText="First Name" />
-                  <TextField prefHeight="25.0" prefWidth="210.0" promptText="Last Name" />
-               </children>
-            </HBox>
-            <TextField promptText="Email" />
-            <TextField promptText="Phone Number" />
-            <TextField promptText="Password " />
-            <TextField promptText="Confirm Password" />
-            <HBox prefHeight="20.0" prefWidth="264.0" spacing="20.0">
-               <children>
-                  <TextField prefHeight="25.0" prefWidth="233.0" promptText="Address" />
-                  <ChoiceBox prefWidth="150.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="12.0" prefWidth="264.0" spacing="20.0">
-               <children>
-                  <TextField prefHeight="25.0" prefWidth="227.0" promptText="Age" />
-                  <DatePicker prefHeight="25.0" prefWidth="218.0" promptText="Date of Birth" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="86.0" text="Cancel" />
-                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Confirm" />
-               </children>
+            <Label text="AutoClaim Register">
+               <font>
+                  <Font size="28.0" />
+               </font>
                <padding>
-                  <Insets left="20.0" right="20.0" top="10.0" />
+                  <Insets bottom="20.0" top="20.0" />
                </padding>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="25.0" prefWidth="211.0" spacing="10.0">
+               <children>
+                  <TextField prefHeight="25.0" prefWidth="150.0" promptText="First Name" />
+                  <TextField prefHeight="25.0" prefWidth="150.0" promptText="Last Name" />
+               </children>
+            </HBox>
+            <TextField maxWidth="310.0" prefWidth="310.0" promptText="Email" />
+            <TextField maxWidth="310.0" promptText="Phone Number" />
+            <TextField maxWidth="310.0" promptText="Password " />
+            <TextField maxWidth="310.0" promptText="Confirm Password" />
+            <HBox alignment="CENTER" prefHeight="20.0" prefWidth="264.0" spacing="10.0">
+               <children>
+                  <TextField prefHeight="25.0" prefWidth="220.0" promptText="Address" />
+                  <ChoiceBox prefWidth="80.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="12.0" prefWidth="264.0" spacing="10.0">
+               <children>
+                  <TextField prefHeight="25.0" prefWidth="100.0" promptText="Age" />
+                  <DatePicker prefHeight="25.0" prefWidth="200.0" promptText="Date of Birth" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Button fx:id="Button_Cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_CancelClicked" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
+                  <Button fx:id="Button_Confirm" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_ConfirmClicked" prefHeight="25.0" prefWidth="70.0" text="Confirm" />
+               </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
             </HBox>
          </children>
       </VBox>
-      <Label layoutX="365.0" layoutY="14.0" text="Autoclaim" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-      </Label>
-      <Label layoutX="398.0" layoutY="54.0" text="Register">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
    </children>
 </AnchorPane>
