@@ -13,11 +13,10 @@ public class registerGUI extends Application{
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("registerGUI.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("Register");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		}catch(Exception e) {
-			e.printStackTrace();
 		}
 		
 	}
