@@ -1,6 +1,8 @@
 package claims;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,12 +33,14 @@ public class LoginController {
     private TextField TextField_Password;
 
     @FXML
-    private ChoiceBox<String> ChoiceBox_Role;
+	private ChoiceBox<String> choiceBox = new ChoiceBox<>();
 
-    public void initialize() {
-        ChoiceBox_Role.getItems().addAll("Customer", "Advisor", "Admin");
-        ChoiceBox_Role.setValue("Customer"); // Optionally set a default value
-    }
+	private String[] gender = {"Male", "Female", "Other"};
+
+	
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		choiceBox.getItems().addAll(gender);
+	}
 
     @FXML
     void Button_SignInClicked(ActionEvent event) {
