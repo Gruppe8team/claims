@@ -33,6 +33,11 @@ public class LoginController {
     @FXML
     private ChoiceBox<String> ChoiceBox_Role;
 
+    public void initialize() {
+        ChoiceBox_Role.getItems().addAll("Customer", "Advisor", "Admin");
+        ChoiceBox_Role.setValue("Customer"); // Optionally set a default value
+    }
+
     @FXML
     void Button_SignInClicked(ActionEvent event) {
         String email = TextField_Email.getText().trim();
