@@ -1,7 +1,11 @@
-claims/User.class
-claims/Customer.class
-claims/SysAdmin.class
+claims/registerGUI.class
 claims/Claims.class
+claims/LoginController.class
 claims/Policy.class
+claims/User.class
+claims/Login.class
+claims/registerGUIController.class
+claims/Customer.class
 claims/Vehicle.class
+claims/SysAdmin.class
 claims/Advisor.class

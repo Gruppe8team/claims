@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -28,6 +29,9 @@ public class LoginController {
 
     @FXML
     private TextField TextField_Password;
+
+    @FXML
+    private ChoiceBox<String> ChoiceBox_Role;
 
     @FXML
     void Button_SignInClicked(ActionEvent event) {
