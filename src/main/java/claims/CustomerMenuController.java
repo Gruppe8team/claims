@@ -1,5 +1,8 @@
 package claims;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
@@ -17,4 +20,7 @@ public class CustomerMenuController {
     @FXML
     private Button logout_btn;
 
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
