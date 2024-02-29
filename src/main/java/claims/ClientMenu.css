@@ -1,0 +1,18 @@
+.main_menu_container {
+    -fx-background-color: white;
+    background-color: white;
+    -fx-alignment: center;
+}
+
+.left_container {
+    -fx-background-color: #FFFFFF;
+    background-color: #FFFFFF;
+    -fx-background-radius: 10 0 10 0;
+    -fx-effect: dropshadow(two-pass-box, #AAAAAA, 5, 0, 0, 4);
+}
+
+.title_container {
+    -fx-background-color:#FFFFFF;
+    background-color: #FFFFFF;
+    -fx-background-radius: 20 20 0 0;
+}

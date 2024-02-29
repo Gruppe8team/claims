@@ -37,7 +37,6 @@ public class LoginController {
 
 	private String[] gender = {"Male", "Female", "Other"};
 
-	
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		choiceBox.getItems().addAll(gender);
 	}
