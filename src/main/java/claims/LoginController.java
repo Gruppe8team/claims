@@ -1,11 +1,14 @@
 package claims;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -28,6 +31,15 @@ public class LoginController {
 
     @FXML
     private TextField TextField_Password;
+
+    @FXML
+	private ChoiceBox<String> choiceBox = new ChoiceBox<>();
+
+	private String[] gender = {"Male", "Female", "Other"};
+
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		choiceBox.getItems().addAll(gender);
+	}
 
     @FXML
     void Button_SignInClicked(ActionEvent event) {
