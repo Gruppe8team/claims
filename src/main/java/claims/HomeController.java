@@ -1,4 +1,5 @@
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
@@ -34,5 +35,8 @@ public class HomeController {
 
     @FXML
     private Text user_name;
+
+    @FXML
+    private Button btn_edit;
 
 }
