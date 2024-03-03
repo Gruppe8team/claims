@@ -1,4 +1,6 @@
-package claims;
+package claims.models;
+
+import claims.views.ViewFactory;
 
 public class Model {
     private static Model model;

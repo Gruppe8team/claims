@@ -1,4 +1,5 @@
 package claims;
+import claims.models.Model;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

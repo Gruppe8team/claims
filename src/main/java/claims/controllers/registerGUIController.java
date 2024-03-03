@@ -1,4 +1,4 @@
-package claims;
+package claims.controllers;
 
 import java.io.IOException;
 

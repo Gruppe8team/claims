@@ -1,5 +1,6 @@
-package claims;
+package claims.views;
 
+import claims.controllers.Customer.CustomerController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -23,7 +24,7 @@ public class ViewFactory {
     }
 
     public void showLoginWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/Login.fxml"));
         createStage(loader);
     }
 
