@@ -24,6 +24,17 @@ public class ViewFactory {
 
     public void showLoginWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/Login.fxml"));
+        createStage(loader);
+    }
+
+    public void showCustomerWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/Customer.fxml"));
+        CustomerController customerController = new CustomerController();
+        loader.setController(customerController);
+        createStage(loader);
+    }
+
+    private void createStage(FXMLLoader loader) {
         Scene scene = null;
         try {
             scene = new Scene(loader.load());
@@ -34,9 +45,5 @@ public class ViewFactory {
         stage.setScene(scene);
         stage.setTitle("AutoClaim");
         stage.show();
-    }
-
-    public void showCustomerWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/Customer.fxml"));
     }
 }

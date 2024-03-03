@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -18,7 +19,7 @@ import javafx.scene.control.Alert.AlertType;
 
 
 
-public class LoginController {
+public class LoginController implements Initializable {
 
     @FXML
     private Button Button_SignIn;
@@ -35,28 +36,13 @@ public class LoginController {
     @FXML
 	private ChoiceBox<String> choiceBox = new ChoiceBox<>();
 
-	private String[] gender = {"Male", "Female", "Other"};
-
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		choiceBox.getItems().addAll(gender);
+		
 	}
 
     @FXML
     void Button_SignInClicked(ActionEvent event) {
-        String email = TextField_Email.getText().trim();
-        String password = TextField_Password.getText();
-
-        if (authenticate(email, password)) {
-        // Assuming authentication is successful
-        loadDashboard();
-        } else {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null); // You can set a header text or leave it null
-            alert.setContentText("Incorrect Email or Password");
-            alert.showAndWait();
         
-        }
     }
 
     @FXML
