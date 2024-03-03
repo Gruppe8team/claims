@@ -50,7 +50,7 @@
                   <Font name="Al Nile" size="13.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="5.0" top="10.0" />
+                  <Insets />
                </VBox.margin>
             </Label>
             <Button fx:id="Button_SignUp" mnemonicParsing="false" onAction="#Button_SignUpClicked" text="Sign Up" />
