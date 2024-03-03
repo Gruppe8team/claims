@@ -88,8 +88,8 @@
     border-width: 0 0 0 0;
     -fx-border-color: #AAAAAA;
     border-color: #AAAAAA;
-    -fx-border-width: 1 1 1 1;
-    border-width: 1 1 1 1;
+    -fx-border-width: 0 1 0 1;
+    border-width: 0 1 0 1;
     -fx-border-color: #DDDDDD;
     border-color: #DDDDDD;
 }
