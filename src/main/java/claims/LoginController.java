@@ -36,7 +36,7 @@ public class LoginController implements Initializable {
     @FXML
 	private ChoiceBox<String> choiceBox = new ChoiceBox<>();
 
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public void initialize(URL url, ResourceBundle resourceBundle) {
 		Button_SignIn.setOnAction(event -> Model.getInstance().getViewFactory().showCustomerWindow());
 	}
 
