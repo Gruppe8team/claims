@@ -23,6 +23,9 @@
                <font>
                   <Font name="Al Nile" size="24.0" />
                </font>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
             </Label>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
                <font>
