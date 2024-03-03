@@ -1,0 +1,16 @@
+claims/Model.class
+claims/CustomerController.class
+claims/CustomerMenuController.class
+claims/registerGUI.class
+claims/User.class
+claims/ViewFactory.class
+claims/registerGUIController.class
+claims/Customer.class
+claims/SysAdmin.class
+claims/AutoClaim.class
+claims/Claims.class
+claims/LoginController.class
+claims/Policy.class
+claims/HomeController.class
+claims/Vehicle.class
+claims/Advisor.class
