@@ -1,0 +1,27 @@
+.main_container {
+    -fx-background-color: black;
+    background-color: black;
+}
+
+.main_container Text {
+    -fx-font-size:1.5em;
+    font-size: 1.5em;
+
+    -fx-fill: white;
+    fill: white;
+
+    margin-bottom: 3px;
+}
+
+.main_container Button {
+    -fx-background-radius: 3;
+    -fx-pref-width: 80;
+    -fx-pref-height:20;
+    -fx-background-color:#FFFFFF;
+    background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-font-size: 1.1em;
+    font-size: 1.1em;
+}
+
+
