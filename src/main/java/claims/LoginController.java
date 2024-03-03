@@ -14,8 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 
 
@@ -54,18 +52,6 @@ public class LoginController implements Initializable {
         currentStage.show();
     } catch (IOException e) {
         }
-    }
-
-    private boolean authenticate(String email, String password) {
-        // Placeholder authentication logic
-        // Replace this with actual authentication (e.g., checking a database)
-        return "user@example.com".equals(email) && "password".equals(password);
-    }
-    
-    private void loadDashboard() {
-        // Load the dashboard or main area of the application
-        // This could involve loading a new FXML scene or showing a dialog
-        System.out.println("Authentication successful. Loading dashboard...");
     }
 
 }
