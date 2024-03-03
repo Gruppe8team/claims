@@ -1,6 +1,9 @@
 package claims;
 
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -41,5 +44,7 @@ public class HomeController {
 
     @FXML
     private Button btn_edit;
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 
 }
