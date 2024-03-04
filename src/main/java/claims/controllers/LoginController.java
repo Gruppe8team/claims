@@ -28,6 +28,7 @@ public class LoginController implements Initializable {
     @FXML
 	private ChoiceBox<String> choiceBox = new ChoiceBox<>();
 
+    @Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
 		Button_SignIn.setOnAction(event -> Model.getInstance().getViewFactory().showCustomerWindow());
         Button_SignUp.setOnAction(event -> Model.getInstance().getViewFactory().showRegisterWindow());

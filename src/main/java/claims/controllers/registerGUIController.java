@@ -20,6 +20,7 @@ public class registerGUIController implements Initializable {
     @FXML
     private AnchorPane registerView;
 
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Button_Cancel.setOnAction(event -> Model.getInstance().getViewFactory().showLoginWindow());
     }
