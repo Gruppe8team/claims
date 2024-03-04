@@ -35,6 +35,11 @@ public class ViewFactory {
         createStage(loader);
     }
 
+    public void showRegisterWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/registerGUI.fxml"));
+        createStage(loader);
+    }
+
     private void createStage(FXMLLoader loader) {
         Scene scene = null;
         try {
