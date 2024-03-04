@@ -15,7 +15,7 @@ public class ViewFactory {
     public AnchorPane getHomeView() {
         if (homeView == null){
             try {
-                homeView = new FXMLLoader(getClass().getResource("/Home.fxml")).load();
+                homeView = new FXMLLoader(getClass().getResource("/claims/fxml/Home.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -24,12 +24,12 @@ public class ViewFactory {
     }
 
     public void showLoginWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/Login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Login.fxml"));
         createStage(loader);
     }
 
     public void showCustomerWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Customer.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Customer.fxml"));
         CustomerController customerController = new CustomerController();
         loader.setController(customerController);
         createStage(loader);
