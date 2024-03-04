@@ -14,6 +14,9 @@ Date: 2024-02-16
     
   - [Agenda 3 2024-02-12 21:50:00]
     - Discussion: Testing & documentation
+
+  - [Agenda 4 2024-02-16 21:30:00]
+    - Discussion: Iteration 2 stories and assignment
    
 **Big Design Decisions:**
 - [2024-01-15 21:28:00]
@@ -57,18 +60,27 @@ Date: 2024-02-16
 
 **Development Tasks on User Story:**
 - User Story: A customer story
-  - Task 1: [Online Claim Submission]
+  - Task 1: [Customer Login]
     - Time Allocated: [1 week]
     - Actual Time Spent: [1 week]
-  - Task 2: [Document Upload Functionality]
-    - Time Allocated: [1 week]
-    - Actual Time Spent: [Not Done Yet]
-  - Task 3: [Real-time Claim Status Updates]
+  - Task 2: [Customer Registration]
     - Time Allocated: [1 week]
     - Actual Time Spent: [1 week]
-  - Task 4: [Communication Preferences]
+  - Task 3: [Customer Account Editor]
     - Time Allocated: [1 week]
-    - Actual Time Spent: [Not Done Yet]
+    - Actual Time Spent: [1 week]
+  - Task 4: [Customer Account Deletion]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [1 week]
+  - Task 5: [Customer Online Claim Submission]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: []
+  - Task 6: [Customer Claim Tracker]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: []
+  - Task 7: [Customer Claim Dashboard]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: []
 
 - User Story: An insurer story
   - Task 1: [Automated Claim Processing System]
