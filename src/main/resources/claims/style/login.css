@@ -51,6 +51,10 @@
     -fx-text-fill: #000000;
     -fx-font-size: 1em;
     font-size: 1em;
+    -fx-border-width: 1 1 1 1;
+    border-width: 1 1 1 1;
+    -fx-border-color: #DDDDDD;
+    border-color: #DDDDDD;
 }
 
 .main_container Button {

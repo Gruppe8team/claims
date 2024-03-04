@@ -11,38 +11,35 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.registerGUIController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main" stylesheets="@../style/registerGUI.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.registerGUIController">
    <children>
-      <VBox alignment="CENTER" layoutX="300.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" layoutX="40.0" layoutY="20.0" prefHeight="378.0" prefWidth="561.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label text="AutoClaim Register">
+            <Label styleClass="lbl" text="AutoClaim Register">
                <font>
                   <Font size="28.0" />
                </font>
-               <padding>
-                  <Insets bottom="20.0" top="20.0" />
-               </padding>
             </Label>
             <HBox alignment="CENTER" prefHeight="25.0" prefWidth="211.0" spacing="10.0">
                <children>
-                  <TextField prefHeight="25.0" prefWidth="150.0" promptText="First Name" />
-                  <TextField prefHeight="25.0" prefWidth="150.0" promptText="Last Name" />
+                  <TextField prefHeight="25.0" prefWidth="150.0" promptText="First Name" styleClass="text_field" />
+                  <TextField prefHeight="25.0" prefWidth="150.0" promptText="Last Name" styleClass="text_field" />
                </children>
             </HBox>
-            <TextField maxWidth="310.0" prefWidth="310.0" promptText="Email" />
-            <TextField maxWidth="310.0" promptText="Phone Number" />
-            <TextField maxWidth="310.0" promptText="Password " />
-            <TextField maxWidth="310.0" promptText="Confirm Password" />
+            <TextField maxWidth="310.0" prefWidth="310.0" promptText="Email" styleClass="text_field" />
+            <TextField maxWidth="310.0" promptText="Phone Number" styleClass="text_field" />
+            <TextField maxWidth="310.0" promptText="Password " styleClass="text_field" />
+            <TextField maxWidth="310.0" promptText="Confirm Password" styleClass="text_field" />
             <HBox alignment="CENTER" prefHeight="20.0" prefWidth="264.0" spacing="10.0">
                <children>
-                  <TextField prefHeight="25.0" prefWidth="220.0" promptText="Address" />
-                  <ChoiceBox prefWidth="80.0" />
+                  <TextField prefHeight="25.0" prefWidth="220.0" promptText="Address" styleClass="text_field" />
+                  <ChoiceBox prefWidth="80.0" styleClass="checkbox" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="12.0" prefWidth="264.0" spacing="10.0">
                <children>
-                  <TextField prefHeight="25.0" prefWidth="100.0" promptText="Age" />
-                  <DatePicker prefHeight="25.0" prefWidth="200.0" promptText="Date of Birth" />
+                  <TextField prefHeight="25.0" prefWidth="100.0" promptText="Age" styleClass="text_field" />
+                  <DatePicker prefHeight="25.0" prefWidth="200.0" promptText="Date of Birth" styleClass="text_field" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" spacing="10.0">
