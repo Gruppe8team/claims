@@ -43,7 +43,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
             </TextField>
-            <Button fx:id="Button_SignIn" mnemonicParsing="false" onAction="#Button_SignInClicked" text="Sign in">
+            <Button fx:id="Button_SignIn" mnemonicParsing="false" text="Sign in">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
@@ -56,7 +56,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Button fx:id="Button_SignUp" mnemonicParsing="false" onAction="#Button_SignUpClicked" text="Sign Up" />
+            <Button fx:id="Button_SignUp" mnemonicParsing="false" text="Sign Up" />
          </children>
       </VBox>
    </children>
