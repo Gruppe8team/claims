@@ -80,6 +80,10 @@
     font-size: 1.1em;
 
 }
+.account Button:hover {
+    -fx-cursor:hand;
+    cursor: hand;
+}
 
 .recentclaims_listview {
     -fx-background-color: #EEEEEE;
