@@ -19,7 +19,7 @@ Date: 2024-02-16
     - Discussion: Iteration 2 stories and assignment
 
   - [Agenda 5 2024-03-04 21:30:00]
-    - Discussion: 
+    - Discussion: Story Check,Datbase Design & Assignment
    
 **Big Design Decisions:**
 - [2024-01-15 21:28:00]
