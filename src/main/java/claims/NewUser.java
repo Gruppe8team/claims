@@ -108,5 +108,18 @@ public class NewUser {
         this.gender = gender;
     }
     
+    @Override
+	public String toString() {
+		return "NewUser{" +
+				"dob='" + dob + '\'' +
+				", phone='" + phone + '\'' +
+				", gender='" + gender + '\'' +
+				", userID=" + userID +
+				", passwordKey='" + passwordKey + '\'' +
+				", firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", email='" + email + '\'' +
+				'}';
+	}
     
 }

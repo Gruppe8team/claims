@@ -15,8 +15,11 @@ Date: 2024-02-16
   - [Agenda 3 2024-02-12 21:50:00]
     - Discussion: Testing & documentation
 
-  - [Agenda 4 2024-02-16 21:30:00]
+  - [Agenda 4 2024-02-26 21:30:00]
     - Discussion: Iteration 2 stories and assignment
+
+  - [Agenda 5 2024-03-04 21:30:00]
+    - Discussion: Story Check,Datbase Design & Assignment
    
 **Big Design Decisions:**
 - [2024-01-15 21:28:00]
@@ -35,28 +38,22 @@ Date: 2024-02-16
 **Task Assignments:**
 - [2024-01-29 21:30:00]
   - Assignee: Joshua Zuker
-  - Assigned Task: Features - Client Side
-  - Done: Customer Meeting Video, Claim Class & Test, ClaimStubDataBase & Test, Vision Statement
+  - Assigned Task: 
   
   - Assignee: Tejae Whitley
-  - Assigned Task: Data Management -Admin Side Feature
-  - Done: Policy Class & Test
+  - Assigned Task: Customer Registration
   
   - Assignee: Cyrus Yang
-  - Assigned Task: Object Stuff - Admin Side Feature/Client Side
-  - Done: User Class, Wiki, Planning Map
+  - Assigned Task: 
   
   - Assignee: Julianna Silva
-  - Assigned Task: Testing
-  - Done: Vehicle Class & Test, VehicleStubDataBase & Test
+  - Assigned Task: 
   
   - Assignee: Kyle Williamson
-  - Assigned Task: Buffered Reader and other I/O stuff Registration/claims
-  - Done: Customer Class & Test, CustomerStubBataBase & Test, User Stories
+  - Assigned Task: Customer Login
   
   - Assignee: Jiaye Chen
-  - Assigned Task: UI Design & Everything to be placed together
-  - Done: Architecture Sketch, Advisor Class & Test, UserStubDataBase & Test, Log File
+  - Assigned Task: Customer Account Editor, Customer Account Deletion
 
 **Development Tasks on User Story:**
 - User Story: A customer story
@@ -75,38 +72,32 @@ Date: 2024-02-16
   - Task 5: [Customer Online Claim Submission]
     - Time Allocated: [1 week]
     - Actual Time Spent: []
-  - Task 6: [Customer Claim Tracker]
+   - Task 6: [Customer File Upload]
     - Time Allocated: [1 week]
     - Actual Time Spent: []
-  - Task 7: [Customer Claim Dashboard]
+  - Task 7: [Customer Claim Tracker]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: []
+  - Task 8: [Customer Claim Dashboard]
     - Time Allocated: [1 week]
     - Actual Time Spent: []
 
 - User Story: An insurer story
-  - Task 1: [Automated Claim Processing System]
-    - Time Allocated: [4 weeks]
+  - Task 1: [Claim File Review]
+    - Time Allocated: [1 weeks]
     - Actual Time Spent: [Not Done Yet]
-  - Task 2: [Comprehensive Dashboard]
+  - Task 2: [Insurer Dashboard]
     - Time Allocated: [1 week]
     - Actual Time Spent: [Not Done Yet]
-  - Task 3: [Claim Status Update Feature]
+  - Task 3: [Claim Status Update]
     - Time Allocated: [1 week]
     - Actual Time Spent: [1 week]
-  - Task 4: [Customer Notification System]
-    - Time Allocated: [2 weeks]
+  - Task 4: [Insurer Registration]
+    - Time Allocated: [1 weeks]
     - Actual Time Spent: [Not Done Yet]
 
 - User Story: An administrator story
-  - Task 1: [Customer Relationship Rating System]
-    - Time Allocated: [1 week]
-    - Actual Time Spent: [Not Done Yet]
-  - Task 2: [Price Calculation Transparency]
-    - Time Allocated: [1 week]
-    - Actual Time Spent: [Not Done Yet]
-  - Task 3: [User Account Management]
-    - Time Allocated: [1 week]
-    - Actual Time Spent: [1 week]
-  - Task 4: [Role-Based Access & Permission Control]
+  - Task 1: [Acconts & Permission Control]
     - Time Allocated: [1 week]
     - Actual Time Spent: [Not Done Yet]
 
