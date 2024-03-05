@@ -1,6 +1,8 @@
 package claims.views;
 
 import claims.controllers.Customer.CustomerController;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -8,9 +10,17 @@ import javafx.stage.Stage;
 
 public class ViewFactory {
     //Customer Views
+    private final StringProperty customerSelectedMenuItem;
     private AnchorPane homeView;
+    private AnchorPane claimsView;
 
-    public ViewFactory(){}
+    public ViewFactory(){
+        this.customerSelectedMenuItem = new SimpleStringProperty("");
+    }
+
+    public StringProperty getCustomerSelectedMenuItem() {
+        return customerSelectedMenuItem;
+    }
 
     public AnchorPane getHomeView() {
         if (homeView == null){
@@ -21,6 +31,17 @@ public class ViewFactory {
             }
         }
         return homeView;
+    }
+
+    public AnchorPane getClaimsView() {
+        if (claimsView == null){
+            try {
+                claimsView = new FXMLLoader(getClass().getResource("/claims/fxml/MyClaims.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return claimsView;
     }
 
     public void showLoginWindow() {
@@ -35,6 +56,11 @@ public class ViewFactory {
         createStage(loader);
     }
 
+    public void showRegisterWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/registerGUI.fxml"));
+        createStage(loader);
+    }
+
     private void createStage(FXMLLoader loader) {
         Scene scene = null;
         try {
@@ -46,5 +72,9 @@ public class ViewFactory {
         stage.setScene(scene);
         stage.setTitle("AutoClaim");
         stage.show();
+    }
+
+    public void closeStage(Stage stage) {
+        stage.close();
     }
 }

@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 
@@ -26,11 +27,25 @@ public class LoginController implements Initializable {
     private TextField TextField_Password;
 
     @FXML
-	private ChoiceBox<String> choiceBox = new ChoiceBox<>();
+	private ChoiceBox acc_type_selector;
 
+    @Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
-		Button_SignIn.setOnAction(event -> Model.getInstance().getViewFactory().showCustomerWindow());
+		Button_SignIn.setOnAction(event -> onLogin());
+        Button_SignUp.setOnAction(event -> onRegister());
 	}
 
+
+    private void onLogin() {
+        Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showCustomerWindow();
+    }
+
+    public void onRegister() {
+        Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showRegisterWindow();
+    }
 
 }

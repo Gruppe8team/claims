@@ -69,22 +69,6 @@
     font-size: 1.1em;
 }
 
-.account Button {
-    -fx-background-radius: 3;
-    -fx-pref-width: 50;
-    -fx-pref-height:20;
-    -fx-background-color:#FFFFFF;
-    background-color: #FFFFFF;
-    -fx-text-fill: #000000;
-    -fx-font-size: 1.1em;
-    font-size: 1.1em;
-
-}
-.account Button:hover {
-    -fx-cursor:hand;
-    cursor: hand;
-}
-
 .recentclaims_listview {
     -fx-background-color: #EEEEEE;
     background-color: #EEEEEE;
@@ -92,8 +76,8 @@
     border-width: 0 0 0 0;
     -fx-border-color: #AAAAAA;
     border-color: #AAAAAA;
-    -fx-border-width: 0 1 0 1;
-    border-width: 0 1 0 1;
+    -fx-border-width: 1 1 1 1;
+    border-width: 1 1 1 1;
     -fx-border-color: #DDDDDD;
     border-color: #DDDDDD;
 }
@@ -108,4 +92,3 @@
     -fx-padding: 15 0 15 0;
     padding: 15 0 15 0;
 }
-

@@ -1,10 +1,18 @@
 package claims.controllers;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class registerGUIController {
+import claims.models.Model;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class registerGUIController implements Initializable {
 
     @FXML
     private Button Button_Cancel;
@@ -13,7 +21,45 @@ public class registerGUIController {
     private Button Button_Confirm;
 
     @FXML
-    private AnchorPane registerView;
+    private ChoiceBox selector;
+
+    @FXML
+    private TextField text_field_address;
+
+    @FXML
+    private TextField text_field_age;
+
+    @FXML
+    private TextField text_field_confirm;
+
+    @FXML
+    private DatePicker text_field_dob;
+
+    @FXML
+    private TextField text_field_lastname;
+
+    @FXML
+    private TextField text_field_password;
+
+    @FXML
+    private TextField text_field_phonenumber;
+
+    @FXML
+    private TextField textfield_email;
+
+    @FXML
+    private TextField textfield_firstname;
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Button_Cancel.setOnAction(event -> onCancel());
+    }
+
+    public void onCancel() {
+        Stage stage = (Stage) Button_Cancel.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showLoginWindow();
+    }
 }
+
