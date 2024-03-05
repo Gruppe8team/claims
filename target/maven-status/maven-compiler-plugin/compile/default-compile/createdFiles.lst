@@ -5,7 +5,6 @@ claims/Vehicle.class
 claims/Advisor.class
 claims/controllers/Customer/CustomerMenuController.class
 claims/registerGUI.class
-claims/controllers/HomeController.class
 claims/controllers/LoginController.class
 claims/models/Model.class
 claims/Customer.class
