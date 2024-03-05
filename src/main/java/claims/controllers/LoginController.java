@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 
@@ -36,10 +37,14 @@ public class LoginController implements Initializable {
 
 
     private void onLogin() {
+        Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showCustomerWindow();
     }
 
     public void onRegister() {
+        Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showRegisterWindow();
     }
 

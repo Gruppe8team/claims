@@ -3,6 +3,7 @@ package claims.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -22,7 +23,13 @@ public class registerGUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Button_Cancel.setOnAction(event -> { ((Stage)Button_Cancel.getScene().getWindow()).close();});
+        Button_Cancel.setOnAction(event -> onCancel());
+    }
+
+    public void onCancel() {
+        Stage stage = (Stage) Button_Cancel.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showLoginWindow();
     }
 }
 
