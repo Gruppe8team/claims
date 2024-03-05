@@ -1,8 +1,13 @@
 claims/User.class
 claims/controllers/Customer/CustomerController.class
+claims/controllers/Customer/HomeController.class
+claims/UserAccountGUI.class
+claims/NewUser.class
 claims/controllers/registerGUIController.class
 claims/Vehicle.class
 claims/Advisor.class
+claims/controllers/Customer/MyClaimsController.class
+claims/NewUserAccountGUIController.class
 claims/controllers/Customer/CustomerMenuController.class
 claims/registerGUI.class
 claims/controllers/LoginController.class
