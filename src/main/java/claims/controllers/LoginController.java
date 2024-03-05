@@ -30,9 +30,17 @@ public class LoginController implements Initializable {
 
     @Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
-		Button_SignIn.setOnAction(event -> Model.getInstance().getViewFactory().showCustomerWindow());
-        Button_SignUp.setOnAction(event -> Model.getInstance().getViewFactory().showRegisterWindow());
+		Button_SignIn.setOnAction(event -> onLogin());
+        Button_SignUp.setOnAction(event -> onRegister());
 	}
 
+
+    private void onLogin() {
+        Model.getInstance().getViewFactory().showCustomerWindow();
+    }
+
+    public void onRegister() {
+        Model.getInstance().getViewFactory().showRegisterWindow();
+    }
 
 }
