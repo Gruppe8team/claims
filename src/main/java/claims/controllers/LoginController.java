@@ -27,7 +27,7 @@ public class LoginController implements Initializable {
     private TextField TextField_Password;
 
     @FXML
-	private ChoiceBox<String> choiceBox = new ChoiceBox<>();
+	private ChoiceBox acc_type_selector;
 
     @Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {

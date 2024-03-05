@@ -7,7 +7,9 @@ import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class registerGUIController implements Initializable {
@@ -19,7 +21,35 @@ public class registerGUIController implements Initializable {
     private Button Button_Confirm;
 
     @FXML
-    private AnchorPane registerView;
+    private ChoiceBox selector;
+
+    @FXML
+    private TextField text_field_address;
+
+    @FXML
+    private TextField text_field_age;
+
+    @FXML
+    private TextField text_field_confirm;
+
+    @FXML
+    private DatePicker text_field_dob;
+
+    @FXML
+    private TextField text_field_lastname;
+
+    @FXML
+    private TextField text_field_password;
+
+    @FXML
+    private TextField text_field_phonenumber;
+
+    @FXML
+    private TextField textfield_email;
+
+    @FXML
+    private TextField textfield_firstname;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
