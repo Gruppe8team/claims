@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 public class ViewFactory {
     //Customer Views
     private AnchorPane homeView;
+    private AnchorPane claimsView;
 
     public ViewFactory(){}
 
@@ -21,6 +22,17 @@ public class ViewFactory {
             }
         }
         return homeView;
+    }
+
+    public AnchorPane getClaimsView() {
+        if (claimsView == null){
+            try {
+                claimsView = new FXMLLoader(getClass().getResource("/claims/fxml/MyClaims.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return claimsView;
     }
 
     public void showLoginWindow() {
