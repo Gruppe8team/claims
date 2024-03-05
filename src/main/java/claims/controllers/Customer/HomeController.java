@@ -1,4 +1,4 @@
-package claims.controllers;
+package claims.controllers.Customer;
 
 
 import java.net.URL;
