@@ -1,9 +1,11 @@
 package claims;
 
+import claims.models.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
 
 import java.beans.Visibility;
 
@@ -13,6 +15,8 @@ public class NewUserAccountGUIController {
 
     @FXML
     private Label name;
+    @FXML
+    private Text user_name;
 
     @FXML
     private Label gender;
@@ -45,6 +49,9 @@ public class NewUserAccountGUIController {
     private HBox visibility9;
 
     @FXML
+    private Text visibility10;
+
+    @FXML
     private TextField FirstName;
     @FXML
     private TextField LastName;
@@ -60,12 +67,14 @@ public class NewUserAccountGUIController {
     private TextField phone1;
 
     public void initialize() {
-       
+
         name.setText(newUser.getFirstName()+" "+newUser.getLastName());
+        user_name.setText("Hi, "+newUser.getFirstName());
         gender.setText("Gender: "+newUser.getGender());
         dob.setText("DOB: "+newUser.getDob());
         email.setText("Email: "+newUser.getEmail());
         phone.setText("Phone #: "+newUser.getPhone());
+
         hide();
     }
 
@@ -79,6 +88,8 @@ public class NewUserAccountGUIController {
         visibility7.setVisible(false);
         visibility8.setVisible(false);
         visibility9.setVisible(false);
+        visibility10.setVisible(false);
+
     }
     public void show(){
         visibility.setVisible(true);
@@ -90,26 +101,35 @@ public class NewUserAccountGUIController {
         visibility7.setVisible(true);
         visibility8.setVisible(true);
         visibility9.setVisible(true);
+        visibility10.setVisible(true);
     }
 
 
 
     @FXML
     private void editAccount(ActionEvent event) {
-        
+
         System.out.println("Edit Account Button Clicked");
         showEditAccountDialog();
     }
 
     @FXML
     private void stopAccount(ActionEvent event) {
-        
+
         hide();
+    }
+    @FXML
+    private void stopAccount1() throws Exception {
+        newUser = new NewUser(0, null, null, null, null, null, null, null);
+        System.out.println(newUser.toString());
+        initialize();
+        Model.getInstance().getViewFactory().showLoginWindow();
+
     }
 
     @FXML
     private void deleteAccount(ActionEvent event) {
-        
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Delete Account");
@@ -117,18 +137,22 @@ public class NewUserAccountGUIController {
 
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
-           
-            deleteAccountLogic();
+
+            try {
+                stopAccount1();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    private void deleteAccountLogic() {
-       
-        System.out.println("Delete Account Logic Executed");
+    private void deleteAccount() {
+
+        System.out.println("Delete Account Executed");
     }
 
     private void showEditAccountDialog() {
-        
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Edit Account");
         FirstName.setText(newUser.getFirstName());
@@ -158,6 +182,7 @@ public class NewUserAccountGUIController {
         newUser.setGender(gender1.getText());
         newUser.setEmail(email1.getText());
         newUser.setPhone(phone1.getText());
+        System.out.println(newUser.toString());
         initialize();
 
 
