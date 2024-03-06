@@ -1,4 +1,4 @@
-package claimsGUI;
+package claims.controllers.Advisor;
 
 import java.io.IOException;
 
@@ -23,15 +23,6 @@ public class advisorMenuController {
 	
 	@FXML
 	private Button logoutButton;
-	
-	@FXML
-	private Button homeBack;
-	
-	@FXML
-	private Button policyBack;
-	
-	@FXML
-	private Button claimsBack;
 	
 	private Stage stage;
 	
@@ -66,28 +57,6 @@ public class advisorMenuController {
 		stage.setScene(new Scene(loginView));
 		stage.show();
 	}
-
-	public void homeBackPressed(ActionEvent e) throws IOException{
-		Parent MenuView = FXMLLoader.load(getClass().getResource("AdvisorMenu.fxml"));
-		stage = (Stage) homeBack.getScene().getWindow();
-		stage.setScene(new Scene(MenuView));
-		stage.show();
-	}
-	
-	public void policyBackPressed(ActionEvent e) throws IOException {
-		Parent MenuView = FXMLLoader.load(getClass().getResource("AdvisorMenu.fxml"));
-		stage = (Stage) policyBack.getScene().getWindow();
-		stage.setScene(new Scene(MenuView));
-		stage.show();
-	}
-
-	public void claimsBackPressed(ActionEvent e) throws IOException{
-		Parent MenuView = FXMLLoader.load(getClass().getResource("AdvisorMenu.fxml"));
-		stage = (Stage) claimsBack.getScene().getWindow();
-		stage.setScene(new Scene(MenuView));
-		stage.show();
-	}
-	
 	
 	
 
