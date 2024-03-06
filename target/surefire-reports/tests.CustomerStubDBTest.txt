@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: tests.CustomerStubDBTest
 -------------------------------------------------------------------------------
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in tests.CustomerStubDBTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in tests.CustomerStubDBTest
