@@ -2,7 +2,6 @@ package claims.controllers.Customer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,16 +9,16 @@ import javafx.scene.control.Button;
 public class CustomerMenuController {
 
     @FXML
-    private Button home_btn;
+    public Button home_btn;
     
     @FXML
-    private Button Insurance_btn;
+    public Button insurance_btn;
 
     @FXML
-    private Button claims_btn;
+    public Button claims_btn;
 
     @FXML
-    private Button logout_btn;
+    public Button logout_btn;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
