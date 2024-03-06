@@ -4,9 +4,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import claims.models.Model;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-public class CustomerMenuController {
+public class CustomerMenuController implements Initializable {
 
     @FXML
     public Button home_btn;
@@ -20,6 +21,7 @@ public class CustomerMenuController {
     @FXML
     public Button logout_btn;
 
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
     }
