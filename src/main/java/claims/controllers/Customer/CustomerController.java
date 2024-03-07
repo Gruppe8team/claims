@@ -13,6 +13,7 @@ public class CustomerController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
             switch (newVal) {
+                case "MyInsurance" -> customer_parent.setCenter(Model.getInstance().getViewFactory().getInsuranceView());
                 case "MyClaims" -> customer_parent.setCenter(Model.getInstance().getViewFactory().getClaimsView());
                 default -> customer_parent.setCenter(Model.getInstance().getViewFactory().getHomeView());
             }

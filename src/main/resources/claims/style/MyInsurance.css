@@ -12,6 +12,35 @@
     font-family: "Helvetica Neue";
 }
 
+.policy_boxes {
+    -fx-background-color: white;
+    background-color: white;
+    -fx-border-width: 2 2 2 2;
+    border-width: 2 2 2 2;
+    -fx-border-color: #DDDDDD;
+    border-color: #DDDDDD;
+    -fx-padding: 10;
+    padding: 10;
+}
+
+.policy_boxes Text {
+    -fx-fill: #000000;
+    fill:#000000;
+    -fx-font-size: 1.5em;
+    font-size:1.5em;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+}
+
+.policy_info {
+    -fx-fill: #000000;
+    fill:#000000;
+    -fx-font-size: 1.1em;
+    font-size:1.1em;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+}
+
 .insurance_container .list-view {
     -fx-background-color: #EEEEEE;
     background-color: #EEEEEE;

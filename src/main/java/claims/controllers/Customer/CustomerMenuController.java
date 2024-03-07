@@ -29,6 +29,7 @@ public class CustomerMenuController implements Initializable {
     private void addListeners() {
         home_btn.setOnAction(event -> onHome());
         claims_btn.setOnAction(event -> onClaims());
+        insurance_btn.setOnAction(event -> onInsurance());
     }
 
     private void onHome() {
@@ -37,5 +38,9 @@ public class CustomerMenuController implements Initializable {
 
     private void onClaims() {
         Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set("MyClaims");
+    }
+
+    private void onInsurance() {
+        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set("MyInsurance");
     }
 }

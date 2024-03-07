@@ -13,6 +13,7 @@ public class ViewFactory {
     private final StringProperty customerSelectedMenuItem;
     private AnchorPane homeView;
     private AnchorPane claimsView;
+    private AnchorPane insuranceView;
 
     public ViewFactory(){
         this.customerSelectedMenuItem = new SimpleStringProperty("");
@@ -42,6 +43,17 @@ public class ViewFactory {
             }
         }
         return claimsView;
+    }
+
+    public AnchorPane getInsuranceView() {
+        if (insuranceView == null){
+            try {
+                insuranceView = new FXMLLoader(getClass().getResource("/claims/fxml/MyInsurance.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return insuranceView;
     }
 
     public void showLoginWindow() {
