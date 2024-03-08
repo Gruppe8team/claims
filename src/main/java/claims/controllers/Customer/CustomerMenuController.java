@@ -2,25 +2,26 @@ package claims.controllers.Customer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import claims.models.Model;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-public class CustomerMenuController {
+public class CustomerMenuController implements Initializable {
 
     @FXML
-    private Button home_btn;
+    public Button home_btn;
     
     @FXML
-    private Button Insurance_btn;
+    public Button insurance_btn;
 
     @FXML
-    private Button claims_btn;
+    public Button claims_btn;
 
     @FXML
-    private Button logout_btn;
+    public Button logout_btn;
 
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
     }
@@ -28,6 +29,7 @@ public class CustomerMenuController {
     private void addListeners() {
         home_btn.setOnAction(event -> onHome());
         claims_btn.setOnAction(event -> onClaims());
+        insurance_btn.setOnAction(event -> onInsurance());
     }
 
     private void onHome() {
@@ -36,5 +38,9 @@ public class CustomerMenuController {
 
     private void onClaims() {
         Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set("MyClaims");
+    }
+
+    private void onInsurance() {
+        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set("MyInsurance");
     }
 }

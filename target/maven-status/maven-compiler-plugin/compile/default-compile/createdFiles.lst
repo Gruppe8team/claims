@@ -14,7 +14,9 @@ claims/controllers/LoginController.class
 claims/models/Model.class
 claims/Customer.class
 claims/SysAdmin.class
+claims/controllers/Customer/MyInsuranceController.class
 claims/AutoClaim.class
 claims/Claims.class
 claims/Policy.class
 claims/views/ViewFactory.class
+claims/controllers/Advisor/advisorMenuController.class
