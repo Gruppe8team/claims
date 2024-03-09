@@ -120,7 +120,7 @@ public class NewUserAccountGUIController {
     }
     @FXML
     private void stopAccount1() throws Exception {
-        newUser = new NewUser(0, null, null, null, null, null, null, null);
+        newUser = new NewUser();
         System.out.println(newUser.toString());
         initialize();
         Model.getInstance().getViewFactory().showLoginWindow();
@@ -146,9 +146,9 @@ public class NewUserAccountGUIController {
         }
     }
 
-    private void deleteAccount() {
+    private void deleteAccountLogic() {
 
-        System.out.println("Delete Account Executed");
+        System.out.println("Delete Account Logic Executed");
     }
 
     private void showEditAccountDialog() {
