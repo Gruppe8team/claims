@@ -30,6 +30,17 @@ public class NewUser {
 		this.email = email;
 	}
 
+    public NewUser() {
+		this.dob = null;
+		this.phone = null;
+		this.gender = null;
+		this.userID = 000000000;
+		this.passwordKey = null;
+		this.firstName = null;
+		this.lastName = null;
+		this.email = null;
+    }
+
 
 	public int getUserID() {
 		return userID;
