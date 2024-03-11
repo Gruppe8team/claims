@@ -1,8 +1,10 @@
-package application;
+package claims.controllers;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
