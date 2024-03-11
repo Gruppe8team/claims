@@ -1,0 +1,136 @@
+.insurance_container {
+    -fx-background-color: #EEEEEE;
+    background-color: #EEEEEE;
+}
+
+.insurance_container Text {
+    -fx-fill: #000000;
+    fill:#000000;
+    -fx-font-size: 2.5em;
+    font-size:2.5em;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+}
+
+.policy_boxes {
+    -fx-background-color: white;
+    background-color: white;
+    -fx-border-width: 2 2 2 2;
+    border-width: 2 2 2 2;
+    -fx-border-color: #DDDDDD;
+    border-color: #DDDDDD;
+    -fx-padding: 10;
+    padding: 10;
+    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 6);
+    -fx-pref-width: 250;
+}
+
+.policy_boxes Text {
+    -fx-fill: #000000;
+    fill:#000000;
+    -fx-font-size: 1.5em;
+    font-size:1.5em;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.policy_info {
+    -fx-fill: #000000;
+    fill:#000000;
+    -fx-font-size: 1.1em;
+    font-size:1.1em;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+}
+
+.option_box {
+    -fx-background-color: white;
+    background-color: white;
+    -fx-border-width: 2 2 2 2;
+    border-width: 2 2 2 2;
+    -fx-border-color: #DDDDDD;
+    border-color: #DDDDDD;
+    -fx-padding: 10;
+    padding: 10;
+    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 6);
+    -fx-border-radius:20px;
+    border-radius:20px;
+    -fx-background-radius: 20px;
+    -fx-spacing: 30px;
+}
+
+.option_box Text {
+    -fx-fill: #000000;
+    fill:#000000;
+    -fx-font-size: 1.5em;
+    font-size:1.5em;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+}
+
+.mini_boxes {
+    -fx-background-color: whitesmoke;
+    background-color: whitesmoke;
+    -fx-border-width: 2 2 2 2;
+    border-width: 2 2 2 2;
+    -fx-border-color: #DDDDDD;
+    border-color: #DDDDDD;
+    -fx-padding: 10;
+    padding: 10;
+    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 6);
+    -fx-border-radius:20px;
+    border-radius:20px;
+    -fx-background-radius: 20px;
+    -fx-alignment: center;
+    -fx-spacing: 5px;
+}
+
+.mini_boxes_lbl_title {
+    -fx-fill: #000000;
+    fill:#000000;
+    -fx-font-size: 1.9em;
+    font-size:1.9em;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+    -fx-font-weight: bold;
+    font-weight: bold;
+}
+
+.mini_boxes_lbl_link {
+    -fx-fill: #0000FF;
+    fill: #0000FF;
+    -fx-font-size: 1.1em;
+    font-size:1.1em;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+}
+
+
+.mini_boxes Button {
+    -fx-background-radius: 3;
+    -fx-pref-width: 80;
+    -fx-pref-height:20;
+    -fx-background-color:#FFFFFF;
+    background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-font-size: 1.1em;
+    font-size: 1.1em;
+    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 3);
+}
+
+
+
+.insurance_container .list-view {
+    -fx-background-color: #EEEEEE;
+    background-color: #EEEEEE;
+    -fx-padding: 10;
+    padding: 10;
+}
+
+.insurance_container .list-view .list-cell {
+    -fx-background-color: #EEEEEE;
+    background-color: #EEEEEE;
+    -fx-pref-width: 800;
+}
