@@ -26,7 +26,7 @@
                   <TextField fx:id="text_field_lastname" prefHeight="25.0" prefWidth="150.0" promptText="Last Name" styleClass="text_field" />
                </children>
             </HBox>
-            <TextField fx:id="textfield_email" alignment="TOP_LEFT" maxWidth="310.0" prefHeight="27.0" prefWidth="220.0" promptText="Email" styleClass="text_field" />
+            <TextField fx:id="textfield_email" alignment="TOP_LEFT" maxWidth="310.0" promptText="Email" styleClass="text_field" />
             <TextField fx:id="text_field_phonenumber" maxWidth="310.0" promptText="Phone Number" styleClass="text_field" />
             <TextField fx:id="text_field_password" maxWidth="310.0" promptText="Password " styleClass="text_field" />
             <TextField fx:id="text_field_confirm" maxWidth="310.0" promptText="Confirm Password" styleClass="text_field" />
