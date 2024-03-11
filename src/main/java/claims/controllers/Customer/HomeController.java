@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 
 public class HomeController implements Initializable {
 
-    public NewUser newUser;
+    public static NewUser newUser = UserAccountGUIController.newUser;
 
     @FXML
     private Label acc_dob;
@@ -54,12 +54,12 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_edit.setOnAction(event -> onEdit());
 
-        acc_name.setText(newUser.getFirstName()+" "+newUser.getLastName());
-        user_name.setText("Hi, "+newUser.getFirstName());
-        acc_gender.setText("Gender: "+newUser.getGender());
-        acc_dob.setText("DOB: "+newUser.getDob());
-        acc_email.setText("Email: "+newUser.getEmail());
-        acc_phonenumber.setText("Phone #: "+newUser.getPhone());
+        //acc_name.setText(newUser.getFirstName()+" "+newUser.getLastName());
+        //user_name.setText("Hi, "+newUser.getFirstName());
+        //acc_gender.setText("Gender: "+newUser.getGender());
+        //acc_dob.setText("DOB: "+newUser.getDob());
+        //acc_email.setText("Email: "+newUser.getEmail());
+        //acc_phonenumber.setText("Phone #: "+newUser.getPhone());
     }
 
     private void onEdit() {

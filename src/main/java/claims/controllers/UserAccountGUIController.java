@@ -9,7 +9,7 @@ import javafx.scene.text.Text;
 
 public class UserAccountGUIController {
 
-    public NewUser newUser = new NewUser(1,"","Kyle","Williamson","218953901@gmail.com","Oct 14, 2003","999-999-9999","Male");
+    public static NewUser newUser = new NewUser(1,"","Kyle","Williamson","218953901@gmail.com","Oct 14, 2003","999-999-9999","Male");
 
     @FXML
     private Label acc_btn;
