@@ -45,7 +45,7 @@
             <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" spacing="10.0">
                <children>
                   <Button fx:id="Button_Cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
-                  <Button fx:id="Button_Confirm" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Confirm" />
+                  <Button fx:id="Button_Confirm" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Save" />
                </children>
                <opaqueInsets>
                   <Insets />
