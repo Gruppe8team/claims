@@ -51,6 +51,11 @@
             <artifactId>javafx-graphics</artifactId>
             <version>21.0.2</version>
         </dependency>
+        <dependency>
+    		<groupId>org.xerial</groupId>
+    		<artifactId>sqlite-jdbc</artifactId>
+    		<version>3.34.0</version>
+		</dependency>
     </dependencies>
     <build>
         <plugins>
