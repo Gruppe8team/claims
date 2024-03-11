@@ -8,7 +8,6 @@ claims/Vehicle.class
 claims/Advisor.class
 claims/controllers/Customer/MyClaimsController.class
 claims/AdvisorMenuOptions.class
-claims/NewUserAccountGUIController.class
 claims/controllers/Customer/CustomerMenuController.class
 claims/registerGUI.class
 claims/controllers/LoginController.class

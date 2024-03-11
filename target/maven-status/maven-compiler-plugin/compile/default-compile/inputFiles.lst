@@ -1,6 +1,5 @@
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/Claims.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/AdvisorMenuOptions.java
-/Users/kylewilliamson/Documents/claims/src/main/java/claims/NewUserAccountGUIController.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/controllers/Customer/CustomerMenuController.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/UserAccountGUI.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/models/Model.java
@@ -14,6 +13,7 @@
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/SysAdmin.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/User.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/controllers/Advisor/advisorMenuController.java
+/Users/kylewilliamson/Documents/claims/src/main/java/claims/controllers/NewUserAccountGUIController.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/registerGUI.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/CustomerMenuOptions.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/Customer.java
