@@ -1,5 +1,6 @@
-package claims;
+package claims.controllers;
 
+import claims.NewUser;
 import claims.models.Model;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
