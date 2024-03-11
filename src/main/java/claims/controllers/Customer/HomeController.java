@@ -4,6 +4,7 @@ package claims.controllers.Customer;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -46,6 +47,12 @@ public class HomeController implements Initializable {
     @FXML
     private Button btn_edit;
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {}
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        btn_edit.setOnAction(event -> onEdit());
+    }
+
+    private void onEdit() {
+        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set("Edit");
+    }
 
 }
