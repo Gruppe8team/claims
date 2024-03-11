@@ -1,8 +1,11 @@
 package claims.views;
 
+import claims.Advisor;
+import claims.AdvisorMenuOptions;
+import claims.CustomerMenuOptions;
 import claims.controllers.Customer.CustomerController;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -10,17 +13,29 @@ import javafx.stage.Stage;
 
 public class ViewFactory {
     //Customer Views
-    private final StringProperty customerSelectedMenuItem;
+    private final ObjectProperty<CustomerMenuOptions> customerSelectedMenuItem;
     private AnchorPane homeView;
     private AnchorPane claimsView;
     private AnchorPane insuranceView;
+    private AnchorPane editView;
+
+    //Adivisor Views
+    private final ObjectProperty<AdvisorMenuOptions> advisorSelectedMenuItem;
+    private AnchorPane advisorHomeView;
+    private AnchorPane advisorClaimsView;
+    private AnchorPane advisorInsuranceView;
 
     public ViewFactory(){
-        this.customerSelectedMenuItem = new SimpleStringProperty("");
+        this.customerSelectedMenuItem = new SimpleObjectProperty<>();
+        this.advisorSelectedMenuItem = new SimpleObjectProperty<>();
     }
 
-    public StringProperty getCustomerSelectedMenuItem() {
+    public ObjectProperty<CustomerMenuOptions> getCustomerSelectedMenuItem() {
         return customerSelectedMenuItem;
+    }
+
+    public ObjectProperty<AdvisorMenuOptions> getAdvisorSelectedMenuItem() {
+        return advisorSelectedMenuItem;
     }
 
     public AnchorPane getHomeView() {
@@ -32,6 +47,17 @@ public class ViewFactory {
             }
         }
         return homeView;
+    }
+
+    public AnchorPane getEditView() {
+        if (editView == null){
+            try {
+                editView = new FXMLLoader(getClass().getResource("/claims/fxml/UserAccountGUI.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return editView;
     }
 
     public AnchorPane getClaimsView() {

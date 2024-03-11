@@ -9,7 +9,7 @@
     </left>
 
     <center>
-        <fx:include source="UserAccountGUI.fxml"/>
+        <fx:include source="Home.fxml"/>
     </center>
 
 </BorderPane>

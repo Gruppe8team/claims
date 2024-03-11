@@ -51,3 +51,7 @@
     -fx-border-color: #DDDDDD;
     border-color: #DDDDDD;
 }
+
+.hbox {
+    -fx-spacing: 10px;
+}

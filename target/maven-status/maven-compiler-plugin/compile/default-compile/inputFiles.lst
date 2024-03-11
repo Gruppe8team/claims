@@ -1,7 +1,6 @@
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/Claims.java
-/Users/kylewilliamson/Documents/claims/src/main/java/claims/NewUserAccountGUIController.java
+/Users/kylewilliamson/Documents/claims/src/main/java/claims/AdvisorMenuOptions.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/controllers/Customer/CustomerMenuController.java
-/Users/kylewilliamson/Documents/claims/src/main/java/claims/UserAccountGUI.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/models/Model.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/Vehicle.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/controllers/Customer/HomeController.java
@@ -14,8 +13,10 @@
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/User.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/controllers/Advisor/advisorMenuController.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/registerGUI.java
+/Users/kylewilliamson/Documents/claims/src/main/java/claims/CustomerMenuOptions.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/Customer.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/controllers/LoginController.java
+/Users/kylewilliamson/Documents/claims/src/main/java/claims/controllers/UserAccountGUIController.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/controllers/registerGUIController.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/Advisor.java
 /Users/kylewilliamson/Documents/claims/src/main/java/claims/controllers/Customer/MyClaimsController.java
