@@ -53,11 +53,19 @@ public class registerGUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Button_Confirm.setOnAction(event -> registerDetails());
         Button_Cancel.setOnAction(event -> onCancel());
     }
 
     public void onCancel() {
         Stage stage = (Stage) Button_Cancel.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showLoginWindow();
+    }
+
+    public void registerDetails() {
+        Stage stage = (Stage) Button_Confirm.getScene().getWindow();
+
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showLoginWindow();
     }
