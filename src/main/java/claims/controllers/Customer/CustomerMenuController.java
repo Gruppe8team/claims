@@ -2,6 +2,8 @@ package claims.controllers.Customer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import claims.CustomerMenuOptions;
 import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,14 +35,14 @@ public class CustomerMenuController implements Initializable {
     }
 
     private void onHome() {
-        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set("Home");
+        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
     }
 
     private void onClaims() {
-        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set("MyClaims");
+        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.CLAIMS);
     }
 
     private void onInsurance() {
-        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set("MyInsurance");
+        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.INSURANCE);
     }
 }

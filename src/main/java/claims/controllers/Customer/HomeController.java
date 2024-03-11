@@ -4,6 +4,7 @@ package claims.controllers.Customer;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import claims.CustomerMenuOptions;
 import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -52,7 +53,7 @@ public class HomeController implements Initializable {
     }
 
     private void onEdit() {
-        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set("Edit");
+        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.EDIT);
     }
 
 }
