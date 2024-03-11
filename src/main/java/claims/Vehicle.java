@@ -52,6 +52,10 @@ public class Vehicle {
             return "No owner assigned";
         }
     }
+    
+    public Customer getOwner() {
+    	return this.owner;
+    }
 
     /**
      * Sets the owner of the vehicle.

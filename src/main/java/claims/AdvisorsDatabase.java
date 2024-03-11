@@ -1,11 +1,15 @@
 import java.sql.*;
 public class AdvisorsDatabase {
+<<<<<<< HEAD:src/main/java/claims/AdvisorsDatabase
 	public static void main(String[] args) {
 		String dbName = "advisors";
 		String dbUser = "postgres";
 		String userPassword = "Sh3ld0n1a";
 		String url = "jdbc:postgresql://localhost:5432/" + dbName ;
 		
+=======
+		public static void main(String[] args) {
+>>>>>>> 0fbf39ad56092a467a628bb21c610feabb755ed4:src/main/java/claims/AdvisorsDatabase.java
 		try {
 			Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/advisors", "postgres", "Sh3ld0n1a");
 			System.out.println("Connected_to_the_PostgreSQL_server_successfully.");
@@ -20,7 +24,19 @@ public class AdvisorsDatabase {
 			}
 			connection.close();
 			
+<<<<<<< HEAD:src/main/java/claims/AdvisorsDatabase
 	} catch(SQLException e) {
 		System.out.println("Connection_Failure");
 		e.printStackTrace();
+=======
+		} catch(SQLException e) {
+			System.out.println("Connection_Failure");
+			e.printStackTrace();
+		}
+		
+		
+		}
+
+
+>>>>>>> 0fbf39ad56092a467a628bb21c610feabb755ed4:src/main/java/claims/AdvisorsDatabase.java
 }

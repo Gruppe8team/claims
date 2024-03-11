@@ -1,10 +1,9 @@
-package claims.controllers;
+package application;
 
 import java.net.URL;
+import java.sql.*;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-
-import claims.Advisor;
-import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class registerGUIController implements Initializable {
+	
 
     @FXML
     private Button Button_Cancel;
@@ -50,45 +50,49 @@ public class registerGUIController implements Initializable {
 
     @FXML
     private TextField textfield_firstname;
+    
+    private String[] gender = {"Male", "Female", "Other"};
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        selector.getItems().add("Advisor");
-        selector.getItems().add("Customer");
-        selector.getItems().add("SysAdmin");
-        selector.getItems().add("Choose..");
-        selector.setValue("Choose..");
-        Button_Confirm.setOnAction(event -> registerDetails());
         Button_Cancel.setOnAction(event -> onCancel());
-
-    }
-
-    private void getChoice(ChoiceBox<String> choiceBox) {
-        String choice = choiceBox.getValue();
-        if (choice.equals("Advisor")){
-
-        }else if (choice.equals("Customer")){
-
-        }else if (choice.equals("SysAdmin")){
-
-        }else{
-throw new RuntimeException();
-        }
+        Button_Confirm.setOnAction(event -> onConfirm());
+        selector.getItems().addAll(gender);
     }
 
     public void onCancel() {
         Stage stage = (Stage) Button_Cancel.getScene().getWindow();
-
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showLoginWindow();
     }
-
-    public void registerDetails() {
-        Stage stage = (Stage) Button_Confirm.getScene().getWindow();
-        getChoice(selector);
+    
+    public void onConfirm() {
+    	
+    	String first = textfield_firstname.getText();
+    	String last = text_field_lastname.getText();
+    	String email = textfield_email.getText();
+    	String phone = text_field_phonenumber.getText();
+    	String pass = text_field_password.getText();
+    	String address = text_field_address.getText();
+    	String gender = selector.getValue();
+    	String age = text_field_age.getText();
+    	String birth = text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+    	
+    	
+    	try {
+			userDAO dao = new userDAO();
+			dao.addToTable(first, last, email, phone, pass, address, gender, age, birth);
+			System.out.println("DAO Good");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    	
+    	Stage stage = (Stage) Button_Confirm.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showLoginWindow();
+    	
     }
+    
 }
 
