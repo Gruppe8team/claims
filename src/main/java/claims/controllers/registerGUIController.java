@@ -3,6 +3,7 @@ package claims.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import claims.Advisor;
 import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +22,7 @@ public class registerGUIController implements Initializable {
     private Button Button_Confirm;
 
     @FXML
-    private ChoiceBox selector;
+    private ChoiceBox<String> selector = new ChoiceBox<>();
 
     @FXML
     private TextField text_field_address;
@@ -53,12 +54,33 @@ public class registerGUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        selector.getItems().add("Advisor");
+        selector.getItems().add("Customer");
+        selector.getItems().add("SysAdmin");
+        selector.getItems().add("Choose..");
+        selector.setValue("Choose..");
         Button_Confirm.setOnAction(event -> registerDetails());
+        Button_Confirm.setOnAction(event -> getChoice(selector));
         Button_Cancel.setOnAction(event -> onCancel());
+
+    }
+
+    private void getChoice(ChoiceBox<String> choiceBox) {
+        String choice = choiceBox.getValue();
+        if (choice.equals("Advisor")){
+
+        }else if (choice.equals("Customer")){
+
+        }else if (choice.equals("SysAdmin")){
+
+        }else{
+
+        }
     }
 
     public void onCancel() {
         Stage stage = (Stage) Button_Cancel.getScene().getWindow();
+
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showLoginWindow();
     }
