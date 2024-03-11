@@ -21,4 +21,5 @@ claims/AutoClaim.class
 claims/Claims.class
 claims/Policy.class
 claims/views/ViewFactory.class
+claims/controllers/NewUserAccountGUIController.class
 claims/controllers/Advisor/advisorMenuController.class
