@@ -60,7 +60,6 @@ public class registerGUIController implements Initializable {
         selector.getItems().add("Choose..");
         selector.setValue("Choose..");
         Button_Confirm.setOnAction(event -> registerDetails());
-        Button_Confirm.setOnAction(event -> getChoice(selector));
         Button_Cancel.setOnAction(event -> onCancel());
 
     }
@@ -74,7 +73,7 @@ public class registerGUIController implements Initializable {
         }else if (choice.equals("SysAdmin")){
 
         }else{
-
+throw new RuntimeException();
         }
     }
 
@@ -87,7 +86,7 @@ public class registerGUIController implements Initializable {
 
     public void registerDetails() {
         Stage stage = (Stage) Button_Confirm.getScene().getWindow();
-
+        getChoice(selector);
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showLoginWindow();
     }
