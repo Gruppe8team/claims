@@ -1,5 +1,6 @@
 package claims.controllers;
 
+import claims.CustomerMenuOptions;
 import claims.NewUser;
 import claims.models.Model;
 import javafx.event.ActionEvent;
@@ -74,6 +75,26 @@ public class UserAccountGUIController {
         dob_lbl.setText("DOB: "+newUser.getDob());
         email_lbl.setText("Email: "+newUser.getEmail());
         phone_lbl.setText("Phone #: "+newUser.getPhone());
+
+        addListeners();
+    }
+
+    private void addListeners() {
+        save_btn.setOnAction(event -> onSave());
+        cancel_btn.setOnAction(event -> onCancel());
+        delete_btn.setOnAction(event -> onDelete());
+    }
+
+    private void onCancel() {
+        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
+    }
+
+    private void onDelete() {
+        
+    }
+
+    private void onSave() {
+
     }
 
 }
