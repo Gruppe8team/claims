@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../style/Edit.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Customer.NewUserAccountGUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../style/Edit.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.UserAccountGUIController">
 
     <children>
         <Label fx:id="today_lbl" layoutX="788.0" layoutY="29.0" styleClass="date_lbl" text="Today, 29/02/2023" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />

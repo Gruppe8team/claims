@@ -1,7 +1,6 @@
 claims/User.class
 claims/controllers/Customer/CustomerController.class
 claims/controllers/Customer/HomeController.class
-claims/UserAccountGUI.class
 claims/NewUser.class
 claims/controllers/registerGUIController.class
 claims/Vehicle.class
@@ -21,5 +20,4 @@ claims/AutoClaim.class
 claims/Claims.class
 claims/Policy.class
 claims/views/ViewFactory.class
-claims/controllers/NewUserAccountGUIController.class
 claims/controllers/Advisor/advisorMenuController.class

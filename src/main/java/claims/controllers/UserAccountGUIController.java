@@ -8,9 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 
-import java.beans.Visibility;
-
-public class NewUserAccountGUIController {
+public class UserAccountGUIController {
 
     private NewUser newUser = new NewUser(1,"","Kyle","Williamson","218953901@gmail.com","Oct 14, 2003","999-999-9999","Male");
 
