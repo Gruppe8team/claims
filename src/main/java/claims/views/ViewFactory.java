@@ -14,6 +14,7 @@ public class ViewFactory {
     private AnchorPane homeView;
     private AnchorPane claimsView;
     private AnchorPane insuranceView;
+    private AnchorPane editView;
 
     public ViewFactory(){
         this.customerSelectedMenuItem = new SimpleStringProperty("");
@@ -32,6 +33,17 @@ public class ViewFactory {
             }
         }
         return homeView;
+    }
+
+    public AnchorPane getEditView() {
+        if (editView == null){
+            try {
+                editView = new FXMLLoader(getClass().getResource("/claims/fxml/UserAccountGUI.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return editView;
     }
 
     public AnchorPane getClaimsView() {
