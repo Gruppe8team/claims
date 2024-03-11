@@ -3,8 +3,9 @@ package claims.controllers.Customer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import claims.controllers.UserAccountGUIController;
 import claims.CustomerMenuOptions;
+import claims.NewUser;
 import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +15,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 
 public class HomeController implements Initializable {
+
+    public NewUser newUser;
 
     @FXML
     private Label acc_dob;
@@ -50,6 +53,13 @@ public class HomeController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_edit.setOnAction(event -> onEdit());
+
+        acc_name.setText(newUser.getFirstName()+" "+newUser.getLastName());
+        user_name.setText("Hi, "+newUser.getFirstName());
+        acc_gender.setText("Gender: "+newUser.getGender());
+        acc_dob.setText("DOB: "+newUser.getDob());
+        acc_email.setText("Email: "+newUser.getEmail());
+        acc_phonenumber.setText("Phone #: "+newUser.getPhone());
     }
 
     private void onEdit() {
