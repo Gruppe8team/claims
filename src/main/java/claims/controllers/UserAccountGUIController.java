@@ -94,7 +94,43 @@ public class UserAccountGUIController {
     }
 
     private void onSave() {
-
+        if(firstname_field.getText().isEmpty()) {
+            newUser.setFirstName(newUser.getFirstName());
+        } else {
+            newUser.setFirstName(firstname_field.getText());
+        }
+        if(lastname_field.getText().isEmpty()) {
+            newUser.setLastName(newUser.getLastName());
+        } else {
+            newUser.setLastName(lastname_field.getText());
+        }
+        if(gender_field.getText().isEmpty()) {
+            newUser.setGender(newUser.getGender());
+        } else {
+            newUser.setGender(gender_field.getText());
+        }
+        if(dob_field.getText().isEmpty()) {
+            newUser.setDob(newUser.getDob());
+        } else {
+            newUser.setDob(dob_field.getText());
+        }
+        if(email_field.getText().isEmpty()) {
+            newUser.setEmail(newUser.getEmail());
+        } else {
+            newUser.setEmail(email_field.getText());
+        }
+        if(phone_field.getText().isEmpty()) {
+            newUser.setPhone(newUser.getPhone());
+        } else {
+            newUser.setPhone(phone_field.getText());
+        }
+        name_lbl.setText(newUser.getFirstName()+" "+newUser.getLastName());
+        username_lbl.setText("Hi, "+newUser.getFirstName());
+        gender_lbl.setText("Gender: "+newUser.getGender());
+        dob_lbl.setText("DOB: "+newUser.getDob());
+        email_lbl.setText("Email: "+newUser.getEmail());
+        phone_lbl.setText("Phone #: "+newUser.getPhone());
+        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
     }
 
 }
