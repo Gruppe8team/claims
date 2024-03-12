@@ -6,7 +6,7 @@ public class NewUser {
     private String dob;
     private String phone;
     private String gender;
-    
+
     private int userID;
     private String passwordKey;
 
@@ -14,12 +14,12 @@ public class NewUser {
     private String lastName;
 
     private String email;
-    
-    
+
+
 
     public NewUser(int userID, String passwordKey, String firstName,
 			String lastName, String email,String dob, String phone, String gender) {
-		
+
 		this.dob = dob;
 		this.phone = phone;
 		this.gender = gender;
@@ -118,7 +118,7 @@ public class NewUser {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    
+
     @Override
 	public String toString() {
 		return "NewUser{" +
@@ -132,5 +132,5 @@ public class NewUser {
 				", email='" + email + '\'' +
 				'}';
 	}
-    
+
 }

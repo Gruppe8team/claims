@@ -1,6 +1,11 @@
 package claims.controllers;
 
 import java.net.URL;
+
+import claims.models.Model;
+import claims.CustomerDatabase;
+import claims.NewUser;
+
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
@@ -9,11 +14,14 @@ import claims.userDAO;
 import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 
 public class registerGUIController implements Initializable {
 	
@@ -56,12 +64,21 @@ public class registerGUIController implements Initializable {
     
     private String[] gender = {"Male", "Female", "Other"};
 
+    private static String dob;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Button_Cancel.setOnAction(event -> onCancel());
         Button_Confirm.setOnAction(event -> onConfirm());
         selector.getItems().addAll(gender);
+
+//Jaye's
+        text_field_dob.valueProperty().addListener((obs, oldVal, newVal) -> {
+            System.out.println("Selected date: " + newVal);
+            dob = newVal.toString();
+        });
+//Jaye's
     }
 
     public void onCancel() {
@@ -96,6 +113,37 @@ public class registerGUIController implements Initializable {
         Model.getInstance().getViewFactory().showLoginWindow();
     	
     }
+
+    //Jaye's
+    @FXML
+    public void onSave() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Save Account");
+        alert.setContentText("Are you sure you want to Save this account?");
+
+        ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+        if (result == ButtonType.OK) {
+
+            try {
+                NewUser newUser = new NewUser();
+                newUser.setPasswordKey(text_field_password.getText());
+                newUser.setFirstName(textfield_firstname.getText());
+                newUser.setLastName(text_field_lastname.getText());
+                newUser.setPhone(text_field_phonenumber.getText());
+                newUser.setEmail(textfield_email.getText());
+                newUser.setGender(text_field_age.getText());
+                newUser.setDob(dob);
+                CustomerDatabase.saveNewUser(newUser);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        Stage stage = (Stage) Button_Cancel.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showLoginWindow();
+    }
+//Jaye's
     
 }
 
