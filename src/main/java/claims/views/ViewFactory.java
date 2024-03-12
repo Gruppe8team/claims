@@ -3,6 +3,7 @@ package claims.views;
 import claims.Advisor;
 import claims.AdvisorMenuOptions;
 import claims.CustomerMenuOptions;
+import claims.controllers.Advisor.AdvisorController;
 import claims.controllers.Customer.CustomerController;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -23,7 +24,7 @@ public class ViewFactory {
     private final ObjectProperty<AdvisorMenuOptions> advisorSelectedMenuItem;
     private AnchorPane advisorHomeView;
     private AnchorPane advisorClaimsView;
-    private AnchorPane advisorInsuranceView;
+    private AnchorPane advisorPolicyView;
 
     public ViewFactory(){
         this.customerSelectedMenuItem = new SimpleObjectProperty<>();
@@ -38,6 +39,7 @@ public class ViewFactory {
         return advisorSelectedMenuItem;
     }
 
+    //Customer Views
     public AnchorPane getHomeView() {
         if (homeView == null){
             try {
@@ -47,17 +49,6 @@ public class ViewFactory {
             }
         }
         return homeView;
-    }
-
-    public AnchorPane getEditView() {
-        if (editView == null){
-            try {
-                editView = new FXMLLoader(getClass().getResource("/claims/fxml/UserAccountGUI.fxml")).load();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return editView;
     }
 
     public AnchorPane getClaimsView() {
@@ -82,6 +73,52 @@ public class ViewFactory {
         return insuranceView;
     }
 
+    public AnchorPane getEditView() {
+        if (editView == null){
+            try {
+                editView = new FXMLLoader(getClass().getResource("/claims/fxml/UserAccountGUI.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return editView;
+    }
+
+    //Advisor Views
+    public AnchorPane getAdvisorHomeView() {
+        if (advisorHomeView == null){
+            try {
+                advisorHomeView = new FXMLLoader(getClass().getResource("/claims/fxml/AdvisorHome.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return advisorHomeView;
+    }
+
+    public AnchorPane getAdvisorClaimsView() {
+        if (advisorClaimsView == null){
+            try {
+                advisorClaimsView = new FXMLLoader(getClass().getResource("/claims/fxml/AdvisorClaims.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return advisorClaimsView;
+    }
+
+    public AnchorPane getAdvisorPolicyView() {
+        if (advisorPolicyView == null){
+            try {
+                advisorPolicyView = new FXMLLoader(getClass().getResource("/claims/fxml/AdvisorPolicy.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return advisorPolicyView;
+    }
+
+    //Windows
     public void showLoginWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Login.fxml"));
         createStage(loader);
@@ -94,11 +131,19 @@ public class ViewFactory {
         createStage(loader);
     }
 
+    public void showAdvisorWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Advisor.fxml"));
+        AdvisorController advisorController = new AdvisorController();
+        loader.setController(advisorController);
+        createStage(loader);
+    }
+
     public void showRegisterWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/registerGUI.fxml"));
         createStage(loader);
     }
 
+    //Stage Creation/Closing
     private void createStage(FXMLLoader loader) {
         Scene scene = null;
         try {
