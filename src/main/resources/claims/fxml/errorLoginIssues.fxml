@@ -1,0 +1,65 @@
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main" stylesheets="@../style/registerGUI.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.registerGUIController">
+    <children>
+        <VBox alignment="CENTER" layoutX="40.0" layoutY="34.0" prefHeight="366.0" prefWidth="552.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="24.0">
+            <children>
+                <Label styleClass="lbl" text="AutoClaim Register">
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font>
+                </Label>
+                <TextFlow prefHeight="200.0" prefWidth="200.0" />
+                <HBox alignment="CENTER" prefHeight="25.0" prefWidth="211.0" spacing="10.0">
+                    <children>
+                        <TextField fx:id="textfield_firstname" prefHeight="25.0" prefWidth="150.0" promptText="First Name" styleClass="text_field" />
+                        <TextField fx:id="text_field_lastname" prefHeight="25.0" prefWidth="150.0" promptText="Last Name" styleClass="text_field" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="27.0" prefWidth="383.0">
+                    <children>
+                        <TextField fx:id="textfield_email" alignment="TOP_LEFT" maxWidth="310.0" prefHeight="27.0" prefWidth="310.0" promptText="Email" styleClass="text_field" />
+                    </children>
+                </HBox>
+                <TextField fx:id="text_field_phonenumber" maxWidth="310.0" promptText="Phone Number" styleClass="text_field" />
+                <TextField fx:id="text_field_password" maxWidth="310.0" promptText="Password " styleClass="text_field" />
+                <TextField fx:id="text_field_confirm" maxWidth="310.0" promptText="Confirm Password" styleClass="text_field" />
+                <HBox alignment="CENTER" prefHeight="20.0" prefWidth="264.0" spacing="10.0">
+                    <children>
+                        <TextField fx:id="text_field_address" prefHeight="25.0" prefWidth="220.0" promptText="Address" styleClass="text_field" />
+                        <ChoiceBox fx:id="selector" prefWidth="80.0" styleClass="checkbox" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="12.0" prefWidth="264.0" spacing="10.0">
+                    <children>
+                        <TextField fx:id="text_field_age" prefHeight="25.0" prefWidth="100.0" promptText="Age" styleClass="text_field" />
+                        <DatePicker fx:id="text_field_dob" prefHeight="25.0" prefWidth="200.0" promptText="Date of Birth" styleClass="text_field" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="75.0" prefWidth="200.0" spacing="10.0">
+                    <children>
+                        <Button fx:id="Button_Cancel" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
+                        <Button fx:id="Button_Confirm" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" text="Save" />
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <padding>
+                        <Insets bottom="10.0" />
+                    </padding>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
