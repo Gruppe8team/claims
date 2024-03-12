@@ -30,8 +30,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="27.0" prefWidth="383.0">
                <children>
-                  <TextField fx:id="textfield_email" alignment="TOP_LEFT" maxWidth="310.0" prefHeight="27.0" prefWidth="230.0" promptText="Email" styleClass="text_field" />
-                  <ChoiceBox fx:id="selector1" prefHeight="27.0" prefWidth="106.0" styleClass="checkbox" />
+                  <TextField fx:id="textfield_email" alignment="TOP_LEFT" maxWidth="310.0" prefHeight="27.0" prefWidth="310.0" promptText="Email" styleClass="text_field" />
                </children>
             </HBox>
             <TextField fx:id="text_field_phonenumber" maxWidth="310.0" promptText="Phone Number" styleClass="text_field" />
