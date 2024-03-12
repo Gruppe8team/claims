@@ -72,6 +72,28 @@ public class LoginController implements Initializable {
 //        		e.printStackTrace();
 //        	}
 //    	}
+	    
+// Jaye's 
+        NewUser newUser = new NewUser();
+        newUser.setPasswordKey(TextField_Password.getText());
+        newUser.setEmail(TextField_Email.getText());
+        String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
+                "and passwordkey = \'"+newUser.getPasswordKey()+"\'";
+        NewUser user = CustomerDatabase.getUser(sql);
+        if(user.getUserID() == 0 || "".equals(newUser.getPasswordKey()) || "".equals(newUser.getEmail())){
+            //failure
+            System.out.println("null");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Title");
+            alert.setContentText("Your email or password might be incorrect");
+            ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+            if (result == ButtonType.OK) {
+            }
+            return;
+        }
+        NewUserAccountGUIController.newUser = user;
+//Jaye's   
     	
     	Stage stage = (Stage) Button_SignIn.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
