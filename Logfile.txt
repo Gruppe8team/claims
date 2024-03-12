@@ -21,7 +21,7 @@ Date: 2024-02-16
   - [Agenda 5 2024-03-04 21:30:00]
     - Discussion: Story Check,Datbase Design & Assignment
 
-  - [Agenda 5 2024-03-11 21:30:00]
+  - [Agenda 6 2024-03-11 21:30:00]
     - Discussion: Itration 2 Review, Itration 3 Stories
    
 **Big Design Decisions:**
