@@ -2,89 +2,91 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../style/Edit.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.UserAccountGUIController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@NewUserAccountGUI.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.NewUserAccountGUIController">
 
     <children>
-        <Label fx:id="today_lbl" layoutX="788.0" layoutY="29.0" styleClass="date_lbl" text="Today, 29/02/2023" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
-        <Text fx:id="username_lbl" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Hi, Kyle" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
+        <Label layoutX="788.0" layoutY="29.0" styleClass="date_lbl" text="Today, 2024-02-29" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
+        <Text fx:id="user_name" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Account Information" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0" />
         <HBox prefHeight="180.0" prefWidth="570.0" styleClass="accounts_view" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0">
             <children>
-                <VBox prefHeight="158.0" prefWidth="202.0" styleClass="account">
+                <VBox prefHeight="161.0" prefWidth="360.0" styleClass="account">
                     <children>
-                        <Label fx:id="name_lbl" styleClass="account_name" text="Kyle Williamson" />
-                        <Label fx:id="gender_lbl" text="Gender: Male" />
-                        <Label fx:id="dob_lbl" text="DOB: 14/10/2003" />
-                        <Label fx:id="acc_btn" text="Account Type: Client" />
-                        <Label fx:id="email_lbl" styleClass="account_important" text="Email: 218953901@my.yorku.ca" />
-                        <Label fx:id="phone_lbl" styleClass="account_important" text="Phone: 999-999-9999" />
+                        <Label fx:id="name" styleClass="account_name" />
+                        <Label fx:id="gender" />
+                        <Label fx:id="dob" />
+                        <Label prefHeight="20.0" prefWidth="178.0" text="Account Type: Client" />
+                        <Label fx:id="email" styleClass="account_important" />
+                        <Label fx:id="phone" prefHeight="28.0" prefWidth="186.0" styleClass="account_important" />
+                       <Button onAction="#editAccount" text="Edit" />
                     </children>
                 </VBox>
                 <AnchorPane prefHeight="158.0" prefWidth="326.0" styleClass="account">
                     <children>
-                        <Label layoutX="215.0" layoutY="35.0" text="Account Since 01/01/2024" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label layoutX="215.0" layoutY="35.0" text="Account Since 2024-01-01" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                     </children>
                 </AnchorPane>
+                <VBox prefHeight="180.0" prefWidth="100.0" />
             </children>
         </HBox>
 
-        <Text layoutX="20.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Editing My Account" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="340.0" />
-      <VBox prefHeight="365.0" prefWidth="570.0" styleClass="edit_view" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0">
+        <Text fx:id="visibility10" layoutX="20.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Editing My Account" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="340.0" />
+        <ListView layoutX="20.0" layoutY="361.0" prefHeight="365.0" prefWidth="604.0" styleClass="recentclaims_listview" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="20.0" />
+
+
+            <HBox fx:id="visibility" layoutX="20.0" layoutY="420.0" prefHeight="39.0" prefWidth="281.0">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="135.0" text="First Name" textAlignment="RIGHT" />
+                    <TextField fx:id="FirstName" prefHeight="28.0" prefWidth="188.0" />
+                </children>
+            </HBox>
+            <HBox fx:id="visibility2" layoutX="330.0" layoutY="427.0" prefHeight="39.0" prefWidth="281.0">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="135.0" text="Last Name" textAlignment="RIGHT" />
+                    <TextField fx:id="LastName" prefHeight="28.0" prefWidth="188.0" />
+                </children>
+            </HBox>
+            <HBox fx:id="visibility3" layoutX="20.0" layoutY="481.0" prefHeight="39.0" prefWidth="281.0">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="135.0" text="dob" textAlignment="RIGHT" />
+                    <TextField fx:id="dob1" prefHeight="28.0" prefWidth="188.0" />
+                </children>
+            </HBox>
+            <HBox fx:id="visibility4" layoutX="330.0" layoutY="481.0" prefHeight="39.0" prefWidth="281.0">
+                <children>
+                    <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="135.0" text="gender" textAlignment="RIGHT" />
+                    <TextField fx:id="gender1" prefHeight="28.0" prefWidth="188.0" />
+                </children>
+            </HBox>
+
+            <Button fx:id="visibility5" layoutX="525.0" layoutY="598.0" mnemonicParsing="false" onAction="#saveEditAccountDialog" text="Save" />
+            <Button fx:id="visibility6" layoutX="428.0" layoutY="598.0" mnemonicParsing="false" onAction="#stopAccount" text="Cancel" />
+            <Button fx:id="visibility7" layoutX="453.0" layoutY="375.0" mnemonicParsing="false" onAction="#deleteAccount" text="Delete My Account" />
+      <HBox fx:id="visibility8" layoutX="24.0" layoutY="544.0" prefHeight="39.0" prefWidth="281.0">
          <children>
-                  <Button fx:id="delete_btn" mnemonicParsing="false" styleClass="delete" text="Delete My Account" />
-      
-            
-                        <HBox prefHeight="20.0" prefWidth="281.0" styleClass="edit_field">
-                      <children>
-                          <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="70.0" text="First Name" textAlignment="RIGHT" />
-                          <TextField fx:id="firstname_field" prefHeight="28.0" prefWidth="188.0" styleClass="text_field" />
-                      </children>
-                  </HBox>
-                  <HBox prefHeight="20.0" prefWidth="281.0" styleClass="edit_field">
-                      <children>
-                          <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="70.0" text="Last Name" textAlignment="RIGHT" />
-                          <TextField fx:id="lastname_field" prefHeight="28.0" prefWidth="188.0" styleClass="text_field" />
-                      </children>
-                  </HBox>
-                  <HBox prefHeight="20.0" prefWidth="281.0" styleClass="edit_field">
-                      <children>
-                          <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="70.0" text="DOB" textAlignment="RIGHT" />
-                          <TextField fx:id="dob_field" prefHeight="28.0" prefWidth="188.0" styleClass="text_field" />
-                      </children>
-                  </HBox>
-            <HBox prefHeight="20.0" prefWidth="281.0" styleClass="edit_field">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="70.0" text="Email" textAlignment="RIGHT" />
-                  <TextField fx:id="email_field" prefHeight="28.0" prefWidth="188.0" styleClass="text_field" />
-               </children>
-            </HBox>
-            <HBox prefHeight="20.0" prefWidth="281.0" styleClass="edit_field">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="70.0" text="Phone" textAlignment="RIGHT" />
-                  <TextField fx:id="phone_field" prefHeight="28.0" prefWidth="188.0" styleClass="text_field" />
-               </children>
-            </HBox>
-                  <HBox prefHeight="20.0" prefWidth="281.0" styleClass="edit_field">
-                      <children>
-                          <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="70.0" text="Gender" textAlignment="RIGHT" />
-                          <TextField fx:id="gender_field" prefHeight="28.0" prefWidth="188.0" styleClass="text_field" />
-                      </children>
-                  </HBox>
-            <HBox prefHeight="20.0" prefWidth="200.0" styleClass="edit_buttons">
-               <children>
-            
-                        <Button fx:id="save_btn" mnemonicParsing="false" text="Save" />
-                        <Button fx:id="cancel_btn" mnemonicParsing="false" text="Cancel" />
-               </children>
-            </HBox>
+            <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="135.0" text="email" textAlignment="RIGHT" />
+            <TextField fx:id="email1" prefHeight="28.0" prefWidth="188.0" />
          </children>
-      </VBox>
+      </HBox>
+      <HBox fx:id="visibility9" layoutX="330.0" layoutY="536.0" prefHeight="39.0" prefWidth="281.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="135.0" text="phone" textAlignment="RIGHT" />
+            <TextField fx:id="phone1" prefHeight="28.0" prefWidth="188.0" />
+         </children>
+      </HBox>
+      <HBox fx:id="visibility11" layoutX="28.0" layoutY="598.0" prefHeight="39.0" prefWidth="281.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="135.0" text="password" textAlignment="RIGHT" />
+            <TextField fx:id="password" prefHeight="28.0" prefWidth="188.0" />
+         </children>
+      </HBox>
 
 
     </children>
