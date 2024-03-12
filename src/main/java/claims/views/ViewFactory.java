@@ -43,7 +43,7 @@ public class ViewFactory {
     public AnchorPane getHomeView() {
         if (homeView == null){
             try {
-                homeView = new FXMLLoader(getClass().getResource("/claims/fxml/Home.fxml")).load();
+                homeView = new FXMLLoader(getClass().getResource("/claims/fxml/Customer/Home.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -54,7 +54,7 @@ public class ViewFactory {
     public AnchorPane getClaimsView() {
         if (claimsView == null){
             try {
-                claimsView = new FXMLLoader(getClass().getResource("/claims/fxml/MyClaims.fxml")).load();
+                claimsView = new FXMLLoader(getClass().getResource("/claims/fxml/Customer/MyClaims.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -65,7 +65,7 @@ public class ViewFactory {
     public AnchorPane getInsuranceView() {
         if (insuranceView == null){
             try {
-                insuranceView = new FXMLLoader(getClass().getResource("/claims/fxml/MyInsurance.fxml")).load();
+                insuranceView = new FXMLLoader(getClass().getResource("/claims/Customer/fxml/MyInsurance.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -76,7 +76,7 @@ public class ViewFactory {
     public AnchorPane getEditView() {
         if (editView == null){
             try {
-                editView = new FXMLLoader(getClass().getResource("/claims/fxml/UserAccountGUI.fxml")).load();
+                editView = new FXMLLoader(getClass().getResource("/claims/fxml/Customer/Edit.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -88,7 +88,7 @@ public class ViewFactory {
     public AnchorPane getAdvisorHomeView() {
         if (advisorHomeView == null){
             try {
-                advisorHomeView = new FXMLLoader(getClass().getResource("/claims/fxml/AdvisorHome.fxml")).load();
+                advisorHomeView = new FXMLLoader(getClass().getResource("/claims/fxml/Advisor/AdvisorHome.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -99,7 +99,7 @@ public class ViewFactory {
     public AnchorPane getAdvisorClaimsView() {
         if (advisorClaimsView == null){
             try {
-                advisorClaimsView = new FXMLLoader(getClass().getResource("/claims/fxml/AdvisorClaims.fxml")).load();
+                advisorClaimsView = new FXMLLoader(getClass().getResource("/claims/fxml/Advisor/AdvisorClaims.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -110,7 +110,7 @@ public class ViewFactory {
     public AnchorPane getAdvisorPolicyView() {
         if (advisorPolicyView == null){
             try {
-                advisorPolicyView = new FXMLLoader(getClass().getResource("/claims/fxml/AdvisorPolicy.fxml")).load();
+                advisorPolicyView = new FXMLLoader(getClass().getResource("/claims/fxml/Advisor/AdvisorPolicy.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -125,14 +125,14 @@ public class ViewFactory {
     }
 
     public void showCustomerWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Customer.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Customer/Customer.fxml"));
         CustomerController customerController = new CustomerController();
         loader.setController(customerController);
         createStage(loader);
     }
 
     public void showAdvisorWindow() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Advisor.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Advisor/Advisor.fxml"));
         AdvisorController advisorController = new AdvisorController();
         loader.setController(advisorController);
         createStage(loader);
