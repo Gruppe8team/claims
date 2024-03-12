@@ -1,9 +1,12 @@
-package application;
+package claims.controllers;
 
 import java.net.URL;
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+
+import claims.userDAO;
+import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
