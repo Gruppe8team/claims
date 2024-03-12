@@ -20,6 +20,9 @@ Date: 2024-02-16
 
   - [Agenda 5 2024-03-04 21:30:00]
     - Discussion: Story Check,Datbase Design & Assignment
+
+  - [Agenda 5 2024-03-11 21:30:00]
+    - Discussion: Itration 2 Review, Itration 3 Stories
    
 **Big Design Decisions:**
 - [2024-01-15 21:28:00]
@@ -38,19 +41,19 @@ Date: 2024-02-16
 **Task Assignments:**
 - [2024-01-29 21:30:00]
   - Assignee: Joshua Zuker
-  - Assigned Task: 
+  - Assigned Task: Claim Status Update，Claim File Review
   
   - Assignee: Tejae Whitley
-  - Assigned Task: Customer Registration
+  - Assigned Task: Customer Registration, Customer Claim Dashboard
   
   - Assignee: Cyrus Yang
-  - Assigned Task: 
+  - Assigned Task: Insurer Registration, Customer Online Claim Submission
   
   - Assignee: Julianna Silva
-  - Assigned Task: 
+  - Assigned Task: Customer Claim Tracker, Customer's History Claim Access
   
   - Assignee: Kyle Williamson
-  - Assigned Task: Customer Login
+  - Assigned Task: Customer Login, Claim File Review
   
   - Assignee: Jiaye Chen
   - Assigned Task: Customer Account Editor, Customer Account Deletion
@@ -71,28 +74,28 @@ Date: 2024-02-16
     - Actual Time Spent: [1 week]
   - Task 5: [Customer Online Claim Submission]
     - Time Allocated: [1 week]
-    - Actual Time Spent: []
-   - Task 6: [Customer File Upload]
+    - Actual Time Spent: [1 week]
+  - Task 6: [Customer Claim Tracker]
     - Time Allocated: [1 week]
-    - Actual Time Spent: []
-  - Task 7: [Customer Claim Tracker]
+    - Actual Time Spent: [Not Done Yet]
+  - Task 7: [Customer Claim Dashboard]
     - Time Allocated: [1 week]
-    - Actual Time Spent: []
-  - Task 8: [Customer Claim Dashboard]
-    - Time Allocated: [1 week]
-    - Actual Time Spent: []
+    - Actual Time Spent: [Not Done Yet]
 
 - User Story: An insurer story
   - Task 1: [Claim File Review]
-    - Time Allocated: [1 weeks]
+    - Time Allocated: [1 week]
     - Actual Time Spent: [Not Done Yet]
   - Task 2: [Insurer Dashboard]
     - Time Allocated: [1 week]
-    - Actual Time Spent: [Not Done Yet]
+    - Actual Time Spent: [1 week]
   - Task 3: [Claim Status Update]
     - Time Allocated: [1 week]
     - Actual Time Spent: [1 week]
   - Task 4: [Insurer Registration]
+    - Time Allocated: [1 weeks]
+    - Actual Time Spent: [1 week]
+  - Task 5: [Customer's History Claim Access]
     - Time Allocated: [1 weeks]
     - Actual Time Spent: [Not Done Yet]
 
