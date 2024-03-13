@@ -29,6 +29,10 @@ public class ViewFactory {
     //Admin Views
     private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
     private AnchorPane adminHomeView;
+    private AnchorPane adminCustomersView;
+    private AnchorPane adminAdvisorsView;
+    private AnchorPane adminClaimsView;
+    private AnchorPane adminPolicyView;
 
     public ViewFactory(){
         this.loginAccountType = AccountType.CUSTOMER;
@@ -146,6 +150,50 @@ public class ViewFactory {
             }
         }
         return adminHomeView;
+    }
+
+    public AnchorPane getAdminCustomersView() {
+        if (adminCustomersView == null){
+            try {
+                adminCustomersView = new FXMLLoader(getClass().getResource("/claims/fxml/Admin/AdminCustomers.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return adminCustomersView;
+    }
+
+    public AnchorPane getAdminAdvisorsView() {
+        if (adminAdvisorsView == null){
+            try {
+                adminAdvisorsView = new FXMLLoader(getClass().getResource("/claims/fxml/Admin/AdminAdvisors.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return adminAdvisorsView;
+    }
+
+    public AnchorPane getAdminClaimsView() {
+        if (adminClaimsView == null){
+            try {
+                adminClaimsView = new FXMLLoader(getClass().getResource("/claims/fxml/Admin/AdminClaims.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return adminClaimsView;
+    }
+
+    public AnchorPane getAdminPolicyView() {
+        if (adminPolicyView == null){
+            try {
+                adminPolicyView = new FXMLLoader(getClass().getResource("/claims/fxml/Admin/AdminPolicy.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return adminPolicyView;
     }
 
     //Windows
