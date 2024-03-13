@@ -14,13 +14,12 @@ claims/controllers/Customer/MyInsuranceController.class
 claims/Policy.class
 claims/controllers/Advisor/advisorMenuController.class
 claims/AdvisorsDatabase.class
+claims/controllers/Admin/AdminController$1.class
 claims/userDAO.class
 claims/controllers/registerGUIController.class
 claims/Vehicle.class
 claims/Advisor.class
-claims/AdvisorMenuOptions.class
 claims/controllers/LoginController.class
-claims/CustomerMenuOptions.class
 claims/models/Model.class
 claims/SysAdmin.class
 claims/AutoClaim.class
