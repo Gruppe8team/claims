@@ -3,7 +3,7 @@ package claims.controllers.Customer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import claims.controllers.EditController;
+
 import claims.NewUser;
 import claims.models.Model;
 import claims.views.CustomerMenuOptions;

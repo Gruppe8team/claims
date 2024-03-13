@@ -1,4 +1,3 @@
-claims/controllers/UserAccountGUIController.class
 claims/VehicleDAO.class
 claims/User.class
 claims/controllers/Customer/CustomerController.class
@@ -12,8 +11,6 @@ claims/Customer.class
 claims/controllers/Customer/CustomerController$1.class
 claims/controllers/Customer/MyInsuranceController.class
 claims/Policy.class
-claims/controllers/Advisor/advisorMenuController.class
-claims/AdvisorsDatabase.class
 claims/controllers/Admin/AdminController$1.class
 claims/userDAO.class
 claims/controllers/registerGUIController.class
@@ -22,6 +19,7 @@ claims/Advisor.class
 claims/controllers/LoginController.class
 claims/models/Model.class
 claims/SysAdmin.class
+claims/controllers/Advisor/AdvisorMenuController.class
 claims/AutoClaim.class
 claims/Claims.class
 claims/views/ViewFactory.class

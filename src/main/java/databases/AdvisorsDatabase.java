@@ -1,4 +1,4 @@
-package claims;
+package databases;
 import java.sql.*;
 public class AdvisorsDatabase {
 	public static void main(String[] args) {

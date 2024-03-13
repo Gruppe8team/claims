@@ -1,7 +1,9 @@
-package claims;
+package databases;
 
 import java.sql.*;
 import java.util.Random;
+
+import claims.NewUser;
 
 public class CustomerDatabase {
 	private static String dbName = "claims_customerdb";
