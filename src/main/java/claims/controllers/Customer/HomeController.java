@@ -3,7 +3,7 @@ package claims.controllers.Customer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import claims.controllers.UserAccountGUIController;
+import claims.controllers.EditController;
 import claims.NewUser;
 import claims.models.Model;
 import claims.views.CustomerMenuOptions;
@@ -16,7 +16,7 @@ import javafx.scene.text.Text;
 
 public class HomeController implements Initializable {
 
-    public static NewUser newUser = UserAccountGUIController.newUser;
+    public static NewUser newUser = EditController.newUser;
 
     @FXML
     private Label acc_dob;
