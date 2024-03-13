@@ -1,5 +1,6 @@
 package claims.views;
 
+import claims.controllers.Admin.AdminController;
 import claims.controllers.Advisor.AdvisorController;
 import claims.controllers.Customer.CustomerController;
 import javafx.beans.property.ObjectProperty;
@@ -25,10 +26,15 @@ public class ViewFactory {
     private AnchorPane advisorClaimsView;
     private AnchorPane advisorPolicyView;
 
+    //Admin Views
+    private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
+    private AnchorPane adminHomeView;
+
     public ViewFactory(){
         this.loginAccountType = AccountType.CUSTOMER;
         this.customerSelectedMenuItem = new SimpleObjectProperty<>();
         this.advisorSelectedMenuItem = new SimpleObjectProperty<>();
+        this.adminSelectedMenuItem = new SimpleObjectProperty<>();
     }
 
     public AccountType getLoginAccountType() {
@@ -45,6 +51,10 @@ public class ViewFactory {
 
     public ObjectProperty<AdvisorMenuOptions> getAdvisorSelectedMenuItem() {
         return advisorSelectedMenuItem;
+    }
+
+    public ObjectProperty<AdminMenuOptions> getAdminSelectedMenuItem() {
+        return adminSelectedMenuItem;
     }
 
     //Customer Views
@@ -126,6 +136,18 @@ public class ViewFactory {
         return advisorPolicyView;
     }
 
+    //Admin Views
+    public AnchorPane getAdminHomeView() {
+        if (adminHomeView == null){
+            try {
+                adminHomeView = new FXMLLoader(getClass().getResource("/claims/fxml/Admin/AdminHome.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return adminHomeView;
+    }
+
     //Windows
     public void showLoginWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Login.fxml"));
@@ -143,6 +165,13 @@ public class ViewFactory {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Advisor/Advisor.fxml"));
         AdvisorController advisorController = new AdvisorController();
         loader.setController(advisorController);
+        createStage(loader);
+    }
+
+    public void showAdminWindow() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/Admin/Admin.fxml"));
+        AdminController adminController = new AdminController();
+        loader.setController(adminController);
         createStage(loader);
     }
 
