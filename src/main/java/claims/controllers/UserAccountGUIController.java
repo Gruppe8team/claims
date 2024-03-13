@@ -1,8 +1,8 @@
 package claims.controllers;
 
-import claims.CustomerMenuOptions;
 import claims.NewUser;
 import claims.models.Model;
+import claims.views.CustomerMenuOptions;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;

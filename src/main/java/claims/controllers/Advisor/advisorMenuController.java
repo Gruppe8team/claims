@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import claims.AdvisorMenuOptions;
-import claims.CustomerMenuOptions;
 import claims.models.Model;
+import claims.views.AdvisorMenuOptions;
+import claims.views.CustomerMenuOptions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

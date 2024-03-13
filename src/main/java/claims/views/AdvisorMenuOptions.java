@@ -1,4 +1,4 @@
-package claims;
+package claims.views;
 
 public enum AdvisorMenuOptions {
     HOME,

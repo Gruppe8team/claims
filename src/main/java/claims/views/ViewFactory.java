@@ -1,8 +1,6 @@
 package claims.views;
 
 import claims.Advisor;
-import claims.AdvisorMenuOptions;
-import claims.CustomerMenuOptions;
 import claims.controllers.Advisor.AdvisorController;
 import claims.controllers.Customer.CustomerController;
 import javafx.beans.property.ObjectProperty;
