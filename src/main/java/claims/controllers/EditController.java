@@ -1,134 +1,210 @@
 package claims.controllers;
 
+
 import claims.NewUser;
 import claims.models.Model;
-import claims.views.CustomerMenuOptions;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.beans.Visibility;
 
 public class EditController {
 
     public static NewUser newUser = new NewUser(1,"","Kyle","Williamson","218953901@gmail.com","Oct 14, 2003","999-999-9999","Male");
 
     @FXML
-    private Label acc_btn;
+    private Label name;
+    @FXML
+    private Text user_name;
 
     @FXML
-    private Button cancel_btn;
+    private Label gender;
 
     @FXML
-    private Button delete_btn;
+    private Label dob;
 
     @FXML
-    private TextField dob_field;
+    private Label email;
 
     @FXML
-    private Label dob_lbl;
+    private Label phone;
+    @FXML
+    private HBox visibility;
+    @FXML
+    private HBox visibility2;
+    @FXML
+    private HBox visibility3;
+    @FXML
+    private HBox visibility4;
+    @FXML
+    private Button visibility5;
+    @FXML
+    private Button visibility6;
+    @FXML
+    private Button visibility7;
+    @FXML
+    private HBox visibility8;
+    @FXML
+    private HBox visibility9;
 
     @FXML
-    private Button edit_btn;
+    private Text visibility10;
+    @FXML
+    private HBox visibility11;
 
     @FXML
-    private TextField email_field;
+    private TextField FirstName;
+    @FXML
+    private TextField LastName;
+    @FXML
+    private TextField dob1;
+    @FXML
+    private TextField gender1;
 
     @FXML
-    private Label email_lbl;
+    private TextField email1;
 
     @FXML
-    private TextField firstname_field;
+    private TextField phone1;
 
     @FXML
-    private TextField gender_field;
+    private TextField password;
 
-    @FXML
-    private Label gender_lbl;
-
-    @FXML
-    private TextField lastname_field;
-
-    @FXML
-    private Label name_lbl;
-
-    @FXML
-    private TextField phone_field;
-
-    @FXML
-    private Label phone_lbl;
-
-    @FXML
-    private Button save_btn;
-
-    @FXML
-    private Label today_lbl;
-
-    @FXML
-    private Text username_lbl;
 
     public void initialize() {
 
-        name_lbl.setText(newUser.getFirstName()+" "+newUser.getLastName());
-        username_lbl.setText("Hi, "+newUser.getFirstName());
-        gender_lbl.setText("Gender: "+newUser.getGender());
-        dob_lbl.setText("DOB: "+newUser.getDob());
-        email_lbl.setText("Email: "+newUser.getEmail());
-        phone_lbl.setText("Phone #: "+newUser.getPhone());
+        name.setText(newUser.getFirstName()+" "+newUser.getLastName());
+        user_name.setText("Hi, "+newUser.getFirstName());
+        gender.setText("Gender: "+newUser.getGender());
+        dob.setText("DOB: "+newUser.getDob());
+        email.setText("Email: "+newUser.getEmail());
+        phone.setText("Phone #: "+newUser.getPhone());
 
-        addListeners();
+
+        hide();
     }
 
-    private void addListeners() {
-        save_btn.setOnAction(event -> onSave());
-        cancel_btn.setOnAction(event -> onCancel());
-        delete_btn.setOnAction(event -> onDelete());
+    public void hide(){
+        visibility.setVisible(false);
+        visibility2.setVisible(false);
+        visibility3.setVisible(false);
+        visibility4.setVisible(false);
+        visibility5.setVisible(false);
+        visibility6.setVisible(false);
+        visibility7.setVisible(false);
+        visibility8.setVisible(false);
+        visibility9.setVisible(false);
+        visibility10.setVisible(false);
+        visibility11.setVisible(false);
+
+    }
+    public void show(){
+        visibility.setVisible(true);
+        visibility2.setVisible(true);
+        visibility3.setVisible(true);
+        visibility4.setVisible(true);
+        visibility5.setVisible(true);
+        visibility6.setVisible(true);
+        visibility7.setVisible(true);
+        visibility8.setVisible(true);
+        visibility9.setVisible(true);
+        visibility10.setVisible(true);
+        visibility11.setVisible(true);
     }
 
-    private void onCancel() {
-        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
+
+
+    @FXML
+    private void editAccount(ActionEvent event) {
+
+        System.out.println("Edit Account Button Clicked");
+        showEditAccountDialog();
     }
 
-    private void onDelete() {
-        
+    @FXML
+    private void stopAccount(ActionEvent event) {
+
+        hide();
+    }
+    @FXML
+    private void stopAccount1() throws Exception {
+        AdvisorsDatabase.deleteNewUser(newUser);
+        newUser = new NewUser();
+        System.out.println(newUser.toString());
+        initialize();
+        Stage stage = (Stage) visibility5.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+
+        Model.getInstance().getViewFactory().showLoginWindow();
+
     }
 
-    private void onSave() {
-        if(firstname_field.getText().isEmpty()) {
-            newUser.setFirstName(newUser.getFirstName());
-        } else {
-            newUser.setFirstName(firstname_field.getText());
+    @FXML
+    private void deleteAccount(ActionEvent event) {
+
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Delete Account");
+        alert.setContentText("Are you sure you want to delete this account?");
+
+        ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+        if (result == ButtonType.OK) {
+
+            try {
+                stopAccount1();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        if(lastname_field.getText().isEmpty()) {
-            newUser.setLastName(newUser.getLastName());
-        } else {
-            newUser.setLastName(lastname_field.getText());
-        }
-        if(gender_field.getText().isEmpty()) {
-            newUser.setGender(newUser.getGender());
-        } else {
-            newUser.setGender(gender_field.getText());
-        }
-        if(dob_field.getText().isEmpty()) {
-            newUser.setDob(newUser.getDob());
-        } else {
-            newUser.setDob(dob_field.getText());
-        }
-        if(email_field.getText().isEmpty()) {
-            newUser.setEmail(newUser.getEmail());
-        } else {
-            newUser.setEmail(email_field.getText());
-        }
-        if(phone_field.getText().isEmpty()) {
-            newUser.setPhone(newUser.getPhone());
-        } else {
-            newUser.setPhone(phone_field.getText());
-        }
-        name_lbl.setText(newUser.getFirstName()+" "+newUser.getLastName());
-        username_lbl.setText("Hi, "+newUser.getFirstName());
-        gender_lbl.setText("Gender: "+newUser.getGender());
-        dob_lbl.setText("DOB: "+newUser.getDob());
-        email_lbl.setText("Email: "+newUser.getEmail());
-        phone_lbl.setText("Phone #: "+newUser.getPhone());
-        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
     }
 
+    private void deleteAccountLogic() {
+
+        System.out.println("Delete Account Logic Executed");
+    }
+
+    private void showEditAccountDialog() {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Edit Account");
+        FirstName.setText(newUser.getFirstName());
+        LastName.setText(newUser.getLastName());
+        dob1.setText(newUser.getDob());
+        gender1.setText(newUser.getGender());
+        email1.setText(newUser.getEmail());
+        phone1.setText(newUser.getPhone());
+        password.setText(newUser.getPasswordKey());
+        show();
+        //alert.set
+
+    }
+
+    @FXML
+    private void saveEditAccountDialog( ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Information Saved");
+        //alert.setContentText("Are you sure you want to delete this account?");
+
+        ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+        if (result == ButtonType.OK) {
+        }
+        newUser.setFirstName(FirstName.getText());
+        newUser.setLastName(LastName.getText());
+        newUser.setDob(dob1.getText());
+        newUser.setGender(gender1.getText());
+        newUser.setEmail(email1.getText());
+        newUser.setPhone(phone1.getText());
+        newUser.setPasswordKey(password.getText());
+        CustomerDatabase.updateNewUser(newUser);
+        System.out.println(newUser.toString());
+        initialize();
+
+
+    }
 }
+
