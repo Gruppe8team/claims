@@ -63,7 +63,7 @@ public class AdminMenuController implements Initializable {
     }
 
     private void onLogout() {
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.LOGOUT);
+        
     }
     
 }

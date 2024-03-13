@@ -37,6 +37,7 @@ public class AdvisorMenuController implements Initializable {
         home_btn.setOnAction(event -> onHome());
         claims_btn.setOnAction(event -> onClaims());
         policy_btn.setOnAction(event -> onPolicy());
+        logout_btn.setOnAction(event -> onLogout());
     }
 	
 	private void onHome() {
@@ -49,6 +50,10 @@ public class AdvisorMenuController implements Initializable {
 
     private void onPolicy() {
         Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.POLICY);
+    }
+
+    private void onLogout() {
+        
     }
 	
 	
