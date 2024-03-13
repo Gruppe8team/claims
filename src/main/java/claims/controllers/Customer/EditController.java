@@ -1,19 +1,12 @@
 package claims.controllers.Customer;
 
 
-import databases.AdvisorsDatabase;
-import databases.CustomerDatabase;
 import claims.NewUser;
 import claims.models.Model;
 import claims.views.CustomerMenuOptions;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-
-import java.beans.Visibility;
 
 public class EditController {
 
