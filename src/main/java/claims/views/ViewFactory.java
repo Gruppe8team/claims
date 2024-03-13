@@ -1,6 +1,5 @@
 package claims.views;
 
-import claims.Advisor;
 import claims.controllers.Advisor.AdvisorController;
 import claims.controllers.Customer.CustomerController;
 import javafx.beans.property.ObjectProperty;
@@ -11,6 +10,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ViewFactory {
+    private AccountType loginAccountType;
+
     //Customer Views
     private final ObjectProperty<CustomerMenuOptions> customerSelectedMenuItem;
     private AnchorPane homeView;
@@ -25,8 +26,17 @@ public class ViewFactory {
     private AnchorPane advisorPolicyView;
 
     public ViewFactory(){
+        this.loginAccountType = AccountType.CUSTOMER;
         this.customerSelectedMenuItem = new SimpleObjectProperty<>();
         this.advisorSelectedMenuItem = new SimpleObjectProperty<>();
+    }
+
+    public AccountType getLoginAccountType() {
+        return loginAccountType;
+    }
+
+    public void setLoginAccountType(AccountType accountType) {
+        this.loginAccountType = accountType;
     }
 
     public ObjectProperty<CustomerMenuOptions> getCustomerSelectedMenuItem() {

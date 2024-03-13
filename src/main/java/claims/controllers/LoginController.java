@@ -1,10 +1,11 @@
 package claims.controllers;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import claims.models.Model;
+import claims.views.AccountType;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -29,15 +30,14 @@ public class LoginController implements Initializable {
     private TextField TextField_Password;
 
     @FXML
-	private ChoiceBox<String> acc_type_selector = new ChoiceBox<>();
-    
-    private String[] acc_type = {"Client", "Advisor"};
+	private ChoiceBox<AccountType> acc_type_selector;
 
     @Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
+        acc_type_selector.setItems(FXCollections.observableArrayList(AccountType.CUSTOMER, AccountType.ADVISOR, AccountType.ADMIN));;
 		Button_SignIn.setOnAction(event -> onLogin());
         Button_SignUp.setOnAction(event -> onRegister());
-        acc_type_selector.getItems().addAll(acc_type);
+        
 	}
 
 
