@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claimsGUI.advisorMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Advisor.AdvisorClaimsController">
    <children>
       <Button fx:id="claimsBack" layoutX="484.0" layoutY="44.0" mnemonicParsing="false" onAction="#claimsBackPressed" text="Back" />
       <Label layoutX="33.0" layoutY="27.0" text="AutoClaim: Claims" />

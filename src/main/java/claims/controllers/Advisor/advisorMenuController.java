@@ -14,7 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-public class advisorMenuController implements Initializable {
+public class AdvisorMenuController implements Initializable {
 	
 	@FXML
 	private Button homeButton;
