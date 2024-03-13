@@ -1,6 +1,7 @@
 package claims.controllers;
 
 
+import claims.CustomerDatabase;
 import claims.NewUser;
 import claims.models.Model;
 import javafx.event.ActionEvent;
