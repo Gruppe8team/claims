@@ -65,7 +65,7 @@ public class ViewFactory {
     public AnchorPane getInsuranceView() {
         if (insuranceView == null){
             try {
-                insuranceView = new FXMLLoader(getClass().getResource("/claims/Customer/fxml/MyInsurance.fxml")).load();
+                insuranceView = new FXMLLoader(getClass().getResource("/claims/fxml/Customer/MyInsurance.fxml")).load();
             } catch (Exception e) {
                 e.printStackTrace();
             }

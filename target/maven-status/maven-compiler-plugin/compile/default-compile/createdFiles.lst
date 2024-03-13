@@ -5,6 +5,7 @@ claims/controllers/Customer/CustomerController.class
 claims/controllers/Customer/HomeController.class
 claims/NewUser.class
 claims/controllers/Customer/MyClaimsController.class
+claims/controllers/Advisor/AdvisorController$1.class
 claims/controllers/Customer/CustomerMenuController.class
 claims/registerGUI.class
 claims/Customer.class
