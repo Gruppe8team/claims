@@ -12,8 +12,10 @@ public class AdminController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
             switch (newVal) {
+                case ADVISORS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAdminAdvisorsView());
+                case CUSTOMERS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAdminCustomersView());
                 case POLICY -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAdvisorPolicyView());
                 case CLAIMS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAdvisorClaimsView());
                 default -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAdminHomeView());
