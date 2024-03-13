@@ -17,16 +17,16 @@ import javafx.scene.control.Button;
 public class AdvisorMenuController implements Initializable {
 	
 	@FXML
-	private Button homeButton;
+	private Button home_btn;
 	
 	@FXML
-	private Button policyButton;
+	private Button policy_btn;
 	
 	@FXML
-	private Button claimsButton;
+	private Button claims_btn;
 	
 	@FXML
-	private Button logoutButton;
+	private Button logout_btn;
 	
 	@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,9 +34,9 @@ public class AdvisorMenuController implements Initializable {
     }
 	
 	private void addListeners() {
-        homeButton.setOnAction(event -> onHome());
-        claimsButton.setOnAction(event -> onClaims());
-        policyButton.setOnAction(event -> onPolicy());
+        home_btn.setOnAction(event -> onHome());
+        claims_btn.setOnAction(event -> onClaims());
+        policy_btn.setOnAction(event -> onPolicy());
     }
 	
 	private void onHome() {
