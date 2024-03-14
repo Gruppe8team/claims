@@ -3,8 +3,8 @@ package claims.controllers.Customer;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import claims.CustomerMenuOptions;
 import claims.models.Model;
+import claims.views.CustomerMenuOptions;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -32,6 +32,7 @@ public class CustomerMenuController implements Initializable {
         home_btn.setOnAction(event -> onHome());
         claims_btn.setOnAction(event -> onClaims());
         insurance_btn.setOnAction(event -> onInsurance());
+        logout_btn.setOnAction(event -> onLogout());
     }
 
     private void onHome() {
@@ -44,5 +45,9 @@ public class CustomerMenuController implements Initializable {
 
     private void onInsurance() {
         Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.INSURANCE);
+    }
+
+    private void onLogout() {
+        
     }
 }

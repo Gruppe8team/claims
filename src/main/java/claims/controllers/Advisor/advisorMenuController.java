@@ -1,34 +1,27 @@
 package claims.controllers.Advisor;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import claims.AdvisorMenuOptions;
-import claims.CustomerMenuOptions;
 import claims.models.Model;
-import javafx.event.ActionEvent;
+import claims.views.AdvisorMenuOptions;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
-public class advisorMenuController implements Initializable {
+public class AdvisorMenuController implements Initializable {
 	
 	@FXML
-	private Button homeButton;
+	private Button home_btn;
 	
 	@FXML
-	private Button policyButton;
+	private Button policy_btn;
 	
 	@FXML
-	private Button claimsButton;
+	private Button claims_btn;
 	
 	@FXML
-	private Button logoutButton;
+	private Button logout_btn;
 	
 	@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -36,9 +29,10 @@ public class advisorMenuController implements Initializable {
     }
 	
 	private void addListeners() {
-        homeButton.setOnAction(event -> onHome());
-        claimsButton.setOnAction(event -> onClaims());
-        policyButton.setOnAction(event -> onPolicy());
+        home_btn.setOnAction(event -> onHome());
+        claims_btn.setOnAction(event -> onClaims());
+        policy_btn.setOnAction(event -> onPolicy());
+        logout_btn.setOnAction(event -> onLogout());
     }
 	
 	private void onHome() {
@@ -51,6 +45,10 @@ public class advisorMenuController implements Initializable {
 
     private void onPolicy() {
         Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.POLICY);
+    }
+
+    private void onLogout() {
+        
     }
 	
 	
