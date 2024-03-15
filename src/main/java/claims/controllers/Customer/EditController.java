@@ -4,9 +4,11 @@ package claims.controllers.Customer;
 import claims.models.Model;
 import claims.models.NewUser;
 import claims.views.CustomerMenuOptions;
+import databases.CustomerDatabase;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class EditController {
 
@@ -41,6 +43,9 @@ public class EditController {
 
     @FXML
     private TextField gender_field;
+    @FXML
+    private TextField password_field;
+
 
     @FXML
     private Label gender_lbl;
@@ -84,6 +89,14 @@ public class EditController {
         save_btn.setOnAction(event -> onSave());
         cancel_btn.setOnAction(event -> onCancel());
         delete_btn.setOnAction(event -> onDelete());
+
+        firstname_field.setText(newUser.getFirstName());
+        lastname_field.setText(newUser.getLastName());
+        dob_field.setText(newUser.getDob());
+        gender_field.setText(newUser.getGender());
+        email_field.setText(newUser.getEmail());
+        phone_field.setText(newUser.getPhone());
+        password_field.setText(newUser.getPasswordKey());
     }
 
     private void onCancel() {
@@ -109,8 +122,18 @@ public class EditController {
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
 
+            CustomerDatabase.deleteNewUser(newUser);
+            newUser = new NewUser();
+            System.out.println(newUser.toString());
+            //new  HomeController().init();
+            //Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
+            //initialize();
+            Stage stage = (Stage) delete_btn.getScene().getWindow();
+            Model.getInstance().getViewFactory().closeStage(stage);
+
+            Model.getInstance().getViewFactory().showLoginWindow();
             try {
-                
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -126,7 +149,7 @@ public class EditController {
             updateAccount();
         }
 
-        
+
     }
 
     private void updateAccount() {
@@ -160,12 +183,18 @@ public class EditController {
         } else {
             newUser.setPhone(phone_field.getText());
         }
+        if(password_field.getText().isEmpty()) {
+            newUser.setPasswordKey(newUser.getPasswordKey());
+        } else {
+            newUser.setPasswordKey(password_field.getText());
+        }
         name_lbl.setText(newUser.getFirstName()+" "+newUser.getLastName());
         username_lbl.setText("Hi, "+newUser.getFirstName());
         gender_lbl.setText("Gender: "+newUser.getGender());
         dob_lbl.setText("DOB: "+newUser.getDob());
         email_lbl.setText("Email: "+newUser.getEmail());
         phone_lbl.setText("Phone #: "+newUser.getPhone());
+        CustomerDatabase.updateNewUser(newUser);
         Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
     }
 

@@ -51,15 +51,26 @@ public class HomeController implements Initializable {
     @FXML
     private Button btn_edit;
 
+    public  void init(){
+        btn_edit.setOnAction(event -> onEdit());
+
+        acc_name.setText(newUser.getFirstName()+" "+newUser.getLastName());
+        user_name.setText("Hi, "+newUser.getFirstName());
+        acc_gender.setText("Gender: "+newUser.getGender());
+        acc_dob.setText("DOB: "+newUser.getDob());
+        acc_email.setText("Email: "+newUser.getEmail());
+        acc_phonenumber.setText("Phone #: "+newUser.getPhone());
+    }
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_edit.setOnAction(event -> onEdit());
 
-        //acc_name.setText(newUser.getFirstName()+" "+newUser.getLastName());
-        //user_name.setText("Hi, "+newUser.getFirstName());
-        //acc_gender.setText("Gender: "+newUser.getGender());
-        //acc_dob.setText("DOB: "+newUser.getDob());
-        //acc_email.setText("Email: "+newUser.getEmail());
-        //acc_phonenumber.setText("Phone #: "+newUser.getPhone());
+        acc_name.setText(newUser.getFirstName()+" "+newUser.getLastName());
+        user_name.setText("Hi, "+newUser.getFirstName());
+        acc_gender.setText("Gender: "+newUser.getGender());
+        acc_dob.setText("DOB: "+newUser.getDob());
+        acc_email.setText("Email: "+newUser.getEmail());
+        acc_phonenumber.setText("Phone #: "+newUser.getPhone());
     }
 
     private void onEdit() {
