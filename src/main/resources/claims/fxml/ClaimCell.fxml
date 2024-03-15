@@ -2,27 +2,41 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="550.0" styleClass="cell_container" stylesheets="@../style/ClaimCell.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="9.0" prefHeight="100.0" prefWidth="130.0" AnchorPane.leftAnchor="10.0">
+      <VBox layoutX="9.0" prefHeight="100.0" prefWidth="130.0" styleClass="vbox" AnchorPane.leftAnchor="10.0">
          <children>
-            <Label text="Claim ID:  1275849" />
-            <Label text="Client ID: 3958744" />
+            <HBox prefHeight="15.0" prefWidth="200.0" styleClass="hbox">
+               <children>
+                  <Label styleClass="hbox_id" text="Claim ID:" />
+                  <Label fx:id="claimid_lbl" styleClass="hbox_id" text="1275849" />
+               </children>
+            </HBox>
+            <HBox prefHeight="15.0" prefWidth="200.0" styleClass="hbox">
+               <children>
+                  <Label styleClass="hbox_id" text="Client ID:" />
+                  <Label fx:id="clientid_lbl" styleClass="hbox_id" text="3958744" />
+               </children>
+            </HBox>
          </children>
       </VBox>
-      <Line endX="-100.0" endY="226.3588104248047" layoutX="241.0" layoutY="-215.0" startX="-100.0" startY="304.2618408203125" />
-      <VBox layoutX="153.0" layoutY="1.0" prefHeight="100.0" prefWidth="230.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="153.0" AnchorPane.topAnchor="1.0">
+      <Line endX="-100.0" endY="226.3588104248047" layoutX="246.0" layoutY="-215.0" startX="-100.0" startY="304.2618408203125" />
+      <VBox layoutX="153.0" layoutY="1.0" prefHeight="100.0" prefWidth="230.0" styleClass="vbox" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="153.0" AnchorPane.topAnchor="1.0">
          <children>
-            <Label text="Date Filed: 01/20/2023" />
-            <Label text="Accident Time: Jan 14th 2023,  2:30pm" />
-            <Label text="Damage: Front" />
+            <Label fx:id="datefiled_lbl" text="Date Filed: 01/20/2023" />
+            <Label fx:id="accident_lbl" text="Accident Time: Jan 14th 2023,  2:30pm" />
+            <Label fx:id="damage_lbl" text="Damage: Front" />
          </children>
       </VBox>
       <Line endX="-100.0" endY="226.3588104248047" layoutX="482.0" layoutY="-216.0" startX="-100.0" startY="304.2618408203125" />
-      <Label layoutX="400.0" layoutY="41.0" text="Claim Status: Approved" AnchorPane.bottomAnchor="42.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="41.0" />
+      <HBox layoutX="393.0" layoutY="42.0" prefHeight="15.0" prefWidth="150.0" styleClass="hbox" AnchorPane.leftAnchor="395.0">
+         <children>
+            <Label text="Claim Status:" />
+            <Label fx:id="claimstat_lbl" styleClass="stat_lbl" text="Approved" />
+         </children></HBox>
    </children>
 </AnchorPane>

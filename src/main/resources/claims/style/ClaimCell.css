@@ -1,0 +1,27 @@
+.cell_container {
+    -fx-background-color: #FFFFFF;
+    background-color: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 7);
+    -fx-border-color: #000000;
+    border-color: #000000;
+}
+
+.vbox {
+    -fx-alignment: center-left;
+    -fx-spacing: 3px;
+}
+
+.hbox {
+    -fx-spacing: 2px;
+}
+
+.hbox_id {
+    -fx-font-size: 1.2em;
+    font-size: 1.2em;
+}
+
+.stat_lbl {
+    -fx-font-weight: 700;
+    font-weight: 700;
+}
