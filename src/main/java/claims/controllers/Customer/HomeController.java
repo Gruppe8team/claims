@@ -4,8 +4,8 @@ package claims.controllers.Customer;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import claims.NewUser;
 import claims.models.Model;
+import claims.models.NewUser;
 import claims.views.CustomerMenuOptions;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

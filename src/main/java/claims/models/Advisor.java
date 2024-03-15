@@ -1,4 +1,4 @@
-package claims;
+package claims.models;
 
 import java.util.ArrayList;
 import java.util.List;

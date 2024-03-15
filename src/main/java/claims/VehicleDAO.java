@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import claims.models.Vehicle;
+
 public class VehicleDAO {
 	private Connection connection;
 

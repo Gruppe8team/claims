@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 
 import claims.*;
+import claims.models.Advisor;
+import claims.models.Customer;
 public class UserStubDBTest{
 	
 	private UserStubDB userStubDB;

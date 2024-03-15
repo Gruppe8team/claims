@@ -1,4 +1,4 @@
-package claims;
+package claims.models;
 public class Claims {
 	
 	private int claimID, clientID; //Identification for the claim and client.

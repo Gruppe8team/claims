@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import claims.*;
+import claims.models.Customer;
+import claims.models.Vehicle;
 
 /**
  * A test class for adding and removing a vehicle from the mock database.

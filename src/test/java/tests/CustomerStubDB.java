@@ -1,5 +1,7 @@
 package tests;
 import claims.*;
+import claims.models.Customer;
+
 import java.util.function.Predicate;
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -2,6 +2,7 @@ package tests;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import claims.*;
+import claims.models.Advisor;
 public class AdvisorTest{
 	//sample data for testing
 	int userID = 1;

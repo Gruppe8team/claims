@@ -1,5 +1,5 @@
 
-package claims;
+package claims.models;
 
 /*
  * SysAdmin Class
