@@ -2,7 +2,6 @@ package claims.views;
 
 import claims.Claims;
 import claims.controllers.ClaimCellController;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListCell;
 
