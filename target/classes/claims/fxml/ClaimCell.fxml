@@ -10,6 +10,7 @@
    <children>
       <VBox layoutX="9.0" prefHeight="100.0" prefWidth="130.0" styleClass="vbox" AnchorPane.leftAnchor="10.0">
          <children>
+            <Label fx:id="name_lbl" styleClass="name_lbl" text="Kyle Williamson" />
             <HBox prefHeight="15.0" prefWidth="200.0" styleClass="hbox">
                <children>
                   <Label styleClass="hbox_id" text="Claim ID:" />
@@ -24,7 +25,7 @@
             </HBox>
          </children>
       </VBox>
-      <Line endX="-100.0" endY="226.3588104248047" layoutX="246.0" layoutY="-215.0" startX="-100.0" startY="304.2618408203125" />
+      <Line endX="-100.0" endY="226.3588104248047" layoutX="246.0" layoutY="-215.0" startX="-100.0" startY="304.2618408203125" strokeLineCap="ROUND" strokeWidth="2.0" />
       <VBox layoutX="153.0" layoutY="1.0" prefHeight="100.0" prefWidth="230.0" styleClass="vbox" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="153.0" AnchorPane.topAnchor="1.0">
          <children>
             <Label fx:id="datefiled_lbl" text="Date Filed: 01/20/2023" />
@@ -32,11 +33,7 @@
             <Label fx:id="damage_lbl" text="Damage: Front" />
          </children>
       </VBox>
-      <Line endX="-100.0" endY="226.3588104248047" layoutX="482.0" layoutY="-216.0" startX="-100.0" startY="304.2618408203125" />
-      <HBox layoutX="393.0" layoutY="42.0" prefHeight="15.0" prefWidth="150.0" styleClass="hbox" AnchorPane.leftAnchor="395.0">
-         <children>
-            <Label text="Claim Status:" />
-            <Label fx:id="claimstat_lbl" styleClass="stat_lbl" text="Approved" />
-         </children></HBox>
+      <Line endX="-99.99996948242188" endY="217.99998474121094" layoutX="482.0" layoutY="-216.0" startX="-99.99996948242188" startY="316.0" strokeLineCap="ROUND" />
+      <Label fx:id="claimstat_lbl" layoutX="411.0" layoutY="34.0" styleClass="stat_lbl" text="Approved" AnchorPane.bottomAnchor="34.0" AnchorPane.rightAnchor="31.5" AnchorPane.topAnchor="34.0" />
    </children>
 </AnchorPane>

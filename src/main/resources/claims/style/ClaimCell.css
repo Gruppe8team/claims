@@ -17,11 +17,16 @@
 }
 
 .hbox_id {
-    -fx-font-size: 1.2em;
-    font-size: 1.2em;
+    -fx-font-size: 1em;
+    font-size: 1em;
 }
 
 .stat_lbl {
-    -fx-font-weight: 700;
-    font-weight: 700;
+    -fx-font-size: 2em;
+    font-size:2em;
+}
+
+.name_lbl {
+    -fx-font-size:1.4em;
+    font-size: 1.4em;
 }
