@@ -2,7 +2,7 @@
     -fx-background-color: #FFFFFF;
     background-color: #FFFFFF;
     -fx-background-radius: 10px;
-    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 5, 0, 0, 7);
+    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 2, 0, 3, 3);
     -fx-border-color: #000000;
     border-color: #000000;
 }
