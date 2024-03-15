@@ -1,9 +1,14 @@
 package claims.controllers;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import claims.Claims;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-public class ClaimCellController {
+public class ClaimCellController implements Initializable {
     @FXML
     private Label accident_lbl;
 
@@ -24,5 +29,14 @@ public class ClaimCellController {
 
     @FXML
     private Label name_lbl;
+
+    private final Claims claim;
+
+    public ClaimCellController(Claims claim) {
+        this.claim = claim;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {}
 
 }
