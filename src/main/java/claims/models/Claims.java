@@ -1,16 +1,39 @@
 package claims.models;
+
+import java.time.LocalDate;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Claims {
 	
-	private int claimID, clientID; //Identification for the claim and client.
-	private int advisorID, policyID; //Identification for the advisor and the policy.
-	private String claimStatus, dateFilled, accidentTime, damage, description, payInfo, closureCond; /*Description of the claim status, date claim was opened,
+	private final StringProperty claimID, clientID; //Identification for the claim and client.
+	private final StringProperty advisorID, policyID;
+	private final ObjectProperty<LocalDate> dateFilled; //Identification for the advisor and the policy.
+	private final StringProperty claimStatus, accidentTime, damage, description, payInfo, closureCond; /*Description of the claim status, date claim was opened,
  													time of accident, description of damages, description of accident details,
 	      												payment info, description of closure(if closed)*/
 	private boolean atFault, totalled, closed; //Boolean for whether or not client is at fault, the vehicle is totaled, if claim is closed.
      /**
      * Constructs an empty Claim object.
      */
-	public Claims() {}
+	public Claims() {
+		this.claimID = new SimpleStringProperty();
+		this.clientID = new SimpleStringProperty();
+		this.advisorID = new SimpleStringProperty();
+		this.policyID = new SimpleStringProperty();
+		this.dateFilled = new SimpleObjectProperty<LocalDate>();
+		this.claimStatus = new SimpleStringProperty();
+		this.accidentTime = new SimpleStringProperty();
+		this.damage = new SimpleStringProperty();
+		this.description = new SimpleStringProperty();
+		this.payInfo = new SimpleStringProperty();
+		this.closureCond = new SimpleStringProperty();
+	}
+
      /**
      * @param claimID identification of claim
      * @param clientID identification of client
@@ -27,113 +50,113 @@ public class Claims {
      * @param totalled whether or not vehicle is totalled
      * @param closed whether or not claim is closed
      */
-	public Claims(int claimID, int clientID, int advisorID, int policyID, String claimStatus,
-			String dateFilled, String accidentTime, String damage, String description, String payInfo,
+	public Claims(String claimID, String clientID, String advisorID, String policyID, String claimStatus,
+			LocalDate dateFilled, String accidentTime, String damage, String description, String payInfo,
 			String closureCond, boolean atFault, boolean totalled, boolean closed) {
 		
-		this.claimID = claimID;
-		this.clientID = clientID;
-		this.advisorID = advisorID;
-		this.policyID = policyID;
-		this.claimStatus = claimStatus;
-		this.dateFilled = dateFilled;
-		this.accidentTime = accidentTime;
-		this.damage = damage;
-		this.description = description;
-		this.payInfo = payInfo;
-		this.closureCond = closureCond;
+		this.claimID = new SimpleStringProperty(this,"ClaimID",claimID);
+		this.clientID = new SimpleStringProperty(this,"ClientID",clientID);
+		this.advisorID = new SimpleStringProperty(this,"AdvisorID",advisorID);
+		this.policyID = new SimpleStringProperty(this,"PolicyID",policyID);
+		this.claimStatus = new SimpleStringProperty(this,"ClaimStatus",claimStatus);
+		this.dateFilled = new SimpleObjectProperty<>(this, "DateFilled", dateFilled);
+		this.accidentTime = new SimpleStringProperty(this,"AccidentTime",accidentTime);
+		this.damage = new SimpleStringProperty(this,"Damage",damage);
+		this.description = new SimpleStringProperty(this,"Description",description);
+		this.payInfo = new SimpleStringProperty(this,"PayInfo",payInfo);
+		this.closureCond = new SimpleStringProperty(this,"ClosureCond",closureCond);
 		this.atFault = atFault;
 		this.totalled = totalled;
 		this.closed = closed;
 		
 	}
 	//Gets claim ID
-	public int getClaimID() {
+	public StringProperty getClaimID() {
 		return claimID;
 	}
 	//Sets claim id
-	public void setClaimID(int claimID) {
-		this.claimID = claimID;
+	public void setClaimID(String claimID) {
+		this.claimID.set(claimID);
 	}
 	//gets client id
-	public int getClientID() {
+	public StringProperty getClientID() {
 		return clientID;
 	}
 	//Sets client id
-	public void setClientID(int clientID) {
-		this.clientID = clientID;
+	public void setClientID(String clientID) {
+		this.clientID.set(clientID);
 	}
 	//Gets advisor id
-	public int getAdvisorID() {
+	public StringProperty getAdvisorID() {
 		return advisorID;
 	}
 	//Sets advisor id
-	public void setAdvisorID(int advisorID) {
-		this.advisorID = advisorID;
+	public void setAdvisorID(String advisorID) {
+		this.advisorID.set(advisorID);
 	}
 	//Gets policy id
-	public int getPolicyID() {
+	public StringProperty getPolicyID() {
 		return policyID;
 	}
 	//Sets policy id
-	public void setPolicyID(int policyID) {
-		this.policyID = policyID;
+	public void setPolicyID(String policyID) {
+		this.policyID.set(policyID);
 	}
 	//Gets claims status
-	public String getClaimStatus() {
+	public StringProperty getClaimStatus() {
 		return claimStatus;
 	}
 	//Sets claims status
 	public void setClaimStatus(String claimStatus) {
-		this.claimStatus = claimStatus;
+		this.claimStatus.set(claimStatus);
 	}
 	//Gets date filled
-	public String getDateFilled() {
+	public ObjectProperty<LocalDate> getDateFilled() {
 		return dateFilled;
 	}
 	//Sets date filled
-	public void setDateFilled(String dateFilled) {
-		this.dateFilled = dateFilled;
+	public void setDateFilled(LocalDate dateFilled) {
+		this.dateFilled.set(dateFilled);
 	}
 	//Gets time of accident
-	public String getAccidentTime() {
+	public StringProperty getAccidentTime() {
 		return accidentTime;
 	}
 	//Sets time of accident
 	public void setAccidentTime(String accidentTime) {
-		this.accidentTime = accidentTime;
+		this.accidentTime.set(accidentTime);
 	}
 	//Gets damage description
-	public String getDamage() {
+	public StringProperty getDamage() {
 		return damage;
 	}
 	//Sets damage description
 	public void setDamage(String damage) {
-		this.damage = damage;
+		this.damage.set(damage);
 	}
 	//Gets accident description
-	public String getDescription() {
+	public StringProperty getDescription() {
 		return description;
 	}
 	//Sets accident description
 	public void setDescription(String description) {
-		this.description = description;
+		this.description.set(description);
 	}
 	//Gets payment info
-	public String getPayInfo() {
+	public StringProperty getPayInfo() {
 		return payInfo;
 	}
 	//Sets payment info
 	public void setPayInfo(String payInfo) {
-		this.payInfo = payInfo;
+		this.payInfo.set(payInfo);
 	}
 	//Gets condition of closure
-	public String getClosureCond() {
+	public StringProperty getClosureCond() {
 		return closureCond;
 	}
 	//Sets condition of closure
 	public void setClosureCond(String closureCond) {
-		this.closureCond = closureCond;
+		this.closureCond.set(closureCond);
 	}
 	//Gets whether client is at fault
 	public boolean isAtFault() {
