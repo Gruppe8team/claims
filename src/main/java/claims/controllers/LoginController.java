@@ -3,7 +3,7 @@ package claims.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import claims.NewUser;
+import claims.models.NewUser;
 import claims.controllers.Customer.EditController;
 import claims.models.Model;
 import claims.views.AccountType;
