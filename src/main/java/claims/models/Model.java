@@ -1,5 +1,9 @@
 package claims.models;
 
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import claims.views.AccountType;
 import claims.views.ViewFactory;
 
@@ -64,6 +68,16 @@ public class Model {
     }
 
     public void evaluateClientCred(String username, String password) {
-        
+        ResultSet resultSet = databaseDriver.getCustomerDetails(username, password);
+        try {
+            if (resultSet.isBeforeFirst()){
+                this.customer.getFirstName().set(resultSet.getString("FirstName"));
+                this.customer.getLastName().set(resultSet.getString("LastName"));
+                this.customer.getUsername().set(resultSet.getString("Username"));
+                this.customerLoginSuccessFlag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
