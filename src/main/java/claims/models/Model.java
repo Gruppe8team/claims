@@ -14,13 +14,12 @@ public class Model {
     private AccountType loginAccountType = AccountType.CUSTOMER;
     // Customer Data Section
     private final Customer customer;
-    private final Advisor advisor;
     private boolean customerLoginSuccessFlag;
-    private boolean AdvisorLoginSuccessFlag;
-    private boolean AdminLoginSuccessFlag;
     // Adivsor Data Section
-
+    private final Advisor advisor;
+    private boolean AdvisorLoginSuccessFlag;
     // Admin Data Section
+    private boolean AdminLoginSuccessFlag;
 
         private Model() {
         this.viewFactory = new ViewFactory();
