@@ -172,6 +172,8 @@ public class ViewFactory {
             }
         }
         return adminAdvisorsView;
+
+
     }
 
     public AnchorPane getAdminClaimsView() {
@@ -225,6 +227,11 @@ public class ViewFactory {
 
     public void showRegisterWindow() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/registerGUI.fxml"));
+        createStage(loader);
+    }
+
+    public void showRegisterErrorWindow(){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/claims/fxml/errorLoginIssues.fxml"));
         createStage(loader);
     }
 
