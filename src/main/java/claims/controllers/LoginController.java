@@ -99,9 +99,33 @@ public class LoginController implements Initializable {
                 alert.showAndWait();
             }
         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADVISOR) {
-            Model.getInstance().getViewFactory().showAdvisorWindow();
+            Model.getInstance().evaluateAdvisorCred(TextField_Username.getText(), TextField_Password.getText());
+            if (Model.getInstance().getAdvisorLoginSuccessFlag()) {
+                Model.getInstance().getViewFactory().showAdvisorWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+            } else {
+                TextField_Username.setText("");
+                TextField_Password.setText("");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Login Error");
+                alert.setHeaderText("Invalid Credentials");
+                alert.setContentText("Please check your username and password");
+                alert.showAndWait();
+            }
         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADMIN) {
-            Model.getInstance().getViewFactory().showAdminWindow();
+            Model.getInstance().evaluateAdminCred(TextField_Username.getText(), TextField_Password.getText());
+            if (Model.getInstance().getAdminLoginSuccessFlag()) {
+                Model.getInstance().getViewFactory().showAdminWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+            } else {
+                TextField_Username.setText("");
+                TextField_Password.setText("");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Login Error");
+                alert.setHeaderText("Invalid Credentials");
+                alert.setContentText("Please check your username and password");
+                alert.showAndWait();
+            }
         }
 
     }
