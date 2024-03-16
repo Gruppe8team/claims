@@ -7,8 +7,8 @@ public class Advisor extends User {
 	private List<Customer> clients; // Assuming there is a Client class that extends User
         private List<Claims> managedClaims;
 	//to initailize an advisor object
-	public Advisor(int userID, String passwordKey, String firstName, String lastName, String email) {
-        super(userID, passwordKey, firstName, lastName, email); // Call superclass constructor
+	public Advisor(int userID, String username, String passwordKey, String firstName, String lastName, String email) {
+        super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.clients = new ArrayList<>();
         this.managedClaims = new ArrayList<>();
 	}

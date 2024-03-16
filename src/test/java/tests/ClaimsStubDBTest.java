@@ -12,15 +12,15 @@ import org.junit.jupiter.api.Test;
 
 class ClaimsStubDBTest {
 	//Creates new empty claim to be set
-	Claims claim1 = new Claims();
+	Claims claim1 = new Claims(0, 0, 0, 0, null, null, null, null, null, null, null, false, false, false);
 	//Tests the addition and removal of claims from the database
 	@Test
 	void shouldAddandRemoveClaimstoDB() {
 		// Sets claim information
-		claim1.setClaimID("1");
-		claim1.setClientID("100");
-		claim1.setAdvisorID("110");
-		claim1.setPolicyID("2");
+		claim1.setClaimID(1);
+		claim1.setClientID(100);
+		claim1.setAdvisorID(110);
+		claim1.setPolicyID(2);
 		claim1.setClaimStatus("Closed");
 		claim1.setDateFilled(LocalDate.parse("01/08/24"));
 		claim1.setAccidentTime("9:30AM");

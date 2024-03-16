@@ -15,7 +15,7 @@ public class CustomerTest {
 
     @BeforeEach
     void setUp() {
-        customer = new Customer(1, "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234", "Male", 30);
+        customer = new Customer(1, "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234", "Male", null, 30);
     }
 
     @Test

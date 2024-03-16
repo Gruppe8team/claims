@@ -42,8 +42,8 @@ public class Customer extends User {
         this.vehicles = new SimpleListProperty<Vehicle>(vehicleObservableList);
     }
 
-    public Customer(int userID, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age) {
-        super(userID, passwordKey, firstName, lastName, email); // Call superclass constructor
+    public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age) {
+        super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.address = new SimpleStringProperty(this, "Address", address);
         this.phoneNumber = new SimpleStringProperty(this, "Phone Number", phoneNumber);
         this.gender = new SimpleStringProperty(this, "Gender", gender);

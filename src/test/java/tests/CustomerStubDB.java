@@ -13,8 +13,8 @@ public class CustomerStubDB {
     private final Map<Integer, Customer> customers = new HashMap<>(); // Using userID as key
 
     // Method to add a customer
-    public void addCustomer(Customer customer) {
-        customers.put(customer.getUserID(), customer);
+        public void addCustomer(Customer customer) {
+        customers.put(customer.getUserID().intValue(), customer);
     }
 
     // Method to remove a customer
@@ -65,9 +65,10 @@ public class CustomerStubDB {
 
     public List<Customer> findCustomersByAgeRange(int minAge, int maxAge) {
         return customers.values().stream()
-                .filter(customer -> customer.getAge() >= minAge && customer.getAge() <= maxAge)
+                .filter(customer -> customer.getAge().intValue() >= minAge && customer.getAge().intValue() <= maxAge)
                 .collect(Collectors.toList());
     }
+
     
     public boolean updateCustomerEmail(int userID, String newEmail) {
         Customer customer = customers.get(userID);
@@ -79,7 +80,7 @@ public class CustomerStubDB {
     }
     
     public void addCustomers(List<Customer> newCustomers) {
-        newCustomers.forEach(customer -> customers.put(customer.getUserID(), customer));
+        newCustomers.forEach(customer -> customers.put(customer.getUserID().intValue(), customer));
     }
     
     public void removeCustomers(List<Integer> userIDs) {

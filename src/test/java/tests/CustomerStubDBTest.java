@@ -18,14 +18,14 @@ public class CustomerStubDBTest {
     void setUp() {
         db = new CustomerStubDB();
         // Setup some default customers for testing
-        db.addCustomer(new Customer(1, "test123", "John", "Doe", "john@example.com", "123 Main St", "555-1234", "Male", 30));
-        db.addCustomer(new Customer(2, "pass456", "Jane", "Doe", "jane@example.com", "456 Park Ave", "555-5678", "Female", 25));
+        db.addCustomer(new Customer(1, "test123", "John", "Doe", "john@example.com", "123 Main St", "555-1234", "Male", null, 30));
+        db.addCustomer(new Customer(2, "pass456", "Jane", "Doe", "jane@example.com", "456 Park Ave", "555-5678", "Female", null, 25));
     }
 
     @Test
     void testAddCustomer() {
         assertEquals(2, db.getAllCustomers().size());
-        db.addCustomer(new Customer(3, "password789", "Jim", "Beam", "jim@example.com", "789 Elm St", "555-6789", "Male", 40));
+        db.addCustomer(new Customer(3, "password789", "Jim", "Beam", "jim@example.com", "789 Elm St", "555-6789", "Male", null, 40));
         assertEquals(3, db.getAllCustomers().size());
     }
 
@@ -38,7 +38,7 @@ public class CustomerStubDBTest {
 
     @Test
     void testUpdateCustomer() {
-        Customer updatedCustomer = new Customer(1, "newpass123", "John", "Doe", "johnny@example.com", "123 Main St", "555-1234", "Male", 31);
+        Customer updatedCustomer = new Customer(1, "newpass123", "John", "Doe", "johnny@example.com", "123 Main St", "555-1234", "Male", null, 31);
         assertTrue(db.updateCustomer(1, updatedCustomer));
         assertEquals("johnny@example.com", db.getCustomer(1).getEmail());
     }
@@ -81,8 +81,8 @@ public class CustomerStubDBTest {
     @Test
     void testAddCustomers() {
         db.addCustomers(Arrays.asList(
-            new Customer(3, "unique123", "Alice", "Wonder", "alice@example.com", "111 Alice Ln", "555-0001", "Female", 28),
-            new Customer(4, "unique456", "Bob", "Builder", "bob@example.com", "222 Bob St", "555-0002", "Male", 35)
+            new Customer(3, "unique123", "Alice", "Wonder", "alice@example.com", "111 Alice Ln", "555-0001", "Female", null, 28),
+            new Customer(4, "unique456", "Bob", "Builder", "bob@example.com", "222 Bob St", "555-0002", "Male", null, 35)
         ));
         assertEquals(4, db.getAllCustomers().size());
     }

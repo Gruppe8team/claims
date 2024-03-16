@@ -10,8 +10,8 @@ public class SysAdmin extends User  {
     private boolean isActive;
 
     // Constructor with parameters
-    public SysAdmin(int userID, String passwordKey, String firstName, String lastName, String email, boolean isActive) {
-        super(userID, passwordKey, firstName, lastName, email); // Call superclass constructor
+    public SysAdmin(int userID, String username, String passwordKey, String firstName, String lastName, String email, boolean isActive) {
+        super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.isActive = isActive;
     }
 
