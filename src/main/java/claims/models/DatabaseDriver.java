@@ -1,7 +1,9 @@
 package claims.models;
 
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DatabaseDriver {
@@ -16,11 +18,16 @@ public class DatabaseDriver {
     }
 
     //Customer Section
-    public Customer getCustomerDetails(String email){
-        Customer customer = null;
-        //Query to fetch customer details from database using email
-        //Map results to customer object
-        return customer;
+    public ResultSet getCustomerDetails(String username, String password){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM customers WHERE Username='"+username+"' AND Password='"+password+"';");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
     }
 
     //Advisor Section
