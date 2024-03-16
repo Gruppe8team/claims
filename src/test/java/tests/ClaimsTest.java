@@ -4,22 +4,24 @@ import claims.models.Claims;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 
 class ClaimsTest {
 	//Creates empty claim object
 	Claims claim1 = new Claims();
 	//Creates filled object
-	Claims claim2 = new Claims(2, 200, 210, 4, "Closed", "12/15/23", "6:00AM", "Giant concrete slab smashed rear passenger seats, no injuries", "Client was driving on highway 7, giant concrete slab fell from the sky, smashed car.", "$20000", "Made final payment, client satisfied", false, true, true);
+	Claims claim2 = new Claims("2", "200", "210", "4", "Closed", LocalDate.parse("12/15/23"), "6:00AM", "Giant concrete slab smashed rear passenger seats, no injuries", "Client was driving on highway 7, giant concrete slab fell from the sky, smashed car.", "$20000", "Made final payment, client satisfied", false, true, true);
 	//Tests setting the claim information
 	@Test
 	void setClaimInfoTest() {
-		claim1.setClaimID(1);
-		claim1.setClientID(100);
-		claim1.setAdvisorID(110);
-		claim1.setPolicyID(2);
+		claim1.setClaimID("1");
+		claim1.setClientID("100");
+		claim1.setAdvisorID("110");
+		claim1.setPolicyID("2");
 		claim1.setClaimStatus("Open");
-		claim1.setDateFilled("01/08/24");
+		claim1.setDateFilled(LocalDate.parse("01/08/24"));
 		claim1.setAccidentTime("9:30AM");
 		claim1.setDamage("Windshield cracked, bumper came off");
 		claim1.setTotalled(false);
@@ -28,7 +30,7 @@ class ClaimsTest {
 		claim1.setPayInfo("$500");
 		claim1.setDescription("Client rear-ended third party, third party has witnesses");
 		claim1.setClosureCond(null);
-	
+
 		assertEquals(1, claim1.getClaimID());
 		assertEquals(100, claim1.getClientID());
 		assertEquals(110, claim1.getAdvisorID());
