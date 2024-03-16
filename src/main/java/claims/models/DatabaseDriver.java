@@ -31,7 +31,17 @@ public class DatabaseDriver {
     }
 
     //Advisor Section
-
+    public ResultSet getAdvisorDetails(String username, String password){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM advisors WHERE Username='"+username+"' AND Password='"+password+"';");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
 
     //Admin Section
 

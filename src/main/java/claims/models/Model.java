@@ -83,10 +83,37 @@ public class Model {
                 this.customer.getUserID().set(resultSet.getInt("ID"));
                 this.customer.getgender().set(resultSet.getString("Gender"));
                 this.customer.getAge().set(resultSet.getInt("Age"));
+                this.customer.getPasswordKey().set(resultSet.getString("Password"));
                 this.customerLoginSuccessFlag = true;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    // Advisor Method Section
+
+    public boolean getAdvisorLoginSuccessFlag() {
+        return this.AdvisorLoginSuccessFlag;
+    }
+
+    public void setAdvisorLoginSuccessFlag(boolean flag) {
+        this.AdvisorLoginSuccessFlag = flag;
+    }
+
+    public Advisor getAdvisor() {
+        return this.advisor;
+    }
+
+    public void evaluateAdvisorCred(String username, String password) {
+        ResultSet resultSet = databaseDriver.getAdvisorDetails(username, password);
+        try {
+            if (resultSet.isBeforeFirst()){
+                this.advisor.getFirstName().set(resultSet.getString("FirstName"));
+                this.advisor.getLastName().set(resultSet.getString("LastName"));
+                this.advisor.getUsername().set(resultSet.getString("Username"));
+                this.advisor.getEmail().set(resultSet.getString("Email"));
+                this.advisor.getPasswordKey().set(resultSet.getString("Password"));
+
     }
 }
