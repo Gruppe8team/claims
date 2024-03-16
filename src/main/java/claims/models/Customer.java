@@ -1,7 +1,4 @@
 package claims.models;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Observable;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
@@ -114,7 +111,7 @@ public class Customer extends User {
     }
     
     // returns vehicle list
-    public List<Vehicle> getVehicles() {
+    public ListProperty<Vehicle> getVehicles() {
         return vehicles;
     }
 
