@@ -48,38 +48,6 @@ public class LoginController implements Initializable {
     private void onLogin() {
 
 
-
-//    	String email;
-//    	String password;
-//
-//
-//    	if(acc_type_selector.getValue() == acc_type[0]) {
-//    		try {
-//        		customerDAO cusdao = new customerDAO();
-//        		email = cusdao.getEmailInfo();
-//
-//        		Stage stage = (Stage) Button_SignIn.getScene().getWindow();
-//    	        Model.getInstance().getViewFactory().closeStage(stage);
-//    	        Model.getInstance().getViewFactory().showCustomerWindow();
-//        	}catch(SQLException e) {
-//        		e.printStackTrace();
-//        	}
-//    	}
-//    	else if (acc_type_selector.getValue() == acc_type[1]) {
-//    		try {
-//        		advisorDAO advdao = new advisorDAO();
-//        		email = advdao.getEmailInfo();
-//
-//
-//
-//        		Stage stage = (Stage) Button_SignIn.getScene().getWindow();
-//                Model.getInstance().getViewFactory().closeStage(stage);
-//                Model.getInstance().getViewFactory().showAdvisorMenu();
-//
-//        	}catch(SQLException e) {
-//        		e.printStackTrace();
-//        	}
-//    	}
         if (acc_type_selector.getValue() != AccountType.CUSTOMER){
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation");
