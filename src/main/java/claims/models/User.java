@@ -17,6 +17,7 @@ public abstract class User {
 
     // important indexes for the userSuperClass
     private final IntegerProperty userID;
+    private final StringProperty username;
     private final StringProperty passwordKey;
 
     private final StringProperty firstName;
@@ -37,6 +38,7 @@ public abstract class User {
     // default construction for general technical operations, for setting default
     public User() {
         this.userID = new SimpleIntegerProperty(this, "User ID", 0);
+        this.username = new SimpleStringProperty(this, "Username", "");
         this.passwordKey = new SimpleStringProperty(this, "Password", "");
         this.firstName = new SimpleStringProperty(this, "First Name", "");
         this.lastName = new SimpleStringProperty(this, "Last Name", "");
@@ -45,8 +47,9 @@ public abstract class User {
     // information.
 
     // construction for general technical operations, for setting new accounts
-    public User(int userID, String pass, String fName, String lName, String email) {
+    public User(int userID, String username, String pass, String fName, String lName, String email) {
         this.userID = new SimpleIntegerProperty(this, "User ID", userID);
+        this.username = new SimpleStringProperty(this, "Username", username);
         this.passwordKey = new SimpleStringProperty(this, "Password", pass);
         this.firstName = new SimpleStringProperty(this, "First Name", fName);
         this.lastName = new SimpleStringProperty(this, "Last Name", lName);
@@ -56,10 +59,19 @@ public abstract class User {
     // ditto but for already given User object
     public User(User user) {
         this.userID = user.getUserID();
+        this.username = user.getUsername();
         this.passwordKey = user.getPasswordKey();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.email = user.getEmail();
+    }
+
+    public StringProperty getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username.set(username);
     }
 
     // for getting information when required. That is all

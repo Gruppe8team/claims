@@ -1,13 +1,15 @@
 package claims.models;
 
+import claims.views.AccountType;
 import claims.views.ViewFactory;
 
 public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
     private final DatabaseDriver databaseDriver;
+    private AccountType loginAccountType = AccountType.CUSTOMER;
     // Customer Data Section
-    private Customer customer;
+    private final Customer customer;
     private boolean customerLoginSuccessFlag;
     // Adivsor Data Section
 
@@ -38,5 +40,30 @@ public class Model {
 
     public DatabaseDriver getDatabaseDriver() {
         return databaseDriver;
+    }
+
+    public AccountType getLoginAccountType() {
+        return loginAccountType;
+    }
+
+    public void setLoginAccountType(AccountType loginAccountType){
+        this.loginAccountType = loginAccountType;
+    }
+
+    // Customer Method Section
+
+    public boolean getCustomerLoginSuccessFlag() {
+        return this.customerLoginSuccessFlag;
+    }
+    public void setCustomerLoginSuccessFlag(boolean flag) {
+        this.customerLoginSuccessFlag = flag;
+    }
+
+    public Customer getCustomer() {
+        return this.customer;
+    }
+
+    public void evaluateClientCred(String username, String password) {
+        
     }
 }

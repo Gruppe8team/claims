@@ -16,7 +16,12 @@ public class DatabaseDriver {
     }
 
     //Customer Section
-
+    public Customer getCustomerDetails(String email){
+        Customer customer = null;
+        //Query to fetch customer details from database using email
+        //Map results to customer object
+        return customer;
+    }
 
     //Advisor Section
 
