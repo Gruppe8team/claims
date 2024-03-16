@@ -4,6 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import claims.models.Vehicle;
+
 public class VehicleDAO {
 	private Connection connection;
 
@@ -24,7 +26,7 @@ public class VehicleDAO {
 					"INSERT INTO vehicles (vehicleID, ownerID, year, type, make, model, colour, licensePlate, registration) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
 					);
 			preparedStatement.setInt(1, vehicle.getVehicleID());
-			preparedStatement.setInt(2, vehicle.getOwner().getUserID()); // Assuming the owner has a userID attribute
+			preparedStatement.setInt(2, vehicle.getOwner().getUserID().intValue()); // Assuming the owner has a userID attribute
 			preparedStatement.setInt(3, vehicle.getYear());
 			preparedStatement.setString(4, vehicle.getType());
 			preparedStatement.setString(5, vehicle.getMake());
@@ -58,7 +60,7 @@ public class VehicleDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(
 					"UPDATE vehicles SET ownerID = ?, year = ?, type = ?, make = ?, model = ?, colour = ?, licensePlate = ?, registration = ? WHERE vehicleID = ?"
 					);
-			preparedStatement.setInt(1, vehicle.getOwner().getUserID()); // Assuming the owner has a userID attribute
+			preparedStatement.setInt(1, vehicle.getOwner().getUserID().intValue()); // Assuming the owner has a userID attribute
 			preparedStatement.setInt(2, vehicle.getYear());
 			preparedStatement.setString(3, vehicle.getType());
 			preparedStatement.setString(4, vehicle.getMake());

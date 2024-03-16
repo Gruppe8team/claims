@@ -1,10 +1,11 @@
 package tests;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import claims.*;
+import claims.models.Advisor;
 public class AdvisorTest{
 	//sample data for testing
 	int userID = 1;
+	String username = "jchen";
 	String passwordKey = "x";
 	String firstName = "Jaye";
 	String lastName = "Chen";
@@ -12,7 +13,7 @@ public class AdvisorTest{
 
 
 	//create a new advisor for testing
-	Advisor jaye = new Advisor(userID, passwordKey, firstName, lastName, email);
+	Advisor jaye = new Advisor(userID, username, passwordKey, firstName, lastName, email);
 	
 	String expectedToString = "Advisor{" +
             "userID=" + userID +

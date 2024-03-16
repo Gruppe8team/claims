@@ -1,5 +1,7 @@
 package tests;
 import claims.*;
+import claims.models.Claims;
+
 import java.util.ArrayList;
 
 
