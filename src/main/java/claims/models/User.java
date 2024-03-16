@@ -1,4 +1,10 @@
 package claims.models;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  * This file was created by Cyrus Yang
  * A Skeletonized file of Superclass User for all points
@@ -7,46 +13,37 @@ package claims.models;
  * NOTE: This file should not be edited without consulting the Author
  */
 
-
-public class User {
+public abstract class User {
 
     // important indexes for the userSuperClass
-    private int userID;
-    private String passwordKey;
+    private final IntegerProperty userID;
+    private final StringProperty passwordKey;
 
-    private String firstName;
-    private String lastName;
+    private final StringProperty firstName;
+    private final StringProperty lastName;
 
-    private String email;
-   private int typeAccount; // secret integer to differ from each user type for the feature access
+    private final StringProperty email;
 
     /**
      * Data for secret typeAccount directory parts:
      * 0 - Default user type (limited access)
      * 1 - Advisor (Access for the advisor side of things)
      * 2 - Customer (Access to policy changes and others)
-     * 3 - SysAdmin (Access to the management system (Iteration 2 integration to be added))
+     * 3 - SysAdmin (Access to the management system (Iteration 2 integration to be
+     * added))
      * 4 - Disabled/Inactive (Will prompt to contact system admin when occurs)
      */
 
-
-    // default construction for general technical operations, for setting default information.
-    public User() {
-        this.userID = 0;
-        this.passwordKey = "";
-        this.firstName = "";
-        this.lastName = "";
-        this.email = "";
-        this.typeAccount = 0;
-    }
+    // default construction for general technical operations, for setting default
+    // information.
 
     // construction for general technical operations, for setting new accounts
     public User(int userID, String pass, String fName, String lName, String email) {
-        this.userID = userID;
-        this.passwordKey = pass;
-        this.firstName = fName;
-        this.lastName = lName;
-        this.email = email;
+        this.userID = new SimpleIntegerProperty(this, "User ID", userID);
+        this.passwordKey = new SimpleStringProperty(this, "Password", pass);
+        this.firstName = new SimpleStringProperty(this, "First Name", fName);
+        this.lastName = new SimpleStringProperty(this, "Last Name", lName);
+        this.email = new SimpleStringProperty(this, "Email", email);
     }
 
     // ditto but for already given User object
@@ -56,52 +53,47 @@ public class User {
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.email = user.getEmail();
-        this.typeAccount = user.getTypeAccount();
     }
 
-    //for getting information when required. That is all
-    public int getUserID() {
+    // for getting information when required. That is all
+    public IntegerProperty getUserID() {
         return this.userID;
     }
 
-    public String getPasswordKey() {
+    public StringProperty getPasswordKey() {
         return this.passwordKey;
     }
-    public String getFirstName() {
+
+    public StringProperty getFirstName() {
         return this.firstName;
     }
-    public String getLastName() {
+
+    public StringProperty getLastName() {
         return this.lastName;
     }
-    public String getEmail() {
+
+    public StringProperty getEmail() {
         return this.email;
     }
 
-    public int getTypeAccount() {
-        return this.typeAccount;
-    }
-
-    public void setTypeAccount(int type) {
-        this.typeAccount = type;
-    }
-
-    // important functions accounts (note we also need a create a new account option)
+    // important functions accounts (note we also need a create a new account
+    // option)
     // and possibly a change password option.
     public void changePassword(String pass) {
-        this.passwordKey = pass;
+        this.passwordKey.set(pass);
     }
 
     public void changeEmail(String email) {
-        this.email = email;
+        this.email.set(email);
     }
 
     public void changeFirstName(String firstName) {
-        this.firstName = firstName;
+        this.firstName.set(firstName);
     }
 
     public void changeLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastName.set(lastName);
     }
 
-
 }
+

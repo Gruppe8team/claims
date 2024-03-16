@@ -4,14 +4,15 @@ import java.time.LocalDate;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Claims {
 	
-	private final StringProperty claimID, clientID; //Identification for the claim and client.
-	private final StringProperty advisorID, policyID;
+	private final IntegerProperty claimID, clientID; //Identification for the claim and client.
+	private final IntegerProperty advisorID, policyID;
 	private final ObjectProperty<LocalDate> dateFilled; //Identification for the advisor and the policy.
 	private final StringProperty claimStatus, accidentTime, damage, description, payInfo, closureCond; /*Description of the claim status, date claim was opened,
  													time of accident, description of damages, description of accident details,
@@ -20,19 +21,6 @@ public class Claims {
      /**
      * Constructs an empty Claim object.
      */
-	public Claims() {
-		this.claimID = new SimpleStringProperty();
-		this.clientID = new SimpleStringProperty();
-		this.advisorID = new SimpleStringProperty();
-		this.policyID = new SimpleStringProperty();
-		this.dateFilled = new SimpleObjectProperty<LocalDate>();
-		this.claimStatus = new SimpleStringProperty();
-		this.accidentTime = new SimpleStringProperty();
-		this.damage = new SimpleStringProperty();
-		this.description = new SimpleStringProperty();
-		this.payInfo = new SimpleStringProperty();
-		this.closureCond = new SimpleStringProperty();
-	}
 
      /**
      * @param claimID identification of claim
@@ -50,14 +38,14 @@ public class Claims {
      * @param totalled whether or not vehicle is totalled
      * @param closed whether or not claim is closed
      */
-	public Claims(String claimID, String clientID, String advisorID, String policyID, String claimStatus,
+	public Claims(int claimID, int clientID, int advisorID, int policyID, String claimStatus,
 			LocalDate dateFilled, String accidentTime, String damage, String description, String payInfo,
 			String closureCond, boolean atFault, boolean totalled, boolean closed) {
 		
-		this.claimID = new SimpleStringProperty(this,"ClaimID",claimID);
-		this.clientID = new SimpleStringProperty(this,"ClientID",clientID);
-		this.advisorID = new SimpleStringProperty(this,"AdvisorID",advisorID);
-		this.policyID = new SimpleStringProperty(this,"PolicyID",policyID);
+		this.claimID = new SimpleIntegerProperty(this,"ClaimID",claimID);
+		this.clientID = new SimpleIntegerProperty(this,"ClientID",clientID);
+		this.advisorID = new SimpleIntegerProperty(this,"AdvisorID",advisorID);
+		this.policyID = new SimpleIntegerProperty(this,"PolicyID",policyID);
 		this.claimStatus = new SimpleStringProperty(this,"ClaimStatus",claimStatus);
 		this.dateFilled = new SimpleObjectProperty<>(this, "DateFilled", dateFilled);
 		this.accidentTime = new SimpleStringProperty(this,"AccidentTime",accidentTime);
@@ -71,35 +59,35 @@ public class Claims {
 		
 	}
 	//Gets claim ID
-	public StringProperty getClaimID() {
+	public IntegerProperty getClaimID() {
 		return claimID;
 	}
 	//Sets claim id
-	public void setClaimID(String claimID) {
+	public void setClaimID(int claimID) {
 		this.claimID.set(claimID);
 	}
 	//gets client id
-	public StringProperty getClientID() {
+	public IntegerProperty getClientID() {
 		return clientID;
 	}
 	//Sets client id
-	public void setClientID(String clientID) {
+	public void setClientID(int clientID) {
 		this.clientID.set(clientID);
 	}
 	//Gets advisor id
-	public StringProperty getAdvisorID() {
+	public IntegerProperty getAdvisorID() {
 		return advisorID;
 	}
 	//Sets advisor id
-	public void setAdvisorID(String advisorID) {
+	public void setAdvisorID(int advisorID) {
 		this.advisorID.set(advisorID);
 	}
 	//Gets policy id
-	public StringProperty getPolicyID() {
+	public IntegerProperty getPolicyID() {
 		return policyID;
 	}
 	//Sets policy id
-	public void setPolicyID(String policyID) {
+	public void setPolicyID(int policyID) {
 		this.policyID.set(policyID);
 	}
 	//Gets claims status

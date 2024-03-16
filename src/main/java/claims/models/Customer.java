@@ -2,24 +2,19 @@ package claims.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 
 public class Customer extends User {
-    private String address; // The address of the customer
-    private String phoneNumber; // The phone number of the customer
-    private String gender; // The gender of the customer
-    private int age; // The age of the customer
+    private StringProperty address; // The address of the customer
+    private StringProperty phoneNumber; // The phone number of the customer
+    private StringProperty gender; // The gender of the customer
+    private IntegerProperty age; // The age of the customer
     private List<Vehicle> vehicles; // The list of vehicles owned by the customer
 
-    // Default constructor
-    public Customer() {
-        super(); // Call superclass constructor
-        this.address = "";
-        this.phoneNumber = "";
-        this.gender = "";
-        this.age = 0;
-        this.vehicles = new ArrayList<Vehicle>();
-        super.setTypeAccount(2);
-    }
 
     /**
      * Constructor with with specified attributes
@@ -36,12 +31,11 @@ public class Customer extends User {
      *  */ 
     public Customer(int userID, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age) {
         super(userID, passwordKey, firstName, lastName, email); // Call superclass constructor
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.gender = gender;
-        this.age = age;
+        this.address = new SimpleStringProperty(this, "Address", address);
+        this.phoneNumber = new SimpleStringProperty(this, "Phone Number", phoneNumber);
+        this.gender = new SimpleStringProperty(this, "Gender", gender);
+        this.age = new SimpleIntegerProperty(this, "Age", age);
         this.vehicles = new ArrayList<Vehicle>();
-        super.setTypeAccount(2);
     }
 
     // Deep Copying Constructor
@@ -55,42 +49,42 @@ public class Customer extends User {
     }
 
     // Getter and setter methods for address
-    public String getAddress() {
+    public StringProperty getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.address.set(address);
     }
 
     // Gets the phone number of the customer
-    public String getPhoneNumber() {
+    public StringProperty getPhoneNumber() {
         return phoneNumber;
     }
 
     // sets the phone number of the customer
     public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+        this.phoneNumber.set(phoneNumber);
     }
 
     // gets the gender of the customer
-    public String getgender() {
+    public StringProperty getgender() {
         return gender;
     }
 
     // sets the gender of a customer
     public void setgender(String gender) {
-        this.gender = gender;
+        this.gender.set(gender);
     }
 
     // gets the age of a customer
-    public int getAge() {
+    public IntegerProperty getAge() {
         return age;
     }
 
     // sets the age of a customer
     public void setAge(int age) {
-        this.age = age;
+        this.age.set(age);
     }
 
     // adds a specific vehicle

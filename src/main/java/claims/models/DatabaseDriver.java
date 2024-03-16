@@ -14,4 +14,15 @@ public class DatabaseDriver {
             e.printStackTrace();
         }
     }
+
+    //Customer Section
+
+
+    //Advisor Section
+
+
+    //Admin Section
+
+
+    //Utility Methods
 }

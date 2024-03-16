@@ -11,7 +11,6 @@ public class Advisor extends User {
         super(userID, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.clients = new ArrayList<>();
         this.managedClaims = new ArrayList<>();
-        super.setTypeAccount(1);
 	}
 
     public Advisor(Advisor advisor) {
