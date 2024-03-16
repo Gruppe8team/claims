@@ -1,4 +1,4 @@
-package claims;
+package claims.models;
 
 /**
  * Represents a vehicle with basic attributes.

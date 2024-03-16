@@ -1,6 +1,10 @@
 package tests;
 
 import claims.*;
+import claims.models.Advisor;
+import claims.models.Customer;
+import claims.models.User;
+
 import java.util.ArrayList;
 import java.util.List;
 

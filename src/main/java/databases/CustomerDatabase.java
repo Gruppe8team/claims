@@ -3,7 +3,7 @@ package databases;
 import java.sql.*;
 import java.util.Random;
 
-import claims.NewUser;
+import claims.models.NewUser;
 
 public class CustomerDatabase {
 	private static String dbName = "claims_customerdb";

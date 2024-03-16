@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../style/Edit.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Customer.EditController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../style/Edit.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Customer.EditController">
 
     <children>
-        <Label fx:id="today_lbl" layoutX="788.0" layoutY="29.0" styleClass="date_lbl" text="Today, 29/02/2023" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
+        <Label fx:id="today_lbl" layoutX="788.0" layoutY="29.0" styleClass="date_lbl" text="Today, 2024-02-29" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
         <Text fx:id="username_lbl" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Hi, Kyle" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Account Information" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0" />
         <HBox prefHeight="180.0" prefWidth="570.0" styleClass="accounts_view" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0">
@@ -35,11 +35,11 @@
         </HBox>
 
         <Text layoutX="20.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Editing My Account" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="340.0" />
-      <VBox prefHeight="365.0" prefWidth="570.0" styleClass="edit_view" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0">
+      <VBox layoutX="20.0" layoutY="361.0" prefHeight="365.0" prefWidth="570.0" styleClass="edit_view" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="20.0">
          <children>
                   <Button fx:id="delete_btn" mnemonicParsing="false" styleClass="delete" text="Delete My Account" />
-      
-            
+
+
                         <HBox prefHeight="20.0" prefWidth="281.0" styleClass="edit_field">
                       <children>
                           <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="70.0" text="First Name" textAlignment="RIGHT" />
@@ -76,9 +76,17 @@
                           <TextField fx:id="gender_field" prefHeight="28.0" prefWidth="188.0" styleClass="text_field" />
                       </children>
                   </HBox>
+
+             <HBox prefHeight="20.0" prefWidth="281.0" styleClass="edit_field">
+                 <children>
+                     <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="70.0" text="Password" textAlignment="RIGHT" />
+                     <TextField fx:id="password_field" prefHeight="28.0" prefWidth="188.0" styleClass="text_field" />
+                 </children>
+             </HBox>
+
             <HBox prefHeight="20.0" prefWidth="200.0" styleClass="edit_buttons">
                <children>
-            
+
                         <Button fx:id="save_btn" mnemonicParsing="false" text="Save" />
                         <Button fx:id="cancel_btn" mnemonicParsing="false" text="Cancel" />
                </children>

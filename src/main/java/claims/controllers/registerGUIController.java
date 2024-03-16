@@ -3,8 +3,8 @@ package claims.controllers;
 import java.net.URL;
 
 import claims.models.Model;
+import claims.models.NewUser;
 import databases.CustomerDatabase;
-import claims.NewUser;
 
 import java.sql.*;
 import java.time.format.DateTimeFormatter;

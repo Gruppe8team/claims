@@ -2,6 +2,7 @@ package tests;
 
 import java.util.ArrayList;
 import claims.*;
+import claims.models.Vehicle;
 
 /**
  * A mock database for storing Vehicle objects.

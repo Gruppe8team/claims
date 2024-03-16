@@ -1,8 +1,8 @@
 package claims.controllers.Customer;
 
 
-import claims.NewUser;
 import claims.models.Model;
+import claims.models.NewUser;
 import claims.views.CustomerMenuOptions;
 import databases.CustomerDatabase;
 import javafx.fxml.FXML;
