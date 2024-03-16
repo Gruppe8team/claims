@@ -1,62 +1,55 @@
 package claims.controllers.Advisor;
 
-import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
+import claims.models.Model;
+import claims.views.AdvisorMenuOptions;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
-public class advisorMenuController {
+public class AdvisorMenuController implements Initializable {
 	
 	@FXML
-	private Button homeButton;
+	private Button home_btn;
 	
 	@FXML
-	private Button policyButton;
+	private Button policy_btn;
 	
 	@FXML
-	private Button claimsButton;
+	private Button claims_btn;
 	
 	@FXML
-	private Button logoutButton;
+	private Button logout_btn;
 	
-	private Stage stage;
+	@Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        addListeners();
+    }
 	
+	private void addListeners() {
+        home_btn.setOnAction(event -> onHome());
+        claims_btn.setOnAction(event -> onClaims());
+        policy_btn.setOnAction(event -> onPolicy());
+        logout_btn.setOnAction(event -> onLogout());
+    }
 	
-	
-	public void homeButtonPressed(ActionEvent e) throws IOException{
-		
-		Parent homeDashboardView = FXMLLoader.load(getClass().getResource("AdvisorHomeDashboard.fxml"));
-		stage = (Stage) homeButton.getScene().getWindow();
-		stage.setScene(new Scene(homeDashboardView));
-		stage.show();
-		
-	}
-	
-	public void policyButtonPressed(ActionEvent e) throws IOException{
-		Parent policyDashboardView = FXMLLoader.load(getClass().getResource("AdvisorPolicyDashboard.fxml"));
-		stage = (Stage) policyButton.getScene().getWindow();
-		stage.setScene(new Scene(policyDashboardView));
-		stage.show();
-	}
-	
-	public void cliamsButtonPressed(ActionEvent e) throws IOException {
-		Parent claimsDashboardView = FXMLLoader.load(getClass().getResource("AdvisorClaimsDashboard.fxml"));
-		stage = (Stage) claimsButton.getScene().getWindow();
-		stage.setScene(new Scene(claimsDashboardView));
-		stage.show();
-	}
+	private void onHome() {
+        Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.HOME);
+    }
 
-	public void logoutButtonPressed(ActionEvent e) throws IOException{
-		Parent loginView = FXMLLoader.load(getClass().getResource("Login.fxml"));
-		stage = (Stage) logoutButton.getScene().getWindow();
-		stage.setScene(new Scene(loginView));
-		stage.show();
-	}
+    private void onClaims() {
+        Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.CLAIMS);
+    }
+
+    private void onPolicy() {
+        Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.POLICY);
+    }
+
+    private void onLogout() {
+        
+    }
 	
 	
 
