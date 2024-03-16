@@ -35,6 +35,13 @@ public abstract class User {
      */
 
     // default construction for general technical operations, for setting default
+    public User() {
+        this.userID = new SimpleIntegerProperty(this, "User ID", 0);
+        this.passwordKey = new SimpleStringProperty(this, "Password", "");
+        this.firstName = new SimpleStringProperty(this, "First Name", "");
+        this.lastName = new SimpleStringProperty(this, "Last Name", "");
+        this.email = new SimpleStringProperty(this, "Email", "");
+    }
     // information.
 
     // construction for general technical operations, for setting new accounts

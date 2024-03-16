@@ -1,11 +1,16 @@
 package claims.models;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
 public class Customer extends User {
@@ -13,7 +18,7 @@ public class Customer extends User {
     private StringProperty phoneNumber; // The phone number of the customer
     private StringProperty gender; // The gender of the customer
     private IntegerProperty age; // The age of the customer
-    private List<Vehicle> vehicles; // The list of vehicles owned by the customer
+    private ListProperty<Vehicle> vehicles; // The list of vehicles owned by the customer
 
 
     /**
@@ -29,13 +34,24 @@ public class Customer extends User {
      * @param age the customer's age
      * @param vehicles the customer's vechicles
      *  */ 
+
+    public Customer() {
+        super();
+        this.address = new SimpleStringProperty(this, "Address", "");
+        this.phoneNumber = new SimpleStringProperty(this, "Phone Number", "");
+        this.gender = new SimpleStringProperty(this, "Gender", "");
+        this.age = new SimpleIntegerProperty(this, "Age", 0);
+        ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
+        this.vehicles = new SimpleListProperty<Vehicle>(vehicleObservableList);
+    }
+
     public Customer(int userID, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age) {
         super(userID, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.address = new SimpleStringProperty(this, "Address", address);
         this.phoneNumber = new SimpleStringProperty(this, "Phone Number", phoneNumber);
         this.gender = new SimpleStringProperty(this, "Gender", gender);
         this.age = new SimpleIntegerProperty(this, "Age", age);
-        this.vehicles = new ArrayList<Vehicle>();
+        this.vehicles = new SimpleListProperty<Vehicle>();
     }
 
     // Deep Copying Constructor

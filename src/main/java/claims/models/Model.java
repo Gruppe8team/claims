@@ -13,16 +13,17 @@ public class Model {
 
     // Admin Data Section
 
-    private Model() {
+        private Model() {
         this.viewFactory = new ViewFactory();
         this.databaseDriver = new DatabaseDriver();
         // Customer Data Section
         this.customerLoginSuccessFlag = false;
-        
+        this.customer = new Customer(); // Fixed constructor error
         // Adivsor Data Section
 
         // Admin Data Section
     }
+
 
     public static synchronized Model getInstance() {
         if (model == null) {
