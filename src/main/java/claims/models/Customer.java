@@ -21,6 +21,7 @@ public class Customer extends User {
     /**
      * Constructor with with specified attributes
      * @param userID the customer's user id 
+     * @param username the customer's username
      * @param passwordKey the customer's password
      * @param firstName the customer's firstname
      * @param lastName the customer's lastname
