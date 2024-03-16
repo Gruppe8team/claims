@@ -26,7 +26,7 @@ public class LoginController implements Initializable {
     private Button Button_SignUp;
 
     @FXML
-    private TextField TextField_Email;
+    private TextField TextField_Username;
 
     @FXML
     private TextField TextField_Password;
@@ -48,41 +48,56 @@ public class LoginController implements Initializable {
     private void onLogin() {
 
 
-        if (acc_type_selector.getValue() != AccountType.CUSTOMER){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText("Title");
-            alert.setContentText("Account or password error");
-            ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-            if (result == ButtonType.OK) {
-            }
-            return;
+        // if (acc_type_selector.getValue() != AccountType.CUSTOMER){
+        //     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        //     alert.setTitle("Confirmation");
+        //     alert.setHeaderText("Title");
+        //     alert.setContentText("Account or password error");
+        //     ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+        //     if (result == ButtonType.OK) {
+        //     }
+        //     return;
 
-        }
-        NewUser newUser = new NewUser();
-        newUser.setPasswordKey(TextField_Password.getText());
-        newUser.setEmail(TextField_Email.getText());
-        String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
-                "and passwordkey = \'"+newUser.getPasswordKey()+"\'";
-        NewUser user = CustomerDatabase.getUser(sql);
-        if(user.getUserID() == 0 || "".equals(newUser.getPasswordKey()) || "".equals(newUser.getEmail())){
-            //登陆失败
-            System.out.println("null");
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText("Title");
-            alert.setContentText("Account or password error");
-            ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-            if (result == ButtonType.OK) {
-            }
-            return;
-        }
-        EditController.newUser = user;
+        // }
+        // NewUser newUser = new NewUser();
+        // newUser.setPasswordKey(TextField_Password.getText());
+        // newUser.setEmail(TextField_Email.getText());
+        // String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
+        //         "and passwordkey = \'"+newUser.getPasswordKey()+"\'";
+        // NewUser user = CustomerDatabase.getUser(sql);
+        // if(user.getUserID() == 0 || "".equals(newUser.getPasswordKey()) || "".equals(newUser.getEmail())){
+        //     //登陆失败
+        //     System.out.println("null");
+        //     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        //     alert.setTitle("Confirmation");
+        //     alert.setHeaderText("Title");
+        //     alert.setContentText("Account or password error");
+        //     ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+        //     if (result == ButtonType.OK) {
+        //     }
+        //     return;
+        // }
+        // EditController.newUser = user;
+
+
 
     	Stage stage = (Stage) Button_SignIn.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
+        
         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CUSTOMER) {
-            Model.getInstance().getViewFactory().showCustomerWindow();
+            //Evalute login credentials
+            Model.getInstance().evaluateClientCred(TextField_Username.getText(), TextField_Password.getText());
+            if (Model.getInstance().getCustomerLoginSuccessFlag()) {
+                Model.getInstance().getViewFactory().showCustomerWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+            } else {
+                TextField_Username.setText("");
+                TextField_Password.setText("");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Login Error");
+                alert.setHeaderText("Invalid Credentials");
+                alert.setContentText("Please check your username and password");
+                alert.showAndWait();
+            }
         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADVISOR) {
             Model.getInstance().getViewFactory().showAdvisorWindow();
         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADMIN) {

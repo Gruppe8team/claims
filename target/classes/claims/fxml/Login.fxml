@@ -33,7 +33,7 @@
                </font>
             </Text>
             <ChoiceBox fx:id="acc_type_selector" prefHeight="26.0" prefWidth="100.0" styleClass="checkbox" />
-            <TextField fx:id="TextField_Email" alignment="CENTER" maxWidth="175.0" promptText="Email" styleClass="text_field">
+            <TextField fx:id="TextField_Username" alignment="CENTER" maxWidth="175.0" promptText="Email" styleClass="text_field">
                <VBox.margin>
                   <Insets bottom="5.0" top="10.0" />
                </VBox.margin>
