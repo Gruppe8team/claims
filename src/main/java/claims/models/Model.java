@@ -19,6 +19,7 @@ public class Model {
     private final Advisor advisor;
     private boolean AdvisorLoginSuccessFlag;
     // Admin Data Section
+    private final SysAdmin admin;
     private boolean AdminLoginSuccessFlag;
 
         private Model() {
@@ -31,6 +32,8 @@ public class Model {
         this.AdvisorLoginSuccessFlag = false;
         this.advisor = new Advisor();
         // Admin Data Section
+        this.AdminLoginSuccessFlag = false;
+        this.admin = new SysAdmin();
     }
 
 
@@ -121,5 +124,36 @@ public class Model {
             e.printStackTrace();
         }
 
+    }
+
+    // Admin Method Section
+
+    public boolean getAdminLoginSuccessFlag() {
+        return this.AdminLoginSuccessFlag;
+    }
+
+    public void setAdminLoginSuccessFlag(boolean flag) {
+        this.AdminLoginSuccessFlag = flag;
+    }
+
+    public SysAdmin getAdmin() {
+        return this.admin;
+    }
+
+    public void evaluateAdminCred(String username, String password) {
+        ResultSet resultSet = databaseDriver.getAdminDetails(username, password);
+        try {
+            if (resultSet.isBeforeFirst()){
+                this.admin.getUsername().set(resultSet.getString("Username"));
+                this.admin.getPasswordKey().set(resultSet.getString("Password"));
+                this.admin.getUserID().set(resultSet.getInt("ID"));
+                this.admin.getFirstName().set(resultSet.getString("FirstName"));
+                this.admin.getLastName().set(resultSet.getString("LastName"));
+                this.admin.getEmail().set(resultSet.getString("Email"));
+                this.AdminLoginSuccessFlag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
