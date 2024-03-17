@@ -99,13 +99,13 @@ public class LoginController implements Initializable {
                 alert.showAndWait();
             }
         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADVISOR) {
-            Model.getInstance().evaluateAdvisorCred(TextField_Username.getText(), TextField_Password.getText());
+            Model.getInstance().evaluateAdvisorCred(TextField_Username.getText(), PasswordField_Password.getText());
             if (Model.getInstance().getAdvisorLoginSuccessFlag()) {
                 Model.getInstance().getViewFactory().showAdvisorWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             } else {
                 TextField_Username.setText("");
-                TextField_Password.setText("");
+                PasswordField_Password.setText("");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Login Error");
                 alert.setHeaderText("Invalid Credentials");
@@ -113,13 +113,13 @@ public class LoginController implements Initializable {
                 alert.showAndWait();
             }
         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADMIN) {
-            Model.getInstance().evaluateAdminCred(TextField_Username.getText(), TextField_Password.getText());
+            Model.getInstance().evaluateAdminCred(TextField_Username.getText(), PasswordField_Password.getText());
             if (Model.getInstance().getAdminLoginSuccessFlag()) {
                 Model.getInstance().getViewFactory().showAdminWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             } else {
                 TextField_Username.setText("");
-                TextField_Password.setText("");
+                PasswordField_Password.setText("");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Login Error");
                 alert.setHeaderText("Invalid Credentials");
