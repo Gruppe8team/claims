@@ -10,6 +10,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.PasswordField?>
+
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="main" stylesheets="@../style/registerGUI.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.registerGUIController">
    <children>
@@ -28,8 +30,8 @@
             </HBox>
             <TextField fx:id="textfield_email" alignment="TOP_LEFT" maxWidth="310.0" promptText="Email" styleClass="text_field" />
             <TextField fx:id="text_field_phonenumber" maxWidth="310.0" promptText="Phone Number" styleClass="text_field" />
-            <TextField fx:id="text_field_password" maxWidth="310.0" promptText="Password " styleClass="text_field" />
-            <TextField fx:id="text_field_confirm" maxWidth="310.0" promptText="Confirm Password" styleClass="text_field" />
+            <PasswordField fx:id="password_field" maxWidth="310.0" promptText="Password" styleClass="text_field" />
+            <PasswordField fx:id="confirm_password_field" maxWidth="310.0" promptText="Confirm Password" styleClass="text_field" />
             <HBox alignment="CENTER" prefHeight="20.0" prefWidth="264.0" spacing="10.0">
                <children>
                   <TextField fx:id="text_field_address" prefHeight="25.0" prefWidth="220.0" promptText="Address" styleClass="text_field" />

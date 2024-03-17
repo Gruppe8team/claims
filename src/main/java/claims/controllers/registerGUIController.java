@@ -13,12 +13,7 @@ import java.util.ResourceBundle;
 import claims.userDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
@@ -42,7 +37,7 @@ public class registerGUIController implements Initializable {
     private TextField text_field_age;
 
     @FXML
-    private TextField text_field_confirm;
+    private PasswordField confirm_password_field;
 
     @FXML
     private DatePicker text_field_dob;
@@ -51,7 +46,7 @@ public class registerGUIController implements Initializable {
     private TextField text_field_lastname;
 
     @FXML
-    private TextField text_field_password;
+    private PasswordField password_field;
 
     @FXML
     private TextField text_field_phonenumber;
@@ -92,8 +87,8 @@ public class registerGUIController implements Initializable {
     	String last = text_field_lastname.getText();
     	String email = textfield_email.getText();
     	String phone = text_field_phonenumber.getText();
-    	String pass = text_field_password.getText();
-        String confirm = text_field_confirm.getText();
+    	String pass = password_field.getText();
+        String confirm = confirm_password_field.getText();
     	String address = text_field_address.getText();
     	String gender = selector.getValue();
     	String age = text_field_age.getText();
@@ -115,7 +110,7 @@ public class registerGUIController implements Initializable {
 
                 try {
                     NewUser newUser = new NewUser();
-                    newUser.setPasswordKey(text_field_password.getText());
+                    newUser.setPasswordKey(password_field.getText());
                     newUser.setFirstName(textfield_firstname.getText());
                     newUser.setLastName(text_field_lastname.getText());
                     newUser.setPhone(text_field_phonenumber.getText());
@@ -133,14 +128,14 @@ public class registerGUIController implements Initializable {
 
         }else {
                 Model.getInstance().getViewFactory().showRegisterErrorWindow();
-            text_field_password.clear();
-            text_field_confirm.clear();
+            confirm_password_field.clear();
+            password_field.clear();
 
         }
 
     }
 
-    //Jaye's
+    //Jaye's (Deprecated)
     @FXML
     public void onSave() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -153,7 +148,7 @@ public class registerGUIController implements Initializable {
 
             try {
                 NewUser newUser = new NewUser();
-                newUser.setPasswordKey(text_field_password.getText());
+                newUser.setPasswordKey(password_field.getText());
                 newUser.setFirstName(textfield_firstname.getText());
                 newUser.setLastName(text_field_lastname.getText());
                 newUser.setPhone(text_field_phonenumber.getText());
