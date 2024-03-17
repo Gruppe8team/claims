@@ -14,13 +14,13 @@ public class Model {
     private AccountType loginAccountType = AccountType.CUSTOMER;
     // Customer Data Section
     private final Customer customer;
-    private final Advisor advisor;
     private boolean customerLoginSuccessFlag;
-    private boolean AdvisorLoginSuccessFlag;
-    private boolean AdminLoginSuccessFlag;
     // Adivsor Data Section
-
+    private final Advisor advisor;
+    private boolean AdvisorLoginSuccessFlag;
     // Admin Data Section
+    private final SysAdmin admin;
+    private boolean AdminLoginSuccessFlag;
 
         private Model() {
         this.viewFactory = new ViewFactory();
@@ -32,6 +32,8 @@ public class Model {
         this.AdvisorLoginSuccessFlag = false;
         this.advisor = new Advisor();
         // Admin Data Section
+        this.AdminLoginSuccessFlag = false;
+        this.admin = new SysAdmin();
     }
 
 
@@ -84,7 +86,71 @@ public class Model {
                 this.customer.getUserID().set(resultSet.getInt("ID"));
                 this.customer.getgender().set(resultSet.getString("Gender"));
                 this.customer.getAge().set(resultSet.getInt("Age"));
+                this.customer.getPasswordKey().set(resultSet.getString("Password"));
                 this.customerLoginSuccessFlag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Advisor Method Section
+
+    public boolean getAdvisorLoginSuccessFlag() {
+        return this.AdvisorLoginSuccessFlag;
+    }
+
+    public void setAdvisorLoginSuccessFlag(boolean flag) {
+        this.AdvisorLoginSuccessFlag = flag;
+    }
+
+    public Advisor getAdvisor() {
+        return this.advisor;
+    }
+
+    public void evaluateAdvisorCred(String username, String password) {
+        ResultSet resultSet = databaseDriver.getAdvisorDetails(username, password);
+        try {
+            if (resultSet.isBeforeFirst()){
+                this.advisor.getFirstName().set(resultSet.getString("FirstName"));
+                this.advisor.getLastName().set(resultSet.getString("LastName"));
+                this.advisor.getUsername().set(resultSet.getString("Username"));
+                this.advisor.getEmail().set(resultSet.getString("Email"));
+                this.advisor.getPasswordKey().set(resultSet.getString("Password"));
+                this.advisor.getUserID().set(resultSet.getInt("ID"));
+                this.AdvisorLoginSuccessFlag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    // Admin Method Section
+
+    public boolean getAdminLoginSuccessFlag() {
+        return this.AdminLoginSuccessFlag;
+    }
+
+    public void setAdminLoginSuccessFlag(boolean flag) {
+        this.AdminLoginSuccessFlag = flag;
+    }
+
+    public SysAdmin getAdmin() {
+        return this.admin;
+    }
+
+    public void evaluateAdminCred(String username, String password) {
+        ResultSet resultSet = databaseDriver.getAdminDetails(username, password);
+        try {
+            if (resultSet.isBeforeFirst()){
+                this.admin.getUsername().set(resultSet.getString("Username"));
+                this.admin.getPasswordKey().set(resultSet.getString("Password"));
+                this.admin.getUserID().set(resultSet.getInt("ID"));
+                this.admin.getFirstName().set(resultSet.getString("FirstName"));
+                this.admin.getLastName().set(resultSet.getString("LastName"));
+                this.admin.getEmail().set(resultSet.getString("Email"));
+                this.AdminLoginSuccessFlag = true;
             }
         } catch (SQLException e) {
             e.printStackTrace();
