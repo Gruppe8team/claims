@@ -1,9 +1,9 @@
 package claims.controllers;
 
-import javafx.fxml.Initializable;
 import java.net.URL;
 
 import claims.models.Model;
+import claims.models.NewUser;
 import databases.CustomerDatabase;
 
 import java.sql.*;
@@ -19,6 +19,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 
@@ -27,16 +29,16 @@ public class ErrorLoginIssuesController implements Initializable {
     @FXML
     private Button Button_Ok;
     @FXML
-    private Button Text_flow;
+    private TextFlow Text_flow;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Button_Ok.setOnAction(event -> onCancel());
-
+        Button_Ok.setOnAction(event -> onOK());
+        Text t1 = new Text("Error! \n Password and Confirmation Do Not Match. Check and correct the fields to match.");
+        Text_flow.getChildren().add(t1);
     }
-    public void onCancel() {
+    public void onOK() {
         Stage stage = (Stage) Button_Ok.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showLoginWindow();
     }
 }

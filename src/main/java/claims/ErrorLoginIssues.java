@@ -11,16 +11,16 @@ public class ErrorLoginIssues extends Application{
 
 
     @Override
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("errorLoginIssues.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Kyle Please Add the Details");
             primaryStage.setScene(scene);
             primaryStage.show();
-        }catch(Exception e) {
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
     }
 
 
