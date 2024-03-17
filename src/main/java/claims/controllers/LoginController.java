@@ -29,7 +29,7 @@ public class LoginController implements Initializable {
     private TextField TextField_Username;
 
     @FXML
-    private TextField TextField_Password;
+    private PasswordField PasswordField_Password;
 
     @FXML
 	private ChoiceBox<AccountType> acc_type_selector;
@@ -85,13 +85,13 @@ public class LoginController implements Initializable {
         
         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CUSTOMER) {
             //Evalute login credentials
-            Model.getInstance().evaluateClientCred(TextField_Username.getText(), TextField_Password.getText());
+            Model.getInstance().evaluateClientCred(TextField_Username.getText(), PasswordField_Password.getText());
             if (Model.getInstance().getCustomerLoginSuccessFlag()) {
                 Model.getInstance().getViewFactory().showCustomerWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             } else {
                 TextField_Username.setText("");
-                TextField_Password.setText("");
+                PasswordField_Password.setText("");
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Login Error");
                 alert.setHeaderText("Invalid Credentials");
