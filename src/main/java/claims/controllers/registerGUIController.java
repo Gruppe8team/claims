@@ -164,7 +164,6 @@ public class registerGUIController implements Initializable {
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showLoginWindow();
     }
-//Jaye's
-
+//Jaye'
 }
 
