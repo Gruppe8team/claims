@@ -31,6 +31,9 @@ public class registerGUIController implements Initializable {
     private ChoiceBox<String> selector = new ChoiceBox<>();
 
     @FXML
+    private ChoiceBox<String> zapad = new ChoiceBox<>();
+
+    @FXML
     private TextField text_field_address;
 
     @FXML
@@ -57,7 +60,15 @@ public class registerGUIController implements Initializable {
     @FXML
     private TextField textfield_firstname;
 
-    private String[] gender = {"Male", "Female", "BTR-80"};
+    @FXML
+    private TextField textfield_username;
+
+    @FXML
+    private TextField textfield_administrative_code;
+
+    private String[] gender = {"Male", "Female", "BTR-80", "Finger", "Walrusian", "Neither"};
+
+        private String[] typeOfUser = {"Admin", "Customer", "Advisor"};
 
     private static String dob;
 
@@ -102,7 +113,7 @@ public class registerGUIController implements Initializable {
                 e.printStackTrace();
             }
 
-            //customer
+            //customer (potentially deprecated)
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation");
             alert.setHeaderText("Save Account");

@@ -27,7 +27,7 @@
                   <TextField fx:id="text_field_lastname" prefHeight="25.0" prefWidth="150.0" promptText="Last Name" styleClass="text_field" />
                </children>
             </HBox>
-            <TextField fx:id="textfield_email1" alignment="TOP_LEFT" layoutX="135.0" layoutY="122.0" maxWidth="310.0" promptText="Username" styleClass="text_field" />
+            <TextField fx:id="textfield_username" alignment="TOP_LEFT" layoutX="135.0" layoutY="122.0" maxWidth="310.0" promptText="Username" styleClass="text_field" />
             <TextField fx:id="textfield_email" alignment="TOP_LEFT" maxWidth="310.0" promptText="Email" styleClass="text_field" />
             <TextField fx:id="text_field_phonenumber" maxWidth="310.0" promptText="Phone Number" styleClass="text_field" />
             <PasswordField fx:id="password_field" maxWidth="310.0" promptText="Password" styleClass="text_field" />
@@ -46,8 +46,8 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <TextField prefHeight="25.0" prefWidth="230.0" promptText="Administration Code" styleClass="text_field" />
-                  <ChoiceBox prefHeight="27.0" prefWidth="106.0" styleClass="checkbox">
+                  <TextField id="textfield_administrative_code" prefHeight="25.0" prefWidth="230.0" promptText="Administration Code" styleClass="text_field" />
+                  <ChoiceBox id="zapad" prefHeight="27.0" prefWidth="106.0" styleClass="checkbox">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
