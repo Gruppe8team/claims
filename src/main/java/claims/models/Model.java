@@ -4,13 +4,18 @@ package claims.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import claims.models.Drivers.AdminDatabaseDriver;
+import claims.models.Drivers.AdvisorDatabaseDriver;
+import claims.models.Drivers.CustomerDatabaseDriver;
 import claims.views.AccountType;
 import claims.views.ViewFactory;
 
 public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
-    private final DatabaseDriver databaseDriver;
+    private final CustomerDatabaseDriver CustomerDatabaseDriver;
+    private final AdvisorDatabaseDriver AdvisorDatabaseDriver; 
+    private final AdminDatabaseDriver AdminDatabaseDriver;
     private AccountType loginAccountType = AccountType.CUSTOMER;
     // Customer Data Section
     private final Customer customer;
@@ -24,7 +29,9 @@ public class Model {
 
         private Model() {
         this.viewFactory = new ViewFactory();
-        this.databaseDriver = new DatabaseDriver();
+        this.CustomerDatabaseDriver = new CustomerDatabaseDriver();
+        this.AdvisorDatabaseDriver = new AdvisorDatabaseDriver();
+        this.AdminDatabaseDriver = new AdminDatabaseDriver();
         // Customer Data Section
         this.customerLoginSuccessFlag = false;
         this.customer = new Customer(); // Fixed constructor error
@@ -48,8 +55,8 @@ public class Model {
         return viewFactory;
     }
 
-    public DatabaseDriver getDatabaseDriver() {
-        return databaseDriver;
+    public CustomerDatabaseDriver getCustomerDatabaseDriver() {
+        return CustomerDatabaseDriver;
     }
 
     public AccountType getLoginAccountType() {
@@ -74,7 +81,7 @@ public class Model {
     }
 
     public void evaluateClientCred(String username, String password) {
-        ResultSet resultSet = databaseDriver.getCustomerDetails(username, password);
+        ResultSet resultSet = CustomerDatabaseDriver.getCustomerDetails(username, password);
         try {
             if (resultSet.isBeforeFirst()){
                 this.customer.getFirstName().set(resultSet.getString("FirstName"));
@@ -109,7 +116,7 @@ public class Model {
     }
 
     public void evaluateAdvisorCred(String username, String password) {
-        ResultSet resultSet = databaseDriver.getAdvisorDetails(username, password);
+        ResultSet resultSet = AdvisorDatabaseDriver.getAdvisorDetails(username, password);
         try {
             if (resultSet.isBeforeFirst()){
                 this.advisor.getFirstName().set(resultSet.getString("FirstName"));
@@ -141,7 +148,7 @@ public class Model {
     }
 
     public void evaluateAdminCred(String username, String password) {
-        ResultSet resultSet = databaseDriver.getAdminDetails(username, password);
+        ResultSet resultSet = AdminDatabaseDriver.getAdminDetails(username, password);
         try {
             if (resultSet.isBeforeFirst()){
                 this.admin.getUsername().set(resultSet.getString("Username"));
