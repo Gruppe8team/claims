@@ -25,15 +25,15 @@ public class VehicleDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(
 					"INSERT INTO vehicles (vehicleID, ownerID, year, type, make, model, colour, licensePlate, registration) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
 					);
-			preparedStatement.setInt(1, vehicle.getVehicleID());
-			preparedStatement.setInt(2, vehicle.getOwner().getUserID().intValue()); // Assuming the owner has a userID attribute
-			preparedStatement.setInt(3, vehicle.getYear());
-			preparedStatement.setString(4, vehicle.getType());
-			preparedStatement.setString(5, vehicle.getMake());
-			preparedStatement.setString(6, vehicle.getModel());
-			preparedStatement.setString(7, vehicle.getColour());
-			preparedStatement.setString(8, vehicle.getLicensePlate());
-			preparedStatement.setString(9, vehicle.getRegistration());
+			preparedStatement.setInt(1, vehicle.getVehicleID().getValue());
+			preparedStatement.setInt(2, vehicle.getOwner().get().getUserID().intValue()); // Assuming the owner has a userID attribute
+			preparedStatement.setInt(3, vehicle.getYear().getValue());
+			preparedStatement.setString(4, vehicle.getType().getValue());
+			preparedStatement.setString(5, vehicle.getMake().getValue());
+			preparedStatement.setString(6, vehicle.getModel().getValue());
+			preparedStatement.setString(7, vehicle.getColour().getValue());
+			preparedStatement.setString(8, vehicle.getLicensePlate().getValue());
+			preparedStatement.setString(9, vehicle.getRegistration().getValue());
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -88,7 +88,7 @@ public class VehicleDAO {
 			if (resultSet.next()) {
 				// Assuming there's a constructor in Vehicle class that accepts all attributes
 				return new Vehicle(resultSet.getInt("vehicleID"),
-						null, // Owner will be fetched separately
+						null, resultSet.getInt("year"), // Owner will be fetched separately
 						resultSet.getString("type"),
 						resultSet.getString("make"),
 						resultSet.getString("model"),
@@ -112,7 +112,7 @@ public class VehicleDAO {
 			while (resultSet.next()) {
 				// Assuming there's a constructor in Vehicle class that accepts all attributes
 				Vehicle vehicle = new Vehicle(resultSet.getInt("vehicleID"),
-						null, // Owner will be fetched separately
+						null, resultSet.getInt("year"), // Owner will be fetched separately
 						resultSet.getString("type"),
 						resultSet.getString("make"),
 						resultSet.getString("model"),
