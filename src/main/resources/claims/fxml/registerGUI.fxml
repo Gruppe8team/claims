@@ -47,11 +47,7 @@
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
                   <TextField id="textfield_administrative_code" prefHeight="25.0" prefWidth="230.0" promptText="Administration Code" styleClass="text_field" />
-                  <ChoiceBox id="zapad" prefHeight="27.0" prefWidth="106.0" styleClass="checkbox">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </ChoiceBox>
+                  <ChoiceBox id="zapad" prefHeight="27.0" prefWidth="106.0" styleClass="checkbox"/>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="32.0" prefWidth="560.0" spacing="10.0">

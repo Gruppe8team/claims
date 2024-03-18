@@ -78,6 +78,7 @@ public class registerGUIController implements Initializable {
         Button_Cancel.setOnAction(event -> onCancel());
         Button_Confirm.setOnAction(event -> onConfirm());
         selector.getItems().addAll(gender);
+        zapad.getItems().addAll(typeOfUser);
 
 //Jaye's
         text_field_dob.valueProperty().addListener((obs, oldVal, newVal) -> {
@@ -104,7 +105,9 @@ public class registerGUIController implements Initializable {
     	String gender = selector.getValue();
     	String age = text_field_age.getText();
     	String birth = text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        if ((pass.equals(confirm))) {
+        String adminPass = textfield_administrative_code.getText();
+        String userType =  zapad.getValue();
+        if (((pass.equals(confirm)) && (!userType.equals("Admin")))) {
             try {
                 userDAO dao = new userDAO();
                 dao.addToTable(first, last, email, phone, pass, address, gender, age, birth);
@@ -138,7 +141,7 @@ public class registerGUIController implements Initializable {
             Model.getInstance().getViewFactory().showLoginWindow();
 
         }else {
-                Model.getInstance().getViewFactory().showRegisterErrorWindow();
+            Model.getInstance().getViewFactory().showRegisterErrorWindow();
             confirm_password_field.clear();
             password_field.clear();
 
