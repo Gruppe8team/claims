@@ -16,7 +16,7 @@ class VehicleTest {
     // Create a customer for testing
     Customer John = new Customer(1, "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234", "Male", null, 30);
     // Create a vehicle with specific attributes for testing
-    Vehicle car1 = new Vehicle(1, John, "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
+    Vehicle car1 = new Vehicle(1, John, 2,"Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
     // Create an empty vehicle for testing
     Vehicle car2 = new Vehicle();
     

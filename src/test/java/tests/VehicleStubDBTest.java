@@ -15,7 +15,7 @@ class VehicleStubDBTest {
     // Create a customer for testing
     Customer Cyrus = new Customer();
     // Create a vehicle for testing
-    Vehicle car1 = new Vehicle(1, Cyrus,  "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
+    Vehicle car1 = new Vehicle(1, Cyrus, 2, "Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
 
     /**
      * Test case to add and then remove a vehicle from the mock database.
