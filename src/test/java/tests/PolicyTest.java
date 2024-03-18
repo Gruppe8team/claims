@@ -59,7 +59,7 @@ class PolicyTest {
 	@Test
 	void test5() {
 		Policy a = new Policy(98665, 8, "Half", "Active", 82.09);
-		Policy b = new Policy(a.getPolicyID(), a.getPolicyNumber(), a.getCoverageType(),a.getPolicyStatus(),a.getPremium());
+		Policy b = new Policy(a.getPolicyID().getValue(), a.getPolicyNumber().getValue(), a.getCoverageType().getValue(),a.getPolicyStatus().getValue(),a.getPremium().getValue());
 		b.setPolicyID(98765);
 		b.setClientID(13579);
 		b.setVehicleID(24680);
