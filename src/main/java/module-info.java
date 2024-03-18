@@ -1,5 +1,5 @@
 module claims {
-    requires javafx.graphics;
+    requires transitive javafx.graphics;
     requires javafx.fxml;
     requires javafx.controls;
     requires java.sql;
