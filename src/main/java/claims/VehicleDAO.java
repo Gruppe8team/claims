@@ -60,15 +60,15 @@ public class VehicleDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(
 					"UPDATE vehicles SET ownerID = ?, year = ?, type = ?, make = ?, model = ?, colour = ?, licensePlate = ?, registration = ? WHERE vehicleID = ?"
 					);
-			preparedStatement.setInt(1, vehicle.getOwner().getUserID().intValue()); // Assuming the owner has a userID attribute
-			preparedStatement.setInt(2, vehicle.getYear());
-			preparedStatement.setString(3, vehicle.getType());
-			preparedStatement.setString(4, vehicle.getMake());
-			preparedStatement.setString(5, vehicle.getModel());
-			preparedStatement.setString(6, vehicle.getColour());
-			preparedStatement.setString(7, vehicle.getLicensePlate());
-			preparedStatement.setString(8, vehicle.getRegistration());
-			preparedStatement.setInt(9, vehicle.getVehicleID());
+			preparedStatement.setInt(1, vehicle.getOwner().get().getUserID().intValue()); // Assuming the owner has a userID attribute
+			preparedStatement.setInt(2, vehicle.getYear().getValue());
+			preparedStatement.setString(3, vehicle.getType().getValue());
+			preparedStatement.setString(4, vehicle.getMake().getValue());
+			preparedStatement.setString(5, vehicle.getModel().getValue());
+			preparedStatement.setString(6, vehicle.getColour().getValue());
+			preparedStatement.setString(7, vehicle.getLicensePlate().getValue());
+			preparedStatement.setString(8, vehicle.getRegistration().getValue());
+			preparedStatement.setInt(9, vehicle.getVehicleID().getValue());
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
