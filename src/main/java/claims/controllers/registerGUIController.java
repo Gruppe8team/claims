@@ -31,6 +31,9 @@ public class registerGUIController implements Initializable {
     private ChoiceBox<String> selector = new ChoiceBox<>();
 
     @FXML
+    private ChoiceBox<String> zapad = new ChoiceBox<>();
+
+    @FXML
     private TextField text_field_address;
 
     @FXML
@@ -57,7 +60,15 @@ public class registerGUIController implements Initializable {
     @FXML
     private TextField textfield_firstname;
 
-    private String[] gender = {"Male", "Female", "BTR-80"};
+    @FXML
+    private TextField textfield_username;
+
+    @FXML
+    private TextField textfield_administrative_code;
+
+    private String[] gender = {"Male", "Female", "BTR-80", "Finger", "Walrusian", "Neither"};
+
+        private String[] typeOfUser = {"Admin", "Customer", "Advisor"};
 
     private static String dob;
 
@@ -67,6 +78,7 @@ public class registerGUIController implements Initializable {
         Button_Cancel.setOnAction(event -> onCancel());
         Button_Confirm.setOnAction(event -> onConfirm());
         selector.getItems().addAll(gender);
+        zapad.getItems().addAll(typeOfUser);
 
 //Jaye's
         text_field_dob.valueProperty().addListener((obs, oldVal, newVal) -> {
@@ -93,7 +105,9 @@ public class registerGUIController implements Initializable {
     	String gender = selector.getValue();
     	String age = text_field_age.getText();
     	String birth = text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        if ((pass.equals(confirm))) {
+        String adminPass = textfield_administrative_code.getText();
+        String userType =  zapad.getValue();
+        if (((pass.equals(confirm)) && (!userType.equals("Admin")))) {
             try {
                 userDAO dao = new userDAO();
                 dao.addToTable(first, last, email, phone, pass, address, gender, age, birth);
@@ -102,7 +116,7 @@ public class registerGUIController implements Initializable {
                 e.printStackTrace();
             }
 
-            //customer
+            //customer (potentially deprecated)
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation");
             alert.setHeaderText("Save Account");
@@ -127,7 +141,7 @@ public class registerGUIController implements Initializable {
             Model.getInstance().getViewFactory().showLoginWindow();
 
         }else {
-                Model.getInstance().getViewFactory().showRegisterErrorWindow();
+            Model.getInstance().getViewFactory().showRegisterErrorWindow();
             confirm_password_field.clear();
             password_field.clear();
 
@@ -164,7 +178,6 @@ public class registerGUIController implements Initializable {
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showLoginWindow();
     }
-//Jaye's
-
+//Jaye'
 }
 
