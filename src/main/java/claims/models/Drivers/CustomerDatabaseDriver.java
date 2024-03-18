@@ -29,9 +29,4 @@ public class CustomerDatabaseDriver {
         }
         return resultSet;
     }
-    
-
-    //Admin Section
-    
-
 }
