@@ -9,7 +9,7 @@ public class VehicleDatabaseDriver {
 
     public VehicleDatabaseDriver() {
         try {
-            this.conn = DriverManager.getConnection("jdbc:sqlite:vehicles.db");
+            this.conn = DriverManager.getConnection("jdbc:sqlite:Databases/vehicles.db");
         } catch (SQLException e) {
             e.printStackTrace();
         }

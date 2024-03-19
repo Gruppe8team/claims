@@ -11,7 +11,7 @@ public class AdvisorDatabaseDriver {
 
     public AdvisorDatabaseDriver() {
         try {
-            this.conn = DriverManager.getConnection("jdbc:sqlite:advisors.db");
+            this.conn = DriverManager.getConnection("jdbc:sqlite:Databases/advisors.db");
         } catch (SQLException e) {
             e.printStackTrace();
         }
