@@ -9,7 +9,7 @@ public class ClaimDatabaseDriver {
 
     public ClaimDatabaseDriver() {
         try {
-            this.conn = DriverManager.getConnection("jdbc:sqlite:claims.db");
+            this.conn = DriverManager.getConnection("jdbc:sqlite:Databases/claims.db");
         } catch (SQLException e) {
             e.printStackTrace();
         }

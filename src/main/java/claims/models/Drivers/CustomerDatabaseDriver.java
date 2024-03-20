@@ -11,7 +11,7 @@ public class CustomerDatabaseDriver {
 
     public CustomerDatabaseDriver() {
         try {
-            this.conn = DriverManager.getConnection("jdbc:sqlite:customers.db");
+            this.conn = DriverManager.getConnection("jdbc:sqlite:Databases/customers.db");
         } catch (SQLException e) {
             e.printStackTrace();
         }

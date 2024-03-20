@@ -11,7 +11,7 @@ public class AdminDatabaseDriver {
 
     public AdminDatabaseDriver() {
         try {
-            this.conn = DriverManager.getConnection("jdbc:sqlite:admins.db");
+            this.conn = DriverManager.getConnection("jdbc:sqlite:Databases/admins.db");
         } catch (SQLException e) {
             e.printStackTrace();
         }
