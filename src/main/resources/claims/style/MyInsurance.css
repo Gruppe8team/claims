@@ -134,3 +134,10 @@
     background-color: #EEEEEE;
     -fx-pref-width: 800;
 }
+
+.scroll_container {
+    -fx-background-color: #EEEEEE;
+    background-color: #EEEEEE;
+    -fx-border-width: 0;
+    border-width: 0;
+}
