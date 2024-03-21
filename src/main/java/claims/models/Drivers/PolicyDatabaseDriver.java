@@ -28,4 +28,17 @@ public class PolicyDatabaseDriver {
         }
         return resultSet;
     }
+    
+    public ResultSet getPolicyDetails(int policyNumber){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM policies WHERE PolicyNumber='"+policyNumber);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }	
+    
 }
