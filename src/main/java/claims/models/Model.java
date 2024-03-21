@@ -154,9 +154,9 @@ public class Model {
                 this.admin.getUsername().set(resultSet.getString("Username"));
                 this.admin.getPasswordKey().set(resultSet.getString("Password"));
                 this.admin.getUserID().set(resultSet.getInt("ID"));
-                this.admin.getFirstName().set(resultSet.getString("FirstName"));
-                this.admin.getLastName().set(resultSet.getString("LastName"));
-                this.admin.getEmail().set(resultSet.getString("Email"));
+//                this.admin.getFirstName().set(resultSet.getString("FirstName"));
+//                this.admin.getLastName().set(resultSet.getString("LastName"));
+//                this.admin.getEmail().set(resultSet.getString("Email"));
                 this.AdminLoginSuccessFlag = true;
             }
         } catch (SQLException e) {
