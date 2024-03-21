@@ -1,4 +1,0 @@
---patch-module
-claims=_
---add-reads
-claims=ALL-UNNAMED
