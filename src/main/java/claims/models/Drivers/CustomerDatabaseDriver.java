@@ -18,6 +18,18 @@ public class CustomerDatabaseDriver {
     }
 
     //Customer Section
+    public ResultSet getAllCustomers(){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM customers");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+    
     public ResultSet getCustomerDetails(String username, String password){
         Statement statement;
         ResultSet resultSet = null;
@@ -29,4 +41,6 @@ public class CustomerDatabaseDriver {
         }
         return resultSet;
     }
+    
+    
 }
