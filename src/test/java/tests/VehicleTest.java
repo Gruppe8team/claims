@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import claims.*;
 import claims.models.Customer;
 import claims.models.Vehicle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * A test class for the Vehicle class.
@@ -14,7 +16,8 @@ import claims.models.Vehicle;
  */
 class VehicleTest {
     // Create a customer for testing
-    Customer John = new Customer(1, "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234", "Male", null, 30);
+    ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
+    Customer John = new Customer(1, "John", "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234", "Male", 30, vehicleObservableList);
     // Create a vehicle with specific attributes for testing
     Vehicle car1 = new Vehicle(1, John, 2,"Sports car", "Ferrari", "Roma", "Red", "AAA000", "Premium");
     // Create an empty vehicle for testing

@@ -2,13 +2,13 @@
 Test set: tests.ClaimsStubDBTest
 -------------------------------------------------------------------------------
 Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! -- in tests.ClaimsStubDBTest
-tests.ClaimsStubDBTest.shouldAddandRemoveClaimstoDB -- Time elapsed: 0.005 s <<< ERROR!
+tests.ClaimsStubDBTest.shouldAddandRemoveClaimstoDB -- Time elapsed: 0.006 s <<< ERROR!
 java.time.format.DateTimeParseException: Text '01/08/24' could not be parsed at index 0
 	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
 	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
 	at java.base/java.time.LocalDate.parse(LocalDate.java:435)
 	at java.base/java.time.LocalDate.parse(LocalDate.java:420)
-	at claims@1.0-SNAPSHOT/tests.ClaimsStubDBTest.shouldAddandRemoveClaimstoDB(ClaimsStubDBTest.java:25)
+	at claims/tests.ClaimsStubDBTest.shouldAddandRemoveClaimstoDB(ClaimsStubDBTest.java:25)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)

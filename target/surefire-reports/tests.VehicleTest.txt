@@ -1,15 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: tests.VehicleTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! -- in tests.VehicleTest
-tests.VehicleTest.setVehicleInfoTest -- Time elapsed: 0.001 s <<< FAILURE!
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! -- in tests.VehicleTest
+tests.VehicleTest.setVehicleInfoTest -- Time elapsed: 0 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <2> but was: <IntegerProperty [bean: claims.models.Vehicle@548a24a, name: Vehicle ID, value: 2]>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
-	at claims@1.0-SNAPSHOT/tests.VehicleTest.setVehicleInfoTest(VehicleTest.java:54)
+	at claims/tests.VehicleTest.setVehicleInfoTest(VehicleTest.java:54)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -78,14 +78,14 @@ org.opentest4j.AssertionFailedError: expected: <2> but was: <IntegerProperty [be
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-tests.VehicleTest.getVehicleTest -- Time elapsed: 0.001 s <<< FAILURE!
+tests.VehicleTest.getVehicleTest -- Time elapsed: 0 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <1> but was: <IntegerProperty [bean: claims.models.Vehicle@7fd50002, name: Vehicle ID, value: 1]>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
-	at claims@1.0-SNAPSHOT/tests.VehicleTest.getVehicleTest(VehicleTest.java:28)
+	at claims/tests.VehicleTest.getVehicleTest(VehicleTest.java:28)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)

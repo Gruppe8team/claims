@@ -6,6 +6,9 @@ import org.junit.jupiter.api.*;
 import claims.*;
 import claims.models.Advisor;
 import claims.models.Customer;
+import claims.models.Vehicle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 public class UserStubDBTest{
 	
 	private UserStubDB userStubDB;
@@ -41,7 +44,8 @@ public class UserStubDBTest{
 	//to test adding a customer to the userDB and check the infomation could be read
 	@Test
 	public void testAddCustomerAndRead() {
-		Customer customer = new Customer(2, "x","JJ","CC","jjcc@my.yorku.ca", "2 keele rd", "1234567890", "M", null, 23) ;
+		ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
+		Customer customer = new Customer(2, "hello", "x","JJ","CC","jjcc@my.yorku.ca", "2 keele rd", "1234567890", "M", 23, vehicleObservableList) ;
 		userStubDB.addCustomer(customer);
 		
 		String expected = "ID: 2\n"+
@@ -57,7 +61,8 @@ public class UserStubDBTest{
 	//to test removing a customer to the userDB and check the infomation is removed
 	@Test
 	public void testRemoveCustomerAndRead() {
-		Customer customer = new Customer(2, "x","JJ","CC","jjcc@my.yorku.ca", "2 keele rd", "1234567890", "M", null, 23) ;
+		ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
+		Customer customer = new Customer(2,"heloo", "x","JJ","CC","jjcc@my.yorku.ca", "2 keele rd", "1234567890", "M", 23, vehicleObservableList) ;
 		userStubDB.addCustomer(customer);
 		
 		userStubDB.removeCustomer(customer);

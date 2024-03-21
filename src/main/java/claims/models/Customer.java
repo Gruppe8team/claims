@@ -11,11 +11,12 @@ import javafx.collections.ObservableList;
 
 
 public class Customer extends User {
-    private StringProperty address; // The address of the customer
-    private StringProperty phoneNumber; // The phone number of the customer
-    private StringProperty gender; // The gender of the customer
-    private IntegerProperty age; // The age of the customer
-    private ListProperty<Vehicle> vehicles; // The list of vehicles owned by the customer
+    private final StringProperty address; // The address of the customer
+    private final StringProperty phoneNumber; // The phone number of the customer
+    private final StringProperty gender; // The gender of the customer
+    private final IntegerProperty age; // The age of the customer
+    private final ListProperty<Vehicle> vehicles; // The list of vehicles owned by the customer
+    private final ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
 
 
     /**
@@ -39,17 +40,16 @@ public class Customer extends User {
         this.phoneNumber = new SimpleStringProperty(this, "Phone Number", "");
         this.gender = new SimpleStringProperty(this, "Gender", "");
         this.age = new SimpleIntegerProperty(this, "Age", 0);
-        ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
         this.vehicles = new SimpleListProperty<Vehicle>(vehicleObservableList);
     }
 
-    public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age) {
+    public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age, ObservableList<Vehicle> vehicles) {
         super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.address = new SimpleStringProperty(this, "Address", address);
         this.phoneNumber = new SimpleStringProperty(this, "Phone Number", phoneNumber);
         this.gender = new SimpleStringProperty(this, "Gender", gender);
         this.age = new SimpleIntegerProperty(this, "Age", age);
-        this.vehicles = new SimpleListProperty<Vehicle>();
+        this.vehicles = new SimpleListProperty<Vehicle>(this, "Vehicles", vehicles);
     }
 
     // Deep Copying Constructor
@@ -57,7 +57,7 @@ public class Customer extends User {
         super(customer); // Call superclass constructor
         this.address = customer.getAddress();
         this.phoneNumber = customer.getPhoneNumber();
-        this.gender = customer.getgender();
+        this.gender = customer.getGender();
         this.age = customer.getAge();
         this.vehicles = customer.getVehicles();
     }
@@ -82,7 +82,7 @@ public class Customer extends User {
     }
 
     // gets the gender of the customer
-    public StringProperty getgender() {
+    public StringProperty getGender() {
         return gender;
     }
 
@@ -103,7 +103,7 @@ public class Customer extends User {
 
     // adds a specific vehicle
     public void addVehicle(Vehicle vehicle) {
-        this.vehicles.add(vehicle);
+        this.vehicles.get().add(vehicle);
     }
 
     // removes a specific vehicle
@@ -128,15 +128,15 @@ public class Customer extends User {
         }
 
         return "Customer{" +
-                "userID=" + getUserID() + 
-                ", passwordKey='" + getPasswordKey() + '\'' +
-                ", firstName='" + getFirstName() + '\'' +
-                ", lastName='" + getLastName() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", address='" + address + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", gender='" + gender + '\'' +
-                ", age=" + age +
+                "userID=" + getUserID().getValue() + 
+                ", passwordKey='" + getPasswordKey().getValue() + '\'' +
+                ", firstName='" + getFirstName().getValue() + '\'' +
+                ", lastName='" + getLastName().getValue() + '\'' +
+                ", email='" + getEmail().getValue() + '\'' +
+                ", address='" + getAddress().getValue() + '\'' +
+                ", phoneNumber='" + getPhoneNumber().getValue() + '\'' +
+                ", gender='" + getGender().getValue() + '\'' +
+                ", age=" + getAge().getValue() +
                 ", vehicles=\n" + vehicleInfo.toString() +
                 '}';
     }

@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="CA"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/21.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/kylewilliamson/Documents/claims/target/surefire 2024-03-20T18-07-02_156-jvmRun1 surefire-20240320180702292_1tmp surefire_0-20240320180702292_2tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/kylewilliamson/Documents/claims/target/surefire 2024-03-21T13-41-49_600-jvmRun1 surefire-20240321134149750_1tmp surefire_0-20240321134149750_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/kylewilliamson/Documents/claims/target/test-classes:/Users/kylewilliamson/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.7.0/junit-jupiter-api-5.7.0.jar:/Users/kylewilliamson/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/Users/kylewilliamson/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/kylewilliamson/.m2/repository/org/junit/platform/junit-platform-commons/1.7.0/junit-platform-commons-1.7.0.jar:/Users/kylewilliamson/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.7.0/junit-jupiter-engine-5.7.0.jar:/Users/kylewilliamson/.m2/repository/org/junit/platform/junit-platform-engine/1.7.0/junit-platform-engine-1.7.0.jar:/Users/kylewilliamson/.m2/repository/org/openjfx/javafx-fxml/21.0.2/javafx-fxml-21.0.2.jar:/Users/kylewilliamson/.m2/repository/org/openjfx/javafx-controls/21.0.2/javafx-controls-21.0.2.jar:/Users/kylewilliamson/.m2/repository/org/openjfx/javafx-base/21.0.2/javafx-base-21.0.2.jar:/Users/kylewilliamson/.m2/repository/org/openjfx/javafx-graphics/21.0.2/javafx-graphics-21.0.2.jar:/Users/kylewilliamson/.m2/repository/org/xerial/sqlite-jdbc/3.45.1.0/sqlite-jdbc-3.45.1.0.jar:/Users/kylewilliamson/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/kylewilliamson/.m2/repository/org/postgresql/postgresql/42.7.2/postgresql-42.7.2.jar:/Users/kylewilliamson/.m2/repository/org/checkerframework/checker-qual/3.42.0/checker-qual-3.42.0.jar:"/>
@@ -59,13 +59,13 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="shouldAddandRemoveClaimstoDB" classname="tests.ClaimsStubDBTest" time="0.005">
+  <testcase name="shouldAddandRemoveClaimstoDB" classname="tests.ClaimsStubDBTest" time="0.006">
     <error message="Text &apos;01/08/24&apos; could not be parsed at index 0" type="java.time.format.DateTimeParseException"><![CDATA[java.time.format.DateTimeParseException: Text '01/08/24' could not be parsed at index 0
 	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
 	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
 	at java.base/java.time.LocalDate.parse(LocalDate.java:435)
 	at java.base/java.time.LocalDate.parse(LocalDate.java:420)
-	at claims@1.0-SNAPSHOT/tests.ClaimsStubDBTest.shouldAddandRemoveClaimstoDB(ClaimsStubDBTest.java:25)
+	at claims/tests.ClaimsStubDBTest.shouldAddandRemoveClaimstoDB(ClaimsStubDBTest.java:25)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
