@@ -237,17 +237,17 @@ public class ViewFactory {
 
     //Stage Creation/Closing
     private void createStage(FXMLLoader loader) {
-        Scene scene = null;
         try {
-            scene = new Scene(loader.load());
+            Scene scene = new Scene(loader.load());
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.setTitle("AutoClaim");
+            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.setTitle("AutoClaim");
-        stage.show();
+        
     }
 
     public void closeStage(Stage stage) {
