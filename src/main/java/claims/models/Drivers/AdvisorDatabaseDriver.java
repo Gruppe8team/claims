@@ -16,6 +16,18 @@ public class AdvisorDatabaseDriver {
             e.printStackTrace();
         }
     }
+    
+    public ResultSet getAllAdvisors(){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM advisor");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
 
     public ResultSet getAdvisorDetails(String username, String password){
         Statement statement;
