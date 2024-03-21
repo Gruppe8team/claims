@@ -28,4 +28,16 @@ public class ClaimDatabaseDriver {
         }
         return resultSet;
     }
+    
+    public ResultSet getClaimDetails(int claimID){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM claims WHERE ClaimID="+claimID+";");  
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
 }
