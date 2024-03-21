@@ -91,7 +91,7 @@ public class Model {
                 this.customer.getEmail().set(resultSet.getString("Email"));
                 this.customer.getPhoneNumber().set(resultSet.getString("PhoneNumber"));
                 this.customer.getUserID().set(resultSet.getInt("ID"));
-                this.customer.getgender().set(resultSet.getString("Gender"));
+                this.customer.getGender().set(resultSet.getString("Gender"));
                 this.customer.getAge().set(resultSet.getInt("Age"));
                 this.customer.getPasswordKey().set(resultSet.getString("Password"));
                 this.customerLoginSuccessFlag = true;

@@ -5,5 +5,6 @@
     "request": "launch",
     "mainClass": "claims.Main",
     "vmArgs": "--module-path /Users/kylewilliamson/Documents/javafx-sdk-21.0.2/lib --add-modules javafx.controls,javafx.fxml",
-    "projectName": "CLAIMS"
+    "projectName": "CLAIMS",
+    "java.debug.settings.onBuildFailureProceed": true
 }

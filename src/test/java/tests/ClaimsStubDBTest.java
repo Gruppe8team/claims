@@ -22,7 +22,7 @@ class ClaimsStubDBTest {
 		claim1.setAdvisorID(110);
 		claim1.setPolicyID(2);
 		claim1.setClaimStatus("Closed");
-		claim1.setDateFilled(LocalDate.parse("01/08/24"));
+		claim1.setDateFilled(LocalDate.parse("2024-10-01"));
 		claim1.setAccidentTime("9:30AM");
 		claim1.setDamage("Windshield cracked, bumper came off");
 		claim1.setTotalled(false);
@@ -33,20 +33,21 @@ class ClaimsStubDBTest {
 		claim1.setClosureCond("Made final Payment");
 		ClaimsStubDB.addClaim(claim1);
 		assertEquals(
-				"Claim ID: " + claim1.getClaimID() + "\n" +
-						"Client ID: " + claim1.getClientID() + "\n" +
-						"Advisor ID: " + claim1.getAdvisorID() + "\n" +
-						"Policy ID: " + claim1.getPolicyID() + "\n" +
-						"Current Claim Status: " + claim1.getClaimStatus() + "\n" +
-						"Claim Date: " + claim1.getDateFilled() + "\n" +
-						"Time of Accident: " + claim1.getAccidentTime() + "\n" +
-						"Vehicle Damages: " + claim1.getDamage() + "\n" +
+				"Claim ID: " + claim1.getClaimID().getValue() + "\n" +
+						"Client ID: " + claim1.getClientID().getValue() + "\n" +
+						"Advisor ID: " + claim1.getAdvisorID().getValue() + "\n" +
+						"Policy ID: " + claim1.getPolicyID().getValue() + "\n" +
+						"Current Claim Status: " + claim1.getClaimStatus().getValue() + "\n" +
+						"Claim Date: " + claim1.getDateFilled().getValue() + "\n" +
+						"Time of Accident: " + claim1.getAccidentTime().getValue() + "\n" +
+						"Vehicle Damages: " + claim1.getDamage().getValue() + "\n" +
 						"Write-off: " + claim1.isTotalled() + "\n" +
 						"Driver at Fault: " + claim1.isAtFault() + "\n" +
-						"Payment Status: " + claim1.getPayInfo() + "\n" +
-						"Accident Description: " + claim1.getDescription() + "\n" +
+						"Payment Status: " + claim1.getPayInfo().getValue() + "\n" +
+						"Accident Description: " + claim1.getDescription().getValue() + "\n" +
 						"Claim Closed: " + claim1.isClosed() + "\n" +
-						"Conditions of Closure: " + claim1.getClosureCond(),
+						"Conditions of Closure: " + claim1.getClosureCond().getValue(),
+
 				ClaimsStubDB.readClaimInfo());
 
 		ClaimsStubDB.removeClaim(claim1);

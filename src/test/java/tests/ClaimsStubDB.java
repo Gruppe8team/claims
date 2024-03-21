@@ -24,24 +24,25 @@ public class ClaimsStubDB {
 		String claimInfo = "";
 		for (Claims claim : claimsDB) {
             claimInfo = claimInfo.concat(
-            					"Claim ID: " + claim.getClaimID() + "\n" +
-            					"Client ID: " + claim.getClientID() + "\n" +
-            					"Advisor ID: " + claim.getAdvisorID() + "\n" +
-            					"Policy ID: " + claim.getPolicyID() + "\n" +
-            					"Current Claim Status: " + claim.getClaimStatus() + "\n" +
-            					"Claim Date: " + claim.getDateFilled() + "\n" +
-            					"Time of Accident: " + claim.getAccidentTime() + "\n" +
-            					"Vehicle Damages: " + claim.getDamage() + "\n" +
-            					"Write-off: " + claim.isTotalled() + "\n" +
-            					"Driver at Fault: "+ claim.isAtFault() + "\n" +
-            					"Payment Status: "+ claim.getPayInfo() + "\n" +
-            					"Accident Description: "+ claim.getDescription() + "\n" +
-            					"Claim Closed: "+ claim.isClosed() + "\n"
+            					"Claim ID: " + claim.getClaimID().getValue() + "\n" +
+							"Client ID: " + claim.getClientID().getValue() + "\n" +
+							"Advisor ID: " + claim.getAdvisorID().getValue() + "\n" +
+							"Policy ID: " + claim.getPolicyID().getValue() + "\n" +
+							"Current Claim Status: " + claim.getClaimStatus().getValue() + "\n" +
+							"Claim Date: " + claim.getDateFilled().getValue() + "\n" +
+							"Time of Accident: " + claim.getAccidentTime().getValue() + "\n" +
+							"Vehicle Damages: " + claim.getDamage().getValue() + "\n" +
+							"Write-off: " + claim.isTotalled() + "\n" +
+							"Driver at Fault: " + claim.isAtFault() + "\n" +
+							"Payment Status: " + claim.getPayInfo().getValue() + "\n" +
+							"Accident Description: " + claim.getDescription().getValue() + "\n" +
+							"Claim Closed: " + claim.isClosed() + "\n"
+
             					);
 	//If claim is closed, adds claim closure description
             if(claim.isClosed()) {
             	claimInfo = claimInfo.concat(
-            					"Conditions of Closure: "+ claim.getClosureCond());
+            					"Conditions of Closure: "+ claim.getClosureCond().getValue());
             	
             }
             					        }

@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import claims.*;
 import claims.models.Customer;
 import claims.models.Vehicle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,7 +17,8 @@ public class CustomerTest {
 
     @BeforeEach
     void setUp() {
-        customer = new Customer(1, "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234", "Male", null, 30);
+        ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
+        customer = new Customer(1, "John", "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234", "Male", 30 , vehicleObservableList);
     }
 
     @Test
@@ -27,59 +30,61 @@ public class CustomerTest {
 
     @Test
     void testConstructorWithParameters() {
-        assertEquals(1, customer.getUserID());
-        assertEquals("pass123", customer.getPasswordKey());
-        assertEquals("John", customer.getFirstName());
-        assertEquals("Doe", customer.getLastName());
-        assertEquals("johndoe@example.com", customer.getEmail());
-        assertEquals("123 Main St", customer.getAddress());
-        assertEquals("555-1234", customer.getPhoneNumber());
-        assertEquals("Male", customer.getgender());
-        assertEquals(30, customer.getAge());
+        assertEquals(1, customer.getUserID().getValue());
+        assertEquals("pass123", customer.getPasswordKey().getValue());
+        assertEquals("John", customer.getFirstName().getValue());
+        assertEquals("Doe", customer.getLastName().getValue());
+        assertEquals("johndoe@example.com", customer.getEmail().getValue());
+        assertEquals("123 Main St", customer.getAddress().getValue());
+        assertEquals("555-1234", customer.getPhoneNumber().getValue());
+        assertEquals("Male", customer.getGender().getValue());
+        assertEquals(30, customer.getAge().getValue());
     }
 
     @Test
     void testSetAddress() {
         String newAddress = "456 Main St";
         customer.setAddress(newAddress);
-        assertEquals(newAddress, customer.getAddress());
+        assertEquals(newAddress, customer.getAddress().getValue());
     }
 
     @Test
     void testSetPhoneNumber() {
         String newPhoneNumber = "555-6789";
         customer.setPhoneNumber(newPhoneNumber);
-        assertEquals(newPhoneNumber, customer.getPhoneNumber());
+        assertEquals(newPhoneNumber, customer.getPhoneNumber().getValue());
     }
 
     @Test
     void testSetgender() {
         String newgender = "Female";
         customer.setgender(newgender);
-        assertEquals(newgender, customer.getgender());
+        assertEquals(newgender, customer.getGender().getValue());
     }
 
     @Test
     void testSetAge() {
         int newAge = 35;
         customer.setAge(newAge);
-        assertEquals(newAge, customer.getAge());
+        assertEquals(newAge, customer.getAge().getValue());
     }
 
     @Test
     void testAddVehicle() {
-        Vehicle vehicle  = new Vehicle();
+        Vehicle vehicle = new Vehicle();
         customer.addVehicle(vehicle);
-        assertFalse(customer.getVehicles().isEmpty());
-        assertEquals(1, customer.getVehicles().size());
+        assertNotNull(customer.getVehicles().get());
+        assertFalse(customer.getVehicles().get().isEmpty());
+        assertEquals(1, customer.getVehicles().get().size());
     }
+
 
     @Test
     void testRemoveVehicle() {
         Vehicle vehicle = new Vehicle(); // Assuming default constructor is defined
         customer.addVehicle(vehicle);
         customer.removeVehicle(vehicle);
-        assertTrue(customer.getVehicles().isEmpty());
+        assertTrue(customer.getVehicles().getValue().isEmpty());
     }
 
     @Test
