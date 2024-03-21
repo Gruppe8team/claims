@@ -17,6 +17,18 @@ public class AdminDatabaseDriver {
         }
     }
 
+    public ResultSet getAllAdmins(){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM admins");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+    
     public ResultSet getAdminDetails(String username, String password){
         Statement statement;
         ResultSet resultSet = null;
