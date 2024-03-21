@@ -42,4 +42,14 @@ public class VehicleDatabaseDriver {
         }
         return resultSet;
     }
+    
+    public void removeVehicle(int vehicleID) {
+        try {
+            Statement statement = this.conn.createStatement();
+            statement.executeUpdate("DELETE FROM vehicles WHERE VehicleID=" + vehicleID + ";");
+            System.out.println("Vehicler with ID " + vehicleID + " removed successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

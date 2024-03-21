@@ -124,7 +124,7 @@ public class Model {
                 this.advisor.getUsername().set(resultSet.getString("Username"));
                 this.advisor.getEmail().set(resultSet.getString("Email"));
                 this.advisor.getPasswordKey().set(resultSet.getString("Password"));
-                this.advisor.getUserID().set(resultSet.getInt("ID"));
+                this.advisor.getUserID().set(resultSet.getInt("AdvisorID"));
                 this.AdvisorLoginSuccessFlag = true;
             }
         } catch (SQLException e) {

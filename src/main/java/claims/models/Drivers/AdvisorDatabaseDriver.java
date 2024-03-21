@@ -40,4 +40,15 @@ public class AdvisorDatabaseDriver {
         }
         return resultSet;
     }
+    
+    public void removeAdvisor(int advisorID) {
+        try {
+            Statement statement = this.conn.createStatement();
+            statement.executeUpdate("DELETE FROM advisors WHERE AdvisorID=" + advisorID + ";");
+            System.out.println("Advisor with ID " + advisorID + " removed successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
