@@ -42,5 +42,14 @@ public class CustomerDatabaseDriver {
         return resultSet;
     }
     
+    public void removeCustomer(int clientID) {
+        try {
+            Statement statement = this.conn.createStatement();
+            statement.executeUpdate("DELETE FROM customers WHERE ClientID=" + clientID + ";");
+            System.out.println("Customer with ID " + clientID + " removed successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     
 }

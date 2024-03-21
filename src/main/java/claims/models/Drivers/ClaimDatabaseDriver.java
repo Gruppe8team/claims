@@ -40,4 +40,15 @@ public class ClaimDatabaseDriver {
         }
         return resultSet;
     }
+    
+    public void removeClaim(int claimID) {
+        try {
+            Statement statement = this.conn.createStatement();
+            statement.executeUpdate("DELETE FROM claims WHERE ClaimID=" + claimID + ";");
+            System.out.println("Claim with ID " + claimID + " removed successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
