@@ -124,7 +124,7 @@ public class Model {
                 this.advisor.getUsername().set(resultSet.getString("Username"));
                 this.advisor.getEmail().set(resultSet.getString("Email"));
                 this.advisor.getPasswordKey().set(resultSet.getString("Password"));
-                this.advisor.getUserID().set(resultSet.getInt("ID"));
+                this.advisor.getUserID().set(resultSet.getInt("AdvisorID"));
                 this.AdvisorLoginSuccessFlag = true;
             }
         } catch (SQLException e) {
@@ -154,9 +154,10 @@ public class Model {
                 this.admin.getUsername().set(resultSet.getString("Username"));
                 this.admin.getPasswordKey().set(resultSet.getString("Password"));
                 this.admin.getUserID().set(resultSet.getInt("ID"));
-//                this.admin.getFirstName().set(resultSet.getString("FirstName"));
-//                this.admin.getLastName().set(resultSet.getString("LastName"));
-//                this.admin.getEmail().set(resultSet.getString("Email"));
+                this.admin.getFirstName().set(resultSet.getString("FirstName"));
+                this.admin.getLastName().set(resultSet.getString("LastName"));
+                this.admin.getEmail().set(resultSet.getString("Email"));
+                this.admin.getIsActive().set(resultSet.getBoolean("IsActive"));
                 this.AdminLoginSuccessFlag = true;
             }
         } catch (SQLException e) {
