@@ -77,10 +77,11 @@ public class LoginController implements Initializable {
 
 
 
-    	Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+    	
         
         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CUSTOMER) {
             Model.getInstance().getViewFactory().showCustomerWindow();
+            Stage stage = (Stage) Button_SignIn.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
             //Evalute login credentials
             // Model.getInstance().evaluateClientCred(TextField_Username.getText(), PasswordField_Password.getText());
@@ -100,6 +101,7 @@ public class LoginController implements Initializable {
             Model.getInstance().evaluateAdvisorCred(TextField_Username.getText(), PasswordField_Password.getText());
             if (Model.getInstance().getAdvisorLoginSuccessFlag()) {
                 Model.getInstance().getViewFactory().showAdvisorWindow();
+                Stage stage = (Stage) Button_SignIn.getScene().getWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             } else {
                 TextField_Username.setText("");
@@ -114,6 +116,7 @@ public class LoginController implements Initializable {
             Model.getInstance().evaluateAdminCred(TextField_Username.getText(), PasswordField_Password.getText());
             if (Model.getInstance().getAdminLoginSuccessFlag()) {
                 Model.getInstance().getViewFactory().showAdminWindow();
+                Stage stage = (Stage) Button_SignIn.getScene().getWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             } else {
                 TextField_Username.setText("");
