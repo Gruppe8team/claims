@@ -32,11 +32,11 @@ public class VehicleDatabaseDriver {
     }
     
     public ResultSet getCustomerVehicles(Customer customer){
-        Statement statement;
+    	Statement statement;
         ResultSet resultSet = null;
         try {
             statement = this.conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM vehicles WHERE owner='"+customer+";");
+            resultSet = statement.executeQuery("SELECT * FROM vehicles WHERE ownerID='"+customer.getUserID()+";");
         } catch (SQLException e) {
             e.printStackTrace();
         }
