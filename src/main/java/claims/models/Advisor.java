@@ -61,11 +61,11 @@ public class Advisor extends User {
     @Override
     public String toString() {
         return "Advisor{" +
-                "userID=" + getUserID() +
-                ", passwordKey='" + getPasswordKey() + '\'' +
-                ", firstName='" + getFirstName() + '\'' +
-                ", lastName='" + getLastName() + '\'' +
-                ", email='" + getEmail() + '\'' +
+                "userID=" + getUserID().getValue() +
+                ", passwordKey='" + getPasswordKey().getValue() + '\'' +
+                ", firstName='" + getFirstName().getValue() + '\'' +
+                ", lastName='" + getLastName().getValue() + '\'' +
+                ", email='" + getEmail().getValue() + '\'' +
                 '}';
     }
 }

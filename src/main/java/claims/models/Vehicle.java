@@ -67,8 +67,8 @@ public class Vehicle {
      * @return A string representation of the vehicle owner details.
      */
     public String getOwnerDetails() {
-        if (owner != null) {
-            return "Owner ID: " + owner.get().getUserID() + ", Name: " + owner.get().getFirstName() + " " + owner.get().getLastName();
+        if (this.owner != null) {
+            return "Owner ID: " + this.owner.get().getUserID().getValue() + ", Name: " + owner.get().getFirstName().getValue() + " " + owner.get().getLastName().getValue();
         } else {
             return "No owner assigned";
         }

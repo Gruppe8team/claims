@@ -20,7 +20,7 @@ public class UserStubDBTest{
 	//to test adding an advisor to the userDB and check the infomation could be read
 	@Test
 		public void testAddAdvisorAndRead() {
-		Advisor advisor = new Advisor(1, "JC", "Jaye", "Chen", "jiayec@my.yorku.ca", null);
+		Advisor advisor = new Advisor(1, "23", "JC", "Jaye", "Chen", "jiayec@my.yorku.ca");
 		userStubDB.addAdvisor(advisor);
 
 		String expected = "ID: 1\n" +

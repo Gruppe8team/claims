@@ -163,8 +163,11 @@ public class Policy {
 	@Override 
 	public String toString(){
 		
-		return "PolicyID: "+policyID+"\nClientID: "+clientID+"\nVehicleID: "+vehicleID+"\nPolicyNumber: "+policyNumber+
-				"\nStart Date: "+startDate+"\nEnd Date: "+endDate+"\nCoverage Type: "+coverageType+"\nPolicy Status: "+policyStatus+
-				"\nPremium: "+Premium+"\nDeductible: "+Deductible;
+		return "PolicyID: " + getPolicyID().getValue() + "\nClientID: " + getClientID().getValue() + "\nVehicleID: "
+				+ getVehicleID().getValue() + "\nPolicyNumber: " + getPolicyNumber().getValue() +
+				"\nStart Date: " + getStartDate().getValue() + "\nEnd Date: " + getEndDate().getValue()
+				+ "\nCoverage Type: " + getCoverageType().getValue() + "\nPolicy Status: "
+				+ getPolicyStatus().getValue() +
+				"\nPremium: " + getPremium().getValue() + "\nDeductible: " + getDeductible().getValue();
 	}
 }
