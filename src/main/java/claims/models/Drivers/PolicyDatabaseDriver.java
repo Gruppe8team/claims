@@ -2,7 +2,9 @@ package claims.models.Drivers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class PolicyDatabaseDriver {
     private Connection conn;
@@ -14,4 +16,29 @@ public class PolicyDatabaseDriver {
             e.printStackTrace();
         }
     }
+    
+    public ResultSet getAllPolicies(){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM policies");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+    
+    public ResultSet getPolicyDetails(int policyNumber){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM policies WHERE PolicyNumber='"+policyNumber);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }	
+    
 }
