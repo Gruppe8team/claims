@@ -77,29 +77,29 @@ public class LoginController implements Initializable {
 
 
 
-    	Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+    	
         
         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CUSTOMER) {
-            Model.getInstance().getViewFactory().showCustomerWindow();
-            Model.getInstance().getViewFactory().closeStage(stage);
             //Evalute login credentials
-            // Model.getInstance().evaluateClientCred(TextField_Username.getText(), PasswordField_Password.getText());
-            // if (Model.getInstance().getCustomerLoginSuccessFlag()) {
-            //     Model.getInstance().getViewFactory().showCustomerWindow();
-            //     Model.getInstance().getViewFactory().closeStage(stage);
-            // } else {
-            //     TextField_Username.setText("");
-            //     PasswordField_Password.setText("");
-            //     Alert alert = new Alert(Alert.AlertType.ERROR);
-            //     alert.setTitle("Login Error");
-            //     alert.setHeaderText("Invalid Credentials");
-            //     alert.setContentText("Please check your username and password");
-            //     alert.showAndWait();
-            // }
+            Model.getInstance().evaluateClientCred(TextField_Username.getText(), PasswordField_Password.getText());
+            if (Model.getInstance().getCustomerLoginSuccessFlag()) {
+                Model.getInstance().getViewFactory().showCustomerWindow();
+                Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+            } else {
+                TextField_Username.setText("");
+                PasswordField_Password.setText("");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Login Error");
+                alert.setHeaderText("Invalid Credentials");
+                alert.setContentText("Please check your username and password");
+                alert.showAndWait();
+            }
         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADVISOR) {
             Model.getInstance().evaluateAdvisorCred(TextField_Username.getText(), PasswordField_Password.getText());
             if (Model.getInstance().getAdvisorLoginSuccessFlag()) {
                 Model.getInstance().getViewFactory().showAdvisorWindow();
+                Stage stage = (Stage) Button_SignIn.getScene().getWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             } else {
                 TextField_Username.setText("");
@@ -114,6 +114,7 @@ public class LoginController implements Initializable {
             Model.getInstance().evaluateAdminCred(TextField_Username.getText(), PasswordField_Password.getText());
             if (Model.getInstance().getAdminLoginSuccessFlag()) {
                 Model.getInstance().getViewFactory().showAdminWindow();
+                Stage stage = (Stage) Button_SignIn.getScene().getWindow();
                 Model.getInstance().getViewFactory().closeStage(stage);
             } else {
                 TextField_Username.setText("");
