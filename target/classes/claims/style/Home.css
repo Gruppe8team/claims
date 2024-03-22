@@ -62,8 +62,6 @@
 .account_name {
     -fx-font-size: 1.5em;
     font-size: 1.5em;
-    -fx-font-weight: 700;
-    font-weight: 700;
 }
 
 .account_important {
