@@ -28,4 +28,27 @@ public class ClaimDatabaseDriver {
         }
         return resultSet;
     }
+    
+    public ResultSet getClaimDetails(int claimID){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM claims WHERE ClaimID="+claimID+";");  
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+    
+    public void removeClaim(int claimID) {
+        try {
+            Statement statement = this.conn.createStatement();
+            statement.executeUpdate("DELETE FROM claims WHERE ClaimID=" + claimID + ";");
+            System.out.println("Claim with ID " + claimID + " removed successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
