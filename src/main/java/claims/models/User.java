@@ -16,14 +16,14 @@ import javafx.beans.property.StringProperty;
 public abstract class User {
 
     // important indexes for the userSuperClass
-    private final IntegerProperty userID;
-    private final StringProperty username;
-    private final StringProperty passwordKey;
+    protected final IntegerProperty userID;
+    protected final StringProperty username;
+    protected final StringProperty passwordKey;
 
-    private final StringProperty firstName;
-    private final StringProperty lastName;
+    protected final StringProperty firstName;
+    protected final StringProperty lastName;
 
-    private final StringProperty email;
+    protected final StringProperty email;
 
     /**
      * Data for secret typeAccount directory parts:
