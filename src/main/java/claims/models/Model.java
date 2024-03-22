@@ -89,11 +89,11 @@ public class Model {
                 this.customer.getUsername().set(resultSet.getString("Username"));
                 this.customer.getAddress().set(resultSet.getString("Address"));
                 this.customer.getEmail().set(resultSet.getString("Email"));
-                this.customer.getPhoneNumber().set(resultSet.getString("PhoneNumber"));
-                this.customer.getUserID().set(resultSet.getInt("ID"));
-                this.customer.getGender().set(resultSet.getString("Gender"));
+                this.customer.getPhoneNumber().set(resultSet.getString("Phone"));
+                this.customer.getUserID().set(resultSet.getInt("ClientID"));
+                this.customer.getGender().set(resultSet.getString("Sex"));
                 this.customer.getAge().set(resultSet.getInt("Age"));
-                this.customer.getPasswordKey().set(resultSet.getString("Password"));
+                this.customer.getPasswordKey().set(resultSet.getString("Password"));                
                 this.customerLoginSuccessFlag = true;
             }
         } catch (SQLException e) {
@@ -154,9 +154,10 @@ public class Model {
                 this.admin.getUsername().set(resultSet.getString("Username"));
                 this.admin.getPasswordKey().set(resultSet.getString("Password"));
                 this.admin.getUserID().set(resultSet.getInt("ID"));
-//                this.admin.getFirstName().set(resultSet.getString("FirstName"));
-//                this.admin.getLastName().set(resultSet.getString("LastName"));
-//                this.admin.getEmail().set(resultSet.getString("Email"));
+                this.admin.getFirstName().set(resultSet.getString("FirstName"));
+                this.admin.getLastName().set(resultSet.getString("LastName"));
+                this.admin.getEmail().set(resultSet.getString("Email"));
+                this.admin.getIsActive().set(resultSet.getBoolean("isActive"));
                 this.AdminLoginSuccessFlag = true;
             }
         } catch (SQLException e) {
