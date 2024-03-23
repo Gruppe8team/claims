@@ -43,6 +43,7 @@ public class Customer extends User {
         this.vehicles = new SimpleListProperty<Vehicle>(vehicleObservableList);
     }
 
+
     public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age, ObservableList<Vehicle> vehicles) {
         super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.address = new SimpleStringProperty(this, "Address", address);
@@ -60,6 +61,22 @@ public class Customer extends User {
         this.gender = customer.getGender();
         this.age = customer.getAge();
         this.vehicles = customer.getVehicles();
+    }
+
+    public IntegerProperty getUserID() {
+        return this.userID;
+    }
+
+    public StringProperty getFirstName() {
+        return this.firstName;
+    }
+
+    public StringProperty getLastName() {
+        return this.lastName;
+    }
+
+    public StringProperty getEmail() {
+        return this.email;
     }
 
     // Getter and setter methods for address

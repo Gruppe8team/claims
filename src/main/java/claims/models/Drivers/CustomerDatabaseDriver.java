@@ -18,12 +18,24 @@ public class CustomerDatabaseDriver {
     }
 
     //Customer Section
-    public ResultSet getAllCustomers(){
+    public ResultSet searchAllCustomers(){
         Statement statement;
         ResultSet resultSet = null;
         try {
             statement = this.conn.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM customers");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public ResultSet searchCustomerByAdvisorID(int advisorID){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM customers WHERE AdvisorID="+advisorID+";");
         } catch (SQLException e) {
             e.printStackTrace();
         }

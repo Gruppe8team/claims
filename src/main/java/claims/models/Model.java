@@ -9,6 +9,9 @@ import claims.models.Drivers.AdvisorDatabaseDriver;
 import claims.models.Drivers.CustomerDatabaseDriver;
 import claims.views.AccountType;
 import claims.views.ViewFactory;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Model {
     private static Model model;
@@ -99,6 +102,39 @@ public class Model {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public ObservableList<Customer> getCustomers(ResultSet resultSet) {
+        ObservableList<Customer> customers = FXCollections.observableArrayList();
+        try {
+            while (resultSet.next()) {
+                ObservableList<Vehicle> vehicles = FXCollections.observableArrayList();
+                Customer customer = new Customer(
+                        resultSet.getInt("ClientId"),
+                        resultSet.getString("Username"),
+                        resultSet.getString("Password"),
+                        resultSet.getString("FirstName"),
+                        resultSet.getString("LastName"),
+                        resultSet.getString("Email"),
+                        resultSet.getString("Address"),
+                        resultSet.getString("Phone"),
+                        resultSet.getString("Sex"),
+                        resultSet.getInt("Age"),
+                        vehicles
+                );
+                customers.add(customer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return customers;    
     }
 
     // Advisor Method Section
