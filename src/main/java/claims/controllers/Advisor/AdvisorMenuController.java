@@ -40,6 +40,7 @@ public class AdvisorMenuController implements Initializable {
     }
 
     private void onClaims() {
+        System.out.println("onClaims");
         Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.CLAIMS);
     }
 
