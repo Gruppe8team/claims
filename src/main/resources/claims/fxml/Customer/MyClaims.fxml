@@ -16,49 +16,49 @@
 
 <AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="claims_container" stylesheets="@../../style/MyClaims.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Customer.MyClaimsController">
    <children>
-      <Text layoutX="356.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Claims" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="14.0" />
+      <Text layoutX="356.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Claims" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
       <TableView fx:id="clm_table" prefHeight="300.0" prefWidth="810.0" styleClass="table" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="70.0">
          <columns>
-            <TableColumn id="c" fx:id="clmID_col" prefWidth="70.0" text="ClaimID" />
-            <TableColumn id="c" fx:id="dam_col" prefWidth="100.0" text="Damage" />
-            <TableColumn id="c" fx:id="time_col" prefWidth="150.0" text="Time of Accident" />
-            <TableColumn id="c" fx:id="tol_col" prefWidth="100.0" text="Totalled" />
+            <TableColumn id="c" fx:id="claimID_col" prefWidth="70.0" text="ClaimID" />
+            <TableColumn id="c" fx:id="damage_col" prefWidth="100.0" text="Damage" />
+            <TableColumn id="c" fx:id="timeofac_col" prefWidth="150.0" text="Time of Accident" />
+            <TableColumn id="c" fx:id="totalled_col" prefWidth="100.0" text="Totalled" />
             <TableColumn id="c" fx:id="atfault_col" prefWidth="130.0" text="Are you at fault" />
-            <TableColumn id="c" fx:id="datefil_col" prefWidth="140.0" text="Date Filled" />
-            <TableColumn id="c" fx:id="sta_col" prefWidth="120.0" text="Status" />
+            <TableColumn id="c" fx:id="datefilled_col" prefWidth="140.0" text="Date Filled" />
+            <TableColumn id="c" fx:id="status_col" prefWidth="120.0" text="Status" />
          </columns>
       </TableView>
-      <Label text="Register New Claim" AnchorPane.bottomAnchor="330.0" AnchorPane.leftAnchor="20.0" />
-      <HBox prefHeight="200.0" prefWidth="810.0" styleClass="detail-box" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0">
+      <Label styleClass="sub-title" text="Register New Claim" AnchorPane.bottomAnchor="335.0" AnchorPane.leftAnchor="20.0" />
+      <HBox prefHeight="250.0" prefWidth="810.0" styleClass="register-box" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="20.0">
          <children>
-            <VBox prefHeight="270.0" prefWidth="200.0" styleClass="detail-box-sub1">
+            <VBox prefHeight="270.0" prefWidth="200.0" styleClass="register-box-sub1">
                <children>
-                  <Label fx:id="clientname_lbl" text="Day of Accident:" />
-                  <DatePicker prefWidth="150.0" />
-                  <Label fx:id="datefilled_lbl" text="Time of Accident (HH:MM):" />
-                  <TextField maxWidth="150.0" prefWidth="150.0" />
-                  <Label fx:id="dam_lbl" text="Type of Damage:" />
-                  <ChoiceBox prefWidth="150.0" />
-                  <Label fx:id="dam_lbl1" text="Is the Vehicle Totalled?" />
-                  <CheckBox mnemonicParsing="false" text="Yes" />
-                  <Label fx:id="dam_lbl11" text="Are you at fault?" />
-                  <CheckBox mnemonicParsing="false" text="Yes" />
+                  <Label fx:id="clientname_lbl" styleClass="text" text="Day of Accident:" />
+                  <DatePicker id="DA" fx:id="Dayofac_Datepicker" prefWidth="150.0" />
+                  <Label fx:id="datefilled_lbl" styleClass="text" text="Time of Accident:" />
+                  <TextField id="TA" fx:id="timeofac_txtfield" maxWidth="150.0" prefWidth="150.0" promptText="HH:MM" />
+                  <Label fx:id="dam_lbl" styleClass="text" text="Type of Damage:" />
+                  <ChoiceBox id="TD" fx:id="typeofdamage_choicebox" prefWidth="150.0" />
+                  <Label fx:id="dam_lbl1" styleClass="text" text="Is the Vehicle Totalled?" />
+                  <CheckBox id="VT" fx:id="totalled_checkbox" mnemonicParsing="false" text="Yes" />
+                  <Label fx:id="dam_lbl11" styleClass="text" text="Are you at fault?" />
+                  <CheckBox id="AF" fx:id="fault_checkbox" mnemonicParsing="false" text="Yes" />
                </children>
             </VBox>
-            <VBox prefHeight="270.0" prefWidth="310.0" styleClass="detail-box-sub2">
+            <VBox prefHeight="270.0" prefWidth="310.0" styleClass="register-box-sub1">
                <children>
-                  <Label styleClass="detail-box-sub2-title" text="Description:" />
-                  <TextArea maxWidth="300.0" prefHeight="150.0" prefWidth="200.0" />
+                  <Label styleClass="text" text="Description:" />
+                  <TextArea fx:id="description_textarea" maxWidth="300.0" prefHeight="200.0" prefWidth="200.0" styleClass="textarea" />
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="200.0" styleClass="detail-box-sub2">
+            <VBox prefHeight="200.0" prefWidth="200.0" styleClass="register-box-sub1">
                <children>
-                  <Label styleClass="detail-box-sub2-title" text="Notes:" />
-                  <TextArea prefHeight="150.0" prefWidth="200.0" />
+                  <Label styleClass="text" text="Notes:" />
+                  <TextArea fx:id="notes_textarea" prefHeight="200.0" prefWidth="200.0" styleClass="textarea" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <Button layoutX="397.0" layoutY="650.0" mnemonicParsing="false" text="Submit" />
+      <Button fx:id="submit_btn" layoutX="368.0" layoutY="697.0" mnemonicParsing="false" text="Submit" />
    </children>
 </AnchorPane>
