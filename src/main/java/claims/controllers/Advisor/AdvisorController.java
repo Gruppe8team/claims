@@ -13,6 +13,8 @@ public class AdvisorController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
             switch (newVal) {
+                case POLICY -> advisor_parent.setCenter(Model.getInstance().getViewFactory().getAdvisorPolicyView());
+                case CLAIMS -> advisor_parent.setCenter(Model.getInstance().getViewFactory().getAdvisorClaimsView());
                 default -> advisor_parent.setCenter(Model.getInstance().getViewFactory().getAdvisorHomeView());
             }
         });
