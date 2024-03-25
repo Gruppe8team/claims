@@ -18,7 +18,7 @@
     border-radius: 5px;
     -fx-padding: 0px 0px 0px 20px;
     padding: 10px;
-    -fx-effect: dropshadow(two-pass-box, #AAAAAA, 5, 0, 0, 4);
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 5, 0, 0, 4);
     -fx-background-color: white;
     background-color: white;
     -fx-background-radius: 5px;
@@ -46,7 +46,7 @@
 
 
 .table {
-    -fx-effect: dropshadow(two-pass-box, #AAAAAA, 5, 0, 0, 4);
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 5, 0, 0, 4);
     -fx-background-color: white;
     background-color: white;
     -fx-background-radius: 5px;
@@ -57,7 +57,6 @@
 }
 
 #c {
-    /* -fx-effect: dropshadow(two-pass-box, #AAAAAA, 5, 0, 0, 4); */
     -fx-border-color:#000;
     border-color: #000;
     -fx-border-width: 0px 0px 1px 0px;
