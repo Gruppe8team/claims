@@ -108,7 +108,11 @@ public class registerGUIController implements Initializable {
     	String birth = text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String adminPass = textfield_administrative_code.getText();
         String userType =  zapad.getValue();
-        if (((pass.equals(confirm)) && (!userType.equals("Admin")))) {
+
+        if (!userType.equals("Admin")){
+            adminPass = "NOT_ADMIN";
+        }
+        if ((pass.equals(confirm)) && (adminPass.equals("NOT_ADMIN") || adminPass.equals("3131vTg6") || adminPass.equals("4N3g1UR0"))) {
             try {
                 userDAO dao = new userDAO();
                 dao.addToTable(first, last, email, phone, pass, address, gender, age, birth);
