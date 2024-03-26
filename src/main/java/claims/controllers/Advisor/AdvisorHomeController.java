@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 import claims.models.Model;
-import claims.models.Drivers.CustomerDatabaseDriver;
+import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.models.Customer;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
