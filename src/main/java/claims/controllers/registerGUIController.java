@@ -68,7 +68,7 @@ public class registerGUIController implements Initializable {
 
     private String[] gender = {"Male", "Female", "BTR-80", "Finger", "Walrusian", "Neither"};
 
-        private String[] typeOfUser = {"Admin", "Customer", "Advisor"};
+    private String[] typeOfUser = {"Admin", "Customer", "Advisor"};
 
     private static String dob;
 
@@ -103,11 +103,16 @@ public class registerGUIController implements Initializable {
         String confirm = confirm_password_field.getText();
     	String address = text_field_address.getText();
     	String gender = selector.getValue();
+        String username = textfield_username.getText();
     	String age = text_field_age.getText();
     	String birth = text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String adminPass = textfield_administrative_code.getText();
         String userType =  zapad.getValue();
-        if (((pass.equals(confirm)) && (!userType.equals("Admin")))) {
+
+        if (!userType.equals("Admin")){
+            adminPass = "NOT_ADMIN";
+        }
+        if ((pass.equals(confirm)) && (adminPass.equals("NOT_ADMIN") || adminPass.equals("3131vTg6") || adminPass.equals("4N3g1UR0"))) {
             try {
                 userDAO dao = new userDAO();
                 dao.addToTable(first, last, email, phone, pass, address, gender, age, birth);
@@ -144,7 +149,7 @@ public class registerGUIController implements Initializable {
             Model.getInstance().getViewFactory().showRegisterErrorWindow();
             confirm_password_field.clear();
             password_field.clear();
-
+            textfield_administrative_code.clear();
         }
 
     }
