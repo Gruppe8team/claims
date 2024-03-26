@@ -12,6 +12,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 public class HomeController implements Initializable {
@@ -51,6 +53,9 @@ public class HomeController implements Initializable {
     @FXML
     private Button btn_edit;
 
+    @FXML
+    private ImageView zapad;
+
     public  void init(){
         btn_edit.setOnAction(event -> onEdit());
 
@@ -65,12 +70,15 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_edit.setOnAction(event -> onEdit());
 
+
+        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
+        zapad.setImage(image);
         acc_name.setText(newUser.getFirstName()+" "+newUser.getLastName());
-        user_name.setText("Hi, "+newUser.getFirstName());
+        user_name.setText("Welcome, "+newUser.getFirstName());
         acc_gender.setText("Gender: "+newUser.getGender());
-        acc_dob.setText("DOB: "+newUser.getDob());
+        acc_dob.setText("DoB: "+newUser.getDob());
         acc_email.setText("Email: "+newUser.getEmail());
-        acc_phonenumber.setText("Phone #: "+newUser.getPhone());
+        acc_phonenumber.setText("Phone: "+newUser.getPhone());
     }
 
     private void onEdit() {
