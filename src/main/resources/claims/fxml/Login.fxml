@@ -61,6 +61,8 @@
             <Button fx:id="Button_SignUp" mnemonicParsing="false" text="Sign Up" />
          </children>
       </VBox>
-      <ImageView fitHeight="393.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
+
+         <ImageView fx:id="vostok" fitHeight="272.0" fitWidth="300.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
+
    </children>
 </AnchorPane>

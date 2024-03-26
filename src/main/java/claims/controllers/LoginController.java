@@ -9,6 +9,8 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 
@@ -30,6 +32,12 @@ public class LoginController implements Initializable {
     @FXML
 	private ChoiceBox<AccountType> acc_type_selector;
 
+    @FXML
+    private ImageView vostok;
+
+
+
+
     @Override
 	public void initialize(URL url, ResourceBundle resourceBundle) {
         acc_type_selector.setItems(FXCollections.observableArrayList(AccountType.CUSTOMER, AccountType.ADVISOR, AccountType.ADMIN));
@@ -37,6 +45,8 @@ public class LoginController implements Initializable {
         acc_type_selector.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_type_selector.getValue()));
 		Button_SignIn.setOnAction(event -> onLogin());
         Button_SignUp.setOnAction(event -> onRegister());
+        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
+        vostok.setImage(image);
 
 	}
 
