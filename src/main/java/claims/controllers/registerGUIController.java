@@ -149,7 +149,7 @@ public class registerGUIController implements Initializable {
             Model.getInstance().getViewFactory().showRegisterErrorWindow();
             confirm_password_field.clear();
             password_field.clear();
-
+            textfield_administrative_code.clear();
         }
 
     }
