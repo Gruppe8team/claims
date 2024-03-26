@@ -67,16 +67,16 @@ public class AdvisorHomeController implements Initializable {
     @FXML
     private TableView<Customer> clients_tableview;
 
+    private ObservableList<Customer> customers = FXCollections.observableArrayList();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        id_col.setCellValueFactory(new PropertyValueFactory<Customer,IntegerProperty>("userID"));
-        name_col.setCellValueFactory(new PropertyValueFactory<Customer, StringProperty>("firstName"));
-        email_col.setCellValueFactory(new PropertyValueFactory<Customer, StringProperty>("email"));
-        
-        clients_tableview.setItems(customers);
+        this.customers = Model.getInstance().getCustomers();
+        id_col.setCellValueFactory(new PropertyValueFactory<>("userID"));
+        name_col.setCellValueFactory(new PropertyValueFactory<>("firstName"));
+        email_col.setCellValueFactory(new PropertyValueFactory<>("email"));
+        clients_tableview.setItems(this.customers);
     }
 
-    CustomerDatabaseDriver db = new CustomerDatabaseDriver();
-    ResultSet resultSet = db.searchCustomerByAdvisorID(1);
-    ObservableList<Customer> customers = Model.getInstance().getCustomers(resultSet);
+    
 }

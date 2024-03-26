@@ -3,6 +3,7 @@ package claims.models.Drivers;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -30,12 +31,11 @@ public class CustomerDatabaseDriver {
         return resultSet;
     }
 
-    public ResultSet searchCustomerByAdvisorID(int advisorID){
-        Statement statement;
+    public ResultSet searchCustomerByAdvisorID() {
         ResultSet resultSet = null;
-        try {
-            statement = this.conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM customers WHERE AdvisorID="+advisorID+";");
+        // Use try-with-resources to ensure proper closure of resources
+        try (PreparedStatement preparedStatement = this.conn.prepareStatement("SELECT * FROM customers")) {
+            resultSet = preparedStatement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         }

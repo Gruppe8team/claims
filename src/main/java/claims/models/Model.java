@@ -23,6 +23,7 @@ public class Model {
     // Customer Data Section
     private final Customer customer;
     private boolean customerLoginSuccessFlag;
+    private ObservableList<Customer> customerList;
     // Adivsor Data Section
     private final Advisor advisor;
     private boolean AdvisorLoginSuccessFlag;
@@ -38,6 +39,7 @@ public class Model {
         // Customer Data Section
         this.customerLoginSuccessFlag = false;
         this.customer = new Customer(); // Fixed constructor error
+        this.customerList = FXCollections.observableArrayList();
         // Adivsor Data Section
         this.AdvisorLoginSuccessFlag = false;
         this.advisor = new Advisor();
@@ -104,37 +106,33 @@ public class Model {
         }
     }
 
-    public ObservableList<Customer> getCustomers(ResultSet resultSet) {
+    public ObservableList<Customer> getCustomers() {
         ObservableList<Customer> customers = FXCollections.observableArrayList();
+        ResultSet resultSet = CustomerDatabaseDriver.searchCustomerByAdvisorID();
         try {
-            while (resultSet.next()) {
-                ObservableList<Vehicle> vehicles = FXCollections.observableArrayList();
-                Customer customer = new Customer(
-                        resultSet.getInt("ClientId"),
-                        resultSet.getString("Username"),
-                        resultSet.getString("Password"),
-                        resultSet.getString("FirstName"),
-                        resultSet.getString("LastName"),
-                        resultSet.getString("Email"),
-                        resultSet.getString("Address"),
-                        resultSet.getString("Phone"),
-                        resultSet.getString("Sex"),
-                        resultSet.getInt("Age"),
-                        vehicles
-                );
+            while (resultSet.isBeforeFirst()) {
+                Customer customer = new Customer();
+                this.customer.getFirstName().set(resultSet.getString("FirstName"));
+                this.customer.getLastName().set(resultSet.getString("LastName"));
+                this.customer.getUsername().set(resultSet.getString("Username"));
+                this.customer.getAddress().set(resultSet.getString("Address"));
+                this.customer.getEmail().set(resultSet.getString("Email"));
+                this.customer.getPhoneNumber().set(resultSet.getString("Phone"));
+                this.customer.getUserID().set(resultSet.getInt("ClientID"));
+                this.customer.getGender().set(resultSet.getString("Sex"));
+                this.customer.getAge().set(resultSet.getInt("Age"));
+                this.customer.getPasswordKey().set(resultSet.getString("Password"));  
                 customers.add(customer);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-
-        } finally {
-            try {
-                if (resultSet != null) resultSet.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
         return customers;    
+    }
+
+
+    public ObservableList<Customer> getCustomerList() {
+        return this.customerList;
     }
 
     // Advisor Method Section

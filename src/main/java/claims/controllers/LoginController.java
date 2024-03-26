@@ -62,7 +62,7 @@ public class LoginController implements Initializable {
         //         "and passwordkey = \'"+newUser.getPasswordKey()+"\'";
         // NewUser user = CustomerDatabase.getUser(sql);
         // if(user.getUserID() == 0 || "".equals(newUser.getPasswordKey()) || "".equals(newUser.getEmail())){
-        //     //登陆失败
+        //     //Fail
         //     System.out.println("null");
         //     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         //     alert.setTitle("Confirmation");
