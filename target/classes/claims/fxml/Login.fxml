@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.PasswordField?>
+
+<AnchorPane fx:id="root" maxHeight="800.0" maxWidth="1000.0" minHeight="300.0" minWidth="300.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@../style/login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.LoginController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300.0" styleClass="main_container" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefHeight="30.0" prefWidth="181.0" styleClass="title_lbl" text="Welcome to" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Al Nile" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="45.0" prefHeight="30.0" prefWidth="181.0" styleClass="title_lbl" text="AutoClaim" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Al Nile" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </Label>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+               <font>
+                  <Font name="Al Nile Bold" size="13.0" />
+               </font>
+            </Text>
+            <ChoiceBox fx:id="acc_type_selector" prefHeight="26.0" prefWidth="100.0" styleClass="checkbox" />
+            <TextField fx:id="TextField_Username" alignment="CENTER" maxWidth="175.0" promptText="Username" styleClass="text_field">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <PasswordField fx:id="PasswordField_Password" alignment="CENTER" maxWidth="175.0" promptText="Password" styleClass="text_field">
+               <VBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </VBox.margin>
+            </PasswordField>
+            <Button fx:id="Button_SignIn" mnemonicParsing="false" text="Sign in">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Label styleClass="sub_lbl" text=" Not a member yet?" textFill="WHITE">
+               <font>
+                  <Font name="Al Nile" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="Button_SignUp" mnemonicParsing="false" text="Sign Up" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
