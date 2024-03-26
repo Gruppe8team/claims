@@ -1,0 +1,74 @@
+.main-title {
+    -fx-font-size: 2em;
+    font-size: 2em;
+}
+
+.sub-title {
+    -fx-font-size: 1.5em;
+    font-size: 1.5em;
+}
+
+.detail-box {
+    -fx-spacing: 30px;
+    -fx-border-width: 1px;
+    border-width: 1px;
+    -fx-border-color: #000;
+    border-color: #000;
+    -fx-border-radius: 5px;
+    border-radius: 5px;
+    -fx-padding: 0px 0px 0px 20px;
+    padding: 10px;
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 5, 0, 0, 4);
+    -fx-background-color: white;
+    background-color: white;
+    -fx-background-radius: 5px;
+}
+
+.detail-box-sub1 {
+    -fx-font-size: 1.5em;
+    font-size: 1.4em;
+    -fx-padding: 55px 10px 10px 30px;
+    padding: 10px 10px 0px 10px;
+}
+
+.detail-box-sub2 {
+    -fx-font-size: 1em;
+    font-size: 1em;
+    -fx-padding: 25px 10px 10px 10px;
+    padding: 20px 10px 10px 10px;
+}
+
+.detail-box-sub2-title {
+    -fx-font-size: 1.4em;
+    font-size: 1.4em;
+}
+
+
+
+.table {
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 5, 0, 0, 4);
+    -fx-background-color: white;
+    background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    border-radius: 5px;
+    -fx-border-color:#000;
+    border-color: #000;
+}
+
+#c {
+    -fx-border-color:#000;
+    border-color: #000;
+    -fx-border-width: 0px 0px 1px 0px;
+    border-width: 0px 0px 1px 0px;
+    -fx-border:none;
+    border: none;
+    -fx-background-radius: 1px;
+    -fx-background-color:#FFFFFF;
+    background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-font-size: 1em;
+    font-size: 1em;
+    -fx-font-weight: 100;
+    font-weight: 100;
+}
