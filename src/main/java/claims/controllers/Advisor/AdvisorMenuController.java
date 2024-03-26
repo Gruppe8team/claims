@@ -29,10 +29,10 @@ public class AdvisorMenuController implements Initializable {
     }
 	
 	private void addListeners() {
-        home_btn.setOnAction(event -> onHome());
         claims_btn.setOnAction(event -> onClaims());
         policy_btn.setOnAction(event -> onPolicy());
         logout_btn.setOnAction(event -> onLogout());
+        home_btn.setOnAction(event -> onHome());
     }
 	
 	private void onHome() {
