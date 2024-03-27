@@ -5,7 +5,7 @@ import java.util.Random;
 
 import claims.models.NewUser;
 
-public class CustomerDatabase {
+public class UserDatabase {
 	private static String dbName = "claims_customerdb";
 	private static String dbUser = "postgres";
 	private static String userPassword = "postgres";
