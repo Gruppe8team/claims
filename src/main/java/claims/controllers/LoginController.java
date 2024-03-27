@@ -111,6 +111,153 @@ public class LoginController implements Initializable {
 
 }
 
+
+// NewUser newUser = new NewUser();
+//         newUser.setPasswordKey(PasswordField_Password.getText());
+//         newUser.setEmail(TextField_Username.getText());
+//         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CUSTOMER) {
+//             //Evalute login credentials
+
+//             newUser.setUserType("Customer");
+//             String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
+//                     "and passwordkey = \'"+newUser.getPasswordKey()+"\'" +
+//                     "and usertype = \'"+newUser.getUserType()+"\'";
+//             NewUser user = UserDatabase.getUser(sql);
+//             if(user.getUserID() == 0){
+//                 //Fail
+//                 System.out.println("null");
+//                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//                 alert.setTitle("Confirmation");
+//                 alert.setHeaderText("Title");
+//                 alert.setContentText("Please Check your Information and try again");
+//                 ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+//                 if (result == ButtonType.OK) {
+//                 }
+//                 return;
+//             }
+//             EditController.newUser = user;
+//             Model.getInstance().getViewFactory().showCustomerWindow();
+//             Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+//             Model.getInstance().getViewFactory().closeStage(stage);
+//         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADVISOR) {
+//             newUser.setUserType("Advisor");
+//             String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
+//                     "and passwordkey = \'"+newUser.getPasswordKey()+"\'" +
+//                     "and usertype = \'"+newUser.getUserType()+"\'";
+//             NewUser user = UserDatabase.getUser(sql);
+//             if(user.getUserID() == 0){
+//                 //Fail
+//                 System.out.println("null");
+//                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//                 alert.setTitle("Confirmation");
+//                 alert.setHeaderText("Title");
+//                 alert.setContentText("Please Check your Information and try again");
+//                 ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+//                 if (result == ButtonType.OK) {
+//                 }
+//                 return;
+//             }
+//             EditController.newUser = user;
+//             //Model.getInstance().evaluateAdvisorCred(TextField_Username.getText(), PasswordField_Password.getText());
+//             Model.getInstance().getViewFactory().showAdvisorWindow();
+//             Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+//             Model.getInstance().getViewFactory().closeStage(stage);
+//         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADMIN) {
+//             newUser.setUserType("Admin");
+//             String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
+//                     "and passwordkey = \'"+newUser.getPasswordKey()+"\'" +
+//                     "and usertype = \'"+newUser.getUserType()+"\'";
+//             NewUser user = UserDatabase.getUser(sql);
+//             if(user.getUserID() == 0){
+//                 //Fail
+//                 System.out.println("null");
+//                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//                 alert.setTitle("Confirmation");
+//                 alert.setHeaderText("Title");
+//                 alert.setContentText("Please Check your Information and try again");
+//                 ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+//                 if (result == ButtonType.OK) {
+//                 }
+//                 return;
+//             }
+//             EditController.newUser = user;
+//             Model.getInstance().getViewFactory().showAdminWindow();
+//             Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+//             Model.getInstance().getViewFactory().closeStage(stage);
+//         }NewUser newUser = new NewUser();
+//         newUser.setPasswordKey(PasswordField_Password.getText());
+//         newUser.setEmail(TextField_Username.getText());
+//         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CUSTOMER) {
+//             //Evalute login credentials
+
+//             newUser.setUserType("Customer");
+//             String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
+//                     "and passwordkey = \'"+newUser.getPasswordKey()+"\'" +
+//                     "and usertype = \'"+newUser.getUserType()+"\'";
+//             NewUser user = UserDatabase.getUser(sql);
+//             if(user.getUserID() == 0){
+//                 //Fail
+//                 System.out.println("null");
+//                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//                 alert.setTitle("Confirmation");
+//                 alert.setHeaderText("Title");
+//                 alert.setContentText("Please Check your Information and try again");
+//                 ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+//                 if (result == ButtonType.OK) {
+//                 }
+//                 return;
+//             }
+//             EditController.newUser = user;
+//             Model.getInstance().getViewFactory().showCustomerWindow();
+//             Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+//             Model.getInstance().getViewFactory().closeStage(stage);
+//         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADVISOR) {
+//             newUser.setUserType("Advisor");
+//             String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
+//                     "and passwordkey = \'"+newUser.getPasswordKey()+"\'" +
+//                     "and usertype = \'"+newUser.getUserType()+"\'";
+//             NewUser user = UserDatabase.getUser(sql);
+//             if(user.getUserID() == 0){
+//                 //Fail
+//                 System.out.println("null");
+//                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//                 alert.setTitle("Confirmation");
+//                 alert.setHeaderText("Title");
+//                 alert.setContentText("Please Check your Information and try again");
+//                 ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+//                 if (result == ButtonType.OK) {
+//                 }
+//                 return;
+//             }
+//             EditController.newUser = user;
+//             //Model.getInstance().evaluateAdvisorCred(TextField_Username.getText(), PasswordField_Password.getText());
+//             Model.getInstance().getViewFactory().showAdvisorWindow();
+//             Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+//             Model.getInstance().getViewFactory().closeStage(stage);
+//         } else if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.ADMIN) {
+//             newUser.setUserType("Admin");
+//             String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
+//                     "and passwordkey = \'"+newUser.getPasswordKey()+"\'" +
+//                     "and usertype = \'"+newUser.getUserType()+"\'";
+//             NewUser user = UserDatabase.getUser(sql);
+//             if(user.getUserID() == 0){
+//                 //Fail
+//                 System.out.println("null");
+//                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//                 alert.setTitle("Confirmation");
+//                 alert.setHeaderText("Title");
+//                 alert.setContentText("Please Check your Information and try again");
+//                 ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+//                 if (result == ButtonType.OK) {
+//                 }
+//                 return;
+//             }
+//             EditController.newUser = user;
+//             Model.getInstance().getViewFactory().showAdminWindow();
+//             Stage stage = (Stage) Button_SignIn.getScene().getWindow();
+//             Model.getInstance().getViewFactory().closeStage(stage);
+//         }
+
 // if (acc_type_selector.getValue() != AccountType.CUSTOMER){
 //     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 //     alert.setTitle("Confirmation");
