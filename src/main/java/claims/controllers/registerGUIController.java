@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 
 public class registerGUIController implements Initializable {
 
-    
+
     @FXML
     private Button Button_Cancel;
 
@@ -95,62 +95,45 @@ public class registerGUIController implements Initializable {
     }
 
     public void onConfirm() {
-    	String first = textfield_firstname.getText();
-    	String last = text_field_lastname.getText();
-    	String email = textfield_email.getText();
-    	String phone = text_field_phonenumber.getText();
-    	String pass = password_field.getText();
+        String first = textfield_firstname.getText();
+        String last = text_field_lastname.getText();
+        String email = textfield_email.getText();
+        String phone = text_field_phonenumber.getText();
+        String pass = password_field.getText();
         String confirm = confirm_password_field.getText();
-    	String address = text_field_address.getText();
-    	String gender = selector.getValue();
+        String address = text_field_address.getText();
+        String gender = selector.getValue();
         String username = textfield_username.getText();
-    	String age = text_field_age.getText();
-    	String birth = text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String age = text_field_age.getText();
+        String birth = text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String adminPass = textfield_administrative_code.getText();
         String userType =  zapad.getValue();
 
-        if (!userType.equals("Admin")){
-            adminPass = "NOT_ADMIN";
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Save Account");
+        alert.setContentText("Are you sure you want to Save this account?");
+
+        try {
+            NewUser newUser = new NewUser();
+            newUser.setPasswordKey(password_field.getText());
+            newUser.setFirstName(textfield_firstname.getText());
+            newUser.setLastName(text_field_lastname.getText());
+            newUser.setPhone(text_field_phonenumber.getText());
+            newUser.setEmail(textfield_email.getText());
+            newUser.setGender(gender);
+            newUser.setDob(dob);
+            newUser.setUsername(username);
+            newUser.setAddr(address);
+            newUser.setUserType(userType);
+            CustomerDatabase.saveNewUser(newUser);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if ((pass.equals(confirm)) && (adminPass.equals("NOT_ADMIN") || adminPass.equals("3131vTg6") || adminPass.equals("4N3g1UR0"))) {
-            try {
-                userDAO dao = new userDAO();
-                dao.addToTable(first, last, email, phone, pass, address, gender, age, birth);
-                System.out.println("DAO Good");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
-            //customer (potentially deprecated)
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText("Save Account");
-            alert.setContentText("Are you sure you want to Save this account?");
-
-                try {
-                    NewUser newUser = new NewUser();
-                    newUser.setPasswordKey(password_field.getText());
-                    newUser.setFirstName(textfield_firstname.getText());
-                    newUser.setLastName(text_field_lastname.getText());
-                    newUser.setPhone(text_field_phonenumber.getText());
-                    newUser.setEmail(textfield_email.getText());
-                    newUser.setGender(text_field_age.getText());
-                    newUser.setDob(dob);
-                    CustomerDatabase.saveNewUser(newUser);
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            Stage stage = (Stage) Button_Confirm.getScene().getWindow();
-            Model.getInstance().getViewFactory().closeStage(stage);
-            Model.getInstance().getViewFactory().showLoginWindow();
-
-        }else {
-            Model.getInstance().getViewFactory().showRegisterErrorWindow();
-            confirm_password_field.clear();
-            password_field.clear();
-            textfield_administrative_code.clear();
-        }
+        Stage stage = (Stage) Button_Confirm.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showLoginWindow();
 
     }
 
