@@ -8,6 +8,8 @@ import claims.views.AdminMenuOptions;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class AdminMenuController implements Initializable {
     @FXML
@@ -15,7 +17,9 @@ public class AdminMenuController implements Initializable {
 	
 	@FXML
 	private Button customers_btn;
-	
+
+    @FXML
+    private ImageView vostok;
 	@FXML
 	private Button advisors_btn;
 
@@ -30,6 +34,8 @@ public class AdminMenuController implements Initializable {
 	
 	@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
+        vostok.setImage(image);
         addListeners();
     }
 	
