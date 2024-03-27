@@ -13,6 +13,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
 
@@ -20,6 +22,9 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button Button_SignIn;
+
+    @FXML
+    private ImageView vostok;
 
     @FXML
     private Button Button_SignUp;
@@ -40,6 +45,9 @@ public class LoginController implements Initializable {
         acc_type_selector.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(acc_type_selector.getValue()));
         Button_SignIn.setOnAction(event -> onLogin());
         Button_SignUp.setOnAction(event -> onRegister());
+
+        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
+        vostok.setImage(image);
 
     }
 
