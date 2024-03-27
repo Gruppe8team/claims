@@ -194,7 +194,7 @@ public class EditController {
         name_lbl.setText(Model.getInstance().getCustomer().getFirstName().get()+" "+Model.getInstance().getCustomer().getLastName().get());
         username_lbl.setText("Hi, "+Model.getInstance().getCustomer().getFirstName().get());
         gender_lbl.setText("Gender: "+Model.getInstance().getCustomer().getGender().get());
-        dob_lbl.setText("DOB: "+Model.getInstance().getCustomer().getAge().get());
+        dob_lbl.setText("Age: "+Model.getInstance().getCustomer().getAge().get());
         email_lbl.setText("Email: "+Model.getInstance().getCustomer().getEmail().get());
         phone_lbl.setText("Phone #: "+Model.getInstance().getCustomer().getPhoneNumber().get());
         ClaimsDatabaseDriver.getInstance().updateCustomer(

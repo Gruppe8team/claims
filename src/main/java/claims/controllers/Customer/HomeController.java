@@ -62,7 +62,7 @@ public class HomeController implements Initializable {
         acc_name.setText(Model.getInstance().getCustomer().getFirstName().get()+" "+Model.getInstance().getCustomer().getLastName().get());
         user_name.setText("Welcome, "+Model.getInstance().getCustomer().getFirstName().get());
         acc_gender.setText("Gender: "+Model.getInstance().getCustomer().getGender().get());
-        acc_dob.setText("DOB: "+Model.getInstance().getCustomer().getAge().get());
+        acc_dob.setText("Age: "+Model.getInstance().getCustomer().getAge().get());
         acc_email.setText("Email: "+Model.getInstance().getCustomer().getEmail().get());
         acc_phonenumber.setText("Phone: "+Model.getInstance().getCustomer().getPhoneNumber().get());
     }
