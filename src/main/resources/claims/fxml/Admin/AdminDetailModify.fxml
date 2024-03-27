@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" stylesheets="@../../style/AdvisorHome.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Advisor.AdvisorHomeController">
+<?import javafx.scene.image.ImageView?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="claims.controllers.Admin.AdminDetailModify"
+            prefHeight="400.0" prefWidth="600.0">
     <children>
         <Label fx:id="hi_lbl" layoutX="14.0" layoutY="14.0" styleClass="user_name" text="Hi, Jerry" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
         <Label fx:id="today_lbl" layoutX="127.0" layoutY="30.0" styleClass="date_lbl" text="Today, 2024-12-01" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
@@ -37,7 +43,8 @@
             </columns>
         </TableView>
         <ImageView fx:id="logola" fitHeight="180.0" fitWidth="215.0" layoutX="600.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="btn_edit" layoutX="599.0" layoutY="266.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="208.0" text="Delete" />
-      <Button fx:id="btn_edit1" layoutX="599.0" layoutY="230.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="208.0" text="Modify" />
+        <Button fx:id="btn_edit" layoutX="599.0" layoutY="266.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="208.0" text="Delete" />
+        <Button fx:id="btn_edit1" layoutX="599.0" layoutY="230.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="208.0" text="Modify" />
     </children>
+
 </AnchorPane>
