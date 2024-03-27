@@ -8,6 +8,8 @@ import claims.views.CustomerMenuOptions;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class CustomerMenuController implements Initializable {
 
@@ -23,9 +25,13 @@ public class CustomerMenuController implements Initializable {
     @FXML
     public Button logout_btn;
 
+    @FXML
+    private ImageView zapad;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
+        image();
     }
 
     private void addListeners() {
@@ -33,6 +39,11 @@ public class CustomerMenuController implements Initializable {
         claims_btn.setOnAction(event -> onClaims());
         insurance_btn.setOnAction(event -> onInsurance());
         logout_btn.setOnAction(event -> onLogout());
+    }
+
+    private void image() {
+        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
+        this.zapad.setImage(image);
     }
 
     private void onHome() {

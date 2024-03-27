@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../style/Edit.css" xmlns="http://javafx.com/javafx/8.0.281" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Customer.EditController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../style/Edit.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Customer.EditController">
 
     <children>
         <Label fx:id="today_lbl" layoutX="788.0" layoutY="29.0" styleClass="date_lbl" text="Today, 2024-02-29" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
@@ -20,7 +20,7 @@
                     <children>
                         <Label fx:id="name_lbl" styleClass="account_name" text="Kyle Williamson" />
                         <Label fx:id="gender_lbl" text="Gender: Male" />
-                        <Label fx:id="dob_lbl" text="DOB: 14/10/2003" />
+                        <Label fx:id="dob_lbl" text="Age: 14/10/2003" />
                         <Label fx:id="acc_btn" text="Account Type: Client" />
                         <Label fx:id="email_lbl" styleClass="account_important" text="Email: 218953901@my.yorku.ca" />
                         <Label fx:id="phone_lbl" styleClass="account_important" text="Phone: 999-999-9999" />
@@ -54,7 +54,7 @@
                   </HBox>
                   <HBox prefHeight="20.0" prefWidth="281.0" styleClass="edit_field">
                       <children>
-                          <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="70.0" text="DOB" textAlignment="RIGHT" />
+                          <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="70.0" text="Age" textAlignment="RIGHT" />
                           <TextField fx:id="dob_field" prefHeight="28.0" prefWidth="188.0" styleClass="text_field" />
                       </children>
                   </HBox>
