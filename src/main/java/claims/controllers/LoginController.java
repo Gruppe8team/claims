@@ -53,38 +53,6 @@ public class LoginController implements Initializable {
 
 
     private void onLogin() {
-
-
-        // if (acc_type_selector.getValue() != AccountType.CUSTOMER){
-        //     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        //     alert.setTitle("Confirmation");
-        //     alert.setHeaderText("Title");
-        //     alert.setContentText("Account or password error");
-        //     ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-        //     if (result == ButtonType.OK) {
-        //     }
-        //     return;
-
-        // }
-        // NewUser newUser = new NewUser();
-        // newUser.setPasswordKey(TextField_Password.getText());
-        // newUser.setEmail(TextField_Email.getText());
-        // String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
-        //         "and passwordkey = \'"+newUser.getPasswordKey()+"\'";
-        // NewUser user = CustomerDatabase.getUser(sql);
-        // if(user.getUserID() == 0 || "".equals(newUser.getPasswordKey()) || "".equals(newUser.getEmail())){
-        //     //Fail
-        //     System.out.println("null");
-        //     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        //     alert.setTitle("Confirmation");
-        //     alert.setHeaderText("Title");
-        //     alert.setContentText("Account or password error");
-        //     ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-        //     if (result == ButtonType.OK) {
-        //     }
-        //     return;
-        // }
-        // EditController.newUser = user;
         NewUser newUser = new NewUser();
         newUser.setPasswordKey(PasswordField_Password.getText());
         newUser.setEmail(TextField_Username.getText());
@@ -102,7 +70,7 @@ public class LoginController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation");
                 alert.setHeaderText("Title");
-                alert.setContentText("Account or password error");
+                alert.setContentText("Please Check your Information and try again");
                 ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
                 if (result == ButtonType.OK) {
                 }
@@ -124,7 +92,7 @@ public class LoginController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation");
                 alert.setHeaderText("Title");
-                alert.setContentText("Account or password error");
+                alert.setContentText("Please Check your Information and try again");
                 ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
                 if (result == ButtonType.OK) {
                 }
@@ -147,7 +115,7 @@ public class LoginController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation");
                 alert.setHeaderText("Title");
-                alert.setContentText("Account or password error");
+                alert.setContentText("Please Check your Information and try again");
                 ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
                 if (result == ButtonType.OK) {
                 }
@@ -168,3 +136,34 @@ public class LoginController implements Initializable {
     }
 
 }
+
+// if (acc_type_selector.getValue() != AccountType.CUSTOMER){
+//     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//     alert.setTitle("Confirmation");
+//     alert.setHeaderText("Title");
+//     alert.setContentText("Account or password error");
+//     ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+//     if (result == ButtonType.OK) {
+//     }
+//     return;
+
+// }
+// NewUser newUser = new NewUser();
+// newUser.setPasswordKey(TextField_Password.getText());
+// newUser.setEmail(TextField_Email.getText());
+// String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
+//         "and passwordkey = \'"+newUser.getPasswordKey()+"\'";
+// NewUser user = CustomerDatabase.getUser(sql);
+// if(user.getUserID() == 0 || "".equals(newUser.getPasswordKey()) || "".equals(newUser.getEmail())){
+//     //Fail
+//     System.out.println("null");
+//     Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//     alert.setTitle("Confirmation");
+//     alert.setHeaderText("Title");
+//     alert.setContentText("Account or password error");
+//     ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+//     if (result == ButtonType.OK) {
+//     }
+//     return;
+// }
+// EditController.newUser = user;
