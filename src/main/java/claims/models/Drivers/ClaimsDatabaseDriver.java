@@ -76,7 +76,7 @@ public class ClaimsDatabaseDriver {
     }
 
     public void updateCustomer(String username, String password, String firstName, String lastName, int age, String sex, String email, String phone, String address, int clientId) {
-        String sql = "UPDATE Clients SET Username=?, Password=?, FirstName=?, LastName=?, " +
+        String sql = "UPDATE Customers SET Username=?, Password=?, FirstName=?, LastName=?, " +
         "Age=?, Sex=?, Email=?, Phone=?, Address=? WHERE ClientID=?";
         try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
             pstmt.setString(1, username);
