@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../style/CustomerMenu.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Admin.AdminMenuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../style/CustomerMenu.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Admin.AdminMenuController">
    <children>
       <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
          <children>
-            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="180.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox alignment="CENTER" prefHeight="103.0" prefWidth="180.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label text="AutoClaim">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <TextFlow prefHeight="59.0" prefWidth="725.0" />
+                  <TextFlow prefHeight="59.0" prefWidth="725.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="38.0" prefWidth="153.0" text="AutoClaim">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_CENTER" prefHeight="22.0" prefWidth="153.0" text="ADMINISTRATION" textFill="#9a0c04">
+                           <font>
+                              <Font name="Consolas" size="17.0" />
+                           </font>
+                        </Label>
+                     </children></TextFlow>
                </children>
             </VBox>
             <VBox prefHeight="400.0" prefWidth="583.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                <children>
                   <Button fx:id="home_btn" mnemonicParsing="false" text="Home" />
-                  <Button fx:id="customers_btn" mnemonicParsing="false" text="Customers" />
-                  <Button fx:id="advisors_btn" mnemonicParsing="false" text="Advisors" />
-                  <Button fx:id="claims_btn" mnemonicParsing="false" text="Claims" />
-                  <Button fx:id="policies_btn" mnemonicParsing="false" text="Policies" />
+                  <Button fx:id="customers_btn" mnemonicParsing="false" text="Users" />
+                  <Button fx:id="advisors_btn" mnemonicParsing="false" text="Changelog" />
+                  <Button fx:id="policies_btn" mnemonicParsing="false" text="BLACKLIST" textFill="#cd2222" />
+                  <Button fx:id="policies_btn1" layoutX="30.0" layoutY="200.0" mnemonicParsing="false" text="Edit Details" textFill="#cd2222" />
                   <Line endX="120.0" />
                   <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Logout" />
+               </children>
+            </VBox>
+            <VBox layoutX="8.0" layoutY="570.0" prefHeight="140.0" prefWidth="165.0">
+               <children>
+                  <ImageView fx:id="vostok" fitHeight="150.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </VBox>
          </children>

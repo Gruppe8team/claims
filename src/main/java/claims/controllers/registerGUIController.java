@@ -109,31 +109,55 @@ public class registerGUIController implements Initializable {
         String adminPass = textfield_administrative_code.getText();
         String userType =  zapad.getValue();
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText("Save Account");
-        alert.setContentText("Are you sure you want to Save this account?");
 
+        if (!userType.equals("Admin")){
+            adminPass = "NOT_ADMIN";
+        }
+        if ((pass.equals(confirm)) && (adminPass.equals("NOT_ADMIN") || adminPass.equals("3131vTg6") || adminPass.equals("4N3g1UR0"))) {
+            try {
+                userDAO dao = new userDAO();
+                dao.addToTable(first, last, email, phone, pass, address, gender, age, birth);
+                System.out.println("DAO Good");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         try {
-            NewUser newUser = new NewUser();
-            newUser.setPasswordKey(password_field.getText());
-            newUser.setFirstName(textfield_firstname.getText());
-            newUser.setLastName(text_field_lastname.getText());
-            newUser.setPhone(text_field_phonenumber.getText());
-            newUser.setEmail(textfield_email.getText());
-            newUser.setGender(gender);
-            newUser.setDob(dob);
-            newUser.setUsername(username);
-            newUser.setAddr(address);
-            newUser.setUserType(userType);
-            UserDatabase.saveNewUser(newUser);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation");
+            alert.setHeaderText("Save Account");
+            alert.setContentText("Are you sure you want to Save this account?");
+            ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+            if (result == ButtonType.OK) {
+                try {
+                    NewUser newUser = new NewUser();
+                    newUser.setPasswordKey(password_field.getText());
+                    newUser.setFirstName(textfield_firstname.getText());
+                    newUser.setLastName(text_field_lastname.getText());
+                    newUser.setPhone(text_field_phonenumber.getText());
+                    newUser.setEmail(textfield_email.getText());
+                    newUser.setGender(gender);
+                    newUser.setDob(dob);
+                    newUser.setUsername(username);
+                    newUser.setAddr(address);
+                    newUser.setUserType(userType);
+                    UserDatabase.saveNewUser(newUser);
+                }catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
-        } catch (Exception e) {
+        } }catch (Exception e) {
             e.printStackTrace();
         }
+
         Stage stage = (Stage) Button_Confirm.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showLoginWindow();
+        }else {
+            Model.getInstance().getViewFactory().showRegisterErrorWindow();
+            confirm_password_field.clear();
+            password_field.clear();
+            textfield_administrative_code.clear();
+        }
 
     }
 
