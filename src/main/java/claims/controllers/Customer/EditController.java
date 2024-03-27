@@ -3,6 +3,7 @@ package claims.controllers.Customer;
 
 import claims.models.Model;
 import claims.models.NewUser;
+import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.views.CustomerMenuOptions;
 import databases.UserDatabase;
 import javafx.fxml.FXML;
@@ -196,7 +197,17 @@ public class EditController {
         dob_lbl.setText("DOB: "+Model.getInstance().getCustomer().getAge().get());
         email_lbl.setText("Email: "+Model.getInstance().getCustomer().getEmail().get());
         phone_lbl.setText("Phone #: "+Model.getInstance().getCustomer().getPhoneNumber().get());
-        UserDatabase.updateNewUser(newUser);
+        ClaimsDatabaseDriver.getInstance().updateCustomer(
+        Model.getInstance().getCustomer().getUsername().get(), 
+        Model.getInstance().getCustomer().getPasswordKey().get(),
+        Model.getInstance().getCustomer().getFirstName().get(), 
+        Model.getInstance().getCustomer().getLastName().get(), 
+        Model.getInstance().getCustomer().getAge().get(), 
+        Model.getInstance().getCustomer().getGender().get(), 
+        Model.getInstance().getCustomer().getEmail().get(), 
+        Model.getInstance().getCustomer().getPhoneNumber().get(),
+        Model.getInstance().getCustomer().getAddress().get(),
+        Model.getInstance().getCustomer().getUserID().get());
         Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
     }
 

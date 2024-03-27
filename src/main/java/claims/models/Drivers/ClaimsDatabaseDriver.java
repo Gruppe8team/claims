@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 public class ClaimsDatabaseDriver {
     private Connection conn;
+    private static ClaimsDatabaseDriver claimsDatabaseDriver;
 
     public ClaimsDatabaseDriver() {
         try {
@@ -19,6 +20,13 @@ public class ClaimsDatabaseDriver {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static synchronized ClaimsDatabaseDriver getInstance() {
+        if (claimsDatabaseDriver == null) {
+            claimsDatabaseDriver = new ClaimsDatabaseDriver();
+        }
+        return claimsDatabaseDriver;
     }
 
     //Customer Section
