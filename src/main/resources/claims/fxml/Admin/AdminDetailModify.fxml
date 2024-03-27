@@ -37,8 +37,6 @@
             </columns>
         </TableView>
         <ImageView fx:id="logola" fitHeight="180.0" fitWidth="215.0" layoutX="600.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
-        <Button fx:id="btn_edit" layoutX="599.0" layoutY="266.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="208.0" text="Delete" />
-        <Button fx:id="btn_edit1" layoutX="599.0" layoutY="230.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="208.0" text="Modify" />
     </children>
 
 </AnchorPane>
