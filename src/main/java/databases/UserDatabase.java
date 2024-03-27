@@ -5,7 +5,7 @@ import java.util.Random;
 
 import claims.models.NewUser;
 
-public class CustomerDatabase {
+public class UserDatabase {
 	private static String dbName = "claims_customerdb";
 	private static String dbUser = "postgres";
 	private static String userPassword = "postgres";
@@ -28,10 +28,10 @@ public class CustomerDatabase {
 	public static void saveNewUser(NewUser user) {
 
 		String sql = "INSERT INTO customer(\n" +
-				"\tuserid, passwordkey, firstname, lastname, email, address, phonenumber, gender, age)\n" +
+				"\tuserid, passwordkey, firstname, lastname, email, address, phonenumber, gender, age,username,usertype,addr)\n" +
 				"\tVALUES ("+getUserId()+", \'"+user.getPasswordKey()+"\', \'"+user.getFirstName()+"\'," +
 				" \'"+user.getLastName()+"\', \'"+user.getEmail()+"\', \'"+user.getDob()+"\', \'"+user.getPhone()+"\'," +
-				" \'"+user.getGender()+"\', 12);";
+				" \'"+user.getGender()+"\', 12, \'"+user.getUsername()+"\',\'"+user.getUserType()+"\',\'"+user.getAddr()+"\');";
 		System.out.println(sql);
 		executeSql(sql);
 
@@ -60,8 +60,8 @@ public class CustomerDatabase {
 
 	public static int getUserId(){
 		Random random = new Random();
-		int min = 1000; 
-		int max = 9999; 
+		int min = 1000;
+		int max = 9999;
 		int randomNumber = random.nextInt(max - min + 1) + min;
 		return randomNumber;
 	}
