@@ -56,7 +56,7 @@ public class HomeController implements Initializable {
     @FXML
     private ImageView zapad;
 
-    //depreciated/unused
+    //depreciated/unused`
     public  void init(){
         btn_edit.setOnAction(event -> onEdit());
 
