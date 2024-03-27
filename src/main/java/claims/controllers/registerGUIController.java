@@ -161,35 +161,5 @@ public class registerGUIController implements Initializable {
 
     }
 
-    //Jaye's (Deprecated)
-    @FXML
-    public void onSave() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Confirmation");
-        alert.setHeaderText("Save Account");
-        alert.setContentText("Are you sure you want to Save this account?");
-
-        ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-        if (result == ButtonType.OK) {
-
-            try {
-                NewUser newUser = new NewUser();
-                newUser.setPasswordKey(password_field.getText());
-                newUser.setFirstName(textfield_firstname.getText());
-                newUser.setLastName(text_field_lastname.getText());
-                newUser.setPhone(text_field_phonenumber.getText());
-                newUser.setEmail(textfield_email.getText());
-                newUser.setGender(text_field_age.getText());
-                newUser.setDob(dob);
-                UserDatabase.saveNewUser(newUser);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        Stage stage = (Stage) Button_Cancel.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showLoginWindow();
-    }
-//Jaye'
 }
 
