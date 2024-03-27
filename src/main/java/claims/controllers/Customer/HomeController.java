@@ -80,6 +80,7 @@ public class HomeController implements Initializable {
         acc_dob.setText("DoB: "+newUser.getDob());
         acc_email.setText("Email: "+newUser.getEmail());
         acc_phonenumber.setText("Phone: "+newUser.getPhone());
+
     }
 
     private void onEdit() {

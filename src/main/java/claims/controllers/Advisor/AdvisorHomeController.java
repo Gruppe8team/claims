@@ -19,6 +19,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class AdvisorHomeController implements Initializable {
     
@@ -65,12 +67,17 @@ public class AdvisorHomeController implements Initializable {
     private Label today_lbl;
 
     @FXML
+    private ImageView logola;
+    @FXML
     private TableView<Customer> clients_tableview;
 
     private ObservableList<Customer> customers = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
+
+        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
+        logola.setImage(image);
         this.customers = Model.getInstance().getCustomers();
         id_col.setCellValueFactory(new PropertyValueFactory<>("userID"));
         name_col.setCellValueFactory(new PropertyValueFactory<>("firstName"));
