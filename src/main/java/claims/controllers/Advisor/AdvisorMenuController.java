@@ -1,13 +1,14 @@
-package claims.controllers.Advisor;
+package main.java.claims.controllers.Advisor;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import claims.models.Model;
-import claims.views.AdvisorMenuOptions;
+import main.java.claims.models.Model;
+import main.java.claims.views.AdvisorMenuOptions;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 public class AdvisorMenuController implements Initializable {
 	
@@ -40,7 +41,6 @@ public class AdvisorMenuController implements Initializable {
     }
 
     private void onClaims() {
-        System.out.println("onClaims");
         Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.CLAIMS);
     }
 
@@ -49,7 +49,9 @@ public class AdvisorMenuController implements Initializable {
     }
 
     private void onLogout() {
-        
+    	Stage stage = (Stage) logout_btn.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showLoginWindow();
     }
 	
 	
