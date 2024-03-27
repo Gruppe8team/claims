@@ -4,7 +4,7 @@ import java.net.URL;
 
 import claims.models.Model;
 import claims.models.NewUser;
-import databases.CustomerDatabase;
+import databases.UserDatabase;
 
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
@@ -126,7 +126,7 @@ public class registerGUIController implements Initializable {
             newUser.setUsername(username);
             newUser.setAddr(address);
             newUser.setUserType(userType);
-            CustomerDatabase.saveNewUser(newUser);
+            UserDatabase.saveNewUser(newUser);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -157,7 +157,7 @@ public class registerGUIController implements Initializable {
                 newUser.setEmail(textfield_email.getText());
                 newUser.setGender(text_field_age.getText());
                 newUser.setDob(dob);
-                CustomerDatabase.saveNewUser(newUser);
+                UserDatabase.saveNewUser(newUser);
             } catch (Exception e) {
                 e.printStackTrace();
             }

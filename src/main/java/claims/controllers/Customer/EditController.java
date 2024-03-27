@@ -4,7 +4,7 @@ package claims.controllers.Customer;
 import claims.models.Model;
 import claims.models.NewUser;
 import claims.views.CustomerMenuOptions;
-import databases.CustomerDatabase;
+import databases.UserDatabase;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
@@ -122,7 +122,7 @@ public class EditController {
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
 
-            CustomerDatabase.deleteNewUser(newUser);
+            UserDatabase.deleteNewUser(newUser);
             newUser = new NewUser();
             System.out.println(newUser.toString());
             //new  HomeController().init();
@@ -194,7 +194,7 @@ public class EditController {
         dob_lbl.setText("DOB: "+newUser.getDob());
         email_lbl.setText("Email: "+newUser.getEmail());
         phone_lbl.setText("Phone #: "+newUser.getPhone());
-        CustomerDatabase.updateNewUser(newUser);
+        UserDatabase.updateNewUser(newUser);
         Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
     }
 

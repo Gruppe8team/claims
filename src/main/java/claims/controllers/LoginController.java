@@ -7,7 +7,7 @@ import claims.controllers.Customer.EditController;
 import claims.models.Model;
 import claims.models.NewUser;
 import claims.views.AccountType;
-import databases.CustomerDatabase;
+import databases.UserDatabase;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -95,7 +95,7 @@ public class LoginController implements Initializable {
             String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
                     "and passwordkey = \'"+newUser.getPasswordKey()+"\'" +
                     "and usertype = \'"+newUser.getUserType()+"\'";
-            NewUser user = CustomerDatabase.getUser(sql);
+            NewUser user = UserDatabase.getUser(sql);
             if(user.getUserID() == 0){
                 //Fail
                 System.out.println("null");
@@ -117,7 +117,7 @@ public class LoginController implements Initializable {
             String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
                     "and passwordkey = \'"+newUser.getPasswordKey()+"\'" +
                     "and usertype = \'"+newUser.getUserType()+"\'";
-            NewUser user = CustomerDatabase.getUser(sql);
+            NewUser user = UserDatabase.getUser(sql);
             if(user.getUserID() == 0){
                 //Fail
                 System.out.println("null");
@@ -140,7 +140,7 @@ public class LoginController implements Initializable {
             String sql = "select * from customer where email = \'"+newUser.getEmail()+"\' " +
                     "and passwordkey = \'"+newUser.getPasswordKey()+"\'" +
                     "and usertype = \'"+newUser.getUserType()+"\'";
-            NewUser user = CustomerDatabase.getUser(sql);
+            NewUser user = UserDatabase.getUser(sql);
             if(user.getUserID() == 0){
                 //Fail
                 System.out.println("null");

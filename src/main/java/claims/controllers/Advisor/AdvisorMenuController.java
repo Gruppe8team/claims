@@ -1,10 +1,10 @@
-package main.java.claims.controllers.Advisor;
+package claims.controllers.Advisor;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import main.java.claims.models.Model;
-import main.java.claims.views.AdvisorMenuOptions;
+import claims.models.Model;
+import claims.views.AdvisorMenuOptions;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

@@ -4,7 +4,7 @@ import java.net.URL;
 
 import claims.models.Model;
 import claims.models.NewUser;
-import databases.CustomerDatabase;
+import databases.UserDatabase;
 
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
