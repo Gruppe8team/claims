@@ -99,6 +99,7 @@ public class Model {
         }
     }
 
+
     public ObservableList<Customer> getCustomers() {
         ObservableList<Customer> customers = FXCollections.observableArrayList();
         ResultSet resultSet = ClaimsDatabaseDriver.searchCustomerByAdvisorID();

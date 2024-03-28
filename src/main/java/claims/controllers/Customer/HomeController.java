@@ -53,34 +53,18 @@ public class HomeController implements Initializable {
     @FXML
     private Button btn_edit;
 
-    @FXML
-    private ImageView zapad;
-
-    //depreciated/unused`
-    public  void init(){
-        btn_edit.setOnAction(event -> onEdit());
-
-        acc_name.setText(newUser.getFirstName()+" "+newUser.getLastName());
-        user_name.setText("Hi, "+newUser.getFirstName());
-        acc_gender.setText("Gender: "+newUser.getGender());
-        acc_dob.setText("DOB: "+newUser.getDob());
-        acc_email.setText("Email: "+newUser.getEmail());
-        acc_phonenumber.setText("Phone #: "+newUser.getPhone());
-    }
-
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_edit.setOnAction(event -> onEdit());
+        init();
+    }
 
-
-        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
-        zapad.setImage(image);
-        acc_name.setText(newUser.getFirstName()+" "+newUser.getLastName());
-        user_name.setText("Welcome, "+newUser.getFirstName());
-        acc_gender.setText("Gender: "+newUser.getGender());
-        acc_dob.setText("DoB: "+newUser.getDob());
-        acc_email.setText("Email: "+newUser.getEmail());
-        acc_phonenumber.setText("Phone: "+newUser.getPhone());
-
+    public  void init() {
+        acc_name.setText(Model.getInstance().getCustomer().getFirstName().get()+" "+Model.getInstance().getCustomer().getLastName().get());
+        user_name.setText("Welcome, "+Model.getInstance().getCustomer().getFirstName().get());
+        acc_gender.setText("Gender: "+Model.getInstance().getCustomer().getGender().get());
+        acc_dob.setText("Age: "+Model.getInstance().getCustomer().getAge().get());
+        acc_email.setText("Email: "+Model.getInstance().getCustomer().getEmail().get());
+        acc_phonenumber.setText("Phone: "+Model.getInstance().getCustomer().getPhoneNumber().get());
     }
 
     private void onEdit() {

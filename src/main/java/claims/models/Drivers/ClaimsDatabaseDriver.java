@@ -12,6 +12,7 @@ import java.sql.SQLException;
 
 public class ClaimsDatabaseDriver {
     private Connection conn;
+    private static ClaimsDatabaseDriver claimsDatabaseDriver;
 
     public ClaimsDatabaseDriver() {
         try {
@@ -19,6 +20,13 @@ public class ClaimsDatabaseDriver {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static synchronized ClaimsDatabaseDriver getInstance() {
+        if (claimsDatabaseDriver == null) {
+            claimsDatabaseDriver = new ClaimsDatabaseDriver();
+        }
+        return claimsDatabaseDriver;
     }
 
     //Customer Section
@@ -62,6 +70,32 @@ public class ClaimsDatabaseDriver {
             Statement statement = this.conn.createStatement();
             statement.executeUpdate("DELETE FROM Customers WHERE ClientID=" + clientID + ";");
             System.out.println("Customer with ID " + clientID + " removed successfully.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateCustomer(String username, String password, String firstName, String lastName, int age, String sex, String email, String phone, String address, int clientId) {
+        String sql = "UPDATE Customers SET Username=?, Password=?, FirstName=?, LastName=?, " +
+        "Age=?, Sex=?, Email=?, Phone=?, Address=? WHERE ClientID=?";
+        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            pstmt.setString(3, firstName);
+            pstmt.setString(4, lastName);
+            pstmt.setInt(5, age);
+            pstmt.setString(6, sex);
+            pstmt.setString(7, email);
+            pstmt.setString(8, phone);
+            pstmt.setString(9, address);
+            pstmt.setInt(10, clientId);
+            int affectedRows = pstmt.executeUpdate();
+            
+            if (affectedRows > 0) {
+                System.out.println("Update successful.");
+            } else {
+                System.out.println("Update failed. No rows affected.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
