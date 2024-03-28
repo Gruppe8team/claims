@@ -49,8 +49,6 @@ public class CustomerMenuController implements Initializable {
     }
 
     private void onLogout() {
-    	Stage stage = (Stage) logout_btn.getScene().getWindow();
-        Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showLoginWindow();
+    	Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.LOGOUT);
     }
 }
