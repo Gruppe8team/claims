@@ -12,7 +12,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="80.0" prefWidth="180.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fx:id="zapad" fitHeight="63.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="zapad" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </VBox>
             <VBox prefHeight="400.0" prefWidth="180.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">

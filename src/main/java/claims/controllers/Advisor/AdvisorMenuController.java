@@ -8,6 +8,8 @@ import claims.views.AdvisorMenuOptions;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 public class AdvisorMenuController implements Initializable {
@@ -23,10 +25,14 @@ public class AdvisorMenuController implements Initializable {
 	
 	@FXML
 	private Button logout_btn;
+
+    @FXML
+    private ImageView zapad;
 	
 	@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addListeners();
+        image();
     }
 	
 	private void addListeners() {
@@ -46,6 +52,11 @@ public class AdvisorMenuController implements Initializable {
 
     private void onPolicy() {
         Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.POLICY);
+    }
+
+    private void image() {
+        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
+        this.zapad.setImage(image);
     }
 
     private void onLogout() {
