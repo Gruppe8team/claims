@@ -33,11 +33,7 @@
                   <Button fx:id="logout_btn" mnemonicParsing="false" styleClass="alt_menu_btn" text="Logout" />
                </children>
             </VBox>
-            <VBox layoutX="8.0" layoutY="570.0" prefHeight="140.0" prefWidth="165.0">
-               <children>
-                  <ImageView fx:id="vostok" fitHeight="150.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" />
-               </children>
-            </VBox>
+            <VBox layoutX="8.0" layoutY="570.0" prefHeight="140.0" prefWidth="165.0" />
          </children>
       </AnchorPane>
    </children>
