@@ -4,6 +4,7 @@ package claims.controllers.Customer;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import claims.models.Claims;
 import claims.models.Model;
 import claims.models.NewUser;
 import claims.views.CustomerMenuOptions;
@@ -12,6 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -52,6 +55,21 @@ public class HomeController implements Initializable {
 
     @FXML
     private Button btn_edit;
+
+    @FXML
+    private TableColumn<Claims, ?> claimID_col;
+
+    @FXML
+    private TableView<?> claims_tbl;
+
+    @FXML
+    private TableColumn<?, ?> damage_col;
+
+    @FXML
+    private TableColumn<?, ?> datefilled_col;
+
+    @FXML
+    private TableColumn<?, ?> status_col;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_edit.setOnAction(event -> onEdit());

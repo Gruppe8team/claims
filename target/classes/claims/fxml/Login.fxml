@@ -62,7 +62,7 @@
          </children>
       </VBox>
 
-         <ImageView fx:id="vostok" fitHeight="272.0" fitWidth="300.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
+         <ImageView fx:id="vostok" fitHeight="170.0" fitWidth="170.0" layoutX="65.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="120.0" />
 
    </children>
 </AnchorPane>

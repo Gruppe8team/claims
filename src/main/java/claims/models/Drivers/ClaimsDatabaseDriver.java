@@ -79,6 +79,7 @@ public class ClaimsDatabaseDriver {
         String sql = "UPDATE Customers SET Username=?, Password=?, FirstName=?, LastName=?, " +
         "Age=?, Sex=?, Email=?, Phone=?, Address=? WHERE ClientID=?";
         try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            this.conn.setAutoCommit(false);
             pstmt.setString(1, username);
             pstmt.setString(2, password);
             pstmt.setString(3, firstName);
@@ -90,10 +91,11 @@ public class ClaimsDatabaseDriver {
             pstmt.setString(9, address);
             pstmt.setInt(10, clientId);
             int affectedRows = pstmt.executeUpdate();
-            
+            conn.commit();
             if (affectedRows > 0) {
                 System.out.println("Update successful.");
             } else {
+                this.conn.rollback();
                 System.out.println("Update failed. No rows affected.");
             }
         } catch (SQLException e) {
@@ -260,4 +262,5 @@ public class ClaimsDatabaseDriver {
         }
         return resultSet;
     }
+
 }

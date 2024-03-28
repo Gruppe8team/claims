@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class AdminMenuController implements Initializable {
     @FXML
@@ -31,12 +32,14 @@ public class AdminMenuController implements Initializable {
 	
 	@FXML
 	private Button logout_btn;
+
+    @FXML
+    private ImageView zapad;
 	
 	@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
-        vostok.setImage(image);
         addListeners();
+        image();
     }
 	
 	private void addListeners() {
@@ -68,8 +71,15 @@ public class AdminMenuController implements Initializable {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.POLICY);
     }
 
+    private void image() {
+        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
+        this.zapad.setImage(image);
+    }
+
     private void onLogout() {
-        
+        Stage stage = (Stage) logout_btn.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showLoginWindow();
     }
     
 }
