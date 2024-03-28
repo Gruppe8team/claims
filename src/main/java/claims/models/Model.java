@@ -81,6 +81,7 @@ public class Model {
     public void evaluateClientCred(String username, String password) {
         ResultSet resultSet = ClaimsDatabaseDriver.getCustomerDetails(username, password);
         try {
+            
             if (resultSet.isBeforeFirst()){
                 this.customer.getFirstName().set(resultSet.getString("FirstName"));
                 this.customer.getLastName().set(resultSet.getString("LastName"));
@@ -96,14 +97,23 @@ public class Model {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
 
     public ObservableList<Customer> getCustomers() {
         ObservableList<Customer> customers = FXCollections.observableArrayList();
-        ResultSet resultSet = ClaimsDatabaseDriver.searchCustomerByAdvisorID();
+        
         try {
+            ResultSet resultSet = ClaimsDatabaseDriver.searchCustomerByAdvisorID();
             while (resultSet.isBeforeFirst()) {
                 Customer customer = new Customer();
                 this.customer.getFirstName().set(resultSet.getString("FirstName"));
@@ -144,8 +154,9 @@ public class Model {
     }
 
     public void evaluateAdvisorCred(String username, String password) {
-        ResultSet resultSet = ClaimsDatabaseDriver.getAdvisorDetails(username, password);
+        
         try {
+            ResultSet resultSet = ClaimsDatabaseDriver.getAdvisorDetails(username, password);
             if (resultSet.isBeforeFirst()){
                 this.advisor.getFirstName().set(resultSet.getString("FirstName"));
                 this.advisor.getLastName().set(resultSet.getString("LastName"));
@@ -176,8 +187,9 @@ public class Model {
     }
 
     public void evaluateAdminCred(String username, String password) {
-        ResultSet resultSet = ClaimsDatabaseDriver.getAdminDetails(username, password);
+        
         try {
+            ResultSet resultSet = ClaimsDatabaseDriver.getAdminDetails(username, password);
             if (resultSet.isBeforeFirst()){
                 this.admin.getUsername().set(resultSet.getString("Username"));
                 this.admin.getPasswordKey().set(resultSet.getString("Password"));
