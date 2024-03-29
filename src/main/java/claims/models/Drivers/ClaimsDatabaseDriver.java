@@ -66,10 +66,18 @@ public class ClaimsDatabaseDriver {
     }
     
     public void removeCustomer(int clientID) {
-        try {
-            Statement statement = this.conn.createStatement();
-            statement.executeUpdate("DELETE FROM Customers WHERE ClientID=" + clientID + ";");
-            System.out.println("Customer with ID " + clientID + " removed successfully.");
+        String sql = "DELETE FROM Customers WHERE ClientID=?";
+        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            this.conn.setAutoCommit(false);
+            pstmt.setInt(1, clientID);
+            int affectedRows = pstmt.executeUpdate();
+            conn.commit();
+            if (affectedRows > 0) {
+                System.out.println("Customer removed successfully.");
+            } else {
+                this.conn.rollback();
+                System.out.println("No customer found with ID " + clientID);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
