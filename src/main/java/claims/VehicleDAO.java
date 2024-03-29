@@ -25,15 +25,15 @@ public class VehicleDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(
 					"INSERT INTO vehicles (vehicleID, ownerID, year, type, make, model, colour, licensePlate, registration) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
 					);
-			preparedStatement.setInt(1, vehicle.getVehicleID().getValue());
-			preparedStatement.setInt(2, vehicle.getOwner().get().getUserID().intValue()); // Assuming the owner has a userID attribute
-			preparedStatement.setInt(3, vehicle.getYear().getValue());
-			preparedStatement.setString(4, vehicle.getType().getValue());
-			preparedStatement.setString(5, vehicle.getMake().getValue());
-			preparedStatement.setString(6, vehicle.getModel().getValue());
-			preparedStatement.setString(7, vehicle.getColour().getValue());
-			preparedStatement.setString(8, vehicle.getLicensePlate().getValue());
-			preparedStatement.setString(9, vehicle.getRegistration().getValue());
+			preparedStatement.setInt(1, vehicle.getVehicleID());
+			preparedStatement.setInt(2, vehicle.getOwner()); // Assuming the owner has a userID attribute
+			preparedStatement.setInt(3, vehicle.getYear());
+			preparedStatement.setString(4, vehicle.getType());
+			preparedStatement.setString(5, vehicle.getMake());
+			preparedStatement.setString(6, vehicle.getModel());
+			preparedStatement.setString(7, vehicle.getColour());
+			preparedStatement.setString(8, vehicle.getLicensePlate());
+			preparedStatement.setString(9, vehicle.getRegistration());
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -60,15 +60,16 @@ public class VehicleDAO {
 			PreparedStatement preparedStatement = connection.prepareStatement(
 					"UPDATE vehicles SET ownerID = ?, year = ?, type = ?, make = ?, model = ?, colour = ?, licensePlate = ?, registration = ? WHERE vehicleID = ?"
 					);
-			preparedStatement.setInt(1, vehicle.getOwner().get().getUserID().intValue()); // Assuming the owner has a userID attribute
-			preparedStatement.setInt(2, vehicle.getYear().getValue());
-			preparedStatement.setString(3, vehicle.getType().getValue());
-			preparedStatement.setString(4, vehicle.getMake().getValue());
-			preparedStatement.setString(5, vehicle.getModel().getValue());
-			preparedStatement.setString(6, vehicle.getColour().getValue());
-			preparedStatement.setString(7, vehicle.getLicensePlate().getValue());
-			preparedStatement.setString(8, vehicle.getRegistration().getValue());
-			preparedStatement.setInt(9, vehicle.getVehicleID().getValue());
+			preparedStatement.setInt(1, vehicle.getOwner()); // Assuming the owner has a userID attribute
+			preparedStatement.setInt(2, vehicle.getYear());
+			preparedStatement.setString(3, vehicle.getType());
+			preparedStatement.setString(4, vehicle.getMake());
+			preparedStatement.setString(5, vehicle.getModel());
+			preparedStatement.setString(6, vehicle.getColour());
+			preparedStatement.setString(7, vehicle.getLicensePlate());
+			preparedStatement.setString(8, vehicle.getRegistration());
+			preparedStatement.setInt(9, vehicle.getVehicleID());
+
 
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -88,7 +89,7 @@ public class VehicleDAO {
 			if (resultSet.next()) {
 				// Assuming there's a constructor in Vehicle class that accepts all attributes
 				return new Vehicle(resultSet.getInt("vehicleID"),
-						null, resultSet.getInt("year"), // Owner will be fetched separately
+						resultSet.getInt("clientID"), resultSet.getInt("year"), // Owner will be fetched separately
 						resultSet.getString("type"),
 						resultSet.getString("make"),
 						resultSet.getString("model"),
@@ -112,7 +113,7 @@ public class VehicleDAO {
 			while (resultSet.next()) {
 				// Assuming there's a constructor in Vehicle class that accepts all attributes
 				Vehicle vehicle = new Vehicle(resultSet.getInt("vehicleID"),
-						null, resultSet.getInt("year"), // Owner will be fetched separately
+						resultSet.getInt("clientID"), resultSet.getInt("year"), // Owner will be fetched separately
 						resultSet.getString("type"),
 						resultSet.getString("make"),
 						resultSet.getString("model"),

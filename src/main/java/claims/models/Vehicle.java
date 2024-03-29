@@ -80,8 +80,8 @@ public class Vehicle {
      * 
      * @return The unique identifier of the vehicle.
      */
-    public IntegerProperty getVehicleID() {
-        return vehicleID;
+    public int getVehicleID() {
+        return vehicleID.get();
     }
 
 
@@ -99,8 +99,8 @@ public class Vehicle {
      * 
      * @return The manufacturing year of the vehicle.
      */
-    public IntegerProperty getYear() {
-        return year;
+    public int getYear() {
+        return year.get();
     }
 
     /**
@@ -117,8 +117,8 @@ public class Vehicle {
      * 
      * @return The type of the vehicle.
      */
-    public StringProperty getType() {
-        return type;
+    public String getType() {
+        return type.get();
     }
 
     /**
@@ -135,8 +135,8 @@ public class Vehicle {
      * 
      * @return The manufacturer of the vehicle.
      */
-    public StringProperty getMake() {
-        return make;
+    public String getMake() {
+        return make.get();
     }
 
     /**
@@ -153,8 +153,8 @@ public class Vehicle {
      * 
      * @return The model of the vehicle.
      */
-    public StringProperty getModel() {
-        return model;
+    public String getModel() {
+        return model.get();
     }
 
     /**
@@ -171,8 +171,8 @@ public class Vehicle {
      * 
      * @return The color of the vehicle.
      */
-    public StringProperty getColour() {
-        return colour;
+    public String getColour() {
+        return colour.get();
     }
 
     /**
@@ -188,8 +188,8 @@ public class Vehicle {
      * Retrieves the license plate number of the vehicle.
      * @return The license plate number of the vehicle.
      */
-    public StringProperty getLicensePlate() {
-        return licensePlate;
+    public String getLicensePlate() {
+        return licensePlate.get();
     }
 
 /**
@@ -200,8 +200,8 @@ public class Vehicle {
         this.licensePlate.set(licensePlate);
     }
 
-    public StringProperty getRegistration() {
-        return registration;
+    public String getRegistration() {
+        return registration.get();
     }
 
     public void setRegistration(String registration) {
