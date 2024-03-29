@@ -57,17 +57,9 @@ public abstract class User {
     }
 
     // ditto but for already given User object
-    public User(User user) {
-        this.userID = user.getUserID();
-        this.username = user.getUsername();
-        this.passwordKey = user.getPasswordKey();
-        this.firstName = user.getFirstName();
-        this.lastName = user.getLastName();
-        this.email = user.getEmail();
-    }
 
-    public StringProperty getUsername() {
-        return this.username;
+    public String getUsername() {
+        return this.username.get();
     }
 
     public void setUsername(String username) {
@@ -75,42 +67,43 @@ public abstract class User {
     }
 
     // for getting information when required. That is all
-    public IntegerProperty getUserID() {
-        return this.userID;
+    public int getUserID() {
+        return this.userID.get();
     }
 
-    public StringProperty getPasswordKey() {
-        return this.passwordKey;
+    public String getPassword() {
+        return this.passwordKey.get();
     }
 
-    public StringProperty getFirstName() {
-        return this.firstName;
+    public String getFirstName() {
+        return this.firstName.get();
     }
 
-    public StringProperty getLastName() {
-        return this.lastName;
+    public String getLastName() {
+        return this.lastName.get();
     }
 
-    public StringProperty getEmail() {
-        return this.email;
+    public String getEmail() {
+        return this.email.get();
     }
 
-    // important functions accounts (note we also need a create a new account
-    // option)
-    // and possibly a change password option.
-    public void changePassword(String pass) {
+    public void setUserID(int userID) {
+        this.userID.set(userID);
+    }
+
+    public void setPassword(String pass) {
         this.passwordKey.set(pass);
     }
 
-    public void changeEmail(String email) {
+    public void setEmail(String email) {
         this.email.set(email);
     }
 
-    public void changeFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName.set(firstName);
     }
 
-    public void changeLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName.set(lastName);
     }
 

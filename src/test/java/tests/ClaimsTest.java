@@ -30,42 +30,42 @@ class ClaimsTest {
 		claim1.setPayInfo("$500");
 		claim1.setDescription("Client rear-ended third party, third party has witnesses");
 		claim1.setClosureCond(null);
-
-		assertEquals(1, claim1.getClaimID().getValue());
-		assertEquals(100, claim1.getClientID().getValue());
-		assertEquals(110, claim1.getAdvisorID().getValue());
-		assertEquals(2, claim1.getPolicyID().getValue());
-		assertEquals("Open", claim1.getClaimStatus().getValue());
-		assertEquals(LocalDate.parse("2024-10-30"), claim1.getDateFilled().getValue());
-		assertEquals("9:30AM", claim1.getAccidentTime().getValue());
-		assertEquals("Windshield cracked, bumper came off", claim1.getDamage().getValue());
+		assertEquals(1, claim1.getClaimID());
+		assertEquals(100, claim1.getClientID());
+		assertEquals(110, claim1.getAdvisorID());
+		assertEquals(2, claim1.getPolicyID());
+		assertEquals("Open", claim1.getClaimStatus());
+		assertEquals(LocalDate.parse("2024-10-30"), claim1.getDateFilled());
+		assertEquals("9:30AM", claim1.getAccidentTime());
+		assertEquals("Windshield cracked, bumper came off", claim1.getDamage());
 		assertFalse(claim1.isTotalled());
 		assertFalse(claim1.isClosed());
 		assertTrue(claim1.isAtFault());
-		assertEquals("$500", claim1.getPayInfo().getValue());
-		assertEquals("Client rear-ended third party, third party has witnesses", claim1.getDescription().getValue());
-		assertNull(claim1.getClosureCond().getValue());
-
+		assertEquals("$500", claim1.getPayInfo());
+		assertEquals("Client rear-ended third party, third party has witnesses", claim1.getDescription());
+		assertNull(claim1.getClosureCond());
 
 	}
-	//Tests getting the claim information
+
+	// Tests getting the claim information
 	@Test
 	void getClaimInfoTest() {
-		assertEquals(2, claim2.getClaimID().getValue());
-		assertEquals(200, claim2.getClientID().getValue());
-		assertEquals(210, claim2.getAdvisorID().getValue());
-		assertEquals(4, claim2.getPolicyID().getValue());
-		assertEquals("Closed", claim2.getClaimStatus().getValue());
+		assertEquals(2, claim2.getClaimID());
+		assertEquals(200, claim2.getClientID());
+		assertEquals(210, claim2.getAdvisorID());
+		assertEquals(4, claim2.getPolicyID());
+		assertEquals("Closed", claim2.getClaimStatus());
 		// assertEquals("2023-10-20", claim2.getDateFilled().getValue());
-		assertEquals("6:00AM", claim2.getAccidentTime().getValue());
-		assertEquals("Giant concrete slab smashed rear passenger seats, no injuries", claim2.getDamage().getValue());
+		assertEquals("6:00AM", claim2.getAccidentTime());
+		assertEquals("Giant concrete slab smashed rear passenger seats, no injuries", claim2.getDamage());
 		assertTrue(claim2.isTotalled());
 		assertTrue(claim2.isClosed());
 		assertFalse(claim2.isAtFault());
-		assertEquals("$20000", claim2.getPayInfo().getValue());
-		assertEquals("Client was driving on highway 7, giant concrete slab fell from the sky, smashed car.", claim2.getDescription().getValue());
-		assertEquals("Made final payment, client satisfied", claim2.getClosureCond().getValue());
-		
+		assertEquals("$20000", claim2.getPayInfo());
+		assertEquals("Client was driving on highway 7, giant concrete slab fell from the sky, smashed car.",
+				claim2.getDescription());
+		assertEquals("Made final payment, client satisfied", claim2.getClosureCond());
+
 	}
 
 

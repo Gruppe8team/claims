@@ -53,35 +53,11 @@ public class Customer extends User {
         this.vehicles = new SimpleListProperty<Vehicle>(this, "Vehicles", vehicles);
     }
 
-    // Deep Copying Constructor
-    public Customer(Customer customer) {
-        super(customer); // Call superclass constructor
-        this.address = customer.getAddress();
-        this.phoneNumber = customer.getPhoneNumber();
-        this.gender = customer.getGender();
-        this.age = customer.getAge();
-        this.vehicles = customer.getVehicles();
-    }
 
-    public IntegerProperty getUserID() {
-        return this.userID;
-    }
-
-    public StringProperty getFirstName() {
-        return this.firstName;
-    }
-
-    public StringProperty getLastName() {
-        return this.lastName;
-    }
-
-    public StringProperty getEmail() {
-        return this.email;
-    }
 
     // Getter and setter methods for address
-    public StringProperty getAddress() {
-        return address;
+    public String getAddress() {
+        return address.get();
     }
 
     public void setAddress(String address) {
@@ -89,8 +65,8 @@ public class Customer extends User {
     }
 
     // Gets the phone number of the customer
-    public StringProperty getPhoneNumber() {
-        return phoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber.get();
     }
 
     // sets the phone number of the customer
@@ -99,18 +75,18 @@ public class Customer extends User {
     }
 
     // gets the gender of the customer
-    public StringProperty getGender() {
-        return gender;
+    public String getGender() {
+        return gender.get();
     }
 
     // sets the gender of a customer
-    public void setgender(String gender) {
+    public void setGender(String gender) {
         this.gender.set(gender);
     }
 
     // gets the age of a customer
-    public IntegerProperty getAge() {
-        return age;
+    public int getAge() {
+        return age.get();
     }
 
     // sets the age of a customer
@@ -129,8 +105,8 @@ public class Customer extends User {
     }
     
     // returns vehicle list
-    public ListProperty<Vehicle> getVehicles() {
-        return vehicles;
+    public ObservableList<Vehicle> getVehicles() {
+        return vehicles.get();
     }
 
     
@@ -145,16 +121,17 @@ public class Customer extends User {
         }
 
         return "Customer{" +
-                "userID=" + getUserID().getValue() + 
-                ", passwordKey='" + getPasswordKey().getValue() + '\'' +
-                ", firstName='" + getFirstName().getValue() + '\'' +
-                ", lastName='" + getLastName().getValue() + '\'' +
-                ", email='" + getEmail().getValue() + '\'' +
-                ", address='" + getAddress().getValue() + '\'' +
-                ", phoneNumber='" + getPhoneNumber().getValue() + '\'' +
-                ", gender='" + getGender().getValue() + '\'' +
-                ", age=" + getAge().getValue() +
+                "userID=" + getUserID() +
+                ", passwordKey='" + getPassword() + '\'' +
+                ", firstName='" + getFirstName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                ", address='" + getAddress() + '\'' +
+                ", phoneNumber='" + getPhoneNumber() + '\'' +
+                ", gender='" + getGender() + '\'' +
+                ", age=" + getAge() +
                 ", vehicles=\n" + vehicleInfo.toString() +
                 '}';
     }
+
 }

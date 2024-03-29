@@ -13,8 +13,6 @@ import javafx.stage.Stage;
 
 public class EditController {
 
-    public static NewUser newUser = new NewUser(1,"","Kyle","Williamson","218953901@gmail.com","Oct 14, 2003","999-999-9999","Male");
-
     @FXML
     private Label acc_btn;
 
@@ -85,20 +83,21 @@ public class EditController {
     }
 
     private void init() {
-        name_lbl.setText(Model.getInstance().getCustomer().getFirstName().get()+" "+Model.getInstance().getCustomer().getLastName().get());
-        username_lbl.setText("Hi, "+Model.getInstance().getCustomer().getFirstName().get());
-        gender_lbl.setText("Gender: "+Model.getInstance().getCustomer().getGender().get());
-        dob_lbl.setText("DOB: "+Model.getInstance().getCustomer().getAge().get());
-        email_lbl.setText("Email: "+Model.getInstance().getCustomer().getEmail().get());
-        phone_lbl.setText("Phone #: "+Model.getInstance().getCustomer().getPhoneNumber().get());
+        name_lbl.setText(Model.getInstance().getCustomer().getFirstName() + " "
+                + Model.getInstance().getCustomer().getLastName());
+        username_lbl.setText("Hi, " + Model.getInstance().getCustomer().getFirstName());
+        gender_lbl.setText("Gender: " + Model.getInstance().getCustomer().getGender());
+        dob_lbl.setText("DOB: " + Model.getInstance().getCustomer().getAge());
+        email_lbl.setText("Email: " + Model.getInstance().getCustomer().getEmail());
+        phone_lbl.setText("Phone #: " + Model.getInstance().getCustomer().getPhoneNumber());
 
-        firstname_field.setText(Model.getInstance().getCustomer().getFirstName().get());
-        lastname_field.setText(Model.getInstance().getCustomer().getLastName().get());
-        dob_field.setText(""+Model.getInstance().getCustomer().getAge().get());
-        gender_field.setText(Model.getInstance().getCustomer().getGender().get());
-        email_field.setText(Model.getInstance().getCustomer().getEmail().get());
-        phone_field.setText(Model.getInstance().getCustomer().getPhoneNumber().get());
-        password_field.setText(Model.getInstance().getCustomer().getPasswordKey().get());
+        firstname_field.setText(Model.getInstance().getCustomer().getFirstName());
+        lastname_field.setText(Model.getInstance().getCustomer().getLastName());
+        dob_field.setText("" + Model.getInstance().getCustomer().getAge());
+        gender_field.setText(Model.getInstance().getCustomer().getGender());
+        email_field.setText(Model.getInstance().getCustomer().getEmail());
+        phone_field.setText(Model.getInstance().getCustomer().getPhoneNumber());
+        password_field.setText(Model.getInstance().getCustomer().getPassword());
     }
 
     private void onCancel() {
@@ -124,12 +123,7 @@ public class EditController {
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
 
-            UserDatabase.deleteNewUser(newUser);
-            newUser = new NewUser();
-            System.out.println(newUser.toString());
-            //new  HomeController().init();
-            //Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
-            //initialize();
+            
             Stage stage = (Stage) delete_btn.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
 

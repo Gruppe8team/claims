@@ -33,24 +33,25 @@ class ClaimsStubDBTest {
 		claim1.setClosureCond("Made final Payment");
 		ClaimsStubDB.addClaim(claim1);
 		assertEquals(
-				"Claim ID: " + claim1.getClaimID().getValue() + "\n" +
-						"Client ID: " + claim1.getClientID().getValue() + "\n" +
-						"Advisor ID: " + claim1.getAdvisorID().getValue() + "\n" +
-						"Policy ID: " + claim1.getPolicyID().getValue() + "\n" +
-						"Current Claim Status: " + claim1.getClaimStatus().getValue() + "\n" +
-						"Claim Date: " + claim1.getDateFilled().getValue() + "\n" +
-						"Time of Accident: " + claim1.getAccidentTime().getValue() + "\n" +
-						"Vehicle Damages: " + claim1.getDamage().getValue() + "\n" +
+				"Claim ID: " + claim1.getClaimID() + "\n" +
+						"Client ID: " + claim1.getClientID() + "\n" +
+						"Advisor ID: " + claim1.getAdvisorID() + "\n" +
+						"Policy ID: " + claim1.getPolicyID() + "\n" +
+						"Current Claim Status: " + claim1.getClaimStatus() + "\n" +
+						"Claim Date: " + claim1.getDateFilled() + "\n" +
+						"Time of Accident: " + claim1.getAccidentTime() + "\n" +
+						"Vehicle Damages: " + claim1.getDamage() + "\n" +
 						"Write-off: " + claim1.isTotalled() + "\n" +
 						"Driver at Fault: " + claim1.isAtFault() + "\n" +
-						"Payment Status: " + claim1.getPayInfo().getValue() + "\n" +
-						"Accident Description: " + claim1.getDescription().getValue() + "\n" +
+						"Payment Status: " + claim1.getPayInfo() + "\n" +
+						"Accident Description: " + claim1.getDescription() + "\n" +
 						"Claim Closed: " + claim1.isClosed() + "\n" +
-						"Conditions of Closure: " + claim1.getClosureCond().getValue(),
+						"Conditions of Closure: " + claim1.getClosureCond() + "\n",
 
 				ClaimsStubDB.readClaimInfo());
 
 		ClaimsStubDB.removeClaim(claim1);
+
 		assertEquals("", ClaimsStubDB.readClaimInfo());
 	}
 
