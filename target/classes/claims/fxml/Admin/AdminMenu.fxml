@@ -14,7 +14,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="103.0" prefWidth="180.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView fx:id="zapad" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="vostok" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
                   <Label alignment="TOP_CENTER" prefHeight="22.0" prefWidth="153.0" text="ADMINISTRATION" textFill="#9a0c04">
                      <font>
                         <Font name="Consolas" size="17.0" />
