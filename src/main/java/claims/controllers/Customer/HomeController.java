@@ -2,12 +2,14 @@ package claims.controllers.Customer;
 
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import claims.models.Claims;
 import claims.models.Model;
 import claims.models.NewUser;
 import claims.views.CustomerMenuOptions;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -21,7 +23,6 @@ import javafx.scene.text.Text;
 
 public class HomeController implements Initializable {
 
-    public static NewUser newUser = EditController.newUser;
 
     @FXML
     private Label acc_dob;
@@ -45,9 +46,6 @@ public class HomeController implements Initializable {
     private Label acc_type;
 
     @FXML
-    private ListView<?> claims_listview;
-
-    @FXML
     private Label login_date;
 
     @FXML
@@ -57,36 +55,48 @@ public class HomeController implements Initializable {
     private Button btn_edit;
 
     @FXML
-    private TableColumn<Claims, ?> claimID_col;
+    private TableColumn<Claims, Number> claimID_col;
 
     @FXML
-    private TableView<?> claims_tbl;
+    private TableView<Claims> claims_tbl;
 
     @FXML
-    private TableColumn<?, ?> damage_col;
+    private TableColumn<Claims, String> damage_col;
 
     @FXML
-    private TableColumn<?, ?> datefilled_col;
+    private TableColumn<Claims, LocalDate> datefilled_col;
 
     @FXML
-    private TableColumn<?, ?> status_col;
+    private TableColumn<Claims, String> status_col;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_edit.setOnAction(event -> onEdit());
         init();
+        populateClaimsTable();
     }
 
-    public  void init() {
-        acc_name.setText(Model.getInstance().getCustomer().getFirstName().get()+" "+Model.getInstance().getCustomer().getLastName().get());
-        user_name.setText("Welcome, "+Model.getInstance().getCustomer().getFirstName().get());
-        acc_gender.setText("Gender: "+Model.getInstance().getCustomer().getGender().get());
-        acc_dob.setText("Age: "+Model.getInstance().getCustomer().getAge().get());
-        acc_email.setText("Email: "+Model.getInstance().getCustomer().getEmail().get());
-        acc_phonenumber.setText("Phone: "+Model.getInstance().getCustomer().getPhoneNumber().get());
+    public void init() {
+        acc_name.setText(Model.getInstance().getCustomer().getFirstName() + " "
+                + Model.getInstance().getCustomer().getLastName());
+        user_name.setText("Welcome, " + Model.getInstance().getCustomer().getFirstName());
+        acc_gender.setText("Gender: " + Model.getInstance().getCustomer().getGender());
+        acc_dob.setText("Age: " + Model.getInstance().getCustomer().getAge());
+        acc_email.setText("Email: " + Model.getInstance().getCustomer().getEmail());
+        acc_phonenumber.setText("Phone: " + Model.getInstance().getCustomer().getPhoneNumber());
     }
+
 
     private void onEdit() {
         Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.EDIT);
+    }
+
+    public void populateClaimsTable() {
+        claimID_col.setCellValueFactory(cellData -> cellData.getValue().claimIDProperty());
+        damage_col.setCellValueFactory(cellData -> cellData.getValue().damageProperty());
+        datefilled_col.setCellValueFactory(cellData -> cellData.getValue().dateFiledProperty());
+        status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
+
+        Platform.runLater(() -> claims_tbl.setItems(Model.getInstance().getClaims(Model.getInstance().getCustomer().getUserID())));
     }
 
 }

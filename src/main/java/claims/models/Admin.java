@@ -8,29 +8,28 @@ import javafx.beans.property.SimpleBooleanProperty;
  * SysAdmin Class
  * For Management purposes
  */
-public class SysAdmin extends User  {
+public class Admin extends User  {
 
     private BooleanProperty isActive;
 
     // Default constructor
-    public SysAdmin() {
+    public Admin() {
         super();
         this.isActive = new SimpleBooleanProperty(this, "isActive", false);
     }
 
     // Constructor with parameters
-    public SysAdmin(int userID, String username, String passwordKey, String firstName, String lastName, String email, boolean isActive) {
+    public Admin(int userID, String username, String passwordKey, String firstName, String lastName, String email, boolean isActive) {
         super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.isActive = new SimpleBooleanProperty(this, "isActive", isActive);
     }
 
-    public SysAdmin(SysAdmin sysAdmin){
-        super(sysAdmin);
-        this.isActive = sysAdmin.getIsActive();
+    public boolean getIsActive() {
+        return isActive.get();
     }
 
-    public BooleanProperty getIsActive() {
-        return isActive;
+    public void setIsActive(boolean isActive) {
+        this.isActive.set(isActive);
     }
 
 }

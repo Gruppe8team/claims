@@ -121,7 +121,7 @@
 }
 
 #c {
-    -fx-border-color:#000;
+    -fx-border-color:#f4f4f4;
     border-color: #000;
     -fx-border-width: 0px 0px 1px 0px;
     border-width: 0px 0px 1px 0px;
@@ -135,5 +135,6 @@
     font-size: 1em;
     -fx-font-weight: 100;
     font-weight: 100;
+    -fx-alignment: center;
 }
 
