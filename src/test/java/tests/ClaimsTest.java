@@ -21,7 +21,7 @@ class ClaimsTest {
 		claim1.setAdvisorID(110);
 		claim1.setPolicyID(2);
 		claim1.setClaimStatus("Open");
-		claim1.setDateFilled(LocalDate.parse("2024-10-30"));
+		claim1.setDateFiled("2024-10-30");
 		claim1.setAccidentTime("9:30AM");
 		claim1.setDamage("Windshield cracked, bumper came off");
 		claim1.setTotalled(false);
