@@ -57,8 +57,6 @@ public class AdvisorHomeController implements Initializable {
     @FXML
     private Label hi_lbl;
 
-    @FXML
-    private TableColumn<Customer, IntegerProperty> id_col;
 
     @FXML
     private TableColumn<Customer, StringProperty> name_col;
@@ -79,10 +77,6 @@ public class AdvisorHomeController implements Initializable {
         Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
         logola.setImage(image);
         this.customers = Model.getInstance().getCustomers();
-        id_col.setCellValueFactory(new PropertyValueFactory<>("userID"));
-        name_col.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        email_col.setCellValueFactory(new PropertyValueFactory<>("email"));
-        clients_tableview.setItems(this.customers);
     }
 
     
