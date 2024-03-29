@@ -78,8 +78,8 @@ public class Policy {
 	// }
 	
 
-	public IntegerProperty getPolicyID() {
-		return policyID;
+	public int getPolicyID() {
+		return policyID.get();
 	}
 
 	// Function to make an ID for the policies?
@@ -87,16 +87,16 @@ public class Policy {
 		this.policyID.set(policyID);
 	}
 
-	public IntegerProperty getClientID() {
-		return clientID;
+	public int getClientID() {
+		return clientID.get();
 	}
 
 	public void setClientID(int clientID) {
 		this.clientID.set(clientID);
 	}
 
-	public IntegerProperty getVehicleID() {
-		return vehicleID;
+	public int getVehicleID() {
+		return vehicleID.get();
 	}
 
 	public void setVehicleID(int vehicleID) {
@@ -104,56 +104,56 @@ public class Policy {
 	}
 	
 	
-	public IntegerProperty getPolicyNumber() {
-		return policyNumber;
+	public int getPolicyNumber() {
+		return policyNumber.get();
 	}
 
 	public void setPolicyNumber(int policyNumber) {
 		this.policyNumber.set(policyNumber);
 	}
 	
-	public StringProperty getStartDate() {
-		return startDate;
+	public String getStartDate() {
+		return startDate.get();
 	}
 
 	public void setStartDate(String startDate) {
 		this.startDate.set(startDate);
 	}
 
-	public StringProperty getEndDate() {
-		return endDate;
+	public String getEndDate() {
+		return endDate.get();
 	}
 
 	public void setEndDate(String endDate) {
 		this.endDate.set(endDate);
 	}
 
-	public StringProperty getCoverageType() {
-		return coverageType;
+	public String getCoverageType() {
+		return coverageType.get();
 	}
 
 	public void setCoverageType(String coverageType) {
 		this.coverageType.set(coverageType);
 	}
 
-	public StringProperty getPolicyStatus() {
-		return policyStatus;
+	public String getPolicyStatus() {
+		return policyStatus.get();
 	}
 
 	public void setPolicyStatus(String policyStatus) {
 		this.policyStatus.set(policyStatus);
 	}
 
-	public DoubleProperty getPremium() {
-		return Premium;
+	public double getPremium() {
+		return Premium.get();
 	}
 
 	public void setPremium(double premium) {
 		this.Premium.set(premium);
 	}
 
-	public DoubleProperty getDeductible() {
-		return Deductible;
+	public double getDeductible() {
+		return Deductible.get();
 	}
 
 	public void setDeductible(double deductible) {
@@ -163,11 +163,12 @@ public class Policy {
 	@Override 
 	public String toString(){
 		
-		return "PolicyID: " + getPolicyID().getValue() + "\nClientID: " + getClientID().getValue() + "\nVehicleID: "
-				+ getVehicleID().getValue() + "\nPolicyNumber: " + getPolicyNumber().getValue() +
-				"\nStart Date: " + getStartDate().getValue() + "\nEnd Date: " + getEndDate().getValue()
-				+ "\nCoverage Type: " + getCoverageType().getValue() + "\nPolicy Status: "
-				+ getPolicyStatus().getValue() +
-				"\nPremium: " + getPremium().getValue() + "\nDeductible: " + getDeductible().getValue();
+		return "PolicyID: " + getPolicyID() + "\nClientID: " + getClientID() + "\nVehicleID: "
+				+ getVehicleID() + "\nPolicyNumber: " + getPolicyNumber() +
+				"\nStart Date: " + getStartDate() + "\nEnd Date: " + getEndDate()
+				+ "\nCoverage Type: " + getCoverageType() + "\nPolicy Status: "
+				+ getPolicyStatus() +
+				"\nPremium: " + getPremium() + "\nDeductible: " + getDeductible();
+
 	}
 }

@@ -40,17 +40,17 @@ public class UserStubDB {
 		StringBuilder userInfo = new StringBuilder();
 		// loop through each user in the userDB list
 		for (User user : userDB) {
-			userInfo.append("ID: ").append(user.getUserID().getValue()).append("\n")
-					.append("First Name: ").append(user.getFirstName().getValue()).append("\n")
-					.append("Last Name: ").append(user.getLastName().getValue()).append("\n")
-					.append("Email: ").append(user.getEmail().getValue()).append("\n");
+			userInfo.append("ID: ").append(user.getUserID()).append("\n")
+					.append("First Name: ").append(user.getFirstName()).append("\n")
+					.append("Last Name: ").append(user.getLastName()).append("\n")
+					.append("Email: ").append(user.getEmail()).append("\n");
 			// to check if the user is an instance of Customer and append additional
 			// information
 			if (user instanceof Customer) {
 				Customer customer = (Customer) user;
-				userInfo.append("Phone Number: ").append(customer.getPhoneNumber().getValue()).append("\n")
-						.append("Sex: ").append(customer.getGender().getValue()).append("\n")
-						.append("Age: ").append(customer.getAge().getValue()).append("\n");
+				userInfo.append("Phone Number: ").append(customer.getPhoneNumber()).append("\n")
+						.append("Sex: ").append(customer.getGender()).append("\n")
+						.append("Age: ").append(customer.getAge()).append("\n");
 			}
 		}
 

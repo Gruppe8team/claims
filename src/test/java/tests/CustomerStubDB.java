@@ -14,7 +14,7 @@ public class CustomerStubDB {
 
     // Method to add a customer
     public void addCustomer(Customer customer) {
-        customers.put(customer.getUserID().getValue(), customer);
+        customers.put(customer.getUserID(), customer);
     }
 
     // Method to remove a customer
@@ -47,40 +47,40 @@ public class CustomerStubDB {
 
     public List<Customer> findCustomersByAddress(String address) {
         return customers.values().stream()
-                .filter(customer -> customer.getAddress().getValue().equals(address))
+                .filter(customer -> customer.getAddress().equals(address))
                 .collect(Collectors.toList());
     }
 
     public List<Customer> findCustomersBygender(String gender) {
         return customers.values().stream()
-                .filter(customer -> customer.getGender().getValue().equals(gender))
+                .filter(customer -> customer.getGender().equals(gender))
                 .collect(Collectors.toList());
     }
 
     public List<Customer> findCustomersByPhoneNumber(String phoneNumber) {
         return customers.values().stream()
-                .filter(customer -> customer.getPhoneNumber().getValue().equals(phoneNumber))
+                .filter(customer -> customer.getPhoneNumber().equals(phoneNumber))
                 .collect(Collectors.toList());
     }
 
     public List<Customer> findCustomersByAgeRange(int minAge, int maxAge) {
         return customers.values().stream()
-                .filter(customer -> customer.getAge().getValue() >= minAge
-                        && customer.getAge().getValue() <= maxAge)
+                .filter(customer -> customer.getAge() >= minAge
+                        && customer.getAge() <= maxAge)
                 .collect(Collectors.toList());
     }
 
     public boolean updateCustomerEmail(int userID, String newEmail) {
         Customer customer = customers.get(userID);
         if (customer != null) {
-            customer.changeEmail(newEmail); // Assuming there's a setEmail method in Customer
+            customer.setEmail(newEmail); // Assuming there's a setEmail method in Customer
             return true;
         }
         return false;
     }
 
     public void addCustomers(List<Customer> newCustomers) {
-        newCustomers.forEach(customer -> customers.put(customer.getUserID().getValue(), customer));
+        newCustomers.forEach(customer -> customers.put(customer.getUserID(), customer));
     }
 
     public void removeCustomers(List<Integer> userIDs) {
@@ -93,7 +93,7 @@ public class CustomerStubDB {
 
     public List<Customer> findCustomersWithoutVehicles() {
         return customers.values().stream()
-                .filter(customer -> customer.getVehicles().getValue().isEmpty())
+                .filter(customer -> customer.getVehicles().isEmpty())
                 .collect(Collectors.toList());
     }
 

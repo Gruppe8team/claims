@@ -11,7 +11,7 @@ import javafx.beans.property.StringProperty;
  * Represents a vehicle with basic attributes.
  */
 public class Vehicle {
-    private ObjectProperty<Customer> owner;
+    private IntegerProperty clientID;
     private IntegerProperty vehicleID;
     private IntegerProperty year;
     private StringProperty type;
@@ -25,8 +25,8 @@ public class Vehicle {
      * Constructs an empty Vehicle object.
      */
     public Vehicle() {
-        this.owner = new SimpleObjectProperty<Customer>(this, "Owner", null);
-        this.vehicleID = new SimpleIntegerProperty(this, "Vehicle ID", 0);;
+        this.clientID = new SimpleIntegerProperty(this, "ClientID", 0);
+        this.vehicleID = new SimpleIntegerProperty(this, "VehicleID", 0);;
         this.year = new SimpleIntegerProperty(this,"Year", 0);
         this.type = new SimpleStringProperty(this,"Type","");
         this.make = new SimpleStringProperty(this,"Make","");
@@ -40,7 +40,7 @@ public class Vehicle {
      * Constructs a Vehicle object with specified attributes.
      * 
      * @param vehicleID    The unique identifier for the vehicle.
-     * @param owner        The owner of the vehicle.
+     * @param clientID        The owner of the vehicle.
      * @param type         The type of vehicle.
      * @param make         The manufacturer of the vehicle.
      * @param model        The model of the vehicle.
@@ -48,10 +48,10 @@ public class Vehicle {
      * @param licensePlate The license plate number of the vehicle.
      * @param registration The registration information of the vehicle.
      */
-    public Vehicle(int vehicleID, Customer owner, int year, String type, String make, String model, String colour,
+    public Vehicle(int vehicleID, int clientID, int year, String type, String make, String model, String colour,
             String licensePlate, String registration) {
-        this.vehicleID = new SimpleIntegerProperty(this, "Vehicle ID", vehicleID);
-        this.owner = new SimpleObjectProperty<Customer>(this, "Owner", owner);
+        this.vehicleID = new SimpleIntegerProperty(this, "VehicleID", vehicleID);
+        this.clientID = new SimpleIntegerProperty(this, "ClientID", clientID);
         this.year = new SimpleIntegerProperty(this, "Year", year);  
         this.type = new SimpleStringProperty(this, "Type", type);
         this.make = new SimpleStringProperty(this, "Make", make);
@@ -61,21 +61,9 @@ public class Vehicle {
         this.registration = new SimpleStringProperty(this, "Registration", registration);
     }
 
-    /**
-     * Retrieves details of the vehicle owner.
-     * 
-     * @return A string representation of the vehicle owner details.
-     */
-    public String getOwnerDetails() {
-        if (this.owner != null) {
-            return "Owner ID: " + this.owner.get().getUserID().getValue() + ", Name: " + owner.get().getFirstName().getValue() + " " + owner.get().getLastName().getValue();
-        } else {
-            return "No owner assigned";
-        }
-    }
-
-    public ObjectProperty<Customer> getOwner() {
-        return this.owner;
+    
+    public int getOwner() {
+        return this.clientID.get();
     }
 
     /**
@@ -83,8 +71,8 @@ public class Vehicle {
      * 
      * @param owner The owner of the vehicle.
      */
-    public void setOwner(Customer owner) {
-        this.owner.set(owner);
+    public void setOwner(int clientID) {
+        this.clientID.set(clientID);
     }
 
     /**
@@ -92,9 +80,10 @@ public class Vehicle {
      * 
      * @return The unique identifier of the vehicle.
      */
-    public IntegerProperty getVehicleID() {
-        return vehicleID;
+    public int getVehicleID() {
+        return vehicleID.get();
     }
+
 
     /**
      * Sets the vehicle ID.
@@ -110,8 +99,8 @@ public class Vehicle {
      * 
      * @return The manufacturing year of the vehicle.
      */
-    public IntegerProperty getYear() {
-        return year;
+    public int getYear() {
+        return year.get();
     }
 
     /**
@@ -128,8 +117,8 @@ public class Vehicle {
      * 
      * @return The type of the vehicle.
      */
-    public StringProperty getType() {
-        return type;
+    public String getType() {
+        return type.get();
     }
 
     /**
@@ -146,8 +135,8 @@ public class Vehicle {
      * 
      * @return The manufacturer of the vehicle.
      */
-    public StringProperty getMake() {
-        return make;
+    public String getMake() {
+        return make.get();
     }
 
     /**
@@ -164,8 +153,8 @@ public class Vehicle {
      * 
      * @return The model of the vehicle.
      */
-    public StringProperty getModel() {
-        return model;
+    public String getModel() {
+        return model.get();
     }
 
     /**
@@ -182,8 +171,8 @@ public class Vehicle {
      * 
      * @return The color of the vehicle.
      */
-    public StringProperty getColour() {
-        return colour;
+    public String getColour() {
+        return colour.get();
     }
 
     /**
@@ -199,8 +188,8 @@ public class Vehicle {
      * Retrieves the license plate number of the vehicle.
      * @return The license plate number of the vehicle.
      */
-    public StringProperty getLicensePlate() {
-        return licensePlate;
+    public String getLicensePlate() {
+        return licensePlate.get();
     }
 
 /**
@@ -211,8 +200,8 @@ public class Vehicle {
         this.licensePlate.set(licensePlate);
     }
 
-    public StringProperty getRegistration() {
-        return registration;
+    public String getRegistration() {
+        return registration.get();
     }
 
     public void setRegistration(String registration) {

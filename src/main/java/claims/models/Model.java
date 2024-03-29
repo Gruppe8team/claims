@@ -23,7 +23,7 @@ public class Model {
     private final Advisor advisor;
     private boolean AdvisorLoginSuccessFlag;
     // Admin Data Section
-    private final SysAdmin admin;
+    private final Admin admin;
     private boolean AdminLoginSuccessFlag;
 
         private Model() {
@@ -38,7 +38,7 @@ public class Model {
         this.advisor = new Advisor();
         // Admin Data Section
         this.AdminLoginSuccessFlag = false;
-        this.admin = new SysAdmin();
+        this.admin = new Admin();
     }
 
 
@@ -81,18 +81,18 @@ public class Model {
     public void evaluateClientCred(String username, String password) {
         ResultSet resultSet = ClaimsDatabaseDriver.getCustomerDetails(username, password);
         try {
-            
             if (resultSet.isBeforeFirst()){
-                this.customer.getFirstName().set(resultSet.getString("FirstName"));
-                this.customer.getLastName().set(resultSet.getString("LastName"));
-                this.customer.getUsername().set(resultSet.getString("Username"));
-                this.customer.getAddress().set(resultSet.getString("Address"));
-                this.customer.getEmail().set(resultSet.getString("Email"));
-                this.customer.getPhoneNumber().set(resultSet.getString("Phone"));
-                this.customer.getUserID().set(resultSet.getInt("ClientID"));
-                this.customer.getGender().set(resultSet.getString("Sex"));
-                this.customer.getAge().set(resultSet.getInt("Age"));
-                this.customer.getPasswordKey().set(resultSet.getString("Password"));                
+                this.customer.setFirstName(resultSet.getString("FirstName"));
+                this.customer.setLastName(resultSet.getString("LastName"));
+                this.customer.setUsername(resultSet.getString("Username"));
+                this.customer.setAddress(resultSet.getString("Address"));
+                this.customer.setEmail(resultSet.getString("Email"));
+                this.customer.setPhoneNumber(resultSet.getString("Phone"));
+                this.customer.setUserID(resultSet.getInt("ClientID"));
+                this.customer.setGender(resultSet.getString("Sex"));
+                this.customer.setAge(resultSet.getInt("Age"));
+                this.customer.setPassword(resultSet.getString("Password"));
+
                 this.customerLoginSuccessFlag = true;
             }
         } catch (SQLException e) {
@@ -111,28 +111,72 @@ public class Model {
 
     public ObservableList<Customer> getCustomers() {
         ObservableList<Customer> customers = FXCollections.observableArrayList();
-        
+        ResultSet resultSet = ClaimsDatabaseDriver.searchCustomerByAdvisorID();
         try {
-            ResultSet resultSet = ClaimsDatabaseDriver.searchCustomerByAdvisorID();
             while (resultSet.isBeforeFirst()) {
                 Customer customer = new Customer();
-                this.customer.getFirstName().set(resultSet.getString("FirstName"));
-                this.customer.getLastName().set(resultSet.getString("LastName"));
-                this.customer.getUsername().set(resultSet.getString("Username"));
-                this.customer.getAddress().set(resultSet.getString("Address"));
-                this.customer.getEmail().set(resultSet.getString("Email"));
-                this.customer.getPhoneNumber().set(resultSet.getString("Phone"));
-                this.customer.getUserID().set(resultSet.getInt("ClientID"));
-                this.customer.getGender().set(resultSet.getString("Sex"));
-                this.customer.getAge().set(resultSet.getInt("Age"));
-                this.customer.getPasswordKey().set(resultSet.getString("Password"));  
+                this.customer.setFirstName(resultSet.getString("FirstName"));
+                this.customer.setLastName(resultSet.getString("LastName"));
+                this.customer.setUsername(resultSet.getString("Username"));
+                this.customer.setAddress(resultSet.getString("Address"));
+                this.customer.setEmail(resultSet.getString("Email"));
+                this.customer.setPhoneNumber(resultSet.getString("Phone"));
+                this.customer.setUserID(resultSet.getInt("ClientID"));
+                this.customer.setGender(resultSet.getString("Sex"));
+                this.customer.setAge(resultSet.getInt("Age"));
+                this.customer.setPassword(resultSet.getString("Password"));
+
                 customers.add(customer);
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return customers;    
     }
+
+    public ObservableList<Claims> getClaims(int clientID) {
+        ObservableList<Claims> claims = FXCollections.observableArrayList();
+        ResultSet resultSet = ClaimsDatabaseDriver.getClaimDetailsByClient(clientID);
+        try {
+            while (resultSet.next()) {
+                Claims claim = new Claims();
+                claim.setClaimID(resultSet.getInt("ClaimID"));
+                claim.setClientID(resultSet.getInt("ClientID"));
+                claim.setAdvisorID(resultSet.getInt("AdvisorID"));
+                claim.setPolicyID(resultSet.getInt("PolicyID"));
+                claim.setClaimStatus(resultSet.getString("ClaimStatus"));
+                claim.setAtFault(resultSet.getBoolean("At_Fault"));
+                claim.setDateFiled(resultSet.getString("DateFiled"));
+                claim.setAccidentTime(resultSet.getString("Accident_Time"));
+                claim.setDamage(resultSet.getString("Damage"));
+                claim.setDescription(resultSet.getString("Description"));
+                claim.setPayInfo(resultSet.getString("PayInfo"));
+                claim.setClosureCond(resultSet.getString("ClosureCond"));
+                claim.setClosed(resultSet.getBoolean("Closed"));
+                claims.add(claim);
+            }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if (resultSet != null) {
+                    try {
+                        resultSet.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return claims;
+        }
+        
 
 
     public ObservableList<Customer> getCustomerList() {
@@ -154,20 +198,28 @@ public class Model {
     }
 
     public void evaluateAdvisorCred(String username, String password) {
-        
+        ResultSet resultSet = ClaimsDatabaseDriver.getAdvisorDetails(username, password);
         try {
-            ResultSet resultSet = ClaimsDatabaseDriver.getAdvisorDetails(username, password);
             if (resultSet.isBeforeFirst()){
-                this.advisor.getFirstName().set(resultSet.getString("FirstName"));
-                this.advisor.getLastName().set(resultSet.getString("LastName"));
-                this.advisor.getUsername().set(resultSet.getString("Username"));
-                this.advisor.getEmail().set(resultSet.getString("Email"));
-                this.advisor.getPasswordKey().set(resultSet.getString("Password"));
-                this.advisor.getUserID().set(resultSet.getInt("AdvisorID"));
+                this.advisor.setFirstName(resultSet.getString("FirstName"));
+                this.advisor.setLastName(resultSet.getString("LastName"));
+                this.advisor.setUsername(resultSet.getString("Username"));
+                this.advisor.setEmail(resultSet.getString("Email"));
+                this.advisor.setPassword(resultSet.getString("Password"));
+                this.advisor.setUserID(resultSet.getInt("AdvisorID"));
+
                 this.AdvisorLoginSuccessFlag = true;
-            }
+            } 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
     }
@@ -182,26 +234,33 @@ public class Model {
         this.AdminLoginSuccessFlag = flag;
     }
 
-    public SysAdmin getAdmin() {
+    public Admin getAdmin() {
         return this.admin;
     }
 
     public void evaluateAdminCred(String username, String password) {
-        
+        ResultSet resultSet = ClaimsDatabaseDriver.getAdminDetails(username, password);
         try {
-            ResultSet resultSet = ClaimsDatabaseDriver.getAdminDetails(username, password);
             if (resultSet.isBeforeFirst()){
-                this.admin.getUsername().set(resultSet.getString("Username"));
-                this.admin.getPasswordKey().set(resultSet.getString("Password"));
-                this.admin.getUserID().set(resultSet.getInt("ID"));
-                this.admin.getFirstName().set(resultSet.getString("FirstName"));
-                this.admin.getLastName().set(resultSet.getString("LastName"));
-                this.admin.getEmail().set(resultSet.getString("Email"));
-                this.admin.getIsActive().set(resultSet.getBoolean("isActive"));
+                this.admin.setUsername(resultSet.getString("Username"));
+                this.admin.setPassword(resultSet.getString("Password"));
+                this.admin.setUserID(resultSet.getInt("ID"));
+                this.admin.setFirstName(resultSet.getString("FirstName"));
+                this.admin.setLastName(resultSet.getString("LastName"));
+                this.admin.setEmail(resultSet.getString("Email"));
+                this.admin.setIsActive(resultSet.getBoolean("isActive"));
                 this.AdminLoginSuccessFlag = true;
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

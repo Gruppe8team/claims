@@ -15,8 +15,8 @@ public class Customer extends User {
     private final StringProperty phoneNumber; // The phone number of the customer
     private final StringProperty gender; // The gender of the customer
     private final IntegerProperty age; // The age of the customer
-    private final ListProperty<Vehicle> vehicles; // The list of vehicles owned by the customer
-    private final ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
+    private final ListProperty<Integer> vehicleIDs; // The list of vehicles owned by the customer
+    private final ObservableList<Integer> vehicleIDsObservableList = FXCollections.observableArrayList();
 
 
     /**
@@ -40,48 +40,24 @@ public class Customer extends User {
         this.phoneNumber = new SimpleStringProperty(this, "Phone Number", "");
         this.gender = new SimpleStringProperty(this, "Gender", "");
         this.age = new SimpleIntegerProperty(this, "Age", 0);
-        this.vehicles = new SimpleListProperty<Vehicle>(vehicleObservableList);
+        this.vehicleIDs = new SimpleListProperty<Integer>(vehicleIDsObservableList);
     }
 
 
-    public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age, ObservableList<Vehicle> vehicles) {
+    public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age, ObservableList<Integer> vehicleIDs) {
         super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.address = new SimpleStringProperty(this, "Address", address);
         this.phoneNumber = new SimpleStringProperty(this, "Phone Number", phoneNumber);
         this.gender = new SimpleStringProperty(this, "Gender", gender);
         this.age = new SimpleIntegerProperty(this, "Age", age);
-        this.vehicles = new SimpleListProperty<Vehicle>(this, "Vehicles", vehicles);
+        this.vehicleIDs = new SimpleListProperty<Integer>(this, "VehicleIDs", vehicleIDs);
     }
 
-    // Deep Copying Constructor
-    public Customer(Customer customer) {
-        super(customer); // Call superclass constructor
-        this.address = customer.getAddress();
-        this.phoneNumber = customer.getPhoneNumber();
-        this.gender = customer.getGender();
-        this.age = customer.getAge();
-        this.vehicles = customer.getVehicles();
-    }
 
-    public IntegerProperty getUserID() {
-        return this.userID;
-    }
-
-    public StringProperty getFirstName() {
-        return this.firstName;
-    }
-
-    public StringProperty getLastName() {
-        return this.lastName;
-    }
-
-    public StringProperty getEmail() {
-        return this.email;
-    }
 
     // Getter and setter methods for address
-    public StringProperty getAddress() {
-        return address;
+    public String getAddress() {
+        return address.get();
     }
 
     public void setAddress(String address) {
@@ -89,8 +65,8 @@ public class Customer extends User {
     }
 
     // Gets the phone number of the customer
-    public StringProperty getPhoneNumber() {
-        return phoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber.get();
     }
 
     // sets the phone number of the customer
@@ -99,18 +75,18 @@ public class Customer extends User {
     }
 
     // gets the gender of the customer
-    public StringProperty getGender() {
-        return gender;
+    public String getGender() {
+        return gender.get();
     }
 
     // sets the gender of a customer
-    public void setgender(String gender) {
+    public void setGender(String gender) {
         this.gender.set(gender);
     }
 
     // gets the age of a customer
-    public IntegerProperty getAge() {
-        return age;
+    public int getAge() {
+        return age.get();
     }
 
     // sets the age of a customer
@@ -119,18 +95,18 @@ public class Customer extends User {
     }
 
     // adds a specific vehicle
-    public void addVehicle(Vehicle vehicle) {
-        this.vehicles.get().add(vehicle);
+    public void addVehicle(int vehicleID) {
+        this.vehicleIDs.get().add(vehicleID);
     }
 
     // removes a specific vehicle
-    public void removeVehicle(Vehicle vehicle) {
-        this.vehicles.remove(vehicle);
+    public void removeVehicle(int vehicleID) {
+        this.vehicleIDs.remove(vehicleID);
     }
     
     // returns vehicle list
-    public ListProperty<Vehicle> getVehicles() {
-        return vehicles;
+    public ObservableList<Integer> getVehicles() {
+        return vehicleIDs.get();
     }
 
     
@@ -140,21 +116,22 @@ public class Customer extends User {
     public String toString() {
         
         StringBuilder vehicleInfo = new StringBuilder();
-        for (Vehicle vehicle : vehicles) {
+        for (Integer vehicle : vehicleIDs) {
             vehicleInfo.append(vehicle.toString()).append("\n"); // Append each vehicle's string representation
         }
 
         return "Customer{" +
-                "userID=" + getUserID().getValue() + 
-                ", passwordKey='" + getPasswordKey().getValue() + '\'' +
-                ", firstName='" + getFirstName().getValue() + '\'' +
-                ", lastName='" + getLastName().getValue() + '\'' +
-                ", email='" + getEmail().getValue() + '\'' +
-                ", address='" + getAddress().getValue() + '\'' +
-                ", phoneNumber='" + getPhoneNumber().getValue() + '\'' +
-                ", gender='" + getGender().getValue() + '\'' +
-                ", age=" + getAge().getValue() +
+                "userID=" + getUserID() +
+                ", passwordKey='" + getPassword() + '\'' +
+                ", firstName='" + getFirstName() + '\'' +
+                ", lastName='" + getLastName() + '\'' +
+                ", email='" + getEmail() + '\'' +
+                ", address='" + getAddress() + '\'' +
+                ", phoneNumber='" + getPhoneNumber() + '\'' +
+                ", gender='" + getGender() + '\'' +
+                ", age=" + getAge() +
                 ", vehicles=\n" + vehicleInfo.toString() +
                 '}';
     }
+
 }

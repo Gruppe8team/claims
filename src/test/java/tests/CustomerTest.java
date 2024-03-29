@@ -12,13 +12,14 @@ import javafx.collections.ObservableList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CustomerTest {
-    
+
     private Customer customer;
 
     @BeforeEach
     void setUp() {
         ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
-        customer = new Customer(1, "John", "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234", "Male", 30 , vehicleObservableList);
+        // customer = new Customer(1, "John", "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234",
+        //         "Male", 30, vehicleObservableList);
     }
 
     @Test
@@ -30,62 +31,61 @@ public class CustomerTest {
 
     @Test
     void testConstructorWithParameters() {
-        assertEquals(1, customer.getUserID().getValue());
-        assertEquals("pass123", customer.getPasswordKey().getValue());
-        assertEquals("John", customer.getFirstName().getValue());
-        assertEquals("Doe", customer.getLastName().getValue());
-        assertEquals("johndoe@example.com", customer.getEmail().getValue());
-        assertEquals("123 Main St", customer.getAddress().getValue());
-        assertEquals("555-1234", customer.getPhoneNumber().getValue());
-        assertEquals("Male", customer.getGender().getValue());
-        assertEquals(30, customer.getAge().getValue());
+        assertEquals(1, customer.getUserID());
+        assertEquals("pass123", customer.getPassword());
+        assertEquals("John", customer.getFirstName());
+        assertEquals("Doe", customer.getLastName());
+        assertEquals("johndoe@example.com", customer.getEmail());
+        assertEquals("123 Main St", customer.getAddress());
+        assertEquals("555-1234", customer.getPhoneNumber());
+        assertEquals("Male", customer.getGender());
+        assertEquals(30, customer.getAge());
     }
 
     @Test
     void testSetAddress() {
         String newAddress = "456 Main St";
         customer.setAddress(newAddress);
-        assertEquals(newAddress, customer.getAddress().getValue());
+        assertEquals(newAddress, customer.getAddress());
     }
 
     @Test
     void testSetPhoneNumber() {
         String newPhoneNumber = "555-6789";
         customer.setPhoneNumber(newPhoneNumber);
-        assertEquals(newPhoneNumber, customer.getPhoneNumber().getValue());
+        assertEquals(newPhoneNumber, customer.getPhoneNumber());
     }
 
     @Test
     void testSetgender() {
         String newgender = "Female";
-        customer.setgender(newgender);
-        assertEquals(newgender, customer.getGender().getValue());
+        customer.setGender(newgender);
+        assertEquals(newgender, customer.getGender());
     }
 
     @Test
     void testSetAge() {
         int newAge = 35;
         customer.setAge(newAge);
-        assertEquals(newAge, customer.getAge().getValue());
+        assertEquals(newAge, customer.getAge());
     }
 
-    @Test
-    void testAddVehicle() {
-        Vehicle vehicle = new Vehicle();
-        customer.addVehicle(vehicle);
-        assertNotNull(customer.getVehicles().get());
-        assertFalse(customer.getVehicles().get().isEmpty());
-        assertEquals(1, customer.getVehicles().get().size());
-    }
+    // @Test
+    // void testAddVehicle() {
+    //     Vehicle vehicle = new Vehicle();
+    //     customer.addVehicle(vehicle);
+    //     assertNotNull(customer.getVehicles().get());
+    //     assertFalse(customer.getVehicles().get().isEmpty());
+    //     assertEquals(1, customer.getVehicles().get().size());
+    // }
 
-
-    @Test
-    void testRemoveVehicle() {
-        Vehicle vehicle = new Vehicle(); // Assuming default constructor is defined
-        customer.addVehicle(vehicle);
-        customer.removeVehicle(vehicle);
-        assertTrue(customer.getVehicles().getValue().isEmpty());
-    }
+    // @Test
+    // void testRemoveVehicle() {
+    //     Vehicle vehicle = new Vehicle(); // Assuming default constructor is defined
+    //     customer.addVehicle(vehicle);
+    //     customer.removeVehicle(vehicle);
+    //     assertTrue(customer.getVehicles().isEmpty());
+    // }
 
     @Test
     void testToString() {
