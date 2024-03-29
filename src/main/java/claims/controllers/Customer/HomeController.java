@@ -21,7 +21,6 @@ import javafx.scene.text.Text;
 
 public class HomeController implements Initializable {
 
-    public static NewUser newUser = EditController.newUser;
 
     @FXML
     private Label acc_dob;
