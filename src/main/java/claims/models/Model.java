@@ -136,6 +136,35 @@ public class Model {
         return customers;    
     }
 
+    public ObservableList<Claims> getClaims(int clientID) {
+        ObservableList<Claims> claims = FXCollections.observableArrayList();
+
+        try {
+            ResultSet resultSet = ClaimsDatabaseDriver.getClaimDetailsByClient(clientID);
+            while (resultSet.isBeforeFirst()) {
+                Claims claim = new Claims();
+                claim.setClaimID(resultSet.getInt("ClaimID"));
+                claim.setClientID(resultSet.getInt("ClientID"));
+                claim.setAdvisorID(resultSet.getInt("AdvisorID"));
+                claim.setPolicyID(resultSet.getInt("PolicyID"));
+                claim.setClaimStatus(resultSet.getString("ClaimStatus"));
+                claim.setAtFault(resultSet.getBoolean("AtFault"));
+                claim.setDateFiled(resultSet.getString("DateFiled"));
+                claim.setAccidentTime(resultSet.getString("Accident_Time"));
+                claim.setDamage(resultSet.getString("Damage"));
+                claim.setDescription(resultSet.getString("Description"));
+                claim.setPayInfo(resultSet.getString("PayInfo"));
+                claim.setClosureCond(resultSet.getString("ClosureCond"));
+                claim.setClosed(resultSet.getBoolean("Closed"));
+                claims.add(claim);
+            }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return claims;
+        }
+        
+
 
     public ObservableList<Customer> getCustomerList() {
         return this.customerList;

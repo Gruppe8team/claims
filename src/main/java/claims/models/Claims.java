@@ -15,7 +15,7 @@ public class Claims {
 	
 	private final IntegerProperty claimID, clientID; //Identification for the claim and client.
 	private final IntegerProperty advisorID, policyID;
-	private final ObjectProperty<LocalDate> dateFilled; //Identification for the advisor and the policy.
+	private final ObjectProperty<LocalDate> dateFiled; //Identification for the advisor and the policy.
 	private final StringProperty claimStatus, accidentTime, damage, description, payInfo, closureCond; /*Description of the claim status, date claim was opened,
  													time of accident, description of damages, description of accident details,
 	      												payment info, description of closure(if closed)*/
@@ -40,8 +40,29 @@ public class Claims {
      * @param totalled whether or not vehicle is totalled
      * @param closed whether or not claim is closed
      */
+	/**
+	 * Default constructor
+	 */
+	public Claims() {
+		this.claimID = new SimpleIntegerProperty(this,"ClaimID",0);
+		this.clientID = new SimpleIntegerProperty(this,"ClientID",0);
+		this.advisorID = new SimpleIntegerProperty(this,"AdvisorID",0);
+		this.policyID = new SimpleIntegerProperty(this,"PolicyID",0);	
+		this.claimStatus = new SimpleStringProperty(this,"ClaimStatus",null);
+		this.dateFiled = new SimpleObjectProperty<LocalDate>(this, "DateFilled", null);
+		this.accidentTime = new SimpleStringProperty(this,"AccidentTime",null);
+		this.damage = new SimpleStringProperty(this,"Damage",null);
+		this.description = new SimpleStringProperty(this,"Description",null);
+		this.payInfo = new SimpleStringProperty(this,"PayInfo",null);
+		this.closureCond = new SimpleStringProperty(this,"ClosureCond",null);
+		this.atFault = new SimpleBooleanProperty(this,"AtFault",false);
+		this.totalled = new SimpleBooleanProperty(this,"Totalled",false);
+		this.closed = new SimpleBooleanProperty(this,"Closed",false);
+	}
+ 
+
 	public Claims(int claimID, int clientID, int advisorID, int policyID, String claimStatus,
-			LocalDate dateFilled, String accidentTime, String damage, String description, String payInfo,
+			LocalDate dateFiled, String accidentTime, String damage, String description, String payInfo,
 			String closureCond, boolean atFault, boolean totalled, boolean closed) {
 		
 		this.claimID = new SimpleIntegerProperty(this,"ClaimID",claimID);
@@ -49,7 +70,7 @@ public class Claims {
 		this.advisorID = new SimpleIntegerProperty(this,"AdvisorID",advisorID);
 		this.policyID = new SimpleIntegerProperty(this,"PolicyID",policyID);
 		this.claimStatus = new SimpleStringProperty(this,"ClaimStatus",claimStatus);
-		this.dateFilled = new SimpleObjectProperty<>(this, "DateFilled", dateFilled);
+		this.dateFiled = new SimpleObjectProperty<LocalDate>(this, "DateFiled", dateFiled);
 		this.accidentTime = new SimpleStringProperty(this,"AccidentTime",accidentTime);
 		this.damage = new SimpleStringProperty(this,"Damage",damage);
 		this.description = new SimpleStringProperty(this,"Description",description);
@@ -102,11 +123,11 @@ public class Claims {
 	}
 	//Gets date filled
 	public LocalDate getDateFilled() {
-		return dateFilled.get();
+		return dateFiled.get();
 	}
 	//Sets date filled
-	public void setDateFilled(LocalDate dateFilled) {
-		this.dateFilled.set(dateFilled);
+	public void setDateFiled(String dateFiled) {
+		this.dateFiled.set(LocalDate.parse(dateFiled));
 	}
 	//Gets time of accident
 	public String getAccidentTime() {

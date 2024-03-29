@@ -208,6 +208,18 @@ public class ClaimsDatabaseDriver {
         }
         return resultSet;
     }
+
+    public ResultSet getClaimDetailsByClient(int clientID){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Claims WHERE ClientID="+clientID+";");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
     
     public void removeClaim(int claimID) {
         try {
