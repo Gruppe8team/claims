@@ -137,11 +137,12 @@ public class registerGUIController implements Initializable {
         int calculatedAge = agePeriod.getYears();
 
 
+
         //user selector sections
         switch(userType) {
         	case "Admin":
         		// Admin pass sector reformatted
-        		if (pass.equals(confirm) && adminPass.equals("3131vTg6")&& adminPass.equals("4N3g1UR0") && (providedAge == calculatedAge) && (providedAge >= 18)) {
+        		if (pass.equals(confirm) && adminPass.equals("3131vTg6")&& adminPass.equals("4N3g1UR0") && (providedAge == calculatedAge) && (calculatedAge >= 18)) {
         			registerAdmin(username,pass,first,last,age,gender,email,phone,address,birth);
         		}else {
        			 Model.getInstance().getViewFactory().showRegisterErrorWindow();
@@ -153,7 +154,7 @@ public class registerGUIController implements Initializable {
         		
         	case "Advisor":
                 adminPass = "NULL";
-                if (pass.equals(confirm) && adminPass.equals("3131vTg6")&& adminPass.equals("4N3g1UR0") && (providedAge == calculatedAge) && (providedAge >= 18)) {
+                if (pass.equals(confirm) && adminPass.equals("NULL") && (providedAge == calculatedAge) && (calculatedAge >= 18)) {
         			registerAdvisor(username,pass,first,last,age,gender,email,phone,address,birth);
         		}else {
        			 Model.getInstance().getViewFactory().showRegisterErrorWindow();
@@ -166,7 +167,7 @@ public class registerGUIController implements Initializable {
         		
         	case "Customer":
                 adminPass = "NULL";
-                if (pass.equals(confirm) && adminPass.equals("3131vTg6")&& adminPass.equals("4N3g1UR0") && (providedAge == calculatedAge) && (providedAge >= 18)){
+                if (pass.equals(confirm) && adminPass.equals("NULL") && (providedAge == calculatedAge) && (calculatedAge >= 18)){
         			registerCustomer(username,pass,first,last,age,gender,email,phone,address,birth);
         		}
         		else {
