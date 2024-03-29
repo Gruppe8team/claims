@@ -1,6 +1,9 @@
 package claims.models;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
@@ -15,8 +18,9 @@ public class Claims {
 	
 	private final IntegerProperty claimID, clientID; //Identification for the claim and client.
 	private final IntegerProperty advisorID, policyID;
-	private final ObjectProperty<LocalDate> dateFiled; //Identification for the advisor and the policy.
-	private final StringProperty claimStatus, accidentTime, damage, description, payInfo, closureCond; /*Description of the claim status, date claim was opened,
+	private final ObjectProperty<LocalDate> dateFiled;
+	private final ObjectProperty<LocalDateTime> accidentTime;
+	private final StringProperty claimStatus, damage, description, payInfo, closureCond; /*Description of the claim status, date claim was opened,
  													time of accident, description of damages, description of accident details,
 	      												payment info, description of closure(if closed)*/
 	private BooleanProperty atFault, totalled, closed; //Boolean for whether or not client is at fault, the vehicle is totaled, if claim is closed.
@@ -50,7 +54,7 @@ public class Claims {
 		this.policyID = new SimpleIntegerProperty(this,"PolicyID",0);	
 		this.claimStatus = new SimpleStringProperty(this,"ClaimStatus",null);
 		this.dateFiled = new SimpleObjectProperty<LocalDate>(this, "DateFilled", null);
-		this.accidentTime = new SimpleStringProperty(this,"AccidentTime",null);
+		this.accidentTime = new SimpleObjectProperty<LocalDateTime>(this,"AccidentTime",null);
 		this.damage = new SimpleStringProperty(this,"Damage",null);
 		this.description = new SimpleStringProperty(this,"Description",null);
 		this.payInfo = new SimpleStringProperty(this,"PayInfo",null);
@@ -62,7 +66,7 @@ public class Claims {
  
 
 	public Claims(int claimID, int clientID, int advisorID, int policyID, String claimStatus,
-			LocalDate dateFiled, String accidentTime, String damage, String description, String payInfo,
+			LocalDate dateFiled, LocalDateTime accidentTime, String damage, String description, String payInfo,
 			String closureCond, boolean atFault, boolean totalled, boolean closed) {
 		
 		this.claimID = new SimpleIntegerProperty(this,"ClaimID",claimID);
@@ -71,7 +75,7 @@ public class Claims {
 		this.policyID = new SimpleIntegerProperty(this,"PolicyID",policyID);
 		this.claimStatus = new SimpleStringProperty(this,"ClaimStatus",claimStatus);
 		this.dateFiled = new SimpleObjectProperty<LocalDate>(this, "DateFiled", dateFiled);
-		this.accidentTime = new SimpleStringProperty(this,"AccidentTime",accidentTime);
+		this.accidentTime = new SimpleObjectProperty<LocalDateTime>(this,"AccidentTime",accidentTime);
 		this.damage = new SimpleStringProperty(this,"Damage",damage);
 		this.description = new SimpleStringProperty(this,"Description",description);
 		this.payInfo = new SimpleStringProperty(this,"PayInfo",payInfo);
@@ -160,17 +164,18 @@ public class Claims {
 		this.dateFiled.set(LocalDate.parse(dateFiled));
 	}
 	//Gets time of accident
-	public String getAccidentTime() {
+	public LocalDateTime getAccidentTime() {
 		return accidentTime.get();
 	}
 
-	public StringProperty accidentTimeProperty() {
+	public ObjectProperty<LocalDateTime> accidentTimeProperty() {
 		return accidentTime;
 	}
 
 	//Sets time of accident
 	public void setAccidentTime(String accidentTime) {
-		this.accidentTime.set(accidentTime);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd', 'HH:mm");
+		this.accidentTime.set(LocalDateTime.parse(accidentTime, formatter));
 	}
 	//Gets damage description
 	public String getDamage() {

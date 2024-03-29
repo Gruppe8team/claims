@@ -5,14 +5,18 @@ import claims.models.Claims;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 import org.junit.jupiter.api.Test;
 
 class ClaimsTest {
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
 	//Creates empty claim object
 	Claims claim1 = new Claims(0, 0, 0, 0, null, null, null, null, null, null, null, false, false, false);
 	//Creates filled object
-	Claims claim2 = new Claims(2, 200, 210, 4, "Closed", LocalDate.parse("2023-10-20"), "6:00AM", "Giant concrete slab smashed rear passenger seats, no injuries", "Client was driving on highway 7, giant concrete slab fell from the sky, smashed car.", "$20000", "Made final payment, client satisfied", false, true, true);
+	Claims claim2 = new Claims(2, 200, 210, 4, "Closed", LocalDate.parse("2023-10-20"), LocalDateTime.parse("2023-10-15T06:00",formatter), "Giant concrete slab smashed rear passenger seats, no injuries", "Client was driving on highway 7, giant concrete slab fell from the sky, smashed car.", "$20000", "Made final payment, client satisfied", false, true, true);
 	//Tests setting the claim information
 	@Test
 	void setClaimInfoTest() {
