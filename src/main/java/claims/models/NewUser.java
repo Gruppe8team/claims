@@ -6,6 +6,7 @@ public class NewUser {
 	private String dob;
 	private String phone;
 	private String gender;
+	private String age;
 
 	private int userID;
 	private String passwordKey;
@@ -142,6 +143,14 @@ public class NewUser {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+	
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
 	}
 
 	@Override
