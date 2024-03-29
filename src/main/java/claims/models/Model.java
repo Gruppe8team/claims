@@ -244,7 +244,7 @@ public class Model {
             if (resultSet.isBeforeFirst()){
                 this.admin.setUsername(resultSet.getString("Username"));
                 this.admin.setPassword(resultSet.getString("Password"));
-                this.admin.setUserID(resultSet.getInt("ID"));
+                this.admin.setUserID(resultSet.getInt("AdminID"));
                 this.admin.setFirstName(resultSet.getString("FirstName"));
                 this.admin.setLastName(resultSet.getString("LastName"));
                 this.admin.setEmail(resultSet.getString("Email"));
