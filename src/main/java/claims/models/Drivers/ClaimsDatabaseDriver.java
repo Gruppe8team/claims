@@ -111,6 +111,8 @@ public class ClaimsDatabaseDriver {
         }
     }
 
+    // public void registerClaim(String )
+
     //Advisor Section
 
     public ResultSet getAllAdvisors(){

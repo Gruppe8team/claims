@@ -2,7 +2,9 @@ package claims.controllers.Customer;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import claims.models.Claims;
@@ -19,6 +21,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.converter.LocalDateTimeStringConverter;
 
 public class MyClaimsController implements Initializable {
     
@@ -71,7 +75,7 @@ public class MyClaimsController implements Initializable {
     private Button submit_btn;
 
     @FXML
-    private TableColumn<Claims, LocalTime> timeofac_col;
+    private TableColumn<Claims, LocalDateTime> timeofac_col;
 
     @FXML
     private TextField timeofac_txtfield;
@@ -98,7 +102,11 @@ public class MyClaimsController implements Initializable {
         status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
         atfault_col.setCellValueFactory(cellData -> cellData.getValue().atFaultProperty());
         totalled_col.setCellValueFactory(cellData -> cellData.getValue().totalledProperty());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd,  HH:mm");
+        timeofac_col.setCellFactory(tc -> new TextFieldTableCell<>(new LocalDateTimeStringConverter(formatter, null)));
         timeofac_col.setCellValueFactory(cellData -> cellData.getValue().accidentTimeProperty());
+
 
         Platform.runLater(() -> clm_table.setItems(Model.getInstance().getClaims(Model.getInstance().getCustomer().getUserID())));
     }
