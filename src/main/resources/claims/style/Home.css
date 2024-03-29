@@ -135,5 +135,6 @@
     font-size: 1em;
     -fx-font-weight: 100;
     font-weight: 100;
+    -fx-alignment: center;
 }
 

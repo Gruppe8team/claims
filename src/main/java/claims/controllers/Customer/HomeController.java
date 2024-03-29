@@ -2,12 +2,14 @@ package claims.controllers.Customer;
 
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import claims.models.Claims;
 import claims.models.Model;
 import claims.models.NewUser;
 import claims.views.CustomerMenuOptions;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -44,9 +46,6 @@ public class HomeController implements Initializable {
     private Label acc_type;
 
     @FXML
-    private ListView<?> claims_listview;
-
-    @FXML
     private Label login_date;
 
     @FXML
@@ -56,7 +55,7 @@ public class HomeController implements Initializable {
     private Button btn_edit;
 
     @FXML
-    private TableColumn<Claims, Integer> claimID_col;
+    private TableColumn<Claims, Number> claimID_col;
 
     @FXML
     private TableView<Claims> claims_tbl;
@@ -65,7 +64,7 @@ public class HomeController implements Initializable {
     private TableColumn<Claims, String> damage_col;
 
     @FXML
-    private TableColumn<Claims, String> datefilled_col;
+    private TableColumn<Claims, LocalDate> datefilled_col;
 
     @FXML
     private TableColumn<Claims, String> status_col;
@@ -73,6 +72,7 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btn_edit.setOnAction(event -> onEdit());
         init();
+        populateClaimsTable();
     }
 
     public void init() {
@@ -91,7 +91,12 @@ public class HomeController implements Initializable {
     }
 
     public void populateClaimsTable() {
+        claimID_col.setCellValueFactory(cellData -> cellData.getValue().claimIDProperty());
+        damage_col.setCellValueFactory(cellData -> cellData.getValue().damageProperty());
+        datefilled_col.setCellValueFactory(cellData -> cellData.getValue().dateFiledProperty());
+        status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
 
+        Platform.runLater(() -> claims_tbl.setItems(Model.getInstance().getClaims(Model.getInstance().getCustomer().getUserID())));
     }
 
 }

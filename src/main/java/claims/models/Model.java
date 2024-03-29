@@ -81,7 +81,6 @@ public class Model {
     public void evaluateClientCred(String username, String password) {
         ResultSet resultSet = ClaimsDatabaseDriver.getCustomerDetails(username, password);
         try {
-            
             if (resultSet.isBeforeFirst()){
                 this.customer.setFirstName(resultSet.getString("FirstName"));
                 this.customer.setLastName(resultSet.getString("LastName"));
@@ -112,9 +111,8 @@ public class Model {
 
     public ObservableList<Customer> getCustomers() {
         ObservableList<Customer> customers = FXCollections.observableArrayList();
-        
+        ResultSet resultSet = ClaimsDatabaseDriver.searchCustomerByAdvisorID();
         try {
-            ResultSet resultSet = ClaimsDatabaseDriver.searchCustomerByAdvisorID();
             while (resultSet.isBeforeFirst()) {
                 Customer customer = new Customer();
                 this.customer.setFirstName(resultSet.getString("FirstName"));
@@ -132,23 +130,30 @@ public class Model {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return customers;    
     }
 
     public ObservableList<Claims> getClaims(int clientID) {
         ObservableList<Claims> claims = FXCollections.observableArrayList();
-
+        ResultSet resultSet = ClaimsDatabaseDriver.getClaimDetailsByClient(clientID);
         try {
-            ResultSet resultSet = ClaimsDatabaseDriver.getClaimDetailsByClient(clientID);
-            while (resultSet.isBeforeFirst()) {
+            while (resultSet.next()) {
                 Claims claim = new Claims();
                 claim.setClaimID(resultSet.getInt("ClaimID"));
                 claim.setClientID(resultSet.getInt("ClientID"));
                 claim.setAdvisorID(resultSet.getInt("AdvisorID"));
                 claim.setPolicyID(resultSet.getInt("PolicyID"));
                 claim.setClaimStatus(resultSet.getString("ClaimStatus"));
-                claim.setAtFault(resultSet.getBoolean("AtFault"));
+                claim.setAtFault(resultSet.getBoolean("At_Fault"));
                 claim.setDateFiled(resultSet.getString("DateFiled"));
                 claim.setAccidentTime(resultSet.getString("Accident_Time"));
                 claim.setDamage(resultSet.getString("Damage"));
@@ -160,6 +165,14 @@ public class Model {
             }
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                if (resultSet != null) {
+                    try {
+                        resultSet.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
             return claims;
         }
@@ -185,9 +198,8 @@ public class Model {
     }
 
     public void evaluateAdvisorCred(String username, String password) {
-        
+        ResultSet resultSet = ClaimsDatabaseDriver.getAdvisorDetails(username, password);
         try {
-            ResultSet resultSet = ClaimsDatabaseDriver.getAdvisorDetails(username, password);
             if (resultSet.isBeforeFirst()){
                 this.advisor.setFirstName(resultSet.getString("FirstName"));
                 this.advisor.setLastName(resultSet.getString("LastName"));
@@ -197,9 +209,17 @@ public class Model {
                 this.advisor.setUserID(resultSet.getInt("AdvisorID"));
 
                 this.AdvisorLoginSuccessFlag = true;
-            }
+            } 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
     }
@@ -219,9 +239,8 @@ public class Model {
     }
 
     public void evaluateAdminCred(String username, String password) {
-        
+        ResultSet resultSet = ClaimsDatabaseDriver.getAdminDetails(username, password);
         try {
-            ResultSet resultSet = ClaimsDatabaseDriver.getAdminDetails(username, password);
             if (resultSet.isBeforeFirst()){
                 this.admin.setUsername(resultSet.getString("Username"));
                 this.admin.setPassword(resultSet.getString("Password"));
@@ -234,6 +253,14 @@ public class Model {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

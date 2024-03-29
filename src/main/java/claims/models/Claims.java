@@ -85,6 +85,11 @@ public class Claims {
 	public int getClaimID() {
 		return claimID.get();
 	}
+
+	public IntegerProperty claimIDProperty() {
+		return claimID;
+	}
+
 	//Sets claim id
 	public void setClaimID(int claimID) {
 		this.claimID.set(claimID);
@@ -93,6 +98,11 @@ public class Claims {
 	public int getClientID() {
 		return clientID.get();
 	}
+
+	public IntegerProperty clientIDProperty() {
+		return clientID;
+	}
+
 	//Sets client id
 	public void setClientID(int clientID) {
 		this.clientID.set(clientID);
@@ -101,6 +111,11 @@ public class Claims {
 	public int getAdvisorID() {
 		return advisorID.get();
 	}
+
+	public IntegerProperty advisorIDProperty() {
+		return advisorID;
+	}
+
 	//Sets advisor id
 	public void setAdvisorID(int advisorID) {
 		this.advisorID.set(advisorID);
@@ -109,6 +124,11 @@ public class Claims {
 	public int getPolicyID() {
 		return policyID.get();
 	}
+
+	public IntegerProperty policyIDProperty() {
+		return policyID;
+	}
+
 	//Sets policy id
 	public void setPolicyID(int policyID) {
 		this.policyID.set(policyID);
@@ -117,6 +137,11 @@ public class Claims {
 	public String getClaimStatus() {
 		return claimStatus.get();
 	}
+
+	public StringProperty claimStatusProperty() {
+		return claimStatus;
+	}
+
 	//Sets claims status
 	public void setClaimStatus(String claimStatus) {
 		this.claimStatus.set(claimStatus);
@@ -125,6 +150,11 @@ public class Claims {
 	public LocalDate getDateFilled() {
 		return dateFiled.get();
 	}
+
+	public ObjectProperty<LocalDate> dateFiledProperty() {
+		return dateFiled;
+	}
+
 	//Sets date filled
 	public void setDateFiled(String dateFiled) {
 		this.dateFiled.set(LocalDate.parse(dateFiled));
@@ -133,6 +163,11 @@ public class Claims {
 	public String getAccidentTime() {
 		return accidentTime.get();
 	}
+
+	public StringProperty accidentTimeProperty() {
+		return accidentTime;
+	}
+
 	//Sets time of accident
 	public void setAccidentTime(String accidentTime) {
 		this.accidentTime.set(accidentTime);
@@ -141,6 +176,11 @@ public class Claims {
 	public String getDamage() {
 		return damage.get();
 	}
+
+	public StringProperty damageProperty() {
+		return damage;
+	}
+
 	//Sets damage description
 	public void setDamage(String damage) {
 		this.damage.set(damage);
@@ -149,6 +189,11 @@ public class Claims {
 	public String getDescription() {
 		return description.get();
 	}
+
+	public StringProperty descriptionProperty() {
+		return description;
+	}
+
 	//Sets accident description
 	public void setDescription(String description) {
 		this.description.set(description);
@@ -157,6 +202,11 @@ public class Claims {
 	public String getPayInfo() {
 		return payInfo.get();
 	}
+
+	public StringProperty payInfoProperty() {
+		return payInfo;
+	}
+
 	//Sets payment info
 	public void setPayInfo(String payInfo) {
 		this.payInfo.set(payInfo);
@@ -165,6 +215,11 @@ public class Claims {
 	public String getClosureCond() {
 		return closureCond.get();
 	}
+
+	public StringProperty closureCondProperty() {
+		return closureCond;
+	}
+
 	//Sets condition of closure
 	public void setClosureCond(String closureCond) {
 		this.closureCond.set(closureCond);
@@ -173,6 +228,11 @@ public class Claims {
 	public boolean isAtFault() {
 		return atFault.get();
 	}
+
+	public BooleanProperty atFaultProperty() {
+		return atFault;
+	}
+
 	//Sets fault status
 	public void setAtFault(boolean atFault) {
 		this.atFault.set(atFault);;
@@ -181,6 +241,11 @@ public class Claims {
 	public boolean isTotalled() {
 		return totalled.get();
 	}
+
+	public BooleanProperty totalledProperty() {
+		return totalled;
+	}
+
 	//Sets totalled status
 	public void setTotalled(boolean totalled) {
 		this.totalled.set(totalled);;
@@ -189,6 +254,11 @@ public class Claims {
 	public boolean isClosed() {
 		return closed.get();
 	}
+
+	public BooleanProperty closedProperty() {
+		return closed;
+	}
+
 	//Sets closure status of claim
 	public void setClosed(boolean closed) {
 		this.closed.set(closed);
