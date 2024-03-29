@@ -1,8 +1,13 @@
 package claims.controllers.Customer;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
+import claims.models.Claims;
+import claims.models.Model;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -21,16 +26,16 @@ public class MyClaimsController implements Initializable {
     private DatePicker Dayofac_Datepicker;
 
     @FXML
-    private TableColumn<?, ?> atfault_col;
+    private TableColumn<Claims, Boolean> atfault_col;
 
     @FXML
-    private TableColumn<?, ?> claimID_col;
+    private TableColumn<Claims, Number> claimID_col;
 
     @FXML
     private Label clientname_lbl;
 
     @FXML
-    private TableView<?> clm_table;
+    private TableView<Claims> clm_table;
 
     @FXML
     private Label dam_lbl;
@@ -42,10 +47,10 @@ public class MyClaimsController implements Initializable {
     private Label dam_lbl11;
 
     @FXML
-    private TableColumn<?, ?> damage_col;
+    private TableColumn<Claims, String> damage_col;
 
     @FXML
-    private TableColumn<?, ?> datefilled_col;
+    private TableColumn<Claims, LocalDate> datefilled_col;
 
     @FXML
     private Label datefilled_lbl;
@@ -60,13 +65,13 @@ public class MyClaimsController implements Initializable {
     private TextArea notes_textarea;
 
     @FXML
-    private TableColumn<?, ?> status_col;
+    private TableColumn<Claims, String> status_col;
 
     @FXML
     private Button submit_btn;
 
     @FXML
-    private TableColumn<?, ?> timeofac_col;
+    private TableColumn<Claims, LocalTime> timeofac_col;
 
     @FXML
     private TextField timeofac_txtfield;
@@ -75,7 +80,7 @@ public class MyClaimsController implements Initializable {
     private CheckBox totalled_checkbox;
 
     @FXML
-    private TableColumn<?, ?> totalled_col;
+    private TableColumn<Claims, Boolean> totalled_col;
 
     @FXML
     private ChoiceBox<?> typeofdamage_choicebox;
@@ -83,7 +88,18 @@ public class MyClaimsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        populateClaimsTable();
     }
 
+    public void populateClaimsTable() {
+        claimID_col.setCellValueFactory(cellData -> cellData.getValue().claimIDProperty());
+        damage_col.setCellValueFactory(cellData -> cellData.getValue().damageProperty());
+        datefilled_col.setCellValueFactory(cellData -> cellData.getValue().dateFiledProperty());
+        status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
+        atfault_col.setCellValueFactory(cellData -> cellData.getValue().atFaultProperty());
+        totalled_col.setCellValueFactory(cellData -> cellData.getValue().totalledProperty());
+        timeofac_col.setCellValueFactory(cellData -> cellData.getValue().accidentTimeProperty());
+
+        Platform.runLater(() -> clm_table.setItems(Model.getInstance().getClaims(Model.getInstance().getCustomer().getUserID())));
+    }
 }
