@@ -144,7 +144,7 @@ public class Model {
 
     public ObservableList<Claims> getClaims(int clientID) {
         ObservableList<Claims> claims = FXCollections.observableArrayList();
-        ResultSet resultSet = ClaimsDatabaseDriver.getClaimDetailsByClient(clientID);
+        ResultSet resultSet = ClaimsDatabaseDriver.getClaimDetails(clientID);
         try {
             while (resultSet.next()) {
                 Claims claim = new Claims();
