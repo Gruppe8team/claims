@@ -3,6 +3,7 @@ package claims.models.Drivers;
 import java.sql.Statement;
 
 import claims.models.Customer;
+import claims.models.NewUser;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,8 +17,9 @@ public class ClaimsDatabaseDriver {
 
     public ClaimsDatabaseDriver() {
         try {
+        	Class.forName("org.sqlite.JDBC");
             this.conn = DriverManager.getConnection("jdbc:sqlite:Databases/claims.db");
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -30,6 +32,27 @@ public class ClaimsDatabaseDriver {
     }
 
     //Customer Section
+    
+    
+    
+    public void addCustomer(NewUser user) {
+
+    	String sql = "INSERT INTO Customers"
+				+ "(Username, Password, Firstname, Lastname, Age,Sex,Email,Phone,Address)\r\n"
+				+ "VALUES ('"+user.getUsername()+"', '"+user.getPasswordKey()+"', '"+user.getFirstName()+"', '"+user.getLastName()+"',"
+						+ " '"+user.getAge()+"', '"+user.getGender()+"', '"+user.getEmail()+"', "+user.getPhone()+", '"+user.getAddr()+"')";
+    	
+		
+		try {
+			Statement st = conn.createStatement();
+			int rs = st.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+ 
+    
     public ResultSet searchAllCustomers(){
         Statement statement;
         ResultSet resultSet = null;
@@ -66,18 +89,10 @@ public class ClaimsDatabaseDriver {
     }
     
     public void removeCustomer(int clientID) {
-        String sql = "DELETE FROM Customers WHERE ClientID=?";
-        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
-            this.conn.setAutoCommit(false);
-            pstmt.setInt(1, clientID);
-            int affectedRows = pstmt.executeUpdate();
-            conn.commit();
-            if (affectedRows > 0) {
-                System.out.println("Customer removed successfully.");
-            } else {
-                this.conn.rollback();
-                System.out.println("No customer found with ID " + clientID);
-            }
+        try {
+            Statement statement = this.conn.createStatement();
+            statement.executeUpdate("DELETE FROM Customers WHERE ClientID=" + clientID + ";");
+            System.out.println("Customer with ID " + clientID + " removed successfully.");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -87,7 +102,6 @@ public class ClaimsDatabaseDriver {
         String sql = "UPDATE Customers SET Username=?, Password=?, FirstName=?, LastName=?, " +
         "Age=?, Sex=?, Email=?, Phone=?, Address=? WHERE ClientID=?";
         try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
-            this.conn.setAutoCommit(false);
             pstmt.setString(1, username);
             pstmt.setString(2, password);
             pstmt.setString(3, firstName);
@@ -99,11 +113,10 @@ public class ClaimsDatabaseDriver {
             pstmt.setString(9, address);
             pstmt.setInt(10, clientId);
             int affectedRows = pstmt.executeUpdate();
-            conn.commit();
+            
             if (affectedRows > 0) {
                 System.out.println("Update successful.");
             } else {
-                this.conn.rollback();
                 System.out.println("Update failed. No rows affected.");
             }
         } catch (SQLException e) {
@@ -114,6 +127,22 @@ public class ClaimsDatabaseDriver {
     // public void registerClaim(String )
 
     //Advisor Section
+    
+    public void addAdvisor(NewUser user) {
+
+    	String sql = "INSERT INTO Advisors"
+				+ "(Username, Password, Firstname, Lastname,Email)\r\n"
+				+ "VALUES ('"+user.getUsername()+"', '"+user.getPasswordKey()+"', '"+user.getFirstName()+"', '"+user.getLastName()+"','"
+						+user.getEmail()+"')";
+		
+		try {
+			Statement st = conn.createStatement();
+			int rs = st.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
 
     public ResultSet getAllAdvisors(){
         Statement statement;
@@ -210,18 +239,6 @@ public class ClaimsDatabaseDriver {
         }
         return resultSet;
     }
-
-    public ResultSet getClaimDetailsByClient(int clientID){
-        Statement statement;
-        ResultSet resultSet = null;
-        try {
-            statement = this.conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Claims WHERE ClientID="+clientID+";");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return resultSet;
-    }
     
     public void removeClaim(int claimID) {
         try {
@@ -261,6 +278,22 @@ public class ClaimsDatabaseDriver {
 
     //Admin Section
     
+    public void addAdmin(NewUser user) {
+
+    	String sql = "INSERT INTO Admins"
+				+ "(Username, Password, Firstname, Lastname,Email)\r\n"
+				+ "VALUES ('"+user.getUsername()+"', '"+user.getPasswordKey()+"', '"+user.getFirstName()+"', '"+user.getLastName()+"','"
+						+user.getEmail()+"')";
+		
+		try {
+			Statement st = conn.createStatement();
+			int rs = st.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+    
     public ResultSet getAllAdmins(){
         Statement statement;
         ResultSet resultSet = null;
@@ -284,5 +317,4 @@ public class ClaimsDatabaseDriver {
         }
         return resultSet;
     }
-
 }
