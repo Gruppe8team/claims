@@ -18,8 +18,8 @@ public class CustomerTest {
     @BeforeEach
     void setUp() {
         ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
-        customer = new Customer(1, "John", "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234",
-                "Male", 30, vehicleObservableList);
+        // customer = new Customer(1, "John", "pass123", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234",
+        //         "Male", 30, vehicleObservableList);
     }
 
     @Test

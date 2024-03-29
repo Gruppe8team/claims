@@ -15,8 +15,8 @@ public class Customer extends User {
     private final StringProperty phoneNumber; // The phone number of the customer
     private final StringProperty gender; // The gender of the customer
     private final IntegerProperty age; // The age of the customer
-    private final ListProperty<Vehicle> vehicles; // The list of vehicles owned by the customer
-    private final ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
+    private final ListProperty<Integer> vehicleIDs; // The list of vehicles owned by the customer
+    private final ObservableList<Integer> vehicleIDsObservableList = FXCollections.observableArrayList();
 
 
     /**
@@ -40,17 +40,17 @@ public class Customer extends User {
         this.phoneNumber = new SimpleStringProperty(this, "Phone Number", "");
         this.gender = new SimpleStringProperty(this, "Gender", "");
         this.age = new SimpleIntegerProperty(this, "Age", 0);
-        this.vehicles = new SimpleListProperty<Vehicle>(vehicleObservableList);
+        this.vehicleIDs = new SimpleListProperty<Integer>(vehicleIDsObservableList);
     }
 
 
-    public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age, ObservableList<Vehicle> vehicles) {
+    public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age, ObservableList<Integer> vehicleIDs) {
         super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
         this.address = new SimpleStringProperty(this, "Address", address);
         this.phoneNumber = new SimpleStringProperty(this, "Phone Number", phoneNumber);
         this.gender = new SimpleStringProperty(this, "Gender", gender);
         this.age = new SimpleIntegerProperty(this, "Age", age);
-        this.vehicles = new SimpleListProperty<Vehicle>(this, "Vehicles", vehicles);
+        this.vehicleIDs = new SimpleListProperty<Integer>(this, "VehicleIDs", vehicleIDs);
     }
 
 
@@ -95,18 +95,18 @@ public class Customer extends User {
     }
 
     // adds a specific vehicle
-    public void addVehicle(Vehicle vehicle) {
-        this.vehicles.get().add(vehicle);
+    public void addVehicle(int vehicleID) {
+        this.vehicleIDs.get().add(vehicleID);
     }
 
     // removes a specific vehicle
-    public void removeVehicle(Vehicle vehicle) {
-        this.vehicles.remove(vehicle);
+    public void removeVehicle(int vehicleID) {
+        this.vehicleIDs.remove(vehicleID);
     }
     
     // returns vehicle list
-    public ObservableList<Vehicle> getVehicles() {
-        return vehicles.get();
+    public ObservableList<Integer> getVehicles() {
+        return vehicleIDs.get();
     }
 
     
@@ -116,7 +116,7 @@ public class Customer extends User {
     public String toString() {
         
         StringBuilder vehicleInfo = new StringBuilder();
-        for (Vehicle vehicle : vehicles) {
+        for (Integer vehicle : vehicleIDs) {
             vehicleInfo.append(vehicle.toString()).append("\n"); // Append each vehicle's string representation
         }
 
