@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" stylesheets="@../../style/AdvisorClaims.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Advisor.AdvisorClaimsController">
+   <children>
+      <Label layoutX="33.0" layoutY="27.0" styleClass="main-title" text="Claims" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
+      <TableView fx:id="clm_table" prefHeight="300.0" prefWidth="810.0" styleClass="table" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="80.0">
+        <columns>
+          <TableColumn id="c" fx:id="clmID_col" prefWidth="55.0" text="ClaimID" />
+          <TableColumn id="c" fx:id="cliID_col" prefWidth="60.0" text="ClientID" />
+            <TableColumn id="c" fx:id="polID_col" prefWidth="72.0" text="PolicyID" />
+            <TableColumn id="c" fx:id="dam_col" prefWidth="86.0" text="Damage" />
+            <TableColumn id="c" fx:id="time_col" prefWidth="136.0" text="Time of Accident" />
+            <TableColumn id="c" fx:id="tol_col" prefWidth="60.0" text="Totalled" />
+            <TableColumn id="c" fx:id="atfault_col" prefWidth="127.0" text="Is the Client at fault" />
+            <TableColumn id="c" fx:id="datefil_col" prefWidth="94.0" text="Date Filled" />
+            <TableColumn id="c" fx:id="sta_col" prefWidth="117.0" text="Status" />
+        </columns>
+      </TableView>
+      <Label layoutX="28.0" layoutY="401.0" styleClass="sub-title" text="Details" AnchorPane.bottomAnchor="320.0" AnchorPane.leftAnchor="20.0" />
+      <HBox prefHeight="200.0" prefWidth="810.0" styleClass="detail-box" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0">
+         <children>
+            <VBox prefHeight="270.0" prefWidth="200.0" styleClass="detail-box-sub1">
+               <children>
+                  <Label fx:id="clientname_lbl" text="Joe Green" />
+                  <Label fx:id="datefilled_lbl" text="March 10th 2024" />
+                  <Label fx:id="dam_lbl" text="Rear-end damage" />
+               </children>
+            </VBox>
+            <VBox prefHeight="270.0" prefWidth="310.0" styleClass="detail-box-sub2">
+               <children>
+                  <Label styleClass="detail-box-sub2-title" text="Description:" />
+                  <Label fx:id="descript_lbl" alignment="TOP_CENTER" prefHeight="150.0" prefWidth="290.0" text="Loremixum est dolerit quamibet sero, vincitrum per aspera ad astra, aquavit ex libris quam outis incendio. Falsidicum perennium, gloriatus et carpe noctem, vivamus meridium et lux vitæ. Scriptorium delenda, ambulatrum virentis, quantum leapus in abyssum. Miraculatus in finitum, ex nihilo nihil fit, perpetuum mobile ad infinitum." wrapText="true" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="200.0" styleClass="detail-box-sub2">
+               <children>
+                  <Label styleClass="detail-box-sub2-title" text="Notes:" />
+                  <Label fx:id="notes_lbl" alignment="TOP_LEFT" prefHeight="100.0" prefWidth="150.0" text="fwfwerfes" wrapText="true" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
