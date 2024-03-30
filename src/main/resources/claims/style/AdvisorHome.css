@@ -66,3 +66,32 @@
     -fx-font-size: 1.1em;
     font-size: 1.1em;
 }
+
+#c {
+    -fx-border-color:#f4f4f4;
+    border-color: #f4f4f4;
+    -fx-border-width: 0px 0px 1px 0px;
+    border-width: 0px 0px 1px 0px;
+    -fx-border:none;
+    border: none;
+    -fx-background-radius: 1px;
+    -fx-background-color:#FFFFFF;
+    background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-font-size: 1em;
+    font-size: 1em;
+    -fx-font-weight: 100;
+    font-weight: 100;
+    -fx-alignment: center;
+}
+
+#rc {
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 5, 0, 0, 4);
+    -fx-background-color: white;
+    background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    border-radius: 5px;
+    -fx-border-color:#000;
+    border-color: #000;
+}

@@ -2,10 +2,12 @@ package claims.controllers.Advisor;
 
 import java.net.URL;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import claims.models.Model;
 import claims.models.Drivers.ClaimsDatabaseDriver;
+import claims.models.Claims;
 import claims.models.Customer;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
@@ -24,6 +26,7 @@ import javafx.scene.image.ImageView;
 
 public class AdvisorHomeController implements Initializable {
     
+    // FXML fields for account info
     @FXML
     private Label acc_dob;
 
@@ -48,41 +51,66 @@ public class AdvisorHomeController implements Initializable {
     @FXML
     private Button btn_edit;
 
-    @FXML
-    private ListView<?> clm_listview;
+    // FXML fields for clients list
 
     @FXML
-    private TableColumn<Customer, StringProperty> email_col;
+    private TableColumn<Customer, String> email_col;
 
     @FXML
     private Label hi_lbl;
 
     @FXML
-    private TableColumn<Customer, IntegerProperty> id_col;
+    private TableColumn<Customer, Number> id_col;
 
     @FXML
-    private TableColumn<Customer, StringProperty> name_col;
+    private TableColumn<Customer, String> name_col;
 
     @FXML
     private Label today_lbl;
 
     @FXML
-    private ImageView logola;
-    @FXML
     private TableView<Customer> clients_tableview;
 
-    private ObservableList<Customer> customers = FXCollections.observableArrayList();
+    // FXML fields for claims list
+    @FXML
+    private TableColumn<Claims, Number> client_col;
+
+    @FXML
+    private TableColumn<Claims, Number> clm_col;
+
+    @FXML
+    private TableView<Claims> clm_tableview;
+
+    @FXML
+    private TableColumn<Claims, String> damage_col;
+
+    @FXML
+    private TableColumn<Claims, LocalDate> datefiled_col;
+
+    @FXML
+    private TableColumn<Claims, String> status_col;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
 
-        Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
-        logola.setImage(image);
-        this.customers = Model.getInstance().getCustomers();
-        id_col.setCellValueFactory(new PropertyValueFactory<>("userID"));
-        name_col.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        email_col.setCellValueFactory(new PropertyValueFactory<>("email"));
-        clients_tableview.setItems(this.customers);
+        
+    }
+
+    public void initializeTableColumns() {
+        id_col.setCellValueFactory(cellData -> cellData.getValue().idProperty());
+        name_col.setCellValueFactory();
+        email_col.setCellValueFactory();
+
+        client_col.setCellFactory(null);
+        clm_col.setCellFactory(null);
+        damage_col.setCellFactory(null);
+        datefiled_col.setCellFactory(null);
+        status_col.setCellFactory(null);
+
+        clients_tableview.setItems();
+        clm_tableview.setItems();
     }
 
     

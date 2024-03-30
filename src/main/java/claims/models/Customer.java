@@ -1,5 +1,7 @@
 package claims.models;
 
+import java.time.LocalDate;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -44,8 +46,8 @@ public class Customer extends User {
     }
 
 
-    public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, int age, ObservableList<Integer> vehicleIDs) {
-        super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
+    public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, LocalDate dateOfBirth, int age, ObservableList<Integer> vehicleIDs) {
+        super(userID, username, passwordKey, firstName, lastName, email, address, phoneNumber, gender, dateOfBirth); // Call superclass constructor
         this.address = new SimpleStringProperty(this, "Address", address);
         this.phoneNumber = new SimpleStringProperty(this, "Phone Number", phoneNumber);
         this.gender = new SimpleStringProperty(this, "Gender", gender);
@@ -55,36 +57,7 @@ public class Customer extends User {
 
 
 
-    // Getter and setter methods for address
-    public String getAddress() {
-        return address.get();
-    }
-
-    public void setAddress(String address) {
-        this.address.set(address);
-    }
-
-    // Gets the phone number of the customer
-    public String getPhoneNumber() {
-        return phoneNumber.get();
-    }
-
-    // sets the phone number of the customer
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber.set(phoneNumber);
-    }
-
-    // gets the gender of the customer
-    public String getGender() {
-        return gender.get();
-    }
-
-    // sets the gender of a customer
-    public void setGender(String gender) {
-        this.gender.set(gender);
-    }
-
-    // gets the age of a customer
+    
     public int getAge() {
         return age.get();
     }
