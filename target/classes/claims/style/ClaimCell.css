@@ -1,0 +1,32 @@
+.cell_container {
+    -fx-background-color: #FFFFFF;
+    background-color: #FFFFFF;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(three-pass-box, #DDDDDD, 2, 0, 3, 3);
+    -fx-border-color: #000000;
+    border-color: #000000;
+}
+
+.vbox {
+    -fx-alignment: center-left;
+    -fx-spacing: 3px;
+}
+
+.hbox {
+    -fx-spacing: 2px;
+}
+
+.hbox_id {
+    -fx-font-size: 1em;
+    font-size: 1em;
+}
+
+.stat_lbl {
+    -fx-font-size: 2em;
+    font-size:2em;
+}
+
+.name_lbl {
+    -fx-font-size:1.4em;
+    font-size: 1.4em;
+}
