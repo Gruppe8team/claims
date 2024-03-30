@@ -71,7 +71,7 @@ public class ClaimsDatabaseDriver {
                  "JOIN Claims ON Customers.ClientID = Claims.ClientID " +
                  "WHERE Claims.AdvisorID = ?";
         ResultSet resultSet = null;
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)){
             pstmt.setInt(1, ID);
              resultSet = pstmt.executeQuery();  
         } catch (SQLException e) {
