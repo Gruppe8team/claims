@@ -2,10 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -37,14 +35,21 @@
       </HBox>
       <Label styleClass="section_title" text="Recent Clients" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="340.0" />
       <Label styleClass="section_title" text="Recent Claims" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="340.0" />
-      <TableView fx:id="clients_tableview" layoutX="20.0" layoutY="375.0" prefHeight="365.0" prefWidth="300.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0">
+      <TableView id="rc" fx:id="clients_tableview" layoutX="20.0" layoutY="375.0" prefHeight="365.0" prefWidth="300.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0">
         <columns>
-          <TableColumn fx:id="id_col" prefWidth="50.0" text="ID" />
-          <TableColumn fx:id="name_col" prefWidth="125.0" text="Name" />
-            <TableColumn fx:id="email_col" prefWidth="125.0" text="Email" />
+          <TableColumn id="c" fx:id="id_col" prefWidth="50.0" text="ID" />
+          <TableColumn id="c" fx:id="name_col" prefWidth="125.0" text="Name" />
+            <TableColumn id="c" fx:id="email_col" prefWidth="125.0" text="Email" />
         </columns>
       </TableView>
-      <ListView fx:id="clm_listview" layoutX="400.0" layoutY="371.0" prefHeight="365.0" prefWidth="450.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="350.0" />
-      <ImageView fx:id="logola" fitHeight="180.0" fitWidth="215.0" layoutX="600.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+      <TableView id="rc" fx:id="clm_tableview" prefHeight="365.0" prefWidth="450.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="350.0">
+        <columns>
+            <TableColumn id="c" fx:id="clm_col" prefWidth="90.0" text="ClaimID" />
+          <TableColumn id="c" fx:id="client_col" prefWidth="90.0" text="ClientID" />
+          <TableColumn id="c" fx:id="damage_col" prefWidth="90.0" text="Damage" />
+            <TableColumn id="c" fx:id="datefiled_col" prefWidth="90.0" text="Date Filed" />
+            <TableColumn id="c" fx:id="status_col" prefWidth="90.0" text="Status" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

@@ -65,11 +65,15 @@ public class ClaimsDatabaseDriver {
         return resultSet;
     }
 
-    public ResultSet searchCustomerByAdvisorID() {
+    public ResultSet searchCustomerByAdvisorID(int ID) {
+        String sql = "SELECT DISTINCT Customers.* " +
+                 "FROM Customers " +
+                 "JOIN Claims ON Customers.ClientID = Claims.ClientID " +
+                 "WHERE Claims.AdvisorID = ?";
         ResultSet resultSet = null;
-        // Use try-with-resources to ensure proper closure of resources
-        try (PreparedStatement preparedStatement = this.conn.prepareStatement("SELECT * FROM Customers")) {
-            resultSet = preparedStatement.executeQuery();
+        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)){
+            pstmt.setInt(1, ID);
+             resultSet = pstmt.executeQuery();  
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -228,12 +232,24 @@ public class ClaimsDatabaseDriver {
         return resultSet;
     }
     
-    public ResultSet getClaimDetails(int claimID){
+    public ResultSet getClaimDetailsByClient(int clientID){
         Statement statement;
         ResultSet resultSet = null;
         try {
             statement = this.conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Claims WHERE ClaimID="+claimID+";");  
+            resultSet = statement.executeQuery("SELECT * FROM Claims WHERE ClientID="+clientID+";");  
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public ResultSet getClaimDetailsByAdvisor(int advisorID){
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Claims WHERE AdvisorID="+advisorID+";");  
         } catch (SQLException e) {
             e.printStackTrace();
         }

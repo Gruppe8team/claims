@@ -1,5 +1,7 @@
 package claims.models;
 
+import java.time.LocalDate;
+
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
@@ -19,8 +21,8 @@ public class Advisor extends User {
                 
         }
 
-	public Advisor(int userID, String username, String passwordKey, String firstName, String lastName, String email) {
-                super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
+	public Advisor(int userID, String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, LocalDate dateOfBirth) {
+                super(userID, username, passwordKey, firstName, lastName, email, address, phoneNumber, gender, dateOfBirth); // Call superclass constructor
                 this.clients = new SimpleListProperty<Customer>();
                 this.claims = new SimpleListProperty<Claims>();
 	}

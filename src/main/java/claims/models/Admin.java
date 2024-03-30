@@ -1,6 +1,8 @@
 
 package claims.models;
 
+import java.time.LocalDate;
+
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
@@ -19,8 +21,8 @@ public class Admin extends User  {
     }
 
     // Constructor with parameters
-    public Admin(int userID, String username, String passwordKey, String firstName, String lastName, String email, boolean isActive) {
-        super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
+    public Admin(int userID, String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, LocalDate dateOfBirth, boolean isActive) {
+        super(userID, username, passwordKey, firstName, lastName, email, address, phoneNumber, gender, dateOfBirth); // Call superclass constructor
         this.isActive = new SimpleBooleanProperty(this, "isActive", isActive);
     }
 

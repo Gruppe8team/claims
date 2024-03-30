@@ -39,7 +39,7 @@
         <columns>
           <TableColumn id="c" fx:id="claimID_col" prefWidth="142.5" text="ClaimID" />
           <TableColumn id="c" fx:id="damage_col" prefWidth="142.5" text="Damage" />
-            <TableColumn id="c" fx:id="datefilled_col" prefWidth="142.5" text="Date Filled" />
+            <TableColumn id="c" fx:id="datefilled_col" prefWidth="142.5" text="Date Filed" />
             <TableColumn id="c" fx:id="status_col" prefWidth="142.5" text="Status" />
         </columns>
       </TableView>
