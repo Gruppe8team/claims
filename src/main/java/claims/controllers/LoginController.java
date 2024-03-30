@@ -102,6 +102,9 @@ public class LoginController implements Initializable {
         }
 
     }
+    
+
+
 
     public void onRegister() {
         Stage stage = (Stage) Button_SignIn.getScene().getWindow();

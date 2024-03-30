@@ -24,17 +24,14 @@ public class AdminMenuController implements Initializable {
 	@FXML
 	private Button advisors_btn;
 
-    @FXML
-    private Button claims_btn;
 
     @FXML
-    private Button policy_btn;
+    private Button policies_btn;
 	
 	@FXML
 	private Button logout_btn;
 
-    @FXML
-    private ImageView zapad;
+
 	
 	@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -46,8 +43,7 @@ public class AdminMenuController implements Initializable {
         home_btn.setOnAction(event -> onHome());
         customers_btn.setOnAction(event -> onCustomers());
         advisors_btn.setOnAction(event -> onAdvisors());
-        claims_btn.setOnAction(event -> onClaims());
-        policy_btn.setOnAction(event -> onPolicy());
+        policies_btn.setOnAction(event -> onPolicy());
         logout_btn.setOnAction(event -> onLogout());
     }
 
@@ -73,7 +69,7 @@ public class AdminMenuController implements Initializable {
 
     private void image() {
         Image image = new Image(getClass().getResourceAsStream("/claims/fxml/logoV3.png"));
-        this.zapad.setImage(image);
+        this.vostok.setImage(image);
     }
 
     private void onLogout() {
