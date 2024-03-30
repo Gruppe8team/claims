@@ -35,14 +35,14 @@
       </HBox>
       <Label styleClass="section_title" text="Recent Clients" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="340.0" />
       <Label styleClass="section_title" text="Recent Claims" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="340.0" />
-      <TableView fx:id="clients_tableview" layoutX="20.0" layoutY="375.0" prefHeight="365.0" prefWidth="300.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0">
+      <TableView id="rc" fx:id="clients_tableview" layoutX="20.0" layoutY="375.0" prefHeight="365.0" prefWidth="300.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0">
         <columns>
           <TableColumn id="c" fx:id="id_col" prefWidth="50.0" text="ID" />
           <TableColumn id="c" fx:id="name_col" prefWidth="125.0" text="Name" />
             <TableColumn id="c" fx:id="email_col" prefWidth="125.0" text="Email" />
         </columns>
       </TableView>
-      <TableView fx:id="clm_tableview" prefHeight="365.0" prefWidth="450.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="350.0">
+      <TableView id="rc" fx:id="clm_tableview" prefHeight="365.0" prefWidth="450.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="350.0">
         <columns>
             <TableColumn id="c" fx:id="clm_col" prefWidth="90.0" text="ClaimID" />
           <TableColumn id="c" fx:id="client_col" prefWidth="90.0" text="ClientID" />
