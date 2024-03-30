@@ -96,7 +96,7 @@ public class HomeController implements Initializable {
         datefilled_col.setCellValueFactory(cellData -> cellData.getValue().dateFiledProperty());
         status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
 
-        Platform.runLater(() -> claims_tbl.setItems(Model.getInstance().getClaims(Model.getInstance().getCustomer().getUserID())));
+        Platform.runLater(() -> claims_tbl.setItems(Model.getInstance().getClaimsByClient(Model.getInstance().getCustomer().getUserID())));
     }
 
 }

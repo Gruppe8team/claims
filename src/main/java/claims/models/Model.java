@@ -109,9 +109,10 @@ public class Model {
     }
 
 
-    public ObservableList<Customer> getCustomers() {
+
+    public ObservableList<Customer> getCustomersByAdvisor(int ID) {
         ObservableList<Customer> customers = FXCollections.observableArrayList();
-        ResultSet resultSet = ClaimsDatabaseDriver.searchCustomerByAdvisorID();
+        ResultSet resultSet = ClaimsDatabaseDriver.searchCustomerByAdvisorID(ID);
         try {
             while (resultSet.isBeforeFirst()) {
                 Customer customer = new Customer();
@@ -125,7 +126,6 @@ public class Model {
                 this.customer.setGender(resultSet.getString("Sex"));
                 this.customer.setAge(resultSet.getInt("Age"));
                 this.customer.setPassword(resultSet.getString("Password"));
-
                 customers.add(customer);
             }
         } catch (SQLException e) {
@@ -139,12 +139,12 @@ public class Model {
                 }
             }
         }
-        return customers;    
+        return customers;
     }
 
-    public ObservableList<Claims> getClaims(int clientID) {
+    public ObservableList<Claims> getClaimsByClient(int ID) {
         ObservableList<Claims> claims = FXCollections.observableArrayList();
-        ResultSet resultSet = ClaimsDatabaseDriver.getClaimDetails(clientID);
+        ResultSet resultSet = ClaimsDatabaseDriver.getClaimDetailsByClient(ID);
         try {
             while (resultSet.next()) {
                 Claims claim = new Claims();
@@ -174,9 +174,43 @@ public class Model {
                     }
                 }
             }
-            return claims;
-        }
-        
+            return claims;    
+    }
+
+    public ObservableList<Claims> getClaimsByAdvisor(int ID) {
+        ObservableList<Claims> claims = FXCollections.observableArrayList();
+        ResultSet resultSet = ClaimsDatabaseDriver.getClaimDetailsByAdvisor(ID);
+        try {
+            while (resultSet.next()) {
+                Claims claim = new Claims();
+                claim.setClaimID(resultSet.getInt("ClaimID"));
+                claim.setClientID(resultSet.getInt("ClientID"));
+                claim.setAdvisorID(resultSet.getInt("AdvisorID"));
+                claim.setPolicyID(resultSet.getInt("PolicyID"));
+                claim.setClaimStatus(resultSet.getString("ClaimStatus"));
+                claim.setAtFault(resultSet.getBoolean("At_Fault"));
+                claim.setDateFiled(resultSet.getString("DateFiled"));
+                claim.setAccidentTime(resultSet.getString("Accident_Time"));
+                claim.setDamage(resultSet.getString("Damage"));
+                claim.setDescription(resultSet.getString("Description"));
+                claim.setPayInfo(resultSet.getString("PayInfo"));
+                claim.setClosureCond(resultSet.getString("ClosureCond"));
+                claim.setClosed(resultSet.getBoolean("Closed"));
+                claims.add(claim);
+            }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                if (resultSet != null) {
+                    try {
+                        resultSet.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return claims;    
+    }
 
 
     public ObservableList<Customer> getCustomerList() {

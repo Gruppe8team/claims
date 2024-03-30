@@ -1,5 +1,8 @@
 package tests;
 import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.LocalDate;
+
 import org.junit.jupiter.api.Test;
 import claims.models.Advisor;
 public class AdvisorTest{
@@ -13,7 +16,7 @@ public class AdvisorTest{
 
 
 	//create a new advisor for testing
-	Advisor jaye = new Advisor(userID, username, passwordKey, firstName, lastName, email);
+	Advisor jaye = new Advisor(userID, username, passwordKey, firstName, lastName, email, "address", "1234567890", "Male", LocalDate.of(1990, 10, 10));
 	
 	String expectedToString = "Advisor{" +
             "userID=" + userID +

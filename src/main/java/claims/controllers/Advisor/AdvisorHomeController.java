@@ -9,6 +9,7 @@ import claims.models.Model;
 import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.models.Claims;
 import claims.models.Customer;
+import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -99,18 +100,18 @@ public class AdvisorHomeController implements Initializable {
     }
 
     public void initializeTableColumns() {
-        id_col.setCellValueFactory(cellData -> cellData.getValue().idProperty());
-        name_col.setCellValueFactory();
-        email_col.setCellValueFactory();
+        id_col.setCellValueFactory(cellData -> cellData.getValue().userIDProperty());
+        name_col.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
+        email_col.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
 
-        client_col.setCellFactory(null);
-        clm_col.setCellFactory(null);
-        damage_col.setCellFactory(null);
-        datefiled_col.setCellFactory(null);
-        status_col.setCellFactory(null);
+        client_col.setCellValueFactory(cellData -> cellData.getValue().clientIDProperty());
+        clm_col.setCellValueFactory(cellData -> cellData.getValue().claimIDProperty());
+        damage_col.setCellValueFactory(cellData -> cellData.getValue().damageProperty());
+        datefiled_col.setCellValueFactory(cellData -> cellData.getValue().dateFiledProperty());
+        status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
 
-        clients_tableview.setItems();
-        clm_tableview.setItems();
+        Platform.runLater(() -> clients_tableview.setItems(Model.getInstance().getCustomersByAdvisor(Model.getInstance().getAdvisor().getUserID())));
+        Platform.runLater(() -> clm_tableview.setItems(Model.getInstance().getClaimsByAdvisor(Model.getInstance().getAdvisor().getUserID())));
     }
 
     

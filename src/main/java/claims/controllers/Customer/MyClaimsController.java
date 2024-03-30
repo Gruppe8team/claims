@@ -108,6 +108,6 @@ public class MyClaimsController implements Initializable {
         timeofac_col.setCellValueFactory(cellData -> cellData.getValue().accidentTimeProperty());
 
 
-        Platform.runLater(() -> clm_table.setItems(Model.getInstance().getClaims(Model.getInstance().getCustomer().getUserID())));
+        Platform.runLater(() -> clm_table.setItems(Model.getInstance().getClaimsByClient(Model.getInstance().getCustomer().getUserID())));
     }
 }
