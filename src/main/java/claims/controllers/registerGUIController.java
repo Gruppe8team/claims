@@ -112,7 +112,7 @@ public class registerGUIController implements Initializable {
     
             // If passwords match and age is >= 18, proceed with account creation
             switch (Model.getInstance().getViewFactory().getSelectedAccountType()) {
-                case AccountType.CUSTOMER:
+                case CUSTOMER:
                     ClaimsDatabaseDriver.getInstance().addCustomer(
                         textfield_username.getText(), 
                         password_field.getText(), 
@@ -127,7 +127,7 @@ public class registerGUIController implements Initializable {
                     );
                     break;
     
-                case AccountType.ADVISOR:
+                case ADVISOR:
                     if (!textfield_administrative_code.getText().equals("advisor")) {
                         showErrorAlert("Invalid administrative code for advisor.");
                         return;
@@ -145,7 +145,7 @@ public class registerGUIController implements Initializable {
                     );
                     break;
     
-                case AccountType.ADMIN:
+                case ADMIN:
                     if (!textfield_administrative_code.getText().equals("admin")) {
                         showErrorAlert("Invalid administrative code for admin.");
                         return;
