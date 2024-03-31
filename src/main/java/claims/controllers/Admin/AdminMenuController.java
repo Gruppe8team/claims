@@ -23,10 +23,6 @@ public class AdminMenuController implements Initializable {
     private ImageView vostok;
 	@FXML
 	private Button advisors_btn;
-
-
-    @FXML
-    private Button policies_btn;
 	
 	@FXML
 	private Button logout_btn;
