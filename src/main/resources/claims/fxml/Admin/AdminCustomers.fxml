@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="customers_container" stylesheets="@../../style/AdminCustomers.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="customers_container" stylesheets="@../../style/AdminCustomers.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="USER DATA and ADMINISTRATIVE VIEW" wrappingWidth="467.3390655517578" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <ListView fx:id="customers_listview" prefHeight="650.0" prefWidth="800.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0" />
+      <Text fill="#f50000" strokeType="OUTSIDE" strokeWidth="0.0" text="USER DATA and ADMINISTRATIVE VIEW" wrappingWidth="467.3390655517578" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Text>
+      <TableView fx:id="clm_table" layoutX="20.0" layoutY="158.0" prefHeight="435.0" prefWidth="810.0" styleClass="table" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="158.0">
+         <columns>
+            <TableColumn id="c" fx:id="claimID_col" prefWidth="55.0" text="UserID" />
+            <TableColumn id="c" fx:id="damage_col" prefWidth="124.0" text="Username" />
+            <TableColumn id="c" fx:id="timeofac_col" prefWidth="133.0" text="Password" />
+            <TableColumn id="c" fx:id="totalled_col" prefWidth="108.0" text="Email" />
+            <TableColumn id="c" fx:id="atfault_col" prefWidth="130.0" text="Email" />
+            <TableColumn id="c" fx:id="datefilled_col" prefWidth="140.0" text="Date Filled" />
+            <TableColumn id="c" fx:id="status_col" prefWidth="120.0" text="Notes" />
+         </columns>
+      </TableView>
+      <Text layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This menu allows the user to be able to manage and track and delete user information" wrappingWidth="467.3390655517578">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
