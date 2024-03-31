@@ -41,6 +41,7 @@ public class AdminHomeController implements Initializable {
         acc_gender.setText("Gender: " + Model.getInstance().getAdmin().getGender());
         acc_email.setText("Email: " + Model.getInstance().getAdmin().getEmail());
         acc_phonenumber.setText("Phone: " + Model.getInstance().getAdmin().getPhoneNumber());
+        acc_dob.setText("DoB:" + Model.getInstance().getAdmin().getDateOfBirth());
     }
 
     private void initializeTableColumns() {
