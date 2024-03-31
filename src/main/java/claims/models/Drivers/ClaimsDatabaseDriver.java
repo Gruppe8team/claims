@@ -190,6 +190,32 @@ public class ClaimsDatabaseDriver {
     // public void registerClaim(String )
 
     //Advisor Section
+
+    public void updateAdvisor(String username, String password, String firstName, String lastName, String DOB, String sex, String email, String phone, String address, int advisorId) {
+        String sql = "UPDATE Advisors SET Username=?, Password=?, FirstName=?, LastName=?, " +
+        "DOB=?, Sex=?, Email=?, Phone=?, Address=? WHERE AdvisorID=?";
+        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            pstmt.setString(3, firstName);
+            pstmt.setString(4, lastName);
+            pstmt.setString(5, DOB);
+            pstmt.setString(6, sex);
+            pstmt.setString(7, email);
+            pstmt.setString(8, phone);
+            pstmt.setString(9, address);
+            pstmt.setInt(10, advisorId);
+            int affectedRows = pstmt.executeUpdate();
+            
+            if (affectedRows > 0) {
+                System.out.println("Update successful.");
+            } else {
+                System.out.println("Update failed. No rows affected.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     
     public void addAdvisor(NewUser user) {
 

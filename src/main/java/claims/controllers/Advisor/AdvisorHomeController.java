@@ -7,6 +7,8 @@ import java.util.ResourceBundle;
 
 import claims.models.Model;
 import claims.models.Drivers.ClaimsDatabaseDriver;
+import claims.views.AdvisorMenuOptions;
+import claims.views.CustomerMenuOptions;
 import claims.models.Claims;
 import claims.models.Customer;
 import javafx.application.Platform;
@@ -96,7 +98,22 @@ public class AdvisorHomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         initializeTableColumns();
+        init();
+        btn_edit.setOnAction(event -> onEdit());
+    }
 
+    private void onEdit() {
+        Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.EDIT);
+    }
+
+    public void init() {
+        acc_name.setText(Model.getInstance().getAdvisor().getFirstName() + " "
+                + Model.getInstance().getAdvisor().getLastName());
+        hi_lbl.setText("Welcome, " + Model.getInstance().getAdvisor().getFirstName());
+        acc_gender.setText("Gender: " + Model.getInstance().getAdvisor().getGender());
+        acc_dob.setText("DOB: " + Model.getInstance().getAdvisor().getDateOfBirth());
+        acc_email.setText("Email: " + Model.getInstance().getAdvisor().getEmail());
+        acc_phonenumber.setText("Phone: " + Model.getInstance().getAdvisor().getPhoneNumber());
     }
 
     public void initializeTableColumns() {

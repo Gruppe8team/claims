@@ -87,7 +87,7 @@ public class EditController {
                 + Model.getInstance().getCustomer().getLastName());
         username_lbl.setText("Hi, " + Model.getInstance().getCustomer().getFirstName());
         gender_lbl.setText("Gender: " + Model.getInstance().getCustomer().getGender());
-        dob_lbl.setText("DOB: " + Model.getInstance().getCustomer().getAge());
+        dob_lbl.setText("Age: " + Model.getInstance().getCustomer().getAge());
         email_lbl.setText("Email: " + Model.getInstance().getCustomer().getEmail());
         phone_lbl.setText("Phone #: " + Model.getInstance().getCustomer().getPhoneNumber());
 
