@@ -17,7 +17,7 @@ public class AdminClaimsController implements Initializable {
         changelog.setEditable(false);
         loadChangeLogFile();
     }
-
+//
     private void loadChangeLogFile() {
         String filePath = "src/main/resources/claims/changelog.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
