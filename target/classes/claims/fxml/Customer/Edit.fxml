@@ -35,7 +35,7 @@
         </HBox>
 
         <Text layoutX="20.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Editing My Account" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="340.0" />
-      <VBox layoutX="20.0" layoutY="361.0" prefHeight="365.0" prefWidth="570.0" styleClass="edit_view" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="20.0">
+      <VBox layoutX="20.0" layoutY="361.0" prefHeight="365.0" prefWidth="570.0" styleClass="edit_view" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0">
          <children>
                   <Button fx:id="delete_btn" mnemonicParsing="false" styleClass="delete" text="Delete My Account" />
 
