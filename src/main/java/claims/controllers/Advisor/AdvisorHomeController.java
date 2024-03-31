@@ -100,18 +100,18 @@ public class AdvisorHomeController implements Initializable {
     }
 
     public void initializeTableColumns() {
-        id_col.setCellValueFactory(cellData -> cellData.getValue().userIDProperty());
-        name_col.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
-        email_col.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
+        //id_col.setCellValueFactory(cellData -> cellData.getValue().userIDProperty());
+        //name_col.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
+        //email_col.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
 
-        client_col.setCellValueFactory(cellData -> cellData.getValue().clientIDProperty());
-        clm_col.setCellValueFactory(cellData -> cellData.getValue().claimIDProperty());
-        damage_col.setCellValueFactory(cellData -> cellData.getValue().damageProperty());
-        datefiled_col.setCellValueFactory(cellData -> cellData.getValue().dateFiledProperty());
-        status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
+        //client_col.setCellValueFactory(cellData -> cellData.getValue().clientIDProperty());
+        //clm_col.setCellValueFactory(cellData -> cellData.getValue().claimIDProperty());
+        //damage_col.setCellValueFactory(cellData -> cellData.getValue().damageProperty());
+        //datefiled_col.setCellValueFactory(cellData -> cellData.getValue().dateFiledProperty());
+       // status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
 
-        Platform.runLater(() -> clients_tableview.setItems(Model.getInstance().getCustomersByAdvisor(Model.getInstance().getAdvisor().getUserID())));
-        Platform.runLater(() -> clm_tableview.setItems(Model.getInstance().getClaimsByAdvisor(Model.getInstance().getAdvisor().getUserID())));
+        //Platform.runLater(() -> clients_tableview.setItems(Model.getInstance().getCustomersByAdvisor(Model.getInstance().getAdvisor().getUserID())));
+        //Platform.runLater(() -> clm_tableview.setItems(Model.getInstance().getClaimsByAdvisor(Model.getInstance().getAdvisor().getUserID())));
     }
 
     
