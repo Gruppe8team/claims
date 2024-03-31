@@ -39,7 +39,6 @@
 
 .checkbox {
     -fx-background-radius: 0;
-    -fx-pref-width: 80;
     -fx-pref-height:20;
     -fx-background-color:#FFFFFF;
     background-color: #FFFFFF;

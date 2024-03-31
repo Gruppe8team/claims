@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 public class ViewFactory {
     private AccountType loginAccountType;
+    private AccountType selectedAccountType;
 
     //Customer Views
     private final ObjectProperty<CustomerMenuOptions> customerSelectedMenuItem;
@@ -35,6 +36,7 @@ public class ViewFactory {
     private AnchorPane adminPolicyView;
 
     public ViewFactory(){
+        this.selectedAccountType = AccountType.CUSTOMER;
         this.loginAccountType = AccountType.CUSTOMER;
         this.customerSelectedMenuItem = new SimpleObjectProperty<>();
         this.advisorSelectedMenuItem = new SimpleObjectProperty<>();
@@ -45,8 +47,16 @@ public class ViewFactory {
         return loginAccountType;
     }
 
+    public AccountType getSelectedAccountType() {
+        return selectedAccountType;
+    }
+
     public void setLoginAccountType(AccountType accountType) {
         this.loginAccountType = accountType;
+    }
+
+    public void setSelectedAccountType(AccountType accountType) {
+        this.selectedAccountType = accountType;
     }
 
     public ObjectProperty<CustomerMenuOptions> getCustomerSelectedMenuItem() {

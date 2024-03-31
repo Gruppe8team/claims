@@ -1,6 +1,7 @@
 package claims.models.Drivers;
 
 import java.sql.Statement;
+import java.time.LocalDate;
 
 import claims.models.Customer;
 import claims.models.NewUser;
@@ -35,23 +36,81 @@ public class ClaimsDatabaseDriver {
     
     
     
-    public void addCustomer(NewUser user) {
+    public void addCustomer(String username, String password, String firstName, String lastName, int age, String sex, String email, String phone, String address, String DOB) {
+        String sql = "INSERT INTO Customers (Username, Password, FirstName, LastName, Age, Sex, Email, Phone, Address, DOB) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                     try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+                        pstmt.setString(1, username);
+                        pstmt.setString(2, password);
+                        pstmt.setString(3, firstName);
+                        pstmt.setString(4, lastName);
+                        pstmt.setInt(5, age);
+                        pstmt.setString(6, sex);
+                        pstmt.setString(7, email);
+                        pstmt.setString(8, phone);
+                        pstmt.setString(9, address);
+                        pstmt.setString(10, DOB);
+                        int affectedRows = pstmt.executeUpdate();
+                        
+                        if (affectedRows > 0) {
+                            System.out.println("Update successful.");
+                        } else {
+                            System.out.println("Update failed. No rows affected.");
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+	}
 
-    	String sql = "INSERT INTO Customers"
-				+ "(Username, Password, Firstname, Lastname, Age,Sex,Email,Phone,Address)\r\n"
-				+ "VALUES ('"+user.getUsername()+"', '"+user.getPasswordKey()+"', '"+user.getFirstName()+"', '"+user.getLastName()+"',"
-						+ " '"+user.getAge()+"', '"+user.getGender()+"', '"+user.getEmail()+"', "+user.getPhone()+", '"+user.getAddr()+"')";
-    	
-		
-		try {
-			Statement st = conn.createStatement();
-			int rs = st.executeUpdate(sql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
+    public void addAdvisor(String username, String password, String firstName, String lastName, String sex, String email, String phone, String address, String DOB) {
+        String sql = "INSERT INTO Advisors (Username, Password, FirstName, LastName, Sex, Email, Phone, Address, DOB) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                     try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+                        pstmt.setString(1, username);
+                        pstmt.setString(2, password);
+                        pstmt.setString(3, firstName);
+                        pstmt.setString(4, lastName);
+                        pstmt.setString(5, sex);
+                        pstmt.setString(6, email);
+                        pstmt.setString(7, phone);
+                        pstmt.setString(8, address);
+                        pstmt.setString(9, DOB);
+                        int affectedRows = pstmt.executeUpdate();
+                        
+                        if (affectedRows > 0) {
+                            System.out.println("Update successful.");
+                        } else {
+                            System.out.println("Update failed. No rows affected.");
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
 	}
  
+    public void addAdmin(String username, String password, String firstName, String lastName, String sex, String email, String phone, String address, String DOB) {
+        String sql = "INSERT INTO Admins (Username, Password, FirstName, LastName, Sex, Email, Phone, Address, DOB) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                     try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+                        pstmt.setString(1, username);
+                        pstmt.setString(2, password);
+                        pstmt.setString(3, firstName);
+                        pstmt.setString(4, lastName);
+                        pstmt.setString(5, sex);
+                        pstmt.setString(6, email);
+                        pstmt.setString(7, phone);
+                        pstmt.setString(8, address);
+                        pstmt.setString(9, DOB);
+                        int affectedRows = pstmt.executeUpdate();
+                        
+                        if (affectedRows > 0) {
+                            System.out.println("Update successful.");
+                        } else {
+                            System.out.println("Update failed. No rows affected.");
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+	}
     
     public ResultSet searchAllCustomers(){
         Statement statement;

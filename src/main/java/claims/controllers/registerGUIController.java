@@ -5,6 +5,7 @@ import java.net.URL;
 import claims.models.Model;
 import claims.models.NewUser;
 import claims.models.Drivers.ClaimsDatabaseDriver;
+import claims.views.AccountType;
 import databases.UserDatabase;
 
 import java.sql.*;
@@ -12,6 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 import claims.userDAO;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -33,16 +35,13 @@ public class registerGUIController implements Initializable {
     private Button Button_Confirm;
 
     @FXML
-    private ChoiceBox<String> selector = new ChoiceBox<>();
+    private ChoiceBox<String> selector;
 
     @FXML
-    private ChoiceBox<String> zapad = new ChoiceBox<>();
+    private ChoiceBox<AccountType> zapad;
 
     @FXML
     private TextField text_field_address;
-
-    @FXML
-    private TextField text_field_age;
 
     @FXML
     private PasswordField confirm_password_field;
@@ -71,32 +70,16 @@ public class registerGUIController implements Initializable {
     @FXML
     private TextField textfield_administrative_code;
 
-    private String[] gender = {"Male", "Female", "BTR-80", "Finger", "Walrusian", "Neither"};
-
-    private String[] typeOfUser = {"Admin", "Customer", "Advisor"};
-
-    private static String dob;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Button_Cancel.setOnAction(event -> onCancel());
-        Button_Confirm.setOnAction(event -> {
-			try {
-				onConfirm();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		});
-        selector.getItems().addAll(gender);
-        zapad.getItems().addAll(typeOfUser);
-
-//Jaye's
-        text_field_dob.valueProperty().addListener((obs, oldVal, newVal) -> {
-            System.out.println("Selected date: " + newVal);
-            dob = newVal.toString();
-        });
-//Jaye's
+        Button_Confirm.setOnAction(event -> onConfirm());
+        selector.setItems(FXCollections.observableArrayList("Male", "Female","Other"));
+        selector.setValue("Male");
+        zapad.setItems(FXCollections.observableArrayList(AccountType.CUSTOMER, AccountType.ADVISOR, AccountType.ADMIN));
+        zapad.setValue(Model.getInstance().getViewFactory().getSelectedAccountType());
+        zapad.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setSelectedAccountType(zapad.getValue()));
     }
 
     //cancel button functionality
@@ -107,216 +90,237 @@ public class registerGUIController implements Initializable {
     }
 
     //confirmation button functionality
-    public void onConfirm() throws SQLException{
-
-        //name details
-        String first = textfield_firstname.getText();
-        String last = text_field_lastname.getText();
-
-        //information
-        String email = textfield_email.getText();
-        String phone = text_field_phonenumber.getText();
-        String pass = password_field.getText();
-        String confirm = confirm_password_field.getText();
-        String address = text_field_address.getText();
-        String gender = selector.getValue();
-        String username = textfield_username.getText();
-
-        //Age Sections
-        String age = text_field_age.getText();
-        String birth = text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        int providedAge = Integer.parseInt(age);
-
-
-        //administrative parts
-        String adminPass = textfield_administrative_code.getText();
-        String userType =  zapad.getValue();
-        LocalDate birthDate = LocalDate.parse(birth);
-        LocalDate today = LocalDate.now();
-        Period agePeriod = Period.between(birthDate, today);
-        int calculatedAge = agePeriod.getYears();
-
-
-
-        //user selector sections
-        switch(userType) {
-        	case "Admin":
-        		// Admin pass sector reformatted
-        		if (pass.equals(confirm) && adminPass.equals("3131vTg6")&& adminPass.equals("4N3g1UR0") && (providedAge == calculatedAge) && (calculatedAge >= 18)) {
-        			registerAdmin(username,pass,first,last,age,gender,email,phone,address,birth);
-        		}else {
-       			 Model.getInstance().getViewFactory().showRegisterErrorWindow();
-                 confirm_password_field.clear();
-                 password_field.clear();
-                 textfield_administrative_code.clear();
-        		}
-        		break;
-        		
-        	case "Advisor":
-                adminPass = "NULL";
-                if (pass.equals(confirm) && adminPass.equals("NULL") && (providedAge == calculatedAge) && (calculatedAge >= 18)) {
-        			registerAdvisor(username,pass,first,last,age,gender,email,phone,address,birth);
-        		}else {
-       			 Model.getInstance().getViewFactory().showRegisterErrorWindow();
-                 confirm_password_field.clear();
-                 password_field.clear();
-                 textfield_administrative_code.clear();
-        		}
-        		
-        		break;
-        		
-        	case "Customer":
-                adminPass = "NULL";
-                if (pass.equals(confirm) && adminPass.equals("NULL") && (providedAge == calculatedAge) && (calculatedAge >= 18)){
-        			registerCustomer(username,pass,first,last,age,gender,email,phone,address,birth);
-        		}
-        		else {
-        			 Model.getInstance().getViewFactory().showRegisterErrorWindow();
-                     confirm_password_field.clear();
-                     password_field.clear();
-                     textfield_administrative_code.clear();
-        		}
-        		break;
-        	default:
-        		 Model.getInstance().getViewFactory().showRegisterErrorWindow();
-                 confirm_password_field.clear();
-                 password_field.clear();
-                 textfield_administrative_code.clear();
-                 break;
-        }   
-
+    public void onConfirm() {
+        int age = Period.between(text_field_dob.getValue(), LocalDate.now()).getYears();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText("Save Account");
+        alert.setContentText("Are you sure you want to save this account?");
+        ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+    
+        if (result == ButtonType.OK) {
+            if (!password_field.getText().equals(confirm_password_field.getText())) {
+                // Handle password mismatch
+                showErrorAlert("The passwords do not match.");
+                return;
+            }
+            if (age < 18) {
+                // Handle underage
+                showErrorAlert("You must be at least 18 years old to register.");
+                return;
+            }
+    
+            // If passwords match and age is >= 18, proceed with account creation
+            switch (Model.getInstance().getViewFactory().getSelectedAccountType()) {
+                case AccountType.CUSTOMER:
+                    ClaimsDatabaseDriver.getInstance().addCustomer(
+                        textfield_username.getText(), 
+                        password_field.getText(), 
+                        textfield_firstname.getText(), 
+                        text_field_lastname.getText(), 
+                        age, 
+                        selector.getSelectionModel().getSelectedItem(), 
+                        textfield_email.getText(), 
+                        text_field_phonenumber.getText(), 
+                        text_field_address.getText(), 
+                        text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                    );
+                    break;
+    
+                case AccountType.ADVISOR:
+                    if (!textfield_administrative_code.getText().equals("advisor")) {
+                        showErrorAlert("Invalid administrative code for advisor.");
+                        return;
+                    }
+                    ClaimsDatabaseDriver.getInstance().addAdvisor(
+                        textfield_username.getText(), 
+                        password_field.getText(), 
+                        textfield_firstname.getText(), 
+                        text_field_lastname.getText(), 
+                        selector.getSelectionModel().getSelectedItem(), 
+                        textfield_email.getText(), 
+                        text_field_phonenumber.getText(), 
+                        text_field_address.getText(), 
+                        text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                    );
+                    break;
+    
+                case AccountType.ADMIN:
+                    if (!textfield_administrative_code.getText().equals("admin")) {
+                        showErrorAlert("Invalid administrative code for admin.");
+                        return;
+                    }
+                    ClaimsDatabaseDriver.getInstance().addAdmin(
+                        textfield_username.getText(), 
+                        password_field.getText(), 
+                        textfield_firstname.getText(), 
+                        text_field_lastname.getText(), 
+                        selector.getSelectionModel().getSelectedItem(), 
+                        textfield_email.getText(), 
+                        text_field_phonenumber.getText(), 
+                        text_field_address.getText(), 
+                        text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                    );
+                    break;
+    
+                default:
+                    showErrorAlert("Please select a valid account type.");
+                    break;
+            }
+        }
+        // Close the current stage and open the login window
+        closeAndOpenLogin();
     }
     
-    //registers administrator details
-    public void registerAdmin(String username, String password, String firstName, String lastName, 
-			String age, String gender, String email, String phone, String address, String birthDate) {
-    	
-    	try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText("Save Account");
-            alert.setContentText("Are you sure you want to Save this account?");
-            ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-            if (result == ButtonType.OK) {
-                try {
-                    NewUser newUser = new NewUser();
-                    newUser.setUsername(username);
-                    newUser.setPasswordKey(password);
-                    newUser.setFirstName(firstName);
-                    newUser.setLastName(lastName);
-                    newUser.setAge(age);
-                    newUser.setGender(gender);
-                    newUser.setEmail(email);
-                    newUser.setPhone(phone);
-                    newUser.setAddr(address);
-                    newUser.setDob(birthDate);
-                    ClaimsDatabaseDriver.getInstance().addAdmin(newUser);
-                }catch (Exception e) {
-                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                    alert1.setTitle("Oh balls");
-                    alert1.setHeaderText("CRITICAL ERROR");
-                    alert1.setContentText("Something Went Wrong");
-                    e.printStackTrace();
-                }
-            }
-            Stage stage = (Stage) Button_Confirm.getScene().getWindow();
-            Model.getInstance().getViewFactory().closeStage(stage);
-            Model.getInstance().getViewFactory().showLoginWindow();
-            }catch (Exception e) {
-            Alert alert1 = new Alert(Alert.AlertType.ERROR);
-            alert1.setTitle("Oh balls");
-            alert1.setHeaderText("CRITICAL ERROR");
-            alert1.setContentText("Something Went Wrong");
-            e.printStackTrace();
-        }
-    	
+    private void showErrorAlert(String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Register Error");
+        alert.setHeaderText("Invalid Credentials");
+        alert.setContentText(content);
+        alert.showAndWait();
+        confirm_password_field.clear();
+        password_field.clear();
+        textfield_administrative_code.clear();
     }
-
-    //registers advisor details
-    public void registerAdvisor(String username, String password, String firstName, String lastName, 
-			String age, String gender, String email, String phone, String address, String birthDate) {
-    	try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText("Save Account");
-            alert.setContentText("Are you sure you want to Save this account?");
-            ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-            if (result == ButtonType.OK) {
-                try {
-                    NewUser newUser = new NewUser();
-                    newUser.setUsername(username);
-                    newUser.setPasswordKey(password);
-                    newUser.setFirstName(firstName);
-                    newUser.setLastName(lastName);
-                    newUser.setAge(age);
-                    newUser.setGender(gender);
-                    newUser.setEmail(email);
-                    newUser.setPhone(phone);
-                    newUser.setAddr(address);
-                    newUser.setDob(birthDate);
-                    ClaimsDatabaseDriver.getInstance().addAdvisor(newUser);
-                }catch (Exception e) {
-                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                    alert1.setTitle("Oh balls");
-                    alert1.setHeaderText("CRITICAL ERROR");
-                    alert1.setContentText("Something Went Wrong");
-                    e.printStackTrace();
-                }
-            }
-            Stage stage = (Stage) Button_Confirm.getScene().getWindow();
-            Model.getInstance().getViewFactory().closeStage(stage);
-            Model.getInstance().getViewFactory().showLoginWindow();
-            }catch (Exception e) {
-            Alert alert1 = new Alert(Alert.AlertType.ERROR);
-            alert1.setTitle("Oh balls");
-            alert1.setHeaderText("CRITICAL ERROR");
-            alert1.setContentText("Something Went Wrong");
-            e.printStackTrace();
-        }
-    }
-
-    //registers customer details
-    public void registerCustomer(String username, String password, String firstName, String lastName, 
-    			String age, String gender, String email, String phone, String address, String birthDate) {
-
-        try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmation");
-            alert.setHeaderText("Save Account");
-            alert.setContentText("Are you sure you want to Save this account?");
-            ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-            if (result == ButtonType.OK) {
-                try {
-                    NewUser newUser = new NewUser();
-                    newUser.setUsername(username);
-                    newUser.setPasswordKey(password);
-                    newUser.setFirstName(firstName);
-                    newUser.setLastName(lastName);
-                    newUser.setAge(age);
-                    newUser.setGender(gender);
-                    newUser.setEmail(email);
-                    newUser.setPhone(phone);
-                    newUser.setAddr(address);
-                    newUser.setDob(birthDate);
-                    ClaimsDatabaseDriver.getInstance().addCustomer(newUser);
-                } catch (Exception e) {
-                    Alert alert1 = new Alert(Alert.AlertType.ERROR);
-                    alert1.setTitle("Oh balls");
-                    alert1.setHeaderText("CRITICAL ERROR");
-                    alert1.setContentText("Something Went Wrong");
-                    e.printStackTrace();
-                }
-            }
-            Stage stage = (Stage) Button_Confirm.getScene().getWindow();
-            Model.getInstance().getViewFactory().closeStage(stage);
-            Model.getInstance().getViewFactory().showLoginWindow();
-        } catch (Exception e) {
-            Alert alert1 = new Alert(Alert.AlertType.ERROR);
-            alert1.setTitle("Oh balls");
-            alert1.setHeaderText("CRITICAL ERROR");
-            alert1.setContentText("Something Went Wrong");
-            e.printStackTrace();
-        }
+    
+    private void closeAndOpenLogin() {
+        Stage stage = (Stage) Button_Confirm.getScene().getWindow();
+        Model.getInstance().getViewFactory().closeStage(stage);
+        Model.getInstance().getViewFactory().showLoginWindow(); 
     }
 }
+
+    
+    // //registers administrator details
+    // public void registerAdmin(String username, String password, String firstName, String lastName, 
+	// 		String age, String gender, String email, String phone, String address, String birthDate) {
+    	
+    // 	try {
+    //         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    //         alert.setTitle("Confirmation");
+    //         alert.setHeaderText("Save Account");
+    //         alert.setContentText("Are you sure you want to Save this account?");
+    //         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+    //         if (result == ButtonType.OK) {
+    //             try {
+    //                 NewUser newUser = new NewUser();
+    //                 newUser.setUsername(username);
+    //                 newUser.setPasswordKey(password);
+    //                 newUser.setFirstName(firstName);
+    //                 newUser.setLastName(lastName);
+    //                 newUser.setAge(age);
+    //                 newUser.setGender(gender);
+    //                 newUser.setEmail(email);
+    //                 newUser.setPhone(phone);
+    //                 newUser.setAddr(address);
+    //                 newUser.setDob(birthDate);
+    //                 ClaimsDatabaseDriver.getInstance().addAdmin(newUser);
+    //             }catch (Exception e) {
+    //                 Alert alert1 = new Alert(Alert.AlertType.ERROR);
+    //                 alert1.setTitle("Oh balls");
+    //                 alert1.setHeaderText("CRITICAL ERROR");
+    //                 alert1.setContentText("Something Went Wrong");
+    //                 e.printStackTrace();
+    //             }
+    //         }
+    //         Stage stage = (Stage) Button_Confirm.getScene().getWindow();
+    //         Model.getInstance().getViewFactory().closeStage(stage);
+    //         Model.getInstance().getViewFactory().showLoginWindow();
+    //         }catch (Exception e) {
+    //         Alert alert1 = new Alert(Alert.AlertType.ERROR);
+    //         alert1.setTitle("Oh balls");
+    //         alert1.setHeaderText("CRITICAL ERROR");
+    //         alert1.setContentText("Something Went Wrong");
+    //         e.printStackTrace();
+    //     }
+    	
+    // }
+
+    // //registers advisor details
+    // public void registerAdvisor(String username, String password, String firstName, String lastName, 
+	// 		String age, String gender, String email, String phone, String address, String birthDate) {
+    // 	try {
+    //         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    //         alert.setTitle("Confirmation");
+    //         alert.setHeaderText("Save Account");
+    //         alert.setContentText("Are you sure you want to Save this account?");
+    //         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+    //         if (result == ButtonType.OK) {
+    //             try {
+    //                 NewUser newUser = new NewUser();
+    //                 newUser.setUsername(username);
+    //                 newUser.setPasswordKey(password);
+    //                 newUser.setFirstName(firstName);
+    //                 newUser.setLastName(lastName);
+    //                 newUser.setAge(age);
+    //                 newUser.setGender(gender);
+    //                 newUser.setEmail(email);
+    //                 newUser.setPhone(phone);
+    //                 newUser.setAddr(address);
+    //                 newUser.setDob(birthDate);
+    //                 ClaimsDatabaseDriver.getInstance().addAdvisor(newUser);
+    //             }catch (Exception e) {
+    //                 Alert alert1 = new Alert(Alert.AlertType.ERROR);
+    //                 alert1.setTitle("Oh balls");
+    //                 alert1.setHeaderText("CRITICAL ERROR");
+    //                 alert1.setContentText("Something Went Wrong");
+    //                 e.printStackTrace();
+    //             }
+    //         }
+    //         Stage stage = (Stage) Button_Confirm.getScene().getWindow();
+    //         Model.getInstance().getViewFactory().closeStage(stage);
+    //         Model.getInstance().getViewFactory().showLoginWindow();
+    //         }catch (Exception e) {
+    //         Alert alert1 = new Alert(Alert.AlertType.ERROR);
+    //         alert1.setTitle("Oh balls");
+    //         alert1.setHeaderText("CRITICAL ERROR");
+    //         alert1.setContentText("Something Went Wrong");
+    //         e.printStackTrace();
+    //     }
+    // }
+
+//     //registers customer details
+//     public void registerCustomer(String username, String password, String firstName, String lastName, 
+//     			String age, String gender, String email, String phone, String address, String birthDate) {
+
+//         try {
+//             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//             alert.setTitle("Confirmation");
+//             alert.setHeaderText("Save Account");
+//             alert.setContentText("Are you sure you want to Save this account?");
+//             ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
+//             if (result == ButtonType.OK) {
+//                 try {
+//                     NewUser newUser = new NewUser();
+//                     newUser.setUsername(username);
+//                     newUser.setPasswordKey(password);
+//                     newUser.setFirstName(firstName);
+//                     newUser.setLastName(lastName);
+//                     newUser.setAge(age);
+//                     newUser.setGender(gender);
+//                     newUser.setEmail(email);
+//                     newUser.setPhone(phone);
+//                     newUser.setAddr(address);
+//                     newUser.setDob(birthDate);
+//                     ClaimsDatabaseDriver.getInstance().addCustomer(newUser);
+//                 } catch (Exception e) {
+//                     Alert alert1 = new Alert(Alert.AlertType.ERROR);
+//                     alert1.setTitle("Oh balls");
+//                     alert1.setHeaderText("CRITICAL ERROR");
+//                     alert1.setContentText("Something Went Wrong");
+//                     e.printStackTrace();
+//                 }
+//             }
+//             Stage stage = (Stage) Button_Confirm.getScene().getWindow();
+//             Model.getInstance().getViewFactory().closeStage(stage);
+//             Model.getInstance().getViewFactory().showLoginWindow();
+//         } catch (Exception e) {
+//             Alert alert1 = new Alert(Alert.AlertType.ERROR);
+//             alert1.setTitle("Oh balls");
+//             alert1.setHeaderText("CRITICAL ERROR");
+//             alert1.setContentText("Something Went Wrong");
+//             e.printStackTrace();
+//         }
+//     }
+// }
 
