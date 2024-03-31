@@ -4,12 +4,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
-import javafx.stage.FileChooser;
-
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 
 public class AdminClaimsController implements Initializable {
     @FXML
