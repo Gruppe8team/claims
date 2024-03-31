@@ -3,6 +3,8 @@ package claims.models;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+
 import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.views.AccountType;
 import claims.views.ViewFactory;
@@ -238,10 +240,13 @@ public class Model {
                 this.advisor.setFirstName(resultSet.getString("FirstName"));
                 this.advisor.setLastName(resultSet.getString("LastName"));
                 this.advisor.setUsername(resultSet.getString("Username"));
+                this.advisor.setAddress(resultSet.getString("Address"));
                 this.advisor.setEmail(resultSet.getString("Email"));
-                this.advisor.setPassword(resultSet.getString("Password"));
+                this.advisor.setPhoneNumber(resultSet.getString("Phone"));
                 this.advisor.setUserID(resultSet.getInt("AdvisorID"));
-
+                this.advisor.setGender(resultSet.getString("Sex"));
+                this.advisor.setDateOfBirth(LocalDate.parse(resultSet.getString("DOB")));
+                this.advisor.setPassword(resultSet.getString("Password"));
                 this.AdvisorLoginSuccessFlag = true;
             } 
         } catch (SQLException e) {
