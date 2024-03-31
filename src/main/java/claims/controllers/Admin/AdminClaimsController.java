@@ -4,12 +4,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
-import javafx.stage.FileChooser;
-
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 
 public class AdminClaimsController implements Initializable {
     @FXML
@@ -20,7 +17,7 @@ public class AdminClaimsController implements Initializable {
         changelog.setEditable(false);
         loadChangeLogFile();
     }
-
+//
     private void loadChangeLogFile() {
         String filePath = "src/main/resources/claims/changelog.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {

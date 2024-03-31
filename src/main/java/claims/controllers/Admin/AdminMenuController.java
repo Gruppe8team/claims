@@ -23,10 +23,6 @@ public class AdminMenuController implements Initializable {
     private ImageView vostok;
 	@FXML
 	private Button advisors_btn;
-
-
-    @FXML
-    private Button policies_btn;
 	
 	@FXML
 	private Button logout_btn;
@@ -43,7 +39,6 @@ public class AdminMenuController implements Initializable {
         home_btn.setOnAction(event -> onHome());
         customers_btn.setOnAction(event -> onCustomers());
         advisors_btn.setOnAction(event -> onClaims());
-        policies_btn.setOnAction(event -> onPolicy());
         logout_btn.setOnAction(event -> onLogout());
     }
 
