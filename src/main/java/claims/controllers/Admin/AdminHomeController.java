@@ -4,6 +4,9 @@ package claims.controllers.Admin;
 import claims.models.Model;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 
 import java.net.URL;
@@ -30,6 +33,9 @@ public class AdminHomeController implements Initializable {
 
     @FXML
     private Label acc_type;
+
+    @FXML
+    private Button btn_edit1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         init();
@@ -42,6 +48,15 @@ public class AdminHomeController implements Initializable {
         acc_email.setText("Email: " + Model.getInstance().getAdmin().getEmail());
         acc_phonenumber.setText("Phone: " + Model.getInstance().getAdmin().getPhoneNumber());
         acc_dob.setText("DoB:" + Model.getInstance().getAdmin().getDateOfBirth());
+        btn_edit1.setOnAction(event -> onEdit());
+    }
+
+    private void onEdit() {
+        Alert alert1 = new Alert(Alert.AlertType.WARNING);
+        alert1.setTitle("Administrative Warning");
+        alert1.setHeaderText("WARNING");
+        alert1.setContentText("Administrators Are Forbidden from changing their information");
+        ButtonType result = alert1.showAndWait().orElse(ButtonType.CANCEL);
     }
 
     private void initializeTableColumns() {
