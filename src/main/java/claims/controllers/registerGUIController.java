@@ -76,10 +76,10 @@ public class registerGUIController implements Initializable {
         Button_Cancel.setOnAction(event -> onCancel());
         Button_Confirm.setOnAction(event -> onConfirm());
         selector.setItems(FXCollections.observableArrayList("Male", "Female","Other"));
-        zapad.setItems(FXCollections.observableArrayList(AccountType.CUSTOMER, AccountType.ADVISOR, AccountType.ADMIN));
         selector.setValue("Male");
+        zapad.setItems(FXCollections.observableArrayList(AccountType.CUSTOMER, AccountType.ADVISOR, AccountType.ADMIN));
         zapad.setValue(Model.getInstance().getViewFactory().getSelectedAccountType());
-        zapad.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setLoginAccountType(zapad.getValue()));
+        zapad.valueProperty().addListener(observable -> Model.getInstance().getViewFactory().setSelectedAccountType(zapad.getValue()));
     }
 
     //cancel button functionality
@@ -91,71 +91,102 @@ public class registerGUIController implements Initializable {
 
     //confirmation button functionality
     public void onConfirm() {
-
-        
-        int age = (Period.between(text_field_dob.getValue(), LocalDate.now())).getYears();
-
+        int age = Period.between(text_field_dob.getValue(), LocalDate.now()).getYears();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Save Account");
         alert.setContentText("Are you sure you want to save this account?");
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-
-        if ((result == ButtonType.OK)&&(password_field.getText().equals(confirm_password_field.getText()))&&(age>=18)) {
-            //user selector sections
-            switch(Model.getInstance().getViewFactory().getSelectedAccountType()) {
+    
+        if (result == ButtonType.OK) {
+            if (!password_field.getText().equals(confirm_password_field.getText())) {
+                // Handle password mismatch
+                showErrorAlert("The passwords do not match.");
+                return;
+            }
+            if (age < 18) {
+                // Handle underage
+                showErrorAlert("You must be at least 18 years old to register.");
+                return;
+            }
+    
+            // If passwords match and age is >= 18, proceed with account creation
+            switch (Model.getInstance().getViewFactory().getSelectedAccountType()) {
                 case AccountType.CUSTOMER:
-                        ClaimsDatabaseDriver.getInstance().addCustomer(textfield_username.getText(), password_field.getText(), textfield_firstname.getText(), text_field_lastname.getText(), age, selector.getSelectionModel().getSelectedItem(), textfield_email.getText(), text_field_phonenumber.getText(), text_field_address.getText(), text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+                    ClaimsDatabaseDriver.getInstance().addCustomer(
+                        textfield_username.getText(), 
+                        password_field.getText(), 
+                        textfield_firstname.getText(), 
+                        text_field_lastname.getText(), 
+                        age, 
+                        selector.getSelectionModel().getSelectedItem(), 
+                        textfield_email.getText(), 
+                        text_field_phonenumber.getText(), 
+                        text_field_address.getText(), 
+                        text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                    );
                     break;
-                    
+    
                 case AccountType.ADVISOR:
-                    if (textfield_administrative_code.getText().equals("advisor")) {
-                        ClaimsDatabaseDriver.getInstance().addAdvisor(textfield_username.getText(), password_field.getText(), textfield_firstname.getText(), text_field_lastname.getText(), selector.getSelectionModel().getSelectedItem(), textfield_email.getText(), text_field_phonenumber.getText(), text_field_address.getText(), text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-                    } else {
-                        alert.setTitle("Register Error");
-                        alert.setHeaderText("Invalid Credentials");
-                        alert.setContentText("Please check your administrative code and try again.");
-                        alert.showAndWait();
-                        confirm_password_field.clear();
-                        password_field.clear();
-                        textfield_administrative_code.clear();
+                    if (!textfield_administrative_code.getText().equals("advisor")) {
+                        showErrorAlert("Invalid administrative code for advisor.");
+                        return;
                     }
-                    
+                    ClaimsDatabaseDriver.getInstance().addAdvisor(
+                        textfield_username.getText(), 
+                        password_field.getText(), 
+                        textfield_firstname.getText(), 
+                        text_field_lastname.getText(), 
+                        selector.getSelectionModel().getSelectedItem(), 
+                        textfield_email.getText(), 
+                        text_field_phonenumber.getText(), 
+                        text_field_address.getText(), 
+                        text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                    );
                     break;
-                    
+    
                 case AccountType.ADMIN:
-                    if (textfield_administrative_code.getText().equals("admin")){
-                        ClaimsDatabaseDriver.getInstance().addAdmin(textfield_username.getText(), password_field.getText(), textfield_firstname.getText(), text_field_lastname.getText(), selector.getSelectionModel().getSelectedItem(), textfield_email.getText(), text_field_phonenumber.getText(), text_field_address.getText(), text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-                    } else {
-                        alert.setTitle("Register Error");
-                        alert.setHeaderText("Invalid Credentials");
-                        alert.setContentText("Please check your administrative code and try again.");
-                        alert.showAndWait();
-                        confirm_password_field.clear();
-                        password_field.clear();
-                        textfield_administrative_code.clear();
+                    if (!textfield_administrative_code.getText().equals("admin")) {
+                        showErrorAlert("Invalid administrative code for admin.");
+                        return;
                     }
+                    ClaimsDatabaseDriver.getInstance().addAdmin(
+                        textfield_username.getText(), 
+                        password_field.getText(), 
+                        textfield_firstname.getText(), 
+                        text_field_lastname.getText(), 
+                        selector.getSelectionModel().getSelectedItem(), 
+                        textfield_email.getText(), 
+                        text_field_phonenumber.getText(), 
+                        text_field_address.getText(), 
+                        text_field_dob.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+                    );
                     break;
+    
                 default:
-                    alert.setTitle("Register Error");
-                    alert.setHeaderText("Invalid Credentials");
-                    alert.setContentText("Please check your account type and try again.");
-                    alert.showAndWait();
-                    confirm_password_field.clear();
-                    password_field.clear();
-                    textfield_administrative_code.clear();
+                    showErrorAlert("Please select a valid account type.");
                     break;
             }
-        } else {
-            alert.setTitle("Register Error");
-            alert.setHeaderText("Invalid Credentials");
-            alert.setContentText("Please check if your passwords match or if the date of birth is valid and try again.");
-            alert.showAndWait();
         }
+        // Close the current stage and open the login window
+        closeAndOpenLogin();
+    }
+    
+    private void showErrorAlert(String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Register Error");
+        alert.setHeaderText("Invalid Credentials");
+        alert.setContentText(content);
+        alert.showAndWait();
+        confirm_password_field.clear();
+        password_field.clear();
+        textfield_administrative_code.clear();
+    }
+    
+    private void closeAndOpenLogin() {
         Stage stage = (Stage) Button_Confirm.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showLoginWindow();    
-
+        Model.getInstance().getViewFactory().showLoginWindow(); 
     }
 }
 
