@@ -39,7 +39,6 @@ public class AdminMenuController implements Initializable {
         home_btn.setOnAction(event -> onHome());
         customers_btn.setOnAction(event -> onCustomers());
         advisors_btn.setOnAction(event -> onClaims());
-        policies_btn.setOnAction(event -> onPolicy());
         logout_btn.setOnAction(event -> onLogout());
     }
 
