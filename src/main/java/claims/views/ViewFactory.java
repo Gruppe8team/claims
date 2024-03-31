@@ -26,6 +26,7 @@ public class ViewFactory {
     private AnchorPane advisorHomeView;
     private AnchorPane advisorClaimsView;
     private AnchorPane advisorPolicyView;
+    private AnchorPane advisorEditView;
 
     //Admin Views
     private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
@@ -117,6 +118,17 @@ public class ViewFactory {
     }
 
     //Advisor Views
+    public AnchorPane getAdvisorEditView() {
+        if (advisorEditView == null){
+            try {
+                advisorEditView = new FXMLLoader(getClass().getResource("/claims/fxml/Advisor/AdvisorEdit.fxml")).load();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return advisorEditView;
+    }
+    
     public AnchorPane getAdvisorHomeView() {
         if (advisorHomeView == null){
             try {
