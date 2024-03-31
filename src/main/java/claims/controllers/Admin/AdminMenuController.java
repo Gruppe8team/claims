@@ -42,7 +42,7 @@ public class AdminMenuController implements Initializable {
 	private void addListeners() {
         home_btn.setOnAction(event -> onHome());
         customers_btn.setOnAction(event -> onCustomers());
-        advisors_btn.setOnAction(event -> onAdvisors());
+        advisors_btn.setOnAction(event -> onClaims());
         policies_btn.setOnAction(event -> onPolicy());
         logout_btn.setOnAction(event -> onLogout());
     }
@@ -53,10 +53,6 @@ public class AdminMenuController implements Initializable {
 
     private void onCustomers() {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.CUSTOMERS);
-    }
-
-    private void onAdvisors() {
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.ADVISORS);
     }
 
     private void onClaims() {

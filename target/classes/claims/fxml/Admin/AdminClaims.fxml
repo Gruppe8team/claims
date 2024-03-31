@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="850.0" stylesheets="@../../style/AdvisorHome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Admin.AdminClaimsController">
+    <children>
+        <HBox layoutX="10.0" layoutY="61.0" prefHeight="431.0" prefWidth="810.0" styleClass="accounts_view" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="61.0">
+            <children>
+                <ScrollPane fitToHeight="true" fitToWidth="true">
+                    <content>
+                        <VBox prefHeight="409.0" prefWidth="817.0" styleClass="account">
+                            <children>
+                                <TextArea fx:id="changelog" prefHeight="440.0" prefWidth="808.0" />
+                            </children>
+                        </VBox>
+                    </content>
+                </ScrollPane>
+            </children>
+        </HBox>
+        <Text layoutX="20.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Changelog">
+            <font>
+                <Font name="Consolas" size="36.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

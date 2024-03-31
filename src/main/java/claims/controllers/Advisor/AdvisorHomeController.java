@@ -108,7 +108,7 @@ public class AdvisorHomeController implements Initializable {
         clm_col.setCellValueFactory(cellData -> cellData.getValue().claimIDProperty());
         damage_col.setCellValueFactory(cellData -> cellData.getValue().damageProperty());
         datefiled_col.setCellValueFactory(cellData -> cellData.getValue().dateFiledProperty());
-        status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
+       status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
 
         Platform.runLater(() -> clients_tableview.setItems(Model.getInstance().getCustomersByAdvisor(Model.getInstance().getAdvisor().getUserID())));
         Platform.runLater(() -> clm_tableview.setItems(Model.getInstance().getClaimsByAdvisor(Model.getInstance().getAdvisor().getUserID())));
