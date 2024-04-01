@@ -1,12 +1,11 @@
 package claims.controllers.Admin;
 
+import claims.models.Customer;
 import claims.models.NewUser;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -46,8 +45,12 @@ public class AdminCustomersController implements Initializable {
 
     @FXML
     private Button abortButton;
+
+    @FXML
+    private ChoiceBox UserType;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        UserType.setItems(FXCollections.observableArrayList("Advisor", "Customer"));
         populateTableView();
     }
 
