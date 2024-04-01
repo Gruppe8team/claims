@@ -133,6 +133,10 @@ public class MyClaimsController implements Initializable {
                 showErrorAlert("The totalled checkbox must be selected.");
                 return;
             }
+            if (typeofdamage_choicebox.getValue()!= "Totalled" && totalled_checkbox.isSelected()==true) {
+                showErrorAlert("The totalled checkbox must not be selected.");
+                return;
+            }
             if (Dayofac_Datepicker.getValue()==null) {
                 showErrorAlert("The date is required.");
                 return;
