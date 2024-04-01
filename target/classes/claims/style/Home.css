@@ -1,0 +1,140 @@
+.dashboard {
+    background-color: #EEEEEE;
+}
+
+.user_name {
+    -fx-font-size: 2.6em;
+    font-size: 2.6em;
+    -fx-font-family:"Calibri Light";
+    font-family: "Calibri Light";
+}
+
+.date_lbl {
+    -fx-text-fill: #AAAAAA;
+    -fx-font-size: 1.1em;
+    font-size:1.1em;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+}
+
+.section_title {
+    -fx-font-size: 1.4em;
+    font-size: 1.4em;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+}
+
+.accounts_view {
+    -fx-background-color: #FFFFFF;
+    background-color: #FFFFFF;
+    -fx-background-radius: 10 10 10 10;
+    -fx-padding: 10 0 10 0;
+    padding: 10 0 10 0;
+    -fx-alignment: center;
+    -fx-border-width: 1 1 1 1;
+    border-width: 1 1 1 1;
+    -fx-border-radius: 10 10 10 10;
+    border-radius: 10 10 10 10;
+    -fx-border-color: #DDDDDD;
+    border-color: #DDDDDD;
+    -fx-spacing: 10;
+}
+
+.account {
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 5, 0, 0, 5);
+}
+
+.account VBox {
+    -fx-background-color: #FFFFFF;
+    background-color: #FFFFFF;
+}
+
+.account Text {
+    -fx-fill: #FFFFFF;
+    fill: #FFFFFF;
+    -fx-font-family: "Calibri Light";
+    font-family: "Calibri Light";
+    -fx-font-size: 1.5em;
+    font-size: 1.5em;
+}
+
+.account_name {
+    -fx-font-size: 1.5em;
+    font-size: 1.5em;
+}
+
+.account_important {
+    -fx-font-size: 1.1em;
+    font-size: 1.1em;
+}
+
+.account Button {
+    -fx-background-radius: 3;
+    -fx-pref-width: 50;
+    -fx-pref-height:20;
+    -fx-background-color:rgb(223, 223, 223);
+    background-color: rgb(223, 223, 223);
+    -fx-text-fill: #000000;
+    -fx-font-size: 1.1em;
+    font-size: 1.1em;
+
+}
+.account Button:hover {
+    -fx-cursor:hand;
+    cursor: hand;
+}
+
+.recentclaims_listview {
+    -fx-background-color: #EEEEEE;
+    background-color: #EEEEEE;
+    -fx-border-width: 0 0 0 0;
+    border-width: 0 0 0 0;
+    -fx-border-color: #AAAAAA;
+    border-color: #AAAAAA;
+    -fx-border-width: 0 1 0 1;
+    border-width: 0 1 0 1;
+    -fx-border-color: #DDDDDD;
+    border-color: #DDDDDD;
+}
+
+.transaction_listview .scroll-bar:vertical {
+    -fx-scale-x: 0;
+}
+
+.list-cell {
+    -fx-background-color: #EEEEEE;
+    background-color: #EEEEEE;
+    -fx-padding: 15 0 15 0;
+    padding: 15 0 15 0;
+}
+
+#TAB {
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 5, 0, 0, 4);
+    -fx-background-color: white;
+    background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    border-radius: 5px;
+    -fx-border-color:#000;
+    border-color: #000;
+}
+
+#c {
+    -fx-border-color:#f4f4f4;
+    border-color: #f4f4f4;
+    -fx-border-width: 0px 0px 1px 0px;
+    border-width: 0px 0px 1px 0px;
+    -fx-border:none;
+    border: none;
+    -fx-background-radius: 1px;
+    -fx-background-color:#FFFFFF;
+    background-color: #FFFFFF;
+    -fx-text-fill: #000000;
+    -fx-font-size: 1em;
+    font-size: 1em;
+    -fx-font-weight: 100;
+    font-weight: 100;
+    -fx-alignment: center;
+}
+
