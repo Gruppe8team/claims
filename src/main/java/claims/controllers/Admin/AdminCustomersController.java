@@ -145,7 +145,7 @@ public class AdminCustomersController implements Initializable {
                 }
             }
         } else {
-            Alert userAlert = new Alert(Alert.AlertType.WARNING);
+            Alert userAlert = new Alert(Alert.AlertType.ERROR);
             userAlert.setContentText("No User Was Selected");
             userAlert.showAndWait();
         }
