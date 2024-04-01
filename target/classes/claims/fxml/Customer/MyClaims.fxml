@@ -38,7 +38,7 @@
                   <Label fx:id="datefilled_lbl" styleClass="text" text="Time of Accident:" />
                   <TextField id="TA" fx:id="timeofac_txtfield" maxWidth="150.0" prefWidth="150.0" promptText="HH:MM" />
                   <Label fx:id="dam_lbl" styleClass="text" text="Type of Damage:" />
-                  <TextField id="TD" fx:id="typeofdamage_txtfield" prefWidth="150.0" />
+                  <ChoiceBox id="TD" fx:id="typeofdamage_choicebox" prefWidth="150.0" />
                   <Label fx:id="dam_lbl1" styleClass="text" text="Is the Vehicle Totalled?" />
                   <CheckBox id="VT" fx:id="totalled_checkbox" mnemonicParsing="false" text="Yes" />
                   <Label fx:id="dam_lbl11" styleClass="text" text="Are you at fault?" />

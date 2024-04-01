@@ -8,6 +8,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,6 +36,9 @@ public class AdminHomeController implements Initializable {
     private Label acc_type;
 
     @FXML
+    private Text sot;
+
+    @FXML
     private Button btn_edit1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -42,6 +46,7 @@ public class AdminHomeController implements Initializable {
     }
 
     public void init() {
+        sot.setText("Hola, " + Model.getInstance().getAdmin().getFirstName());
         acc_name.setText(Model.getInstance().getAdmin().getFirstName() + " "
                 + Model.getInstance().getAdmin().getLastName());
         acc_gender.setText("Gender: " + Model.getInstance().getAdmin().getGender());
