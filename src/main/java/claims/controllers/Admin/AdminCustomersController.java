@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AdminCustomersController implements Initializable {
@@ -101,17 +102,24 @@ public class AdminCustomersController implements Initializable {
     private void deleteAccount() {
         User selectedUser = clm_table.getSelectionModel().getSelectedItem();
         if (selectedUser != null) {
-            Model.getInstance().deleteUser(selectedUser);
-            Alert userAlert = new Alert(Alert.AlertType.INFORMATION);
-            userAlert.setContentText("Action Successful!");
-            userAlert.showAndWait();
-            if (selectedUser instanceof Customer) {
-                updateViewForCustomer();
-            } else if (selectedUser instanceof Advisor) {
-                updateViewForAdvisor();
+            Alert confirmationAlert = new Alert(Alert.AlertType.WARNING);
+            confirmationAlert.setTitle("Confirmation");
+            confirmationAlert.setHeaderText("Delete Account");
+            confirmationAlert.setContentText("Are you sure you want to delete this account?");
+            Optional<ButtonType> result = confirmationAlert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                Model.getInstance().deleteUser(selectedUser);
+                Alert userAlert = new Alert(Alert.AlertType.INFORMATION);
+                userAlert.setContentText("Action Successful!");
+                userAlert.showAndWait();
+                if (selectedUser instanceof Customer) {
+                    updateViewForCustomer();
+                } else if (selectedUser instanceof Advisor) {
+                    updateViewForAdvisor();
+                }
             }
         } else {
-            Alert userAlert = new Alert(Alert.AlertType.WARNING);
+            Alert userAlert = new Alert(Alert.AlertType.ERROR);
             userAlert.setContentText("No User Was Selected");
             userAlert.showAndWait();
         }
