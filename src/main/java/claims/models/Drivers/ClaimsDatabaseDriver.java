@@ -353,6 +353,21 @@ public class ClaimsDatabaseDriver {
 
     //Policy Section
 
+public void addPolicy(Policy policy) {
+    	String sql = "INSERT INTO Policies"
+				+ "(PolicyNumber, StartDate, EndDate, Premium, Deductible, CoverageType, PolicyStatus, PolicyName)\r\n"
+				+ "VALUES ('"+policy.getPolicyNumber()+"', '"+policy.getStartDate()+"', '"+policy.getEndDate()+"', '"+policy.getPremium()+"','"
+						+policy.getDeductible()+"', '"+policy.getCoverageType()+"', '"+policy.getPolicyStatus()+"', '"+policy.policyName+"')";
+		
+		try {
+			Statement st = conn.createStatement();
+			int rs = st.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    }
+
+	
     public ResultSet getAllPolicies(){
         Statement statement;
         ResultSet resultSet = null;
