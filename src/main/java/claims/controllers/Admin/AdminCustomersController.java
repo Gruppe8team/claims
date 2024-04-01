@@ -39,13 +39,7 @@ public class AdminCustomersController implements Initializable {
     private TableColumn<?, ?> status_col;
 
     @FXML
-    private Text titleText;
-
-    @FXML
-    private Text descriptionText;
-
-    @FXML
-    private TextField confirmationTextField;
+    private TextField code;
 
     @FXML
     private Button executeButton;
@@ -59,21 +53,8 @@ public class AdminCustomersController implements Initializable {
 
     private void populateTableView() {
         // Clear existing items in the TableView
-        clm_table.getItems().clear();
 
 
-        // Populate the TableView with fetched data
-        while (resultSet.next()) {
-            NewUser user = new NewUser(
-                    resultSet..getInstance().addAdvisor,
-                    resultSet.getString("username"),
-                    resultSet.getString("password"),
-                    resultSet.getString("email"),
-                    resultSet.getString("phone"),
-                    resultSet.getString("dob"),
-                    resultSet.getString("status")
-            );
-            clm_table.getItems().add(user);
         }
     }
 
