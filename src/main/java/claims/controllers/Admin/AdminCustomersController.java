@@ -1,15 +1,22 @@
 package claims.controllers.Admin;
 
 import claims.models.Customer;
+import claims.models.Drivers.ClaimsDatabaseDriver;
+import claims.models.Model;
 import claims.models.NewUser;
 import claims.views.AccountType;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdminCustomersController implements Initializable {
@@ -57,6 +64,11 @@ public class AdminCustomersController implements Initializable {
     }
 
     private void populateTableView() {
+
+        ObservableList<Customer> customers =
+
+
+
 
 
 
