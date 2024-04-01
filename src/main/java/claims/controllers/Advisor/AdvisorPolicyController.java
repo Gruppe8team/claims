@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 
 import claims.models.Policy;
 import claims.models.Drivers.ClaimsDatabaseDriver;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -27,28 +28,28 @@ public class AdvisorPolicyController implements Initializable {
     private TableView<Policy> table;
 	
 	@FXML
-    private TableColumn<Policy, ?> clm_coverage;
+    private TableColumn<Policy, String> clm_coverage;
 
     @FXML
-    private TableColumn<Policy, ?> clm_deductible;
+    private TableColumn<Policy, String> clm_deductible;
 
     @FXML
-    private TableColumn<Policy, ?> clm_end;
+    private TableColumn<Policy, String> clm_end;
 
     @FXML
-    private TableColumn<Policy, ?> clm_name;
+    private TableColumn<Policy, String> clm_name;
 
     @FXML
-    private TableColumn<Policy, ?> clm_number;
+    private TableColumn<Policy, String> clm_number;
 
     @FXML
-    private TableColumn<Policy, ?> clm_premium;
+    private TableColumn<Policy, String> clm_premium;
 
     @FXML
-    private TableColumn<Policy, ?> clm_start;
+    private TableColumn<Policy, String> clm_start;
 
     @FXML
-    private TableColumn<Policy, ?> clm_status;
+    private TableColumn<Policy, String> clm_status;
     
     @FXML
     public Button submit_btn;
@@ -93,6 +94,8 @@ public class AdvisorPolicyController implements Initializable {
 		
 		coverage_picker.getItems().addAll(coverages);
 		status_picker.getItems().addAll(status);
+		
+		toTableView();
 	}
 	
 	// List of policies
@@ -135,12 +138,23 @@ public class AdvisorPolicyController implements Initializable {
 		
 		registerPolicy(name, number, premium, deductible,start,end,status, coverage);
 		
+		Policy newPolicy = new Policy(number, name, start, end, coverage, status, premium, deductible);
+
+		    
+		ObservableList<Policy> currentPolicies = table.getItems();
+
+		currentPolicies.add(newPolicy);
+
+		table.setItems(currentPolicies);
+		
 		name_field.clear();
 		policy_number_field.clear();
 		premuim_field.clear();
 		deductible_field.clear();
 		start_date.getEditor().clear();
 		end_date.getEditor().clear();
+		
+		
 		
 	}
 	
@@ -165,7 +179,17 @@ public class AdvisorPolicyController implements Initializable {
 		
 	}
 	
-	public void toListView() {
+	public void toTableView() {
+		clm_number.setCellValueFactory(data -> new SimpleStringProperty(Integer.toString(data.getValue().getPolicyNumber())));
+	    clm_name.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getPolicyName()));
+	    clm_start.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getStartDate()));
+	    clm_end.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getEndDate()));
+	    clm_coverage.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getCoverageType()));
+	    clm_status.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getPolicyStatus()));
+	    clm_premium.setCellValueFactory(data -> new SimpleStringProperty(Double.toString(data.getValue().getPremium())));
+	    clm_deductible.setCellValueFactory(data -> new SimpleStringProperty(Double.toString(data.getValue().getDeductible())));
+
+	    table.setItems(initialData());
 		
 	}
 	
