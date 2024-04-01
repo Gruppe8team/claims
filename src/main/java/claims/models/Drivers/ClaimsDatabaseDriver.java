@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 import claims.models.Customer;
 import claims.models.NewUser;
+import claims.models.Policy;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -358,6 +359,21 @@ public class ClaimsDatabaseDriver {
 
     //Policy Section
 
+public void addPolicy(Policy policy) {
+    	String sql = "INSERT INTO Policies"
+				+ "(PolicyNumber, StartDate, EndDate, Premium, Deductible, CoverageType, PolicyStatus, PolicyName)\r\n"
+				+ "VALUES ('"+policy.getPolicyNumber()+"', '"+policy.getStartDate()+"', '"+policy.getEndDate()+"', '"+policy.getPremium()+"','"
+						+policy.getDeductible()+"', '"+policy.getCoverageType()+"', '"+policy.getPolicyStatus()+"', '"+policy.policyName+"')";
+		
+		try {
+			Statement st = conn.createStatement();
+			int rs = st.executeUpdate(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+    }
+
+	
     public ResultSet getAllPolicies(){
         Statement statement;
         ResultSet resultSet = null;
@@ -425,4 +441,84 @@ public class ClaimsDatabaseDriver {
     }
 
 
+    public ResultSet getAllCustomers() {
+        Statement statement;
+        ResultSet resultSet = null;
+        try {
+            statement = this.conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Customers");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+    public void deleteCustomer(int customerID) {
+        String sql = "DELETE FROM Customers WHERE ClientID = ?";
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:sqlite:Databases/claims.db");
+                PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setInt(1, customerID);
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Customer with ID " + customerID + " deleted successfully.");
+            } else {
+                System.out.println("Customer with ID " + customerID + " not found.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteAdvisor(int advisorID) {
+        String sql = "DELETE FROM Advisors WHERE AdvisorID = ?";
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:sqlite:Databases/claims.db");
+                PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setInt(1, advisorID);
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Advisor with ID " + advisorID + " deleted successfully.");
+            } else {
+                System.out.println("Advisor with ID " + advisorID + " not found.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void resetAdvisorPassword(int userID) {
+        String newPassword = "password";
+        String sql = "UPDATE Advisors SET Password = ? WHERE AdvisorID = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, newPassword);
+            pstmt.setInt(2, userID);
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("Password reset for advisor with ID " + userID + " successful.");
+            } else {
+                System.out.println("Advisor with ID " + userID + " not found.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void resetCustomerPassword(int userID) {
+        String newPassword = "password";
+        String sql = "UPDATE Customers SET Password = ? WHERE ClientID = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, newPassword);
+            pstmt.setInt(2, userID);
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("Password reset for customer with ID " + userID + " successful.");
+            } else {
+                System.out.println("Customer with ID " + userID + " not found.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

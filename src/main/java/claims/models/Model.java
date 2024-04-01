@@ -143,6 +143,63 @@ public class Model {
         return customers;
     }
 
+    public ObservableList<User> getCustomersForAdmin() {
+        ObservableList<User> users = FXCollections.observableArrayList();
+        ResultSet resultSet = ClaimsDatabaseDriver.getAllCustomers();
+        try {
+            while (resultSet.next()) {
+                User user = new Customer();
+                user.setUsername(resultSet.getString("Username"));
+                user.setAddress(resultSet.getString("Address"));
+                user.setEmail(resultSet.getString("Email"));
+                user.setPhoneNumber(resultSet.getString("Phone"));
+                user.setUserID(resultSet.getInt("ClientID"));
+                user.setPassword(resultSet.getString("Password"));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return users;
+    }
+
+    public ObservableList<User> getAdvisorsForAdmin() {
+        ObservableList<User> users = FXCollections.observableArrayList();
+        ResultSet resultSet = ClaimsDatabaseDriver.getAllAdvisors();
+        try {
+            while (resultSet.next()) {
+                User user = new Advisor();
+                user.setUsername(resultSet.getString("Username"));
+                user.setAddress(resultSet.getString("Address"));
+                user.setEmail(resultSet.getString("Email"));
+                user.setPhoneNumber(resultSet.getString("Phone"));
+                user.setUserID(resultSet.getInt("AdvisorID"));
+                user.setPassword(resultSet.getString("Password"));
+                users.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                try {
+                    resultSet.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return users;
+    }
+
+
     public ObservableList<Claims> getClaimsByClient(int ID) {
         ObservableList<Claims> claims = FXCollections.observableArrayList();
         ResultSet resultSet = ClaimsDatabaseDriver.getClaimDetailsByClient(ID);
@@ -300,5 +357,37 @@ public class Model {
                 }
             }
         }
+    }
+    public void deleteUser(User user) {
+        if (user instanceof Customer) {
+            deleteCustomer((Customer) user);
+        } else if (user instanceof Advisor) {
+            deleteAdvisor((Advisor) user);
+        }
+    }
+
+    private void deleteCustomer(Customer customer) {
+        ClaimsDatabaseDriver.deleteCustomer(customer.getUserID());
+    }
+
+    private void deleteAdvisor(Advisor advisor) {
+        ClaimsDatabaseDriver.deleteAdvisor(advisor.getUserID());
+    }
+
+
+    public void resetPassword(User user) {
+        if (user instanceof Customer) {
+            resetCustomerPassword((Customer) user);
+        } else if (user instanceof Advisor) {
+            resetAdvisorPassword((Advisor) user);
+        }
+    }
+
+    private void resetAdvisorPassword(Advisor user) {
+        ClaimsDatabaseDriver.resetAdvisorPassword(user.getUserID());
+    }
+
+    private void resetCustomerPassword(Customer user) {
+        ClaimsDatabaseDriver.resetCustomerPassword(user.getUserID());
     }
 }
