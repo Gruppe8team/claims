@@ -467,4 +467,37 @@ public class ClaimsDatabaseDriver {
         }
     }
 
+    public void resetAdvisorPassword(int userID) {
+        String newPassword = "password";
+        String sql = "UPDATE Advisors SET Password = ? WHERE AdvisorID = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, newPassword);
+            pstmt.setInt(2, userID);
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("Password reset for advisor with ID " + userID + " successful.");
+            } else {
+                System.out.println("Advisor with ID " + userID + " not found.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void resetCustomerPassword(int userID) {
+        String newPassword = "password";
+        String sql = "UPDATE Customers SET Password = ? WHERE ClientID = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, newPassword);
+            pstmt.setInt(2, userID);
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("Password reset for customer with ID " + userID + " successful.");
+            } else {
+                System.out.println("Customer with ID " + userID + " not found.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

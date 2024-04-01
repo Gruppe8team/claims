@@ -376,5 +376,19 @@ public class Model {
     }
 
 
+    public void resetPassword(User user) {
+        if (user instanceof Customer) {
+            resetCustomerPassword((Customer) user);
+        } else if (user instanceof Advisor) {
+            resetAdvisorPassword((Advisor) user);
+        }
+    }
 
+    private void resetAdvisorPassword(Advisor user) {
+        ClaimsDatabaseDriver.resetAdvisorPassword(user.getUserID());
+    }
+
+    private void resetCustomerPassword(Customer user) {
+        ClaimsDatabaseDriver.resetCustomerPassword(user.getUserID());
+    }
 }

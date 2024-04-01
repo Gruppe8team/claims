@@ -128,16 +128,26 @@ public class AdminCustomersController implements Initializable {
     private void resetPassword() {
         User selectedUser = clm_table.getSelectionModel().getSelectedItem();
         if (selectedUser != null) {
-            // Perform reset password operation for selected user
-            // Example: Model.getInstance().resetPassword(selectedUser);
-            // You need to implement resetPassword method in your Model class
-            // Refresh TableView after password reset
-            populateTableView();
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Confirmation");
+            confirmationAlert.setHeaderText("Reset Password");
+            confirmationAlert.setContentText("Are you sure you want to delete this account?");
+            Optional<ButtonType> result = confirmationAlert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                Model.getInstance().resetPassword(selectedUser);
+                Alert userAlert = new Alert(Alert.AlertType.INFORMATION);
+                userAlert.setContentText("Password Reset Successful!");
+                userAlert.showAndWait();
+                if (selectedUser instanceof Customer) {
+                    updateViewForCustomer();
+                } else if (selectedUser instanceof Advisor) {
+                    updateViewForAdvisor();
+                }
+            }
         } else {
-            // Inform user to select a user before resetting password
-            // Example: Alert userAlert = new Alert(Alert.AlertType.WARNING);
-            // userAlert.setContentText("Please select a user to reset password.");
-            // userAlert.showAndWait();
+            Alert userAlert = new Alert(Alert.AlertType.WARNING);
+            userAlert.setContentText("No User Was Selected");
+            userAlert.showAndWait();
         }
     }
 }
