@@ -14,28 +14,28 @@ import java.util.ResourceBundle;
 public class AdminCustomersController implements Initializable {
 
     @FXML
-    private TableView<User> clm_table;
+    private TableView<?> clm_table;
 
     @FXML
-    private TableColumn<User, String> userID_col;
+    private TableColumn<?, ?> userID_col;
 
     @FXML
-    private TableColumn<User, String> username_col;
+    private TableColumn<?, ?> username_col;
 
     @FXML
-    private TableColumn<User, String> password_col;
+    private TableColumn<?, ?> password_col;
 
     @FXML
-    private TableColumn<User, String> email_col;
+    private TableColumn<?, ?> email_col;
 
     @FXML
-    private TableColumn<User, String> phone_col;
+    private TableColumn<?, ?> phone_col;
 
     @FXML
-    private TableColumn<User, String> dob_col;
+    private TableColumn<?, ?> dob_col;
 
     @FXML
-    private TableColumn<User, String> status_col;
+    private TableColumn<?, ?> status_col;
 
     @FXML
     private Text titleText;
