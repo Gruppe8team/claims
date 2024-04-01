@@ -31,7 +31,7 @@
       </Text>
       <Text layoutX="20.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmation Code" wrappingWidth="172.2515640258789" />
       <TextField fx:id="code" layoutX="20.0" layoutY="626.0" prefHeight="25.0" prefWidth="358.0" promptText="Confirmation Code" />
-      <Button fx:id="execute" layoutX="20.0" layoutY="659.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Execute" />
+      <Button fx:id="execute" layoutX="20.0" layoutY="659.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Delete" />
       <Button fx:id="abort" layoutX="123.0" layoutY="659.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Abort" />
       <ChoiceBox fx:id="UserType" layoutX="674.0" layoutY="93.0" prefWidth="150.0" />
       <Text fill="#f50000" layoutX="538.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Group:" wrappingWidth="141.3390655517578">

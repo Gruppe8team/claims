@@ -1,5 +1,6 @@
 package claims.controllers.Admin;
 
+import claims.models.Advisor;
 import claims.models.Customer;
 import claims.models.Model;
 import claims.models.User;
@@ -36,10 +37,10 @@ public class AdminCustomersController implements Initializable {
     private TextField code;
 
     @FXML
-    private Button executeButton;
+    private Button execute;
 
     @FXML
-    private Button abortButton;
+    private Button abort;
 
     @FXML
     private ChoiceBox<String> UserType;
@@ -62,6 +63,9 @@ public class AdminCustomersController implements Initializable {
                 populateTableView();
             }
         });
+
+        execute.setOnAction(event -> deleteAccount());
+        abort.setOnAction(event -> resetPassword());
     }
 
     private void populateTableView() {
@@ -92,5 +96,40 @@ public class AdminCustomersController implements Initializable {
         password_col.setCellValueFactory(new PropertyValueFactory<>("password"));
         email_col.setCellValueFactory(new PropertyValueFactory<>("email"));
         clm_table.setItems(customers);
+    }
+
+    private void deleteAccount() {
+        User selectedUser = clm_table.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            Model.getInstance().deleteUser(selectedUser);
+            Alert userAlert = new Alert(Alert.AlertType.INFORMATION);
+            userAlert.setContentText("Action Successful!");
+            userAlert.showAndWait();
+            if (selectedUser instanceof Customer) {
+                updateViewForCustomer();
+            } else if (selectedUser instanceof Advisor) {
+                updateViewForAdvisor();
+            }
+        } else {
+            Alert userAlert = new Alert(Alert.AlertType.WARNING);
+            userAlert.setContentText("No User Was Selected");
+            userAlert.showAndWait();
+        }
+    }
+
+    private void resetPassword() {
+        User selectedUser = clm_table.getSelectionModel().getSelectedItem();
+        if (selectedUser != null) {
+            // Perform reset password operation for selected user
+            // Example: Model.getInstance().resetPassword(selectedUser);
+            // You need to implement resetPassword method in your Model class
+            // Refresh TableView after password reset
+            populateTableView();
+        } else {
+            // Inform user to select a user before resetting password
+            // Example: Alert userAlert = new Alert(Alert.AlertType.WARNING);
+            // userAlert.setContentText("Please select a user to reset password.");
+            // userAlert.showAndWait();
+        }
     }
 }

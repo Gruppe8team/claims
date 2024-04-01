@@ -431,4 +431,40 @@ public class ClaimsDatabaseDriver {
         }
         return resultSet;
     }
+    public void deleteCustomer(int customerID) {
+        String sql = "DELETE FROM Customers WHERE ClientID = ?";
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:sqlite:Databases/claims.db");
+                PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setInt(1, customerID);
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Customer with ID " + customerID + " deleted successfully.");
+            } else {
+                System.out.println("Customer with ID " + customerID + " not found.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteAdvisor(int advisorID) {
+        String sql = "DELETE FROM Advisors WHERE AdvisorID = ?";
+        try (
+                Connection connection = DriverManager.getConnection("jdbc:sqlite:Databases/claims.db");
+                PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setInt(1, advisorID);
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Advisor with ID " + advisorID + " deleted successfully.");
+            } else {
+                System.out.println("Advisor with ID " + advisorID + " not found.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

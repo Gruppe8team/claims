@@ -359,4 +359,22 @@ public class Model {
             }
         }
     }
+    public void deleteUser(User user) {
+        if (user instanceof Customer) {
+            deleteCustomer((Customer) user);
+        } else if (user instanceof Advisor) {
+            deleteAdvisor((Advisor) user);
+        }
+    }
+
+    private void deleteCustomer(Customer customer) {
+        ClaimsDatabaseDriver.deleteCustomer(customer.getUserID());
+    }
+
+    private void deleteAdvisor(Advisor advisor) {
+        ClaimsDatabaseDriver.deleteAdvisor(advisor.getUserID());
+    }
+
+
+
 }
