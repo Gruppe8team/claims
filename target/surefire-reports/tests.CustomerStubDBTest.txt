@@ -2,14 +2,14 @@
 Test set: tests.CustomerStubDBTest
 -------------------------------------------------------------------------------
 Tests run: 12, Failures: 10, Errors: 1, Skipped: 0, Time elapsed: 0.033 s <<< FAILURE! -- in tests.CustomerStubDBTest
-tests.CustomerStubDBTest.testCountCustomers -- Time elapsed: 0.011 s <<< FAILURE!
+tests.CustomerStubDBTest.testCountCustomers -- Time elapsed: 0.012 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <2> but was: <0>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:510)
-	at tests.CustomerStubDBTest.testCountCustomers(CustomerStubDBTest.java:110)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testCountCustomers(CustomerStubDBTest.java:110)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -78,14 +78,14 @@ org.opentest4j.AssertionFailedError: expected: <2> but was: <0>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-tests.CustomerStubDBTest.testAddCustomers -- Time elapsed: 0 s <<< FAILURE!
+tests.CustomerStubDBTest.testAddCustomers -- Time elapsed: 0.001 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <4> but was: <0>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:510)
-	at tests.CustomerStubDBTest.testAddCustomers(CustomerStubDBTest.java:99)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testAddCustomers(CustomerStubDBTest.java:99)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -161,7 +161,7 @@ org.opentest4j.AssertionFailedError: expected: <2> but was: <0>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:510)
-	at tests.CustomerStubDBTest.testFindCustomersByAgeRange(CustomerStubDBTest.java:80)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testFindCustomersByAgeRange(CustomerStubDBTest.java:80)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -230,14 +230,14 @@ org.opentest4j.AssertionFailedError: expected: <2> but was: <0>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-tests.CustomerStubDBTest.testAddCustomer -- Time elapsed: 0 s <<< FAILURE!
+tests.CustomerStubDBTest.testAddCustomer -- Time elapsed: 0.001 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <2> but was: <0>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:510)
-	at tests.CustomerStubDBTest.testAddCustomer(CustomerStubDBTest.java:34)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testAddCustomer(CustomerStubDBTest.java:34)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -313,7 +313,7 @@ org.opentest4j.AssertionFailedError: expected: <2> but was: <0>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:510)
-	at tests.CustomerStubDBTest.testFindCustomersWithoutVehicles(CustomerStubDBTest.java:115)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testFindCustomersWithoutVehicles(CustomerStubDBTest.java:115)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -382,14 +382,14 @@ org.opentest4j.AssertionFailedError: expected: <2> but was: <0>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-tests.CustomerStubDBTest.testFindCustomersByAddress -- Time elapsed: 0.001 s <<< FAILURE!
+tests.CustomerStubDBTest.testFindCustomersByAddress -- Time elapsed: 0.003 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:510)
-	at tests.CustomerStubDBTest.testFindCustomersByAddress(CustomerStubDBTest.java:59)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testFindCustomersByAddress(CustomerStubDBTest.java:59)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -460,7 +460,7 @@ org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 
 tests.CustomerStubDBTest.testUpdateCustomer -- Time elapsed: 0.001 s <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "claims.models.Customer.getEmail()" because the return value of "tests.CustomerStubDB.getCustomer(int)" is null
-	at tests.CustomerStubDBTest.testUpdateCustomer(CustomerStubDBTest.java:53)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testUpdateCustomer(CustomerStubDBTest.java:53)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -536,7 +536,7 @@ org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:510)
-	at tests.CustomerStubDBTest.testQueryCustomers(CustomerStubDBTest.java:66)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testQueryCustomers(CustomerStubDBTest.java:66)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -611,7 +611,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
 	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
 	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:162)
-	at tests.CustomerStubDBTest.testUpdateCustomerEmail(CustomerStubDBTest.java:86)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testUpdateCustomerEmail(CustomerStubDBTest.java:86)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -687,7 +687,7 @@ org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:510)
-	at tests.CustomerStubDBTest.testFindCustomersByPhoneNumber(CustomerStubDBTest.java:73)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testFindCustomersByPhoneNumber(CustomerStubDBTest.java:73)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -762,7 +762,7 @@ org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
 	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)
 	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)
 	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:162)
-	at tests.CustomerStubDBTest.testRemoveCustomer(CustomerStubDBTest.java:42)
+	at claims@1.0-SNAPSHOT/tests.CustomerStubDBTest.testRemoveCustomer(CustomerStubDBTest.java:42)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)

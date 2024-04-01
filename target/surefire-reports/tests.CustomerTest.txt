@@ -1,10 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: tests.CustomerTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! -- in tests.CustomerTest
+Tests run: 7, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! -- in tests.CustomerTest
 tests.CustomerTest.testToString -- Time elapsed: 0 s <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "claims.models.Customer.toString()" because "this.customer" is null
-	at tests.CustomerTest.testToString(CustomerTest.java:104)
+	at claims@1.0-SNAPSHOT/tests.CustomerTest.testToString(CustomerTest.java:104)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -73,9 +73,9 @@ java.lang.NullPointerException: Cannot invoke "claims.models.Customer.toString()
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-tests.CustomerTest.testConstructorWithParameters -- Time elapsed: 0 s <<< ERROR!
+tests.CustomerTest.testConstructorWithParameters -- Time elapsed: 0.001 s <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "claims.models.Customer.getUserID()" because "this.customer" is null
-	at tests.CustomerTest.testConstructorWithParameters(CustomerTest.java:34)
+	at claims@1.0-SNAPSHOT/tests.CustomerTest.testConstructorWithParameters(CustomerTest.java:34)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -146,7 +146,7 @@ java.lang.NullPointerException: Cannot invoke "claims.models.Customer.getUserID(
 
 tests.CustomerTest.testSetPhoneNumber -- Time elapsed: 0 s <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "claims.models.Customer.setPhoneNumber(String)" because "this.customer" is null
-	at tests.CustomerTest.testSetPhoneNumber(CustomerTest.java:55)
+	at claims@1.0-SNAPSHOT/tests.CustomerTest.testSetPhoneNumber(CustomerTest.java:55)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -217,7 +217,7 @@ java.lang.NullPointerException: Cannot invoke "claims.models.Customer.setPhoneNu
 
 tests.CustomerTest.testSetAddress -- Time elapsed: 0 s <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "claims.models.Customer.setAddress(String)" because "this.customer" is null
-	at tests.CustomerTest.testSetAddress(CustomerTest.java:48)
+	at claims@1.0-SNAPSHOT/tests.CustomerTest.testSetAddress(CustomerTest.java:48)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -288,7 +288,7 @@ java.lang.NullPointerException: Cannot invoke "claims.models.Customer.setAddress
 
 tests.CustomerTest.testSetAge -- Time elapsed: 0 s <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "claims.models.Customer.setAge(int)" because "this.customer" is null
-	at tests.CustomerTest.testSetAge(CustomerTest.java:69)
+	at claims@1.0-SNAPSHOT/tests.CustomerTest.testSetAge(CustomerTest.java:69)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -357,9 +357,9 @@ java.lang.NullPointerException: Cannot invoke "claims.models.Customer.setAge(int
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-tests.CustomerTest.testSetgender -- Time elapsed: 0.001 s <<< ERROR!
+tests.CustomerTest.testSetgender -- Time elapsed: 0 s <<< ERROR!
 java.lang.NullPointerException: Cannot invoke "claims.models.Customer.setGender(String)" because "this.customer" is null
-	at tests.CustomerTest.testSetgender(CustomerTest.java:62)
+	at claims@1.0-SNAPSHOT/tests.CustomerTest.testSetgender(CustomerTest.java:62)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)

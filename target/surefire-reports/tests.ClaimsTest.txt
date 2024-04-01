@@ -1,14 +1,14 @@
 -------------------------------------------------------------------------------
 Test set: tests.ClaimsTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! -- in tests.ClaimsTest
+Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! -- in tests.ClaimsTest
 tests.ClaimsTest.setClaimInfoTest -- Time elapsed: 0 s <<< ERROR!
 java.time.format.DateTimeParseException: Text '9:30AM' could not be parsed at index 0
 	at java.base/java.time.format.DateTimeFormatter.parseResolved0(DateTimeFormatter.java:2108)
 	at java.base/java.time.format.DateTimeFormatter.parse(DateTimeFormatter.java:2010)
 	at java.base/java.time.LocalDateTime.parse(LocalDateTime.java:494)
-	at claims.models.Claims.setAccidentTime(Claims.java:178)
-	at tests.ClaimsTest.setClaimInfoTest(ClaimsTest.java:29)
+	at claims@1.0-SNAPSHOT/claims.models.Claims.setAccidentTime(Claims.java:178)
+	at claims@1.0-SNAPSHOT/tests.ClaimsTest.setClaimInfoTest(ClaimsTest.java:29)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
@@ -77,14 +77,14 @@ java.time.format.DateTimeParseException: Text '9:30AM' could not be parsed at in
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-tests.ClaimsTest.getClaimInfoTest -- Time elapsed: 0 s <<< FAILURE!
+tests.ClaimsTest.getClaimInfoTest -- Time elapsed: 0.001 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <6:00AM> but was: <2023-10-15T06:00>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
-	at tests.ClaimsTest.getClaimInfoTest(ClaimsTest.java:63)
+	at claims@1.0-SNAPSHOT/tests.ClaimsTest.getClaimInfoTest(ClaimsTest.java:63)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
