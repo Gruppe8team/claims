@@ -4,5 +4,6 @@ public enum CustomerMenuOptions {
     HOME,
     CLAIMS,
     INSURANCE,
-    EDIT
+    EDIT,
+    LOGOUT
 }

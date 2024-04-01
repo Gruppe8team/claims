@@ -1,5 +1,7 @@
 package claims.models;
 
+import java.time.LocalDate;
+
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
@@ -19,17 +21,13 @@ public class Advisor extends User {
                 
         }
 
-	public Advisor(int userID, String username, String passwordKey, String firstName, String lastName, String email) {
-                super(userID, username, passwordKey, firstName, lastName, email); // Call superclass constructor
+	public Advisor(int userID, String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, LocalDate dateOfBirth) {
+                super(userID, username, passwordKey, firstName, lastName, email, address, phoneNumber, gender, dateOfBirth); // Call superclass constructor
                 this.clients = new SimpleListProperty<Customer>();
                 this.claims = new SimpleListProperty<Claims>();
 	}
 
-        public Advisor(Advisor advisor) {
-                super(advisor); // Call superclass constructor
-                this.clients = advisor.getClients();
-                this.claims = advisor.getClaims();
-        }
+        
 	//add a client to the client list
         public void addClient(Customer client) {
                 this.clients.add(client);
@@ -49,23 +47,23 @@ public class Advisor extends User {
         
             // Getters and setters for new fields
         
-        public ListProperty<Customer> getClients() {
-                return clients;
+        public ObservableList<Customer> getClients() {
+                return clients.get();
         }
         
-        public ListProperty<Claims> getClaims() {
+        public ObservableList<Claims> getClaims() {
                 return claims;
         }
         
 	 // Override toString method to include customer-specific information
-    @Override
-    public String toString() {
-        return "Advisor{" +
-                "userID=" + getUserID().getValue() +
-                ", passwordKey='" + getPasswordKey().getValue() + '\'' +
-                ", firstName='" + getFirstName().getValue() + '\'' +
-                ", lastName='" + getLastName().getValue() + '\'' +
-                ", email='" + getEmail().getValue() + '\'' +
-                '}';
-    }
+        @Override
+        public String toString() {
+                return "Advisor{" +
+                                "userID=" + getUserID() +
+                                ", passwordKey='" + getPassword() + '\'' +
+                                ", firstName='" + getFirstName() + '\'' +
+                                ", lastName='" + getLastName() + '\'' +
+                                ", email='" + getEmail() + '\'' +
+                                '}';
+        }
 }

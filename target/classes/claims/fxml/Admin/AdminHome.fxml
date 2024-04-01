@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" stylesheets="@../../style/AdvisorHome.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Admin.AdminHomeController">
+    <children>
+        <Label fx:id="hi_lbl" layoutX="14.0" layoutY="14.0" styleClass="user_name" text="Hi, Jerry" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
+        <Label fx:id="today_lbl" layoutX="127.0" layoutY="30.0" styleClass="date_lbl" text="Today, 2024-12-01" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
+        <Label styleClass="section_title" text="User Information" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0" />
+        <HBox layoutX="10.0" layoutY="10.0" prefHeight="180.0" prefWidth="570.0" styleClass="accounts_view" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0">
+            <children>
+                <VBox prefHeight="158.0" prefWidth="191.0" styleClass="account">
+                    <children>
+                        <Label fx:id="acc_name" styleClass="account_name" text="Jerry Doe" />
+                        <Label fx:id="acc_gender" text="Gender: Male" />
+                        <Label fx:id="acc_dob" text="DOB: 2001-10-20" />
+                        <Label fx:id="acc_type" prefHeight="17.0" prefWidth="194.0" text="Account Type: Advisor" />
+                        <Label fx:id="acc_email" styleClass="account_important" text="Email: jerrydoe@gmail.com" />
+                        <Label fx:id="acc_phonenumber" styleClass="account_important" text="Phone #: 999-999-9999" />
+                    </children>
+                </VBox>
+                <AnchorPane prefHeight="158.0" prefWidth="326.0" styleClass="account">
+                    <children>
+                        <Label fx:id="acc_signupdate" layoutX="215.0" layoutY="35.0" text="Account Since 2024-01-01" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+        <ImageView fx:id="logola" fitHeight="180.0" fitWidth="215.0" layoutX="600.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btn_edit1" layoutX="32.0" layoutY="309.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="208.0" text="Modify" />
+    </children>
+</AnchorPane>

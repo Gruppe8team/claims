@@ -3,22 +3,48 @@ package claims.models;
 
 public class NewUser {
 
-    private String dob;
-    private String phone;
-    private String gender;
+	private String dob;
+	private String phone;
+	private String gender;
+	private String age;
 
-    private int userID;
-    private String passwordKey;
+	private int userID;
+	private String passwordKey;
 
-    private String firstName;
-    private String lastName;
+	private String firstName;
+	private String lastName;
 
-    private String email;
+	private String email;
+	private String username;
+	private String userType;
+	private String addr;
 
+	public String getUsername() {
+		return username;
+	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public NewUser(int userID, String passwordKey, String firstName,
-			String lastName, String email,String dob, String phone, String gender) {
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
+	public NewUser(int userID, String passwordKey, String firstName,
+				   String lastName, String email, String dob, String phone, String gender) {
 
 		this.dob = dob;
 		this.phone = phone;
@@ -30,7 +56,7 @@ public class NewUser {
 		this.email = email;
 	}
 
-    public NewUser() {
+	public NewUser() {
 		this.dob = null;
 		this.phone = null;
 		this.gender = null;
@@ -39,7 +65,7 @@ public class NewUser {
 		this.firstName = null;
 		this.lastName = null;
 		this.email = null;
-    }
+	}
 
 
 	public int getUserID() {
@@ -95,31 +121,39 @@ public class NewUser {
 
 
 
-    public String getDob() {
-        return dob;
-    }
+	public String getDob() {
+		return dob;
+	}
 
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
+	public void setDob(String dob) {
+		this.dob = dob;
+	}
 
-    public String getPhone() {
-        return phone;
-    }
+	public String getPhone() {
+		return phone;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    public String getGender() {
-        return gender;
-    }
+	public String getGender() {
+		return gender;
+	}
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
+	public String getAge() {
+		return age;
+	}
 
-    @Override
+	public void setAge(String age) {
+		this.age = age;
+	}
+
+	@Override
 	public String toString() {
 		return "NewUser{" +
 				"dob='" + dob + '\'' +

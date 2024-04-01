@@ -1,7 +1,11 @@
 package claims.models;
 
+import java.time.LocalDate;
+
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -16,14 +20,17 @@ import javafx.beans.property.StringProperty;
 public abstract class User {
 
     // important indexes for the userSuperClass
-    protected final IntegerProperty userID;
-    protected final StringProperty username;
-    protected final StringProperty passwordKey;
+    private final IntegerProperty userID;
+    private final StringProperty username;
+    private final StringProperty passwordKey;
+    private final StringProperty address;
+    private final StringProperty phoneNumber;
+    private final StringProperty gender;
+    private final ObjectProperty<LocalDate> dateOfBirth;
+    private final StringProperty firstName;
+    private final StringProperty lastName;
 
-    protected final StringProperty firstName;
-    protected final StringProperty lastName;
-
-    protected final StringProperty email;
+    private final StringProperty email;
 
     /**
      * Data for secret typeAccount directory parts:
@@ -43,30 +50,33 @@ public abstract class User {
         this.firstName = new SimpleStringProperty(this, "First Name", "");
         this.lastName = new SimpleStringProperty(this, "Last Name", "");
         this.email = new SimpleStringProperty(this, "Email", "");
+        this.address = new SimpleStringProperty(this, "Address", "");
+        this.phoneNumber = new SimpleStringProperty(this, "Phone Number", "");
+        this.gender = new SimpleStringProperty(this, "Gender", "");
+        this.dateOfBirth = new SimpleObjectProperty<LocalDate>(this, "Date of Birth", LocalDate.now());
+        
     }
     // information.
 
     // construction for general technical operations, for setting new accounts
-    public User(int userID, String username, String pass, String fName, String lName, String email) {
+    public User(int userID, String username, String pass, String fName, String lName, String email, String address, String phoneNumber, String gender, LocalDate dateOfBirth) {
         this.userID = new SimpleIntegerProperty(this, "User ID", userID);
         this.username = new SimpleStringProperty(this, "Username", username);
         this.passwordKey = new SimpleStringProperty(this, "Password", pass);
         this.firstName = new SimpleStringProperty(this, "First Name", fName);
         this.lastName = new SimpleStringProperty(this, "Last Name", lName);
         this.email = new SimpleStringProperty(this, "Email", email);
+        this.address = new SimpleStringProperty(this, "Address", address);
+        this.phoneNumber = new SimpleStringProperty(this, "Phone Number", phoneNumber);
+        this.gender = new SimpleStringProperty(this, "Gender", gender);
+        this.dateOfBirth = new SimpleObjectProperty<LocalDate>(this, "Date of Birth", dateOfBirth);
     }
 
-    // ditto but for already given User object
-    public User(User user) {
-        this.userID = user.getUserID();
-        this.username = user.getUsername();
-        this.passwordKey = user.getPasswordKey();
-        this.firstName = user.getFirstName();
-        this.lastName = user.getLastName();
-        this.email = user.getEmail();
+    public String getUsername() {
+        return this.username.get();
     }
 
-    public StringProperty getUsername() {
+    public StringProperty usernameProperty() {
         return this.username;
     }
 
@@ -75,43 +85,112 @@ public abstract class User {
     }
 
     // for getting information when required. That is all
-    public IntegerProperty getUserID() {
+    public int getUserID() {
+        return this.userID.get();
+    }
+
+    public IntegerProperty userIDProperty() {
         return this.userID;
     }
 
-    public StringProperty getPasswordKey() {
+    public String getPassword() {
+        return this.passwordKey.get();
+    }
+
+    public StringProperty passwordProperty() {
         return this.passwordKey;
     }
 
-    public StringProperty getFirstName() {
+    public String getFirstName() {
+        return this.firstName.get();
+    }
+
+    public StringProperty firstNameProperty() {
         return this.firstName;
     }
 
-    public StringProperty getLastName() {
+    public String getLastName() {
+        return this.lastName.get();
+    }
+
+    public StringProperty lastNameProperty() {
         return this.lastName;
     }
 
-    public StringProperty getEmail() {
+    public String getEmail() {
+        return this.email.get();
+    }
+
+    public StringProperty emailProperty() {
         return this.email;
     }
 
-    // important functions accounts (note we also need a create a new account
-    // option)
-    // and possibly a change password option.
-    public void changePassword(String pass) {
+    public void setUserID(int userID) {
+        this.userID.set(userID);
+    }
+
+    public void setPassword(String pass) {
         this.passwordKey.set(pass);
     }
 
-    public void changeEmail(String email) {
+    public void setEmail(String email) {
         this.email.set(email);
     }
 
-    public void changeFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName.set(firstName);
     }
 
-    public void changeLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName.set(lastName);
+    }
+
+    public String getAddress() {
+        return this.address.get();
+    }
+
+    public StringProperty addressProperty() {
+        return this.address;
+    }
+
+    public void setAddress(String address) {
+        this.address.set(address);
+    }
+
+    public String getPhoneNumber() {
+        return this.phoneNumber.get();
+    }
+
+    public StringProperty phoneNumberProperty() {
+        return this.phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber.set(phoneNumber);
+    }
+
+    public String getGender() {
+        return this.gender.get();
+    }
+
+    public StringProperty genderProperty() {
+        return this.gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender.set(gender);
+    }
+
+    public LocalDate getDateOfBirth() {
+        return this.dateOfBirth.get();
+    }
+
+    public ObjectProperty<LocalDate> dateOfBirthProperty() {
+        return this.dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth.set(dateOfBirth);
     }
 
 }

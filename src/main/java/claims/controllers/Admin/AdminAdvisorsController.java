@@ -8,25 +8,20 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 
 import claims.models.Model;
-import claims.models.Drivers.AdvisorDatabaseDriver;
+import claims.models.Drivers.ClaimsDatabaseDriver;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 public class AdminAdvisorsController implements Initializable {
     public BorderPane admin_parent;
-    AdvisorDatabaseDriver add = new AdvisorDatabaseDriver();
+    
+    
+    ClaimsDatabaseDriver add = new ClaimsDatabaseDriver();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().addListener((observableValue, oldVal, newVal) -> {
-            switch (newVal) {
-                case ADVISORS -> {
-                    admin_parent.setCenter(Model.getInstance().getViewFactory().getAdminAdvisorsView());
-                    populateAdvisorsView();
-                }
-            }
-        });
+        
     }
 
     private void populateAdvisorsView() {

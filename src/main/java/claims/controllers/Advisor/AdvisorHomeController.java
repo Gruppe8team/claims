@@ -2,11 +2,16 @@ package claims.controllers.Advisor;
 
 import java.net.URL;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import claims.models.Model;
-import claims.models.Drivers.CustomerDatabaseDriver;
+import claims.models.Drivers.ClaimsDatabaseDriver;
+import claims.views.AdvisorMenuOptions;
+import claims.views.CustomerMenuOptions;
+import claims.models.Claims;
 import claims.models.Customer;
+import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -19,9 +24,12 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class AdvisorHomeController implements Initializable {
     
+    // FXML fields for account info
     @FXML
     private Label acc_dob;
 
@@ -46,20 +54,19 @@ public class AdvisorHomeController implements Initializable {
     @FXML
     private Button btn_edit;
 
-    @FXML
-    private ListView<?> clm_listview;
+    // FXML fields for clients list
 
     @FXML
-    private TableColumn<Customer, StringProperty> email_col;
+    private TableColumn<Customer, String> email_col;
 
     @FXML
     private Label hi_lbl;
 
     @FXML
-    private TableColumn<Customer, IntegerProperty> id_col;
+    private TableColumn<Customer, Number> id_col;
 
     @FXML
-    private TableColumn<Customer, StringProperty> name_col;
+    private TableColumn<Customer, String> name_col;
 
     @FXML
     private Label today_lbl;
@@ -67,16 +74,62 @@ public class AdvisorHomeController implements Initializable {
     @FXML
     private TableView<Customer> clients_tableview;
 
+    // FXML fields for claims list
+    @FXML
+    private TableColumn<Claims, Number> client_col;
+
+    @FXML
+    private TableColumn<Claims, Number> clm_col;
+
+    @FXML
+    private TableView<Claims> clm_tableview;
+
+    @FXML
+    private TableColumn<Claims, String> damage_col;
+
+    @FXML
+    private TableColumn<Claims, LocalDate> datefiled_col;
+
+    @FXML
+    private TableColumn<Claims, String> status_col;
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        id_col.setCellValueFactory(new PropertyValueFactory<Customer,IntegerProperty>("userID"));
-        name_col.setCellValueFactory(new PropertyValueFactory<Customer, StringProperty>("firstName"));
-        email_col.setCellValueFactory(new PropertyValueFactory<Customer, StringProperty>("email"));
-        
-        clients_tableview.setItems(customers);
+        initializeTableColumns();
+        init();
+        btn_edit.setOnAction(event -> onEdit());
     }
 
-    CustomerDatabaseDriver db = new CustomerDatabaseDriver();
-    ResultSet resultSet = db.searchCustomerByAdvisorID(1);
-    ObservableList<Customer> customers = Model.getInstance().getCustomers(resultSet);
+    private void onEdit() {
+        Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.EDIT);
+    }
+
+    public void init() {
+        acc_name.setText(Model.getInstance().getAdvisor().getFirstName() + " "
+                + Model.getInstance().getAdvisor().getLastName());
+        hi_lbl.setText("Welcome, " + Model.getInstance().getAdvisor().getFirstName());
+        acc_gender.setText("Gender: " + Model.getInstance().getAdvisor().getGender());
+        acc_dob.setText("DOB: " + Model.getInstance().getAdvisor().getDateOfBirth());
+        acc_email.setText("Email: " + Model.getInstance().getAdvisor().getEmail());
+        acc_phonenumber.setText("Phone: " + Model.getInstance().getAdvisor().getPhoneNumber());
+    }
+
+    public void initializeTableColumns() {
+        id_col.setCellValueFactory(cellData -> cellData.getValue().userIDProperty());
+        name_col.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
+        email_col.setCellValueFactory(cellData -> cellData.getValue().emailProperty());
+
+        client_col.setCellValueFactory(cellData -> cellData.getValue().clientIDProperty());
+        clm_col.setCellValueFactory(cellData -> cellData.getValue().claimIDProperty());
+        damage_col.setCellValueFactory(cellData -> cellData.getValue().damageProperty());
+        datefiled_col.setCellValueFactory(cellData -> cellData.getValue().dateFiledProperty());
+       status_col.setCellValueFactory(cellData -> cellData.getValue().claimStatusProperty());
+
+        Platform.runLater(() -> clients_tableview.setItems(Model.getInstance().getCustomersByAdvisor(Model.getInstance().getAdvisor().getUserID())));
+        Platform.runLater(() -> clm_tableview.setItems(Model.getInstance().getClaimsByAdvisor(Model.getInstance().getAdvisor().getUserID())));
+    }
+
+    
 }

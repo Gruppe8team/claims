@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_9">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_14">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -42,8 +42,10 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:21.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:21.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.45.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.36" level="project" />
     <orderEntry type="library" name="Maven: org.postgresql:postgresql:42.7.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.checkerframework:checker-qual:3.42.0" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:2.0.12" level="project" />
+    <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.5.3" level="project" />
+    <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.5.3" level="project" />
   </component>
 </module>

@@ -3,16 +3,15 @@ package claims.controllers.Customer;
 
 import claims.models.Model;
 import claims.models.NewUser;
+import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.views.CustomerMenuOptions;
-import databases.CustomerDatabase;
+import databases.UserDatabase;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class EditController {
-
-    public static NewUser newUser = new NewUser(1,"","Kyle","Williamson","218953901@gmail.com","Oct 14, 2003","999-999-9999","Male");
 
     @FXML
     private Label acc_btn;
@@ -73,30 +72,32 @@ public class EditController {
 
 
     public void initialize() {
-
-        name_lbl.setText(newUser.getFirstName()+" "+newUser.getLastName());
-        username_lbl.setText("Hi, "+newUser.getFirstName());
-        gender_lbl.setText("Gender: "+newUser.getGender());
-        dob_lbl.setText("DOB: "+newUser.getDob());
-        email_lbl.setText("Email: "+newUser.getEmail());
-        phone_lbl.setText("Phone #: "+newUser.getPhone());
-
-
         addListeners();
+        init();
     }
 
     private void addListeners() {
         save_btn.setOnAction(event -> onSave());
         cancel_btn.setOnAction(event -> onCancel());
         delete_btn.setOnAction(event -> onDelete());
+    }
 
-        firstname_field.setText(newUser.getFirstName());
-        lastname_field.setText(newUser.getLastName());
-        dob_field.setText(newUser.getDob());
-        gender_field.setText(newUser.getGender());
-        email_field.setText(newUser.getEmail());
-        phone_field.setText(newUser.getPhone());
-        password_field.setText(newUser.getPasswordKey());
+    private void init() {
+        name_lbl.setText(Model.getInstance().getCustomer().getFirstName() + " "
+                + Model.getInstance().getCustomer().getLastName());
+        username_lbl.setText("Hi, " + Model.getInstance().getCustomer().getFirstName());
+        gender_lbl.setText("Gender: " + Model.getInstance().getCustomer().getGender());
+        dob_lbl.setText("Age: " + Model.getInstance().getCustomer().getAge());
+        email_lbl.setText("Email: " + Model.getInstance().getCustomer().getEmail());
+        phone_lbl.setText("Phone #: " + Model.getInstance().getCustomer().getPhoneNumber());
+
+        firstname_field.setText(Model.getInstance().getCustomer().getFirstName());
+        lastname_field.setText(Model.getInstance().getCustomer().getLastName());
+        dob_field.setText("" + Model.getInstance().getCustomer().getAge());
+        gender_field.setText(Model.getInstance().getCustomer().getGender());
+        email_field.setText(Model.getInstance().getCustomer().getEmail());
+        phone_field.setText(Model.getInstance().getCustomer().getPhoneNumber());
+        password_field.setText(Model.getInstance().getCustomer().getPassword());
     }
 
     private void onCancel() {
@@ -121,13 +122,8 @@ public class EditController {
 
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
-
-            CustomerDatabase.deleteNewUser(newUser);
-            newUser = new NewUser();
-            System.out.println(newUser.toString());
-            //new  HomeController().init();
-            //Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
-            //initialize();
+            ClaimsDatabaseDriver.getInstance().removeCustomer(Model.getInstance().getCustomer().getUserID());
+            
             Stage stage = (Stage) delete_btn.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
 
@@ -153,48 +149,59 @@ public class EditController {
     }
 
     private void updateAccount() {
-        if(firstname_field.getText().isEmpty()) {
-            newUser.setFirstName(newUser.getFirstName());
+        if (firstname_field.getText().isEmpty()) {
+            Model.getInstance().getCustomer().setFirstName(Model.getInstance().getCustomer().getFirstName());
         } else {
-            newUser.setFirstName(firstname_field.getText());
+            Model.getInstance().getCustomer().setFirstName(firstname_field.getText());
         }
-        if(lastname_field.getText().isEmpty()) {
-            newUser.setLastName(newUser.getLastName());
+        if (lastname_field.getText().isEmpty()) {
+            Model.getInstance().getCustomer().setLastName(Model.getInstance().getCustomer().getLastName());
         } else {
-            newUser.setLastName(lastname_field.getText());
+            Model.getInstance().getCustomer().setLastName(lastname_field.getText());
         }
-        if(gender_field.getText().isEmpty()) {
-            newUser.setGender(newUser.getGender());
+        if (gender_field.getText().isEmpty()) {
+            Model.getInstance().getCustomer().setGender(Model.getInstance().getCustomer().getGender());
         } else {
-            newUser.setGender(gender_field.getText());
+            Model.getInstance().getCustomer().setGender(gender_field.getText());
         }
-        if(dob_field.getText().isEmpty()) {
-            newUser.setDob(newUser.getDob());
+        if (dob_field.getText().isEmpty()) {
+            Model.getInstance().getCustomer().setAge(Model.getInstance().getCustomer().getAge());
         } else {
-            newUser.setDob(dob_field.getText());
+            Model.getInstance().getCustomer().setAge(Integer.parseInt(dob_field.getText()));
         }
-        if(email_field.getText().isEmpty()) {
-            newUser.setEmail(newUser.getEmail());
+        if (email_field.getText().isEmpty()) {
+            Model.getInstance().getCustomer().setEmail(Model.getInstance().getCustomer().getEmail());
         } else {
-            newUser.setEmail(email_field.getText());
+            Model.getInstance().getCustomer().setEmail(email_field.getText());
         }
-        if(phone_field.getText().isEmpty()) {
-            newUser.setPhone(newUser.getPhone());
+        if (phone_field.getText().isEmpty()) {
+            Model.getInstance().getCustomer().setPhoneNumber(Model.getInstance().getCustomer().getPhoneNumber());
         } else {
-            newUser.setPhone(phone_field.getText());
+            Model.getInstance().getCustomer().setPhoneNumber(phone_field.getText());
         }
-        if(password_field.getText().isEmpty()) {
-            newUser.setPasswordKey(newUser.getPasswordKey());
+        if (password_field.getText().isEmpty()) {
+            Model.getInstance().getCustomer().setPassword(Model.getInstance().getCustomer().getPassword());
         } else {
-            newUser.setPasswordKey(password_field.getText());
+            Model.getInstance().getCustomer().setPassword(password_field.getText());
         }
-        name_lbl.setText(newUser.getFirstName()+" "+newUser.getLastName());
-        username_lbl.setText("Hi, "+newUser.getFirstName());
-        gender_lbl.setText("Gender: "+newUser.getGender());
-        dob_lbl.setText("DOB: "+newUser.getDob());
-        email_lbl.setText("Email: "+newUser.getEmail());
-        phone_lbl.setText("Phone #: "+newUser.getPhone());
-        CustomerDatabase.updateNewUser(newUser);
+
+        name_lbl.setText(Model.getInstance().getCustomer().getFirstName()+" "+Model.getInstance().getCustomer().getLastName());
+        username_lbl.setText("Hi, "+Model.getInstance().getCustomer().getFirstName());
+        gender_lbl.setText("Gender: "+Model.getInstance().getCustomer().getGender());
+        dob_lbl.setText("Age: "+Model.getInstance().getCustomer().getAge());
+        email_lbl.setText("Email: "+Model.getInstance().getCustomer().getEmail());
+        phone_lbl.setText("Phone #: "+Model.getInstance().getCustomer().getPhoneNumber());
+        ClaimsDatabaseDriver.getInstance().updateCustomer(
+        Model.getInstance().getCustomer().getUsername(),
+        Model.getInstance().getCustomer().getPassword(),
+        Model.getInstance().getCustomer().getFirstName(),
+        Model.getInstance().getCustomer().getLastName(),
+        Model.getInstance().getCustomer().getAge(),
+        Model.getInstance().getCustomer().getGender(),
+        Model.getInstance().getCustomer().getEmail(),
+        Model.getInstance().getCustomer().getPhoneNumber(),
+        Model.getInstance().getCustomer().getAddress(),
+        Model.getInstance().getCustomer().getUserID());
         Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
     }
 
