@@ -1,5 +1,6 @@
 package claims.controllers.Admin;
 
+import claims.models.NewUser;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -53,7 +54,28 @@ public class AdminCustomersController implements Initializable {
     private Button abortButton;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        populateTableView();
     }
+
+    private void populateTableView() {
+        // Clear existing items in the TableView
+        clm_table.getItems().clear();
+
+
+        // Populate the TableView with fetched data
+        while (resultSet.next()) {
+            NewUser user = new NewUser(
+                    resultSet..getInstance().addAdvisor,
+                    resultSet.getString("username"),
+                    resultSet.getString("password"),
+                    resultSet.getString("email"),
+                    resultSet.getString("phone"),
+                    resultSet.getString("dob"),
+                    resultSet.getString("status")
+            );
+            clm_table.getItems().add(user);
+        }
+    }
+
 
 }
