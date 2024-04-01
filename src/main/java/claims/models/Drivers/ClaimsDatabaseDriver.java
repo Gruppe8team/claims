@@ -33,6 +33,35 @@ public class ClaimsDatabaseDriver {
         return claimsDatabaseDriver;
     }
 
+    public void addClaim(int claimID, String claimStatus, int atFault, String dateFiled, String accidentTime, String damage, int totalledVehicle, String description, String payInfo, String closureCond, int closed) {
+        String sql = "INSERT INTO Claims (ClaimID, ClaimStatus, At_Fault, DateFiled, Accident_Time, Damage, Totalled_Vehicle, Description, PayInfo, ClosureCond, Closed) " +
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+        	pstmt.setInt(1, claimID);
+        	pstmt.setString(2, claimStatus);
+            pstmt.setInt(3, atFault);
+            pstmt.setString(4, dateFiled);
+            pstmt.setString(5, accidentTime);
+            pstmt.setString(6, damage);
+            pstmt.setInt(7, totalledVehicle);
+            pstmt.setString(8, description);
+            pstmt.setString(9, payInfo);
+            pstmt.setString(10, closureCond);
+            pstmt.setInt(11, closed);
+            
+            int affectedRows = pstmt.executeUpdate();
+            
+            if (affectedRows > 0) {
+                System.out.println("Claim added successfully.");
+            } else {
+                System.out.println("Failed to add claim. No rows affected.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
     //Customer Section
     
     
