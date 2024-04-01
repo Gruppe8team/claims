@@ -1,6 +1,6 @@
 [Project Log]
-Group 8
-Date: 2024-02-16
+Team 8
+Date: 2024-03-31
 
 **Meeting Minutes:**
 - Attendees: Joshua Zuker, Tejae Whitley, Kyle Williamson, Cyrus Yang, Julianna Silva, Jiaye Chen
@@ -26,6 +26,12 @@ Date: 2024-02-16
 
   - [Agenda 7 2024-03-18 21:54:00]
     - Discussion: Take Home Assignment
+
+  - [Agenda 8 2024-03-25 21:30:00]
+    - Discussion: Update
+
+  - [Agenda 9 2024-03-29 18:00:00]
+    - Discussion: Demo Test
    
 **Big Design Decisions:**
 - [2024-01-15 21:28:00]
@@ -44,66 +50,80 @@ Date: 2024-02-16
 **Task Assignments:**
 - [2024-01-29 21:30:00]
   - Assignee: Joshua Zuker
-  - Assigned Task: Claim Status Update，Claim File Review
+  - Assigned Task: Status Update，Claim Review, List of Claim
   
   - Assignee: Tejae Whitley
-  - Assigned Task: Customer Registration, Customer Claim Dashboard
+  - Assigned Task: User-friendly Registration, Morden Dashboard, Account Controller
   
   - Assignee: Cyrus Yang
-  - Assigned Task: Insurer Registration, Customer Online Claim Submission
+  - Assigned Task: Password Security, Remote Service, Age Restriction, Visible Logo Design
   
   - Assignee: Julianna Silva
-  - Assigned Task: Customer Claim Tracker, Customer's History Claim Access
+  - Assigned Task: Claim Tracker, History Review, All Info Access
   
   - Assignee: Kyle Williamson
-  - Assigned Task: Customer Login, Claim File Review
+  - Assigned Task: Modern Login Page, Claim File Access, User Account Switch, Morden Dashboard
   
   - Assignee: Jiaye Chen
-  - Assigned Task: Customer Account Editor, Customer Account Deletion
+  - Assigned Task: Account Editor, Account Deletion, Visible Logo Design, User Account Switch
 
 **Development Tasks on User Story:**
 - User Story: A customer story
-  - Task 1: [Customer Login]
+  - Task 1: [Remote Service]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [4 weeks]
+  - Task 2: [User-friendly Registration]
     - Time Allocated: [1 week]
     - Actual Time Spent: [1 week]
-  - Task 2: [Customer Registration]
+  - Task 3: [Account Editor]
     - Time Allocated: [1 week]
     - Actual Time Spent: [1 week]
-  - Task 3: [Customer Account Editor]
+  - Task 4: [Account Deletion]
     - Time Allocated: [1 week]
     - Actual Time Spent: [1 week]
-  - Task 4: [Customer Account Deletion]
+  - Task 5: [Morden Login Page]
     - Time Allocated: [1 week]
     - Actual Time Spent: [1 week]
-  - Task 5: [Customer Online Claim Submission]
+  - Task 6: [Morden Dashboard]
     - Time Allocated: [1 week]
-    - Actual Time Spent: [1 week]
-  - Task 6: [Customer Claim Tracker]
+    - Actual Time Spent: [4 weeks]
+  - Task 7: [Claim Tracker]
     - Time Allocated: [1 week]
-    - Actual Time Spent: [Not Done Yet]
-  - Task 7: [Customer Claim Dashboard]
-    - Time Allocated: [1 week]
-    - Actual Time Spent: [Not Done Yet]
+    - Actual Time Spent: [3 weeks]
 
 - User Story: An insurer story
-  - Task 1: [Claim File Review]
+  - Task 1: [Claim Review]
     - Time Allocated: [1 week]
-    - Actual Time Spent: [Not Done Yet]
-  - Task 2: [Insurer Dashboard]
-    - Time Allocated: [1 week]
-    - Actual Time Spent: [1 week]
-  - Task 3: [Claim Status Update]
+    - Actual Time Spent: [3 weeks]
+  - Task 2: [Claim File Access]
     - Time Allocated: [1 week]
     - Actual Time Spent: [1 week]
-  - Task 4: [Insurer Registration]
+  - Task 3: [Status Update]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [2 weeks]
+  - Task 4: [History Review]
     - Time Allocated: [1 weeks]
-    - Actual Time Spent: [1 week]
-  - Task 5: [Customer's History Claim Access]
+    - Actual Time Spent: [3 weeks]
+  - Task 5: [List of Claim]
     - Time Allocated: [1 weeks]
-    - Actual Time Spent: [Not Done Yet]
+    - Actual Time Spent: [2 days]
 
 - User Story: An administrator story
-  - Task 1: [Acconts & Permission Control]
+  - Task 1: [Account Controller]
     - Time Allocated: [1 week]
-    - Actual Time Spent: [Not Done Yet]
-
+    - Actual Time Spent: [1 week]
+  - Task 2: [Password Security]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [1 day]
+  - Task 3: [User Type Switch]
+    - Time Allocated: [2 weeks]
+    - Actual Time Spent: [2 weeks]
+  - Task 4: [All Info Access]
+    - Time Allocated: [2 weeks]
+    - Actual Time Spent: [4 weeks]
+  - Task 5: [Visible Logo Design]
+    - Time Allocated: [1 week]
+    - Actual Time Spent: [2 weeks]
+  - Task 6: [Age Restriction]
+    - Time Allocated: [1 day]
+    - Actual Time Spent: [1 day]
