@@ -56,7 +56,7 @@ Date: 2024-03-31
   - Assigned Task: User-friendly Registration, Morden Dashboard, Account Controller
   
   - Assignee: Cyrus Yang
-  - Assigned Task: Password Security, Remote Service, Age Restriction, Visible Logo Design
+  - Assigned Task: Password Security, Remote Service, Age Restriction, Administrative Code
   
   - Assignee: Julianna Silva
   - Assigned Task: Claim Tracker, History Review, All Info Access
@@ -65,7 +65,7 @@ Date: 2024-03-31
   - Assigned Task: Modern Login Page, Claim File Access, User Account Switch, Morden Dashboard
   
   - Assignee: Jiaye Chen
-  - Assigned Task: Account Editor, Account Deletion, Visible Logo Design, User Account Switch
+  - Assigned Task: Account Editor, Account Deletion, Administrative Code, User Account Switch
 
 **Development Tasks on User Story:**
 - User Story: A customer story
@@ -121,9 +121,9 @@ Date: 2024-03-31
   - Task 4: [All Info Access]
     - Time Allocated: [2 weeks]
     - Actual Time Spent: [4 weeks]
-  - Task 5: [Visible Logo Design]
+  - Task 5: [Administrative Code]
     - Time Allocated: [1 week]
-    - Actual Time Spent: [2 weeks]
+    - Actual Time Spent: [1 week]
   - Task 6: [Age Restriction]
     - Time Allocated: [1 day]
     - Actual Time Spent: [1 day]
