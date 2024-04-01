@@ -16,12 +16,12 @@
          </font></Text>
       <TableView fx:id="clm_table" layoutX="14.0" layoutY="125.0" prefHeight="435.0" prefWidth="810.0" styleClass="table" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="125.0">
          <columns>
-            <TableColumn id="c" fx:id="claimID_col" prefWidth="55.0" text="UserID" />
-            <TableColumn id="c" fx:id="damage_col" prefWidth="124.0" text="Username" />
-            <TableColumn id="c" fx:id="timeofac_col" prefWidth="133.0" text="Password" />
-            <TableColumn id="c" fx:id="totalled_col" prefWidth="108.0" text="Email" />
-            <TableColumn id="c" fx:id="atfault_col" prefWidth="130.0" text="Email" />
-            <TableColumn id="c" fx:id="datefilled_col" prefWidth="140.0" text="Date Filled" />
+            <TableColumn id="c" fx:id="userID_col" prefWidth="55.0" text="UserID" />
+            <TableColumn id="c" fx:id="username_col" prefWidth="124.0" text="Username" />
+            <TableColumn id="c" fx:id="password_col" prefWidth="133.0" text="Password" />
+            <TableColumn id="c" fx:id="email_col" prefWidth="108.0" text="Email" />
+            <TableColumn id="c" fx:id="phone_col" prefWidth="130.0" text="Phone" />
+            <TableColumn id="c" fx:id="dob_col" prefWidth="140.0" text="Date of Birth" />
             <TableColumn id="c" fx:id="status_col" prefWidth="120.0" text="Notes" />
          </columns>
       </TableView>
