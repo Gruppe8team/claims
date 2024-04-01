@@ -62,6 +62,10 @@ public class Customer extends User {
         return age.get();
     }
 
+    public IntegerProperty ageProperty() {
+        return age;
+    }
+
     // sets the age of a customer
     public void setAge(int age) {
         this.age.set(age);

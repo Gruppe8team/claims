@@ -6,19 +6,17 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import claims.models.Claims;
+import claims.models.Customer;
 import claims.models.Model;
-import claims.models.NewUser;
 import claims.views.CustomerMenuOptions;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 public class HomeController implements Initializable {
@@ -76,13 +74,13 @@ public class HomeController implements Initializable {
     }
 
     public void init() {
-        acc_name.setText(Model.getInstance().getCustomer().getFirstName() + " "
-                + Model.getInstance().getCustomer().getLastName());
-        user_name.setText("Welcome, " + Model.getInstance().getCustomer().getFirstName());
-        acc_gender.setText("Gender: " + Model.getInstance().getCustomer().getGender());
-        acc_dob.setText("Age: " + Model.getInstance().getCustomer().getAge());
-        acc_email.setText("Email: " + Model.getInstance().getCustomer().getEmail());
-        acc_phonenumber.setText("Phone: " + Model.getInstance().getCustomer().getPhoneNumber());
+        Customer customer = Model.getInstance().getCustomer();
+        acc_name.textProperty().bind(customer.firstNameProperty().concat(" ").concat(customer.lastNameProperty()));
+        user_name.textProperty().bind(Bindings.concat("Hi, ", customer.firstNameProperty()));
+        acc_gender.textProperty().bind(Bindings.concat("Gender: ", customer.genderProperty()));
+        acc_dob.textProperty().bind(Bindings.concat("Age: ", customer.ageProperty().asString()));
+        acc_email.textProperty().bind(Bindings.concat("Email: ", customer.emailProperty()));
+        acc_phonenumber.textProperty().bind(Bindings.concat("Phone #: ", customer.phoneNumberProperty()));
     }
 
 

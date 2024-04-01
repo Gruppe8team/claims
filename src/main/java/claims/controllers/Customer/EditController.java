@@ -1,11 +1,13 @@
 package claims.controllers.Customer;
 
 
+import claims.models.Customer;
 import claims.models.Model;
 import claims.models.NewUser;
 import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.views.CustomerMenuOptions;
 import databases.UserDatabase;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
@@ -83,21 +85,22 @@ public class EditController {
     }
 
     private void init() {
-        name_lbl.setText(Model.getInstance().getCustomer().getFirstName() + " "
-                + Model.getInstance().getCustomer().getLastName());
-        username_lbl.setText("Hi, " + Model.getInstance().getCustomer().getFirstName());
-        gender_lbl.setText("Gender: " + Model.getInstance().getCustomer().getGender());
-        dob_lbl.setText("Age: " + Model.getInstance().getCustomer().getAge());
-        email_lbl.setText("Email: " + Model.getInstance().getCustomer().getEmail());
-        phone_lbl.setText("Phone #: " + Model.getInstance().getCustomer().getPhoneNumber());
+        Customer customer = Model.getInstance().getCustomer();
+        name_lbl.textProperty().bind(customer.firstNameProperty().concat(" ").concat(customer.lastNameProperty()));
+        username_lbl.textProperty().bind(Bindings.concat("Hi, ", customer.firstNameProperty()));
+        gender_lbl.textProperty().bind(Bindings.concat("Gender: ", customer.genderProperty()));
+        dob_lbl.textProperty().bind(Bindings.concat("Age: ", customer.ageProperty().asString()));
+        email_lbl.textProperty().bind(Bindings.concat("Email: ", customer.emailProperty()));
+        phone_lbl.textProperty().bind(Bindings.concat("Phone #: ", customer.phoneNumberProperty()));
 
-        firstname_field.setText(Model.getInstance().getCustomer().getFirstName());
-        lastname_field.setText(Model.getInstance().getCustomer().getLastName());
-        dob_field.setText("" + Model.getInstance().getCustomer().getAge());
-        gender_field.setText(Model.getInstance().getCustomer().getGender());
-        email_field.setText(Model.getInstance().getCustomer().getEmail());
-        phone_field.setText(Model.getInstance().getCustomer().getPhoneNumber());
-        password_field.setText(Model.getInstance().getCustomer().getPassword());
+        firstname_field.setText(customer.getFirstName());
+        lastname_field.setText(customer.getLastName());
+        dob_field.setText("" + customer.getAge());
+        gender_field.setText(customer.getGender());
+        email_field.setText(customer.getEmail());
+        phone_field.setText(customer.getPhoneNumber());
+        password_field.setText(customer.getPassword());
+
     }
 
     private void onCancel() {
