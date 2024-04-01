@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" stylesheets="@../../style/AdvisorHome.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Admin.AdminHomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" stylesheets="@../../style/AdvisorHome.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Admin.AdminHomeController">
     <children>
-        <Label fx:id="hi_lbl" layoutX="14.0" layoutY="14.0" styleClass="user_name" text="Hi, Jerry" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="30.0" />
         <Label fx:id="today_lbl" layoutX="127.0" layoutY="30.0" styleClass="date_lbl" text="Today, 2024-12-01" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="30.0" />
         <Label styleClass="section_title" text="User Information" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="90.0" />
         <HBox layoutX="10.0" layoutY="10.0" prefHeight="180.0" prefWidth="570.0" styleClass="accounts_view" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0">
