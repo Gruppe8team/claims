@@ -22,4 +22,5 @@ module claims {
             javafx.fxml;
     opens claims to
             javafx.graphics;
+    opens claims.models to javafx.base;
 }
