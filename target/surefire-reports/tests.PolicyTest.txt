@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: tests.PolicyTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! -- in tests.PolicyTest
-tests.PolicyTest.test1 -- Time elapsed: 0.011 s <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! -- in tests.PolicyTest
+tests.PolicyTest.test1 -- Time elapsed: 0.012 s <<< FAILURE!
 org.opentest4j.AssertionFailedError: 
 expected: <PolicyID: 0
 ClientID: 0
@@ -29,7 +29,7 @@ Deductible: 0.0>
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1124)
-	at tests.PolicyTest.test1(PolicyTest.java:16)
+	at claims@1.0-SNAPSHOT/tests.PolicyTest.test1(PolicyTest.java:16)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)

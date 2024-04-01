@@ -1,0 +1,16 @@
+tests/VehicleStubDB.class
+tests/PolicyTest.class
+tests/PasswordMaskingTest.class
+tests/CustomerTest.class
+tests/CustomerStubDBTest.class
+tests/ClaimsStubDBTest.class
+tests/CustomerStubDB.class
+tests/ClaimsTest.class
+tests/VehicleStubDBTest.class
+tests/AdvisorTest.class
+tests/UserTypeTest.class
+tests/ClaimsStubDB.class
+tests/UserStubDBTest.class
+tests/UserTypeTest$NewUserTest.class
+tests/UserStubDB.class
+tests/VehicleTest.class
