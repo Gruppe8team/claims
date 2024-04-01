@@ -32,6 +32,21 @@
     -fx-background-radius: 5px;
 }
 
+.details-box {
+    -fx-border-width: 1px;
+    border-width: 1px;
+    -fx-border-color: #000;
+    border-color: #000;
+    -fx-border-radius: 5px;
+    border-radius: 5px;
+    -fx-padding: 10px 0px 0px 20px;
+    padding: 10px;
+    -fx-effect: dropshadow(three-pass-box, #AAAAAA, 5, 0, 0, 4);
+    -fx-background-color: white;
+    background-color: white;
+    -fx-background-radius: 5px;
+}
+
 .register-box-sub1 {
     -fx-padding: 5px 0px 0px 0px;
     padding: 5px 0px 0px 0px;
@@ -74,6 +89,13 @@
     -fx-border-radius: 1px;
     border-radius: 1px;
     -fx-effect: dropshadow(three-pass-box, #AAAAAA, 5, 0, 0, 1);
+}
+
+.detail-text {
+    -fx-font-size: 1.2em;
+    font-size: 1.2em;
+    -fx-padding: 0px 0px 0px 0px;
+    padding: 0;
 }
 
 #VT {

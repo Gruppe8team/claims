@@ -3,6 +3,7 @@ package claims.models.Drivers;
 import java.sql.Statement;
 import java.time.LocalDate;
 
+import claims.models.Model;
 import claims.models.Customer;
 import claims.models.NewUser;
 import claims.models.Policy;
@@ -193,7 +194,30 @@ public class ClaimsDatabaseDriver {
         }
     }
 
-    // public void registerClaim(String )
+    public void registerClaim(int atFault, String accidentFiled, String accidentTime, String damage, int totalledVehicle, String description) {
+        String sql = "INSERT INTO Claims (ClientID, ClaimStatus, At_Fault, DateFiled, Accident_Time, Damage, Totalled_Vehicle, Description, Closed) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Customer customer = Model.getInstance().getCustomer();
+        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setInt(1, customer.getUserID());
+            pstmt.setString(2, "Pending");
+            pstmt.setInt(3, atFault);
+            pstmt.setString(4, LocalDate.now().toString());
+            pstmt.setString(5, accidentFiled+", "+accidentTime);
+            pstmt.setString(6, damage);
+            pstmt.setInt(7, totalledVehicle);
+            pstmt.setString(8, description);
+            pstmt.setInt(9, 0);
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("Update successful.");
+            } else {
+                System.out.println("Update failed. No rows affected.");
+            }
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     //Advisor Section
 
