@@ -9,8 +9,8 @@ import javafx.beans.property.StringProperty;
 
 public class Policy {
 
-	public IntegerProperty policyID, clientID, vehicleID, policyNumber;
-	public StringProperty startDate, endDate, coverageType, policyStatus;
+	public IntegerProperty policyID, clientID, vehicleID, policyNumber; //Changed to strings most likely
+	public StringProperty policyName, startDate, endDate, coverageType, policyStatus;
 	public DoubleProperty Premium, Deductible;
 	
 	// Default Constructor
@@ -19,6 +19,7 @@ public class Policy {
 		this.clientID = new SimpleIntegerProperty(this, "Client ID", 0);
 		this.vehicleID = new SimpleIntegerProperty(this, "Vehicle ID", 0);
 		this.policyNumber = new SimpleIntegerProperty(this, "Policy Number", 0);
+		this.policyName = new SimpleStringProperty(this, "Policy Name", "");
 		this.startDate = new SimpleStringProperty(this, "Start Date", "");
 		this.endDate = new SimpleStringProperty(this, "End Date", "");
 		this.coverageType = new SimpleStringProperty(this, "Coverage Type", "");
@@ -29,28 +30,14 @@ public class Policy {
 		
 	}
 	
-	// Constructor for unregistered policy 
-	public Policy(int policyID, int policyNumber,String coverageType, String policyStatus, double Premium){
-		
-		this.policyID = new SimpleIntegerProperty(this, "Policy ID", policyID);
-		this.clientID = new SimpleIntegerProperty(this, "Client ID", 0);
-		this.vehicleID = new SimpleIntegerProperty(this, "Vehicle ID", 0);
-		this.policyNumber = new SimpleIntegerProperty(this, "Policy Number", policyNumber);
-		this.startDate = new SimpleStringProperty(this, "Start Date", "");
-		this.endDate = new SimpleStringProperty(this, "End Date", "");
-		this.coverageType = new SimpleStringProperty(this, "Coverage Type", coverageType);
-		this.policyStatus = new SimpleStringProperty(this, "Policy Status", policyStatus);
-		this.Premium = new SimpleDoubleProperty(this, "Premium", Premium);
-		this.Deductible = new SimpleDoubleProperty(this, "Deductible", 0);
-	}
 	
-	// Same but idk if the dates and deductibles set before a user registers for one
-	public Policy(int policyID, int policyNumber,String startDate, String endDate, 
+	// Non-default constructor
+	public Policy(int policyNumber,String policyName,String startDate, String endDate, 
 			String coverageType, String policyStatus, double Premium, double Deductible){
 		
-		this.policyID = new SimpleIntegerProperty(this, "Policy ID", policyID);
 		this.clientID = new SimpleIntegerProperty(this, "Client ID", 0);
 		this.vehicleID = new SimpleIntegerProperty(this, "Vehicle ID", 0);
+		this.policyName = new SimpleStringProperty(this, "Policy Name", policyName);
 		this.policyNumber = new SimpleIntegerProperty(this, "Policy Number", policyNumber);
 		this.startDate = new SimpleStringProperty(this, "Start Date", startDate);
 		this.endDate = new SimpleStringProperty(this, "End Date", endDate);
@@ -60,22 +47,22 @@ public class Policy {
 		this.Deductible = new SimpleDoubleProperty(this, "Deductible", Deductible);
 	}
 	
+//	public Policy(int policyID, int policyNumber,String policyName,String startDate, String endDate, 
+//			String coverageType, String policyStatus, double Premium, double Deductible){
+//		
+//		this.policyID = new SimpleIntegerProperty(this, "Policy ID", policyID);
+//		this.clientID = new SimpleIntegerProperty(this, "Client ID", 0);
+//		this.vehicleID = new SimpleIntegerProperty(this, "Vehicle ID", 0);
+//		this.policyName = new SimpleStringProperty(this, "Policy Name", policyName);
+//		this.policyNumber = new SimpleIntegerProperty(this, "Policy Number", policyNumber);
+//		this.startDate = new SimpleStringProperty(this, "Start Date", startDate);
+//		this.endDate = new SimpleStringProperty(this, "End Date", endDate);
+//		this.coverageType = new SimpleStringProperty(this, "Coverage Type", coverageType);
+//		this.policyStatus = new SimpleStringProperty(this, "Policy Status", policyStatus);
+//		this.Premium = new SimpleDoubleProperty(this, "Premium", Premium);
+//		this.Deductible = new SimpleDoubleProperty(this, "Deductible", Deductible);
+//	}
 	
-	// Constructor for registered policy 
-	// public Policy(int policyID, int clientID,int vehicleID,int policyNumber,String startDate, String endDate, 
-	// 		String coverageType, String policyStatus, double Premium, double Deductible){
-		
-	// 	this.policyID = new SimpleIntegerProperty(this, "Policy ID", policyID);
-	// 	this.clientID = ;
-	// 	this.vehicleID = vehicleID;
-	// 	this.policyNumber = policyNumber;
-	// 	this.startDate = startDate;
-	// 	this.endDate = endDate;
-	// 	this.coverageType = coverageType;
-	// 	this.policyStatus = policyStatus;
-	// 	this.Premium = Premium;
-	// 	this.Deductible = Deductible;
-	// }
 	
 
 	public int getPolicyID() {
@@ -110,6 +97,14 @@ public class Policy {
 
 	public void setPolicyNumber(int policyNumber) {
 		this.policyNumber.set(policyNumber);
+	}
+	
+	public String getPolicyName() {
+		return policyName.get();
+	}
+
+	public void setPolicyName(String policyName) {
+		this.policyName.set(policyName);
 	}
 	
 	public String getStartDate() {
@@ -163,7 +158,7 @@ public class Policy {
 	@Override 
 	public String toString(){
 		
-		return "PolicyID: " + getPolicyID() + "\nClientID: " + getClientID() + "\nVehicleID: "
+		return "Policy Name: "+getPolicyName()+"\nPolicyID: " + getPolicyID() + "\nClientID: " + getClientID() + "\nVehicleID: "
 				+ getVehicleID() + "\nPolicyNumber: " + getPolicyNumber() +
 				"\nStart Date: " + getStartDate() + "\nEnd Date: " + getEndDate()
 				+ "\nCoverage Type: " + getCoverageType() + "\nPolicy Status: "
