@@ -133,6 +133,14 @@ public class MyClaimsController implements Initializable {
                 showErrorAlert("The totalled checkbox must be selected.");
                 return;
             }
+            if (Dayofac_Datepicker.getValue()==null) {
+                showErrorAlert("The date is required.");
+                return;
+            }
+            if (Dayofac_Datepicker.getValue().isAfter(LocalDate.now())) {
+                showErrorAlert("The date cannot be after today.");
+                return;
+            }
             ClaimsDatabaseDriver.getInstance().registerClaim(
             getFaultSelect(), 
             Dayofac_Datepicker.getValue().format(formatter), 
