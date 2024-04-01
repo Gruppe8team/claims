@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 import claims.models.Customer;
 import claims.models.NewUser;
+import claims.models.Policy;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
