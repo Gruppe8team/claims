@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -24,15 +23,13 @@
             <TableColumn id="c" fx:id="status_col" minWidth="0.0" prefWidth="111.0" text="Notes" />
          </columns>
       </TableView>
-      <Text layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This menu is for pruning users" wrappingWidth="467.3390655517578">
+      <Text layoutX="14.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This menu is for pruning users or reset user password" wrappingWidth="467.3390655517578">
          <font>
             <Font size="8.0" />
          </font>
       </Text>
-      <Text layoutX="20.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmation Code" wrappingWidth="172.2515640258789" />
-      <TextField fx:id="code" layoutX="20.0" layoutY="626.0" prefHeight="25.0" prefWidth="358.0" promptText="Confirmation Code" />
-      <Button fx:id="execute" layoutX="20.0" layoutY="659.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Delete" />
-      <Button fx:id="abort" layoutX="123.0" layoutY="659.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Abort" />
+      <Button fx:id="execute" layoutX="20.0" layoutY="570.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Delete" />
+      <Button fx:id="abort" layoutX="121.0" layoutY="570.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Reset" />
       <ChoiceBox fx:id="UserType" layoutX="674.0" layoutY="93.0" prefWidth="150.0" />
       <Text fill="#f50000" layoutX="538.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Group:" wrappingWidth="141.3390655517578">
          <font>
