@@ -131,7 +131,7 @@ public class AdminCustomersController implements Initializable {
             Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
             confirmationAlert.setTitle("Confirmation");
             confirmationAlert.setHeaderText("Reset Password");
-            confirmationAlert.setContentText("Are you sure you want to delete this account?");
+            confirmationAlert.setContentText("Are you sure you want to reset the password for this account?");
             Optional<ButtonType> result = confirmationAlert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 Model.getInstance().resetPassword(selectedUser);
