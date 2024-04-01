@@ -1,9 +1,6 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
 
 module claims {
+    requires javafx.base;
     requires javafx.graphics;
     requires javafx.fxml;
     requires javafx.controls;

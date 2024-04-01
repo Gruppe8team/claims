@@ -4,12 +4,14 @@ package claims.controllers.Advisor;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import claims.models.Advisor;
 import claims.models.Model;
 import claims.models.NewUser;
 import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.views.AdvisorMenuOptions;
 import claims.views.CustomerMenuOptions;
 import databases.UserDatabase;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
@@ -87,13 +89,13 @@ public class AdvisorEditController {
     }
 
     private void init() {
-        name_lbl.setText(Model.getInstance().getAdvisor().getFirstName() + " "
-                + Model.getInstance().getAdvisor().getLastName());
-        username_lbl.setText("Hi, " + Model.getInstance().getAdvisor().getFirstName());
-        gender_lbl.setText("Gender: " + Model.getInstance().getAdvisor().getGender());
-        dob_lbl.setText("DOB: " + Model.getInstance().getAdvisor().getDateOfBirth());
-        email_lbl.setText("Email: " + Model.getInstance().getAdvisor().getEmail());
-        phone_lbl.setText("Phone #: " + Model.getInstance().getAdvisor().getPhoneNumber());
+        Advisor advisor = Model.getInstance().getAdvisor();
+        name_lbl.textProperty().bind(advisor.firstNameProperty().concat(" ").concat(advisor.lastNameProperty()));
+        username_lbl.textProperty().bind(Bindings.concat("Welcome, ", advisor.firstNameProperty()));
+        gender_lbl.textProperty().bind(Bindings.concat("Gender: ", advisor.genderProperty()));
+        dob_lbl.textProperty().bind(Bindings.concat("DOB: ", advisor.dateOfBirthProperty().asString()));
+        email_lbl.textProperty().bind(Bindings.concat("Email: ", advisor.emailProperty()));
+        phone_lbl.textProperty().bind(Bindings.concat("Phone #: ", advisor.phoneNumberProperty()));
 
         firstname_field.setText(Model.getInstance().getAdvisor().getFirstName());
         lastname_field.setText(Model.getInstance().getAdvisor().getLastName());

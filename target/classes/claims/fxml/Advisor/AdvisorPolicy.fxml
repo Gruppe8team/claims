@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -15,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="insurance_container" stylesheets="@../../style/MyInsurance.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Customer.MyInsuranceController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="insurance_container" stylesheets="@../../style/MyInsurance.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="claims.controllers.Advisor.AdvisorPolicyController">
    <children>
       <Text layoutX="356.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Policies" AnchorPane.leftAnchor="356.0" AnchorPane.topAnchor="14.0" />
       <HBox layoutX="44.0" layoutY="104.0" prefHeight="261.0" prefWidth="763.0" spacing="20.0" styleClass="register-box">
@@ -46,7 +45,7 @@
                   <DatePicker id="DA" fx:id="start_date" prefHeight="25.0" prefWidth="227.0" />
                   <Label fx:id="datefilled_lbl" styleClass="text" text="End Date" />
                   <DatePicker fx:id="end_date" prefHeight="25.0" prefWidth="227.0" />
-                  <Button fx:id="submit_btn" mnemonicParsing="false" text="Submit">
+                  <Button fx:id="submit_btn" mnemonicParsing="false" onAction="#onSubmit" text="Submit">
                      <VBox.margin>
                         <Insets left="160.0" top="23.0" />
                      </VBox.margin>
@@ -60,16 +59,17 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TableView layoutX="44.0" layoutY="393.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="table" layoutX="28.0" layoutY="334.0" prefHeight="363.0" prefWidth="793.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="clm_name" prefWidth="99.0" text="Name" />
+          <TableColumn fx:id="clm_number" minWidth="0.0" prefWidth="99.0" text="Policy Number" />
+            <TableColumn fx:id="clm_premium" prefWidth="99.0" text="Premuim" />
+            <TableColumn fx:id="clm_deductible" prefWidth="99.0" text="Deductible" />
+            <TableColumn fx:id="clm_coverage" prefWidth="99.0" text="Coverage" />
+            <TableColumn fx:id="clm_start" prefWidth="99.0" text="Start Date" />
+            <TableColumn fx:id="clm_end" prefWidth="99.0" text="End Date" />
+            <TableColumn fx:id="clm_status" prefWidth="99.0" text="Status" />
         </columns>
       </TableView>
-      <ScrollPane layoutX="326.0" layoutY="386.0" prefHeight="200.0" prefWidth="200.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
-      </ScrollPane>
    </children>
 </AnchorPane>

@@ -1,31 +1,22 @@
 package claims.controllers.Advisor;
 
 import java.net.URL;
-import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import claims.models.Model;
-import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.views.AdvisorMenuOptions;
-import claims.views.CustomerMenuOptions;
+import claims.models.Advisor;
 import claims.models.Claims;
 import claims.models.Customer;
 import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public class AdvisorHomeController implements Initializable {
     
@@ -107,13 +98,13 @@ public class AdvisorHomeController implements Initializable {
     }
 
     public void init() {
-        acc_name.setText(Model.getInstance().getAdvisor().getFirstName() + " "
-                + Model.getInstance().getAdvisor().getLastName());
-        hi_lbl.setText("Welcome, " + Model.getInstance().getAdvisor().getFirstName());
-        acc_gender.setText("Gender: " + Model.getInstance().getAdvisor().getGender());
-        acc_dob.setText("DOB: " + Model.getInstance().getAdvisor().getDateOfBirth());
-        acc_email.setText("Email: " + Model.getInstance().getAdvisor().getEmail());
-        acc_phonenumber.setText("Phone: " + Model.getInstance().getAdvisor().getPhoneNumber());
+        Advisor advisor = Model.getInstance().getAdvisor();
+        acc_name.textProperty().bind(advisor.firstNameProperty().concat(" ").concat(advisor.lastNameProperty()));
+        hi_lbl.textProperty().bind(Bindings.concat("Welcome, ", advisor.firstNameProperty()));
+        acc_gender.textProperty().bind(Bindings.concat("Gender: ", advisor.genderProperty()));
+        acc_dob.textProperty().bind(Bindings.concat("DOB: ", advisor.dateOfBirthProperty().asString()));
+        acc_email.textProperty().bind(Bindings.concat("Email: ", advisor.emailProperty()));
+        acc_phonenumber.textProperty().bind(Bindings.concat("Phone #: ", advisor.phoneNumberProperty()));
     }
 
     public void initializeTableColumns() {

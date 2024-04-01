@@ -4,11 +4,9 @@ package claims.models;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-
 import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.views.AccountType;
 import claims.views.ViewFactory;
-import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -68,6 +66,7 @@ public class Model {
     }
 
     // Customer Method Section
+
 
     public boolean getCustomerLoginSuccessFlag() {
         return this.customerLoginSuccessFlag;
