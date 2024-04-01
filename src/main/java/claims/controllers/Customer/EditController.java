@@ -79,7 +79,7 @@ public class EditController {
     private void addListeners() {
         save_btn.setOnAction(event -> onSave());
         cancel_btn.setOnAction(event -> onCancel());
-        delete_btn.setOnAction(event -> onDelete());
+        delete_btn.setOnAction(event -> deleteAccount());
     }
 
     private void init() {
@@ -104,14 +104,6 @@ public class EditController {
         Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
     }
 
-    private void onDelete() {
-        deleteAccount();
-    }
-
-
-
-
-
 
     private void deleteAccount() {
 
@@ -126,7 +118,6 @@ public class EditController {
             
             Stage stage = (Stage) delete_btn.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
-
             Model.getInstance().getViewFactory().showLoginWindow();
             try {
 

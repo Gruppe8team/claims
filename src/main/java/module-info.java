@@ -1,25 +1,21 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
 
 module claims {
-    requires javafx.graphics;
-    requires javafx.fxml;
-    requires javafx.controls;
-    requires java.sql;
-
-    exports claims.controllers;
-    exports claims;
-
-    opens claims.controllers to
-            javafx.fxml;
-    opens claims.controllers.Customer to
-            javafx.fxml;
-    opens claims.controllers.Advisor to
-            javafx.fxml;
-    opens claims.controllers.Admin to
-            javafx.fxml;
-    opens claims to
-            javafx.graphics;
+        requires javafx.graphics;
+        requires javafx.fxml;
+        requires javafx.controls;
+        requires java.sql;
+    
+        exports claims.controllers;
+        exports claims;
+    
+        opens claims.controllers to
+                javafx.fxml;
+        opens claims.controllers.Customer to
+                javafx.fxml;
+        opens claims.controllers.Advisor to
+                javafx.fxml;
+        opens claims.controllers.Admin to
+                javafx.fxml;
+        opens claims to
+                javafx.graphics;
 }

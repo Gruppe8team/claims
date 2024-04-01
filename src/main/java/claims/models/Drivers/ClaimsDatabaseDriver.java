@@ -152,10 +152,15 @@ public class ClaimsDatabaseDriver {
     }
     
     public void removeCustomer(int clientID) {
-        try {
-            Statement statement = this.conn.createStatement();
-            statement.executeUpdate("DELETE FROM Customers WHERE ClientID=" + clientID + ";");
-            System.out.println("Customer with ID " + clientID + " removed successfully.");
+        String sql = "DELETE FROM Customers WHERE ClientID=?";
+        try (PreparedStatement pstmt = this.conn.prepareStatement(sql)) {
+            pstmt.setInt(1, clientID);
+            int affectedRows = pstmt.executeUpdate();
+            if (affectedRows > 0) {
+                System.out.println("Deletion successful.");
+            } else {
+                System.out.println("Update failed. No rows affected.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
