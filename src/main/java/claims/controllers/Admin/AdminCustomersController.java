@@ -51,8 +51,8 @@ public class AdminCustomersController implements Initializable {
     private ChoiceBox<String> UserType;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        UserType.setItems(FXCollections.observableArrayList("Advisor", "Customer", "Select User"));
-        UserType.setValue("Advisor");
+        UserType.setItems(FXCollections.observableArrayList("Advisor", "Customer", "-Select TypeOfUser-"));
+        UserType.setValue("-Select TypeOfUser-");
         populateTableView();
     }
 
