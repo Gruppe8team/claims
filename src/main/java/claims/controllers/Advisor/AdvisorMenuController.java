@@ -2,7 +2,7 @@ package claims.controllers.Advisor;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import claims.AutoClaim;
 import claims.models.Model;
 import claims.views.AdvisorMenuOptions;
 import javafx.fxml.FXML;
@@ -63,7 +63,7 @@ public class AdvisorMenuController implements Initializable {
         Model.getInstance().setAdvisorLoginSuccessFlag(false);
     	Stage stage = (Stage) logout_btn.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showLoginWindow();
+        AutoClaim.exitApplication();
     }
 	
 	

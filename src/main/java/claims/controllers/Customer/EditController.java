@@ -1,6 +1,6 @@
 package claims.controllers.Customer;
 
-
+import claims.AutoClaim;
 import claims.models.Customer;
 import claims.models.Model;
 import claims.models.NewUser;
@@ -121,7 +121,7 @@ public class EditController {
             
             Stage stage = (Stage) delete_btn.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
-            Model.getInstance().getViewFactory().showLoginWindow();
+            AutoClaim.exitApplication();
             try {
 
             } catch (Exception e) {

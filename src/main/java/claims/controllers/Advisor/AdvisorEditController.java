@@ -3,7 +3,7 @@ package claims.controllers.Advisor;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+import claims.AutoClaim;
 import claims.models.Advisor;
 import claims.models.Model;
 import claims.models.NewUser;
@@ -132,8 +132,7 @@ public class AdvisorEditController {
             
             Stage stage = (Stage) delete_btn.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
-
-            Model.getInstance().getViewFactory().showLoginWindow();
+            AutoClaim.exitApplication();
             try {
 
             } catch (Exception e) {

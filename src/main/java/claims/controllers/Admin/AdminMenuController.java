@@ -2,7 +2,7 @@ package claims.controllers.Admin;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import claims.AutoClaim;
 import claims.models.Model;
 import claims.views.AdminMenuOptions;
 import javafx.fxml.FXML;
@@ -67,7 +67,7 @@ public class AdminMenuController implements Initializable {
         Model.getInstance().setAdminLoginSuccessFlag(false);
         Stage stage = (Stage) logout_btn.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showLoginWindow();
+        AutoClaim.exitApplication();
     }
     
 }
