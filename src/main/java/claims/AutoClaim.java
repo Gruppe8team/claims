@@ -1,6 +1,8 @@
 package claims;
+
 import claims.models.Model;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 
 public class AutoClaim extends Application {
@@ -14,4 +16,8 @@ public class AutoClaim extends Application {
         launch(args);
     }
 
+
+    public static void exitApplication() {
+        Platform.exit();
+    }
 }
