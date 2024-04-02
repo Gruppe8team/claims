@@ -2,7 +2,7 @@ package claims.controllers.Customer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import claims.AutoClaim;
 import claims.models.Model;
 import claims.views.CustomerMenuOptions;
 import javafx.fxml.FXML;
