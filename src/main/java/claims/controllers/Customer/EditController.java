@@ -118,10 +118,10 @@ public class EditController {
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
             ClaimsDatabaseDriver.getInstance().removeCustomer(Model.getInstance().getCustomer().getUserID());
-            
+            Model.getInstance().setCustomerLoginSuccessFlag(false);
             Stage stage = (Stage) delete_btn.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
-            AutoClaim.exitApplication();
+            Model.getInstance().getViewFactory().showLoginWindow();
             try {
 
             } catch (Exception e) {
