@@ -129,10 +129,10 @@ public class AdvisorEditController {
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
             ClaimsDatabaseDriver.getInstance().removeAdvisor(Model.getInstance().getAdvisor().getUserID());
-            
+            Model.getInstance().setAdvisorLoginSuccessFlag(false);
             Stage stage = (Stage) delete_btn.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
-            AutoClaim.exitApplication();
+            Model.getInstance().getViewFactory().showLoginWindow();
             try {
 
             } catch (Exception e) {
