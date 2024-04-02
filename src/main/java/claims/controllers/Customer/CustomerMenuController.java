@@ -2,7 +2,6 @@ package claims.controllers.Customer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import claims.AutoClaim;
 import claims.models.Model;
 import claims.views.CustomerMenuOptions;
 import javafx.fxml.FXML;
@@ -60,8 +59,9 @@ public class CustomerMenuController implements Initializable {
     }
 
     private void onLogout() {
+        Model.getInstance().setCustomerLoginSuccessFlag(false);
         Stage stage = (Stage) logout_btn.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        AutoClaim.exitApplication();
+        Model.getInstance().getViewFactory().showLoginWindow();
     }
 }

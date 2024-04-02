@@ -60,9 +60,10 @@ public class AdvisorMenuController implements Initializable {
     }
 
     private void onLogout() {
+        Model.getInstance().setAdvisorLoginSuccessFlag(false);
     	Stage stage = (Stage) logout_btn.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        AutoClaim.exitApplication();
+        Model.getInstance().getViewFactory().showLoginWindow();
     }
 	
 	
