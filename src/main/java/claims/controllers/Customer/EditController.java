@@ -1,6 +1,6 @@
 package claims.controllers.Customer;
 
-
+import claims.AutoClaim;
 import claims.models.Customer;
 import claims.models.Model;
 import claims.models.NewUser;
