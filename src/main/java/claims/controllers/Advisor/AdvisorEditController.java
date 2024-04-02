@@ -3,7 +3,7 @@ package claims.controllers.Advisor;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+import claims.AutoClaim;
 import claims.models.Advisor;
 import claims.models.Model;
 import claims.models.NewUser;
