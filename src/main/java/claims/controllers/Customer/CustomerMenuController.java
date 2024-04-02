@@ -3,6 +3,7 @@ package claims.controllers.Customer;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import claims.models.Customer;
 import claims.models.Model;
 import claims.views.CustomerMenuOptions;
 import javafx.fxml.FXML;
@@ -60,6 +61,7 @@ public class CustomerMenuController implements Initializable {
     }
 
     private void onLogout() {
+        Model.getInstance().setCustomerLoginSuccessFlag(false);
         Stage stage = (Stage) logout_btn.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
         Model.getInstance().getViewFactory().showLoginWindow();
