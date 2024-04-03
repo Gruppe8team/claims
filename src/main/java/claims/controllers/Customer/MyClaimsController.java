@@ -103,6 +103,20 @@ public class MyClaimsController implements Initializable {
         totalled_checkbox.setOnAction(event -> {
              totalled = totalled_checkbox.isSelected() ? 1 : 0;
         });
+        client_lbl.setText("ClaimID:");
+        damage_lbl.setText("Damage:");
+        description_lbl.setText("");
+        clm_table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                updateDetailsPanel(newSelection);
+            }
+        });
+    }
+
+    private void updateDetailsPanel(Claims selectedClaim) {
+        client_lbl.setText("ClaimID: "+selectedClaim.getClaimID());
+        damage_lbl.setText("Damage: "+selectedClaim.getDamage());
+        description_lbl.setText(selectedClaim.getDescription());
     }
 
     private int getFaultSelect() {
