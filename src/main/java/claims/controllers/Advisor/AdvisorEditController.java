@@ -135,7 +135,6 @@ public class AdvisorEditController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
     }
 
     private void onSave() {
