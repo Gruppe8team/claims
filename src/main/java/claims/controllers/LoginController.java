@@ -3,11 +3,8 @@ package claims.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import claims.controllers.Customer.EditController;
 import claims.models.Model;
-import claims.models.NewUser;
 import claims.views.AccountType;
-import databases.UserDatabase;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

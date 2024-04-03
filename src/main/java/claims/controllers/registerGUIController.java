@@ -3,25 +3,18 @@ package claims.controllers;
 import java.net.URL;
 
 import claims.models.Model;
-import claims.models.NewUser;
 import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.views.AccountType;
-import databases.UserDatabase;
-
-import java.sql.*;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
-import claims.userDAO;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.Period;
 
 

@@ -130,7 +130,7 @@ public class AdvisorEditController {
             
             Stage stage = (Stage) delete_btn.getScene().getWindow();
             Model.getInstance().getViewFactory().closeStage(stage);
-            AutoClaim.exitApplication();
+            Model.getInstance().setAdvisorLoginSuccessFlag(false);
             try {
 
             } catch (Exception e) {
