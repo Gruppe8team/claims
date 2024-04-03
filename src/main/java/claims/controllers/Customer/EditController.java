@@ -134,9 +134,9 @@ public class EditController {
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
             updateAccount();
+            Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
         }
-
-
+        
     }
 
     private void updateAccount() {
@@ -193,7 +193,6 @@ public class EditController {
         Model.getInstance().getCustomer().getPhoneNumber(),
         Model.getInstance().getCustomer().getAddress(),
         Model.getInstance().getCustomer().getUserID());
-        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
     }
 
 }

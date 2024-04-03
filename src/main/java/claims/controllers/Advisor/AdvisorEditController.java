@@ -146,6 +146,7 @@ public class AdvisorEditController {
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
             updateAccount();
+            Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.HOME);
         }
 
 
@@ -209,8 +210,6 @@ public class AdvisorEditController {
                 Model.getInstance().getAdvisor().getPhoneNumber(),
                 Model.getInstance().getAdvisor().getAddress(),
                 Model.getInstance().getAdvisor().getUserID());
-
-        Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.HOME);
     }
 
 }
