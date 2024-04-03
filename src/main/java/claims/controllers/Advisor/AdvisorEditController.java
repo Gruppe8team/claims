@@ -125,14 +125,13 @@ public class AdvisorEditController {
         alert.setContentText("Are you sure you want to delete this account?");
 
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-        if (result == ButtonType.OK) {
-            ClaimsDatabaseDriver.getInstance().removeAdvisor(Model.getInstance().getAdvisor().getUserID());
-            
-            Stage stage = (Stage) delete_btn.getScene().getWindow();
-            Model.getInstance().getViewFactory().closeStage(stage);
-            Model.getInstance().setAdvisorLoginSuccessFlag(false);
+        if (result == ButtonType.OK) 
             try {
-
+                ClaimsDatabaseDriver.getInstance().removeAdvisor(Model.getInstance().getAdvisor().getUserID());
+                Model.getInstance().setAdvisorLoginSuccessFlag(false);
+                Stage stage = (Stage) delete_btn.getScene().getWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+                Model.getInstance().getViewFactory().showLoginWindow();
             } catch (Exception e) {
                 e.printStackTrace();
             }
