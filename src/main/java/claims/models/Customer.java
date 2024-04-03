@@ -13,9 +13,6 @@ import javafx.collections.ObservableList;
 
 
 public class Customer extends User {
-    private final StringProperty address; // The address of the customer
-    private final StringProperty phoneNumber; // The phone number of the customer
-    private final StringProperty gender; // The gender of the customer
     private final IntegerProperty age; // The age of the customer
     private final ListProperty<Integer> vehicleIDs; // The list of vehicles owned by the customer
     private final ObservableList<Integer> vehicleIDsObservableList = FXCollections.observableArrayList();
@@ -38,9 +35,6 @@ public class Customer extends User {
 
     public Customer() {
         super();
-        this.address = new SimpleStringProperty(this, "Address", "");
-        this.phoneNumber = new SimpleStringProperty(this, "Phone Number", "");
-        this.gender = new SimpleStringProperty(this, "Gender", "");
         this.age = new SimpleIntegerProperty(this, "Age", 0);
         this.vehicleIDs = new SimpleListProperty<Integer>(vehicleIDsObservableList);
     }
@@ -48,9 +42,6 @@ public class Customer extends User {
 
     public Customer(int userID,  String username, String passwordKey, String firstName, String lastName, String email, String address, String phoneNumber, String gender, LocalDate dateOfBirth, int age, ObservableList<Integer> vehicleIDs) {
         super(userID, username, passwordKey, firstName, lastName, email, address, phoneNumber, gender, dateOfBirth); // Call superclass constructor
-        this.address = new SimpleStringProperty(this, "Address", address);
-        this.phoneNumber = new SimpleStringProperty(this, "Phone Number", phoneNumber);
-        this.gender = new SimpleStringProperty(this, "Gender", gender);
         this.age = new SimpleIntegerProperty(this, "Age", age);
         this.vehicleIDs = new SimpleListProperty<Integer>(this, "VehicleIDs", vehicleIDs);
     }
