@@ -6,11 +6,9 @@ import java.time.format.DateTimeFormatter;
 import claims.AutoClaim;
 import claims.models.Advisor;
 import claims.models.Model;
-import claims.models.NewUser;
 import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.views.AdvisorMenuOptions;
 import claims.views.CustomerMenuOptions;
-import databases.UserDatabase;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -127,14 +125,13 @@ public class AdvisorEditController {
         alert.setContentText("Are you sure you want to delete this account?");
 
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
-        if (result == ButtonType.OK) {
-            ClaimsDatabaseDriver.getInstance().removeAdvisor(Model.getInstance().getAdvisor().getUserID());
-            Model.getInstance().setAdvisorLoginSuccessFlag(false);
-            Stage stage = (Stage) delete_btn.getScene().getWindow();
-            Model.getInstance().getViewFactory().closeStage(stage);
-            Model.getInstance().getViewFactory().showLoginWindow();
+        if (result == ButtonType.OK) 
             try {
-
+                ClaimsDatabaseDriver.getInstance().removeAdvisor(Model.getInstance().getAdvisor().getUserID());
+                Model.getInstance().setAdvisorLoginSuccessFlag(false);
+                Stage stage = (Stage) delete_btn.getScene().getWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+                Model.getInstance().getViewFactory().showLoginWindow();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -148,6 +145,7 @@ public class AdvisorEditController {
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
             updateAccount();
+            Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.HOME);
         }
 
 
@@ -211,8 +209,6 @@ public class AdvisorEditController {
                 Model.getInstance().getAdvisor().getPhoneNumber(),
                 Model.getInstance().getAdvisor().getAddress(),
                 Model.getInstance().getAdvisor().getUserID());
-
-        Model.getInstance().getViewFactory().getAdvisorSelectedMenuItem().set(AdvisorMenuOptions.HOME);
     }
 
 }

@@ -1,0 +1,11 @@
+Changelog 1.0:
+
+-created new system parts for administrative work
+-repaired broken links to the sections of the code
+-cleaned up orphan sectors
+-repaired several zones with the images
+-cleaned up other sections
+
+Changelog 1.1:
+-patched up some issues with GUI
+-fixed a missing object

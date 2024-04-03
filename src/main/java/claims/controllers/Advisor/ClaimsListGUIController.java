@@ -3,17 +3,10 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import java.net.URL;
-
-import java.sql.*;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
 
 public class ClaimsListGUIController implements Initializable{
 	

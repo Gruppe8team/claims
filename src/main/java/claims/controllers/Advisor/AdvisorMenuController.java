@@ -2,7 +2,6 @@ package claims.controllers.Advisor;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import claims.AutoClaim;
 import claims.models.Model;
 import claims.views.AdvisorMenuOptions;
 import javafx.fxml.FXML;

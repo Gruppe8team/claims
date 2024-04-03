@@ -2,7 +2,6 @@ package claims.controllers.Admin;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import claims.AutoClaim;
 import claims.models.Model;
 import claims.views.AdminMenuOptions;
 import javafx.fxml.FXML;

@@ -1,12 +1,9 @@
 package claims.controllers.Customer;
 
-import claims.AutoClaim;
 import claims.models.Customer;
 import claims.models.Model;
-import claims.models.NewUser;
 import claims.models.Drivers.ClaimsDatabaseDriver;
 import claims.views.CustomerMenuOptions;
-import databases.UserDatabase;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -117,13 +114,12 @@ public class EditController {
 
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
-            ClaimsDatabaseDriver.getInstance().removeCustomer(Model.getInstance().getCustomer().getUserID());
-            Model.getInstance().setCustomerLoginSuccessFlag(false);
-            Stage stage = (Stage) delete_btn.getScene().getWindow();
-            Model.getInstance().getViewFactory().closeStage(stage);
-            Model.getInstance().getViewFactory().showLoginWindow();
             try {
-
+                ClaimsDatabaseDriver.getInstance().removeCustomer(Model.getInstance().getCustomer().getUserID());
+                Model.getInstance().setCustomerLoginSuccessFlag(false);
+                Stage stage = (Stage) delete_btn.getScene().getWindow();
+                Model.getInstance().getViewFactory().closeStage(stage);
+                Model.getInstance().getViewFactory().showLoginWindow();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -137,9 +133,9 @@ public class EditController {
         ButtonType result = alert.showAndWait().orElse(ButtonType.CANCEL);
         if (result == ButtonType.OK) {
             updateAccount();
+            Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
         }
-
-
+        
     }
 
     private void updateAccount() {
@@ -196,7 +192,6 @@ public class EditController {
         Model.getInstance().getCustomer().getPhoneNumber(),
         Model.getInstance().getCustomer().getAddress(),
         Model.getInstance().getCustomer().getUserID());
-        Model.getInstance().getViewFactory().getCustomerSelectedMenuItem().set(CustomerMenuOptions.HOME);
     }
 
 }
